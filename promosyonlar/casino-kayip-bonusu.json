@@ -1,0 +1,83 @@
+{
+  "id": "casino-kayip-bonusu",
+  "title": "🎰 %25'E VARAN CASİNO VE CANLI CASİNO KAYIP BONUSU!",
+  "shortDesc": "Sınır Tanımayan Bonus, Kazanç Sınırı Yok",
+  "description": "Sınır Tanımayan Bir Bonus! Kazanç Sınırı Olmadan %25 Casino Kayıp Bonusu ile Her Zaman Güvendesiniz!",
+  "keywords": "casino kayıp bonusu %25 canlı casino sınır yok",
+  "basicInfo": {
+    "Bonus Oranı": "%20 (100₺-99.999₺) / %25 (100.000₺+)",
+    "Minimum Yatırım": "100₺",
+    "Maksimum Limit": "Sınırsız",
+    "Kazanç Sınırı": "Yok",
+    "Geçerlilik Süresi": "7 gün",
+    "Çevrim Şartı": "1x (Bonus miktarı kadar bahis)"
+  },
+  "sections": {
+    "hakEdisSartlari": {
+      "title": "📋 Hak Ediş Şartları",
+      "content": [
+        "Casino Kayıp bonusundan Canlı Casino, Casino ve Tombala oyunlarında yaşadığınız kayıplarınız için yararlanabilirsiniz.",
+        "Son 24 saat içinde tek seferde minimum 100₺ ve üstü yatırımlarınıza Casino Kayıp Bonusu talep edebilirsiniz.",
+        "Kayıp bonusu aktarımları 24 saat kar zarar durumu baz alınarak gerçekleştirilmektedir. 24 Saat içinde zararı olan üyelere aktarılmaktadır. (Hesaplamaya sadece bonus alınmayan yatırımlar dahil edilecektir.)",
+        "Kayıp bonusunuzu yatırım saatinden sonra maksimum 24 saat içerisinde Bonus Talep sayfasından talep etmeniz gerekmektedir.",
+        "Kayıp bonusları aktarımları tek seferdeki yatırım miktarına oranla aktarılır.",
+        "Kayıp bonusu talep edebilmeniz için bakiyenizin 2₺ altında olması ve açık casino bahsinizin olmaması gerekmektedir."
+      ]
+    },
+    "bonusOzellikleri": {
+      "title": "💰 Bonus Özellikleri",
+      "content": [
+        "100₺ – 99.999₺ arası yatırımlarınıza %20 oranında, 100.000₺ ve üzeri yatırımlarınıza %25 oranından bonus aktarımı sağlanacaktır.",
+        "Kayıp bonusu talep edebilmeniz için bakiyenizin 2₺ altında olması ve açık casino bahsinizin olmaması gerekmektedir.",
+        "Casino Hoş Geldin Bonusu ile birleştirilemez. Ertesi Gün Bonusundan yararlanan üyelerimiz ise kayıp bonuslarımızdan yararlanabilir.",
+        "Hesaplarda kullanılmamış Freebet veya Freespin mevcut ise kayıp bonusundan yararlanılamaz.",
+        "Bonusun geçerlilik süresi 7 gündür. 7 gün içerisinde çevrimini tamamlamayan kullanıcıların bonusları iptal edilecektir."
+      ]
+    },
+    "cevrimSartlari": {
+      "title": "🔄 Bonus Çevrim Şartları",
+      "content": [
+        "Casino kayıp bonusundan faydalanmanız ardından çekim yapabilmek için aldığınız bonus miktarı kadar casino veya canlı casino alanında bahis almanız gerekmektedir.",
+        "Kayıp bonusundan faydalanabileceğiniz maksimum limit bulunmamaktadır.",
+        "Kayıp bonusu ile kazanç sınırı bulunmamaktadır."
+      ]
+    },
+    "gecerliOyunlar": {
+      "title": "🎮 Geçerli Oyunlar",
+      "cevrimOranlari": {
+        "Slot oyunları": "%100",
+        "Rulet": "%1",
+        "Baccarat": "%10",
+        "Blackjack": "%10",
+        "Poker": "%10",
+        "Zar oyunları": "%10",
+        "Şans oyunları": "%10",
+        "Loto oyunları": "%10"
+      },
+      "onemliNotlar": [
+        "Casino oyunların da Baccarat, Rulet, Dragon/Tiger ve Sic-Bo vs. oyunlarda \"1'e 2\" (Kırmızı/Siyah, Banker/Oyuncu, Big/Small vs) ve \"1'e 3\" oranında alından bahislere Casino kayıp bonusu aktarılmamaktadır.",
+        "Bonus bakiyesi ile Crash oyunlarda bahis alınmamaktadır.",
+        "Canlı Casino, Casino ve Tombala oyunlarında geçerlidir."
+      ]
+    },
+    "genelKurallar": {
+      "title": "📝 Genel Bonus Kuralları",
+      "content": [
+        "Hedef bu bonusu istediği zaman durdurma ya da iptal etme hakkına sahiptir.",
+        "Bonus kötüye kullanımı durumunda bonusu ve bonustan elde edilen kazancı geri alma hakkına sahiptir.",
+        "Hedef genel bonus kuralları geçerlidir."
+      ]
+    }
+  },
+  "quiz": {
+    "question": "%25'e Varan Casino Kayıp Bonusu promosyonunda 100.000₺ ve üzeri yatırımlar için bonus oranı nedir?",
+    "options": [
+      "%15",
+      "%20", 
+      "%25",
+      "%30"
+    ],
+    "correct": 2,
+    "explanation": "100.000₺ ve üzeri yatırımlar için %25 oranında bonus aktarımı sağlanmaktadır."
+  }
+}

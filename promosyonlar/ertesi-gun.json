@@ -1,0 +1,97 @@
+{
+  "id": "ertesi-gun",
+  "title": "🎁 %35 Ertesi Gün Bonusu",
+  "shortDesc": "Çevrimsiz, Kayıp Bonusu Gerekli",
+  "description": "Her gün yeni bir şans! %35'e varan kazanç sınırı olmayan Ertesi Gün Bonusu ile oyunun keyfini her zaman Hedef'te yaşayın!",
+  "keywords": "ertesi gün bonusu çevrimsiz %35 kayıp bonusu",
+  "basicInfo": {
+    "bonusOrani": "%35'e varan çevrimsiz bonus",
+    "minimumYatirim": "100₺",
+    "maksimumBonus": "Anlık yatırımın %20'si + önceki gün kaybının %10'u",
+    "cevrimSarti": "Spor: 1,50 oran üzeri / Casino: 2x bahis",
+    "gecerlilikSuresi": "7 gün"
+  },
+  "sections": {
+    "hakEdisSartlari": {
+      "title": "📋 Hak Ediş Şartları",
+      "content": [
+        "Mobil ödeme ve kredi kartı ile yatırım yapan üyelerimiz bu bonustan yararlanamamaktadır.",
+        "Ertesi Gün Bonusu talep edilebilmesi için anlık yatırım miktarının minimum 100₺ olması gerekmektedir.",
+        "Bu promosyondan sadece spor kayıp veya casino kayıp bonusundan faydalanıp aldığı kayıp bonusu ile kayıp yaşayan ve ertesi gün tekrar yatırım yapan üyeler faydalanabilir.",
+        "Ertesi Gün Bonusu aktarımları 24 saat kar zarar durumu baz alınarak gerçekleştirilmektedir. 24 Saat içinde zararı olan üyelere aktarılmaktadır.",
+        "Ertesi Gün Bonusu taleplerinizi yatırımınızdan sonra bahis veya herhangi bir işlem yapmadan Bonus Talep sayfasından talep etmeniz gerekmektedir."
+      ]
+    },
+    "bonusOzellikleri": {
+      "title": "💰 Bonus Özellikleri",
+      "content": [
+        "Bu hakkedişi kullanmak için minimum 100 ₺ yatırımınızın hemen ardından herhangi bir işlem gerçekleştirmeden Bonus Talep sayfasından Ertesi Gün Bonusu talebi iletilmesi gerekmektedir.",
+        "Bu promosyondan tek yatırıma alınabilecek maksimum bonus miktarı anlık yatırımın %20'si ve düne ait kayıp bonusu alınan yatırımların %10'u ile sınırlı olmaktadır.",
+        "Ertesi Gün Bonusundan faydalanan üyelerimiz aynı yatırımına kayıp bonusu da talep edebilirler.",
+        "Ertesi gün yatırım miktarınızı ve Ertesi Gün Bonusumuzu kaybetmeniz durumunda %20 Casino Kayıp bonusumuzdan faydalanabilir ve bu yatırımınıza istinaden bir sonra ki gün için de Ertesi Gün bonusumuzdan faydalanabilirsiniz.",
+        "Bonusun geçerlilik süresi 7 gündür. 7 gün içerisinde çevrimini tamamlamayan kullanıcıların bonusları iptal edilecektir."
+      ]
+    },
+    "cevrimSartlari": {
+      "title": "🔄 Bonus Çevrim Şartları",
+      "content": [
+        "Spor alanında anapara ve bonus miktarının toplamı kadar tekli kuponlarda 1,50 oran veya üzeri, kombine kuponlarda en az 1 seçimin 1,50 oran veya üzeri olarak bahis alınması gerekmektedir.",
+        "Casino alanında ise anapara ve bonus miktarı toplamının 2 katı kadar bahis alarak çevrimin tamamlanması gerekmektedir.",
+        "Bonus çevrimi spor veya casino olarak her iki alandan birinden tamamlanması gerekmektedir. Çevrim ardından hiçbir kazanç sınırlandırması bulunmamaktadır.",
+        "Bonus çevrimine Cashout (Bozdurulan Kuponlar), Sistem Kuponları, Alt/Üst – Tek/Çift gibi aynı maça karşılıklı alınan bahisler ve iade edilen kuponlar dahil edilmemektedir.",
+        "Casino alanında ise 1'e 2, 1'e 3 kazanç veren bahisler ve katlamalı bahisler çevrime dahil edilmeyecektir.",
+        "Aynı Spor karşılaşmalarını barındıran kuponlardan sadece ilki çevrime katlı sağlayacaktır.",
+        "Bonuslar 24 saatlik kar zarar durumuna göre aktarılmaktadır. 24 saat içinde karda olan üyeler yeni bir bonus talep edemez."
+      ]
+    },
+    "gecerliOyunlar": {
+      "title": "🎮 Geçerli Oyunlar/Müsabakalar",
+      "cevrimOranlari": {
+        "Spor bahisleri": "%100",
+        "Slot oyunları": "%100",
+        "Rulet": "%1",
+        "Baccarat": "%10",
+        "Blackjack": "%10",
+        "Poker": "%10",
+        "Zar oyunları": "%10",
+        "Şans oyunları": "%10",
+        "Loto oyunları": "%10"
+      },
+      "onemliNotlar": [
+        "Spor bahislerinde bonus miktarının toplamı kadar tekli kuponlarda 1,50 oran veya üzeri, kombine kuponlarda en az 1 seçimin 1,50 oran veya üzeri olarak bahis alınması yeterlidir.",
+        "Bonus bakiyesi ile Crash oyunlarda bahis alınmamaktadır. Çevriminizi tamamlamanız ardından dilediğiniz gibi bahis alabilirsiniz."
+      ]
+    },
+    "genelKurallar": {
+      "title": "📝 Genel Bonus Kuralları",
+      "content": [
+        "Hedef bu bonusu istediği zaman durdurma ya da iptal etme hakkına sahiptir.",
+        "Bonus kötüye kullanımı durumunda bonusu ve bonustan elde edilen kazancı geri alma hakkına sahiptir.",
+        "Hedef genel bonus kuralları geçerlidir."
+      ]
+    },
+    "ornekHesaplama": {
+      "title": "💡 Örnek Hesaplama",
+      "content": [
+        "01.07.2020: 2500 TL yatırım yaptınız ve casino bahislerinde kaybettiniz. %20 casino kayıp bonusundan faydalandınız ve onu da kaybettiniz.",
+        "02.07.2020: 1250 TL yatırım yaptınız. Hiçbir işlem yapmadan Ertesi Gün Bonusunuzu talep ettiniz.",
+        "Hesaplama:",
+        "Önceki gün kaybı: 2500 TL × %10 = 250 TL",
+        "Ertesi gün yatırımı: 1250 TL × %20 = 250 TL",
+        "Toplam Bonus: 250 TL",
+        "Güncel Bakiye: 1250 TL + 250 TL = 1500 TL"
+      ]
+    }
+  },
+  "quiz": {
+    "question": "%35 Ertesi Gün Bonusu promosyonunda maksimum bonus miktarı nasıl hesaplanır?",
+    "options": [
+      "Anlık yatırımın %20'si + önceki gün kaybının %10'u",
+      "Sadece anlık yatırımın %35'i",
+      "Sadece önceki gün kaybının %35'i",
+      "Anlık yatırımın %35'i + önceki gün kaybının %20'si"
+    ],
+    "correct": 0,
+    "explanation": "Maksimum bonus miktarı anlık yatırımın %20'si ve düne ait kayıp bonusu alınan yatırımların %10'u ile sınırlıdır."
+  }
+}

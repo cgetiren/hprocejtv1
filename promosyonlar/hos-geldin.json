@@ -1,0 +1,87 @@
+{
+  "id": "hos-geldin",
+  "title": "🎁 %100 Casino Hoş Geldin Bonusu",
+  "shortDesc": "Maksimum 10.000₺",
+  "description": "Yatırımınızın Karşılığını İki Kat Alacağınız Bir Fırsat! %100 Casino Hoş Geldin Bonusuyla Büyük Kazançlara Giden Yolda Adımınızı Hedef'te atın!",
+  "keywords": "hoş geldin bonusu %100 casino 10000tl çevrim",
+  "basicInfo": {
+    "bonusOrani": "%100",
+    "minimumYatirim": "100₺",
+    "maksimumBonus": "10.000₺",
+    "cevrimSarti": "35x (Casino/Canlı Casino)",
+    "gecerlilikSuresi": "7 gün",
+    "kullanim": "Sadece 1 kez"
+  },
+  "sections": {
+    "hakEdisSartlari": {
+      "title": "📋 Hak Ediş Şartları",
+      "content": [
+        "İlk para yatırımınıza özel Casino ve Canlı Casino alanında geçerli %100 Hoş Geldin Bonusunuz bizden!",
+        "Bu promosyon mobil ödeme ve kredi kartı yatırım yöntemleri hariç diğer yatırım yöntemleri ile yapılan minimum 100 ₺ ve üstü yatırımlar için geçerlidir.",
+        "Bu promosyondan yararlanabilmeniz için ilk kez yatırım gerçekleştirmiş olmanız gerekmektedir.",
+        "Bu promosyondan yararlanabilmeniz için yatırımınızın hemen ardından hiçbir işlem yapmadan Bonus Talep Sayfasından bonusunuzu talep etmeniz gerekmektedir.",
+        "Bonus çevriminizi tamamlamanız ve bonus bakiyenizin ana bakiyenize aktarılması ardından hiç bir kazanç sınırlandırması bulunmamaktadır."
+      ]
+    },
+    "bonusOzellikleri": {
+      "title": "💰 Bonus Özellikleri",
+      "content": [
+        "Bu promosyondan yatırımınızın %100'ü kadar ve maksimum 10.000₺ olacak şekilde yararlanabilirsiniz.",
+        "Bu promosyonu sadece casino ve canlı casino sağlayıcılarında kullanabilirsiniz.",
+        "Canlı Casino & Casino Hoş Geldin Bonusunu farklı amaçlar için aldığı tespit edilen üyelerin casino alanına girişi engellenebilir ve kişinin haksız kazançtan elde ettiği bakiyeye el konulabilir.",
+        "Bonusun geçerlilik süresi 7 gündür. 7 gün içerisinde çevrimini tamamlamayan kullanıcıların bonusları iptal edilecektir.",
+        "Bu promosyondan her kullanıcı sadece bir defa faydalanabilir. Aynı IP adresini, adres bilgilerini, e-mail hesabını, telefon numaraları vb. gibi kişisel bilgilerini paylaşan kullanıcıların sadece biri bu promosyondan faydalanabilecektir."
+      ]
+    },
+    "cevrimSartlari": {
+      "title": "🔄 Bonus Çevrim Şartları",
+      "content": [
+        "Canlı Casino & Casino alanının dışında bahis alabilmek için; aldığınız bonus miktarının 35 katı kadar Canlı Casino veya Casino alanında bahis alımı yapmanız gerekmektedir.",
+        "Örneğin: \"250₺ yatırım yaparak almış olduğunuz 250₺ bonusun çevrimi için; 35X250₺= 8.750₺ bonus çevrimi ve 250₺ anapara çevrimi olarak toplamda 9.000₺ değerinde bahis almanız gerekmektedir.",
+        "Bonus çevriminizi tamamlamanız halinde ana para miktarınız kadar da Canlı Casino veya Casino alanında bahis alımı yapmanız gerekmektedir.",
+        "Casino oyunlarında Baccarat, Rulet, Dragon/Tiger ve Sic-Bo vs oyunlar da \"1'e 2\" (Kırmızı/Siyah, Banker/Oyuncu, Big/Small vs.) oranında, 1'e 3 oranında ve katlamalı alınan bahisler bonus çevrimine dahil olmayacaktır."
+      ]
+    },
+    "gecerliMusabakalar": {
+      "title": "🎮 Geçerli Müsabakalar",
+      "cevrimOranlari": {
+        "Slot oyunları": "%100",
+        "Rulet": "%1",
+        "Baccarat": "%10",
+        "Blackjack": "%10",
+        "Poker": "%10",
+        "Zar oyunları": "%10",
+        "Şans oyunları": "%10",
+        "Loto oyunları": "%10"
+      },
+      "gecerliAlanlar": [
+        "Canlı Casino alanı",
+        "Casino (Slot) alanı"
+      ],
+      "gecersizAlanlar": [
+        "Crash Oyunları",
+        "Sanal Sporlar",
+        "Spor Bahisleri",
+        "E-Sport",
+        "At Yarışı",
+        "TV Games",
+        "Betgames",
+        "Tombala"
+      ]
+    },
+    "genelKurallar": {
+      "title": "📝 Genel Bonus Kuralları",
+      "content": [
+        "Hedef bu bonusu istediği zaman durdurma ya da iptal etme hakkına sahiptir.",
+        "Bonus kötüye kullanımı durumunda bonusu ve bonustan elde edilen kazancı geri alma hakkına sahiptir.",
+        "Hedef genel bonus kuralları geçerlidir."
+      ]
+    }
+  },
+  "quiz": {
+    "question": "%100 Casino Hoş Geldin Bonusu promosyonunda çevrim şartı nedir?",
+    "options": ["25x", "30x", "35x", "40x"],
+    "correct": 2,
+    "explanation": "Bonus çevrimi için 35x çevrim şartı vardır (Casino/Canlı Casino alanında)."
+  }
+}

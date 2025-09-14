@@ -1,0 +1,99 @@
+{
+  "id": "pragmatic-play",
+  "title": "🎰 Pragmatic Play Drops & Wins 2025",
+  "shortDesc": "2.000.000 EUR Ödül Havuzu",
+  "description": "Pragmatic Play sizi 5 ay sürecek yeni bir maceraya çıkarıyor. Günlük ve haftalık ödüllerle eğlenirken kazanma şansını yakala, serüvenin şanslısı sen ol.",
+  "keywords": "pragmatic play drops wins 2025 turnuva ödül",
+  "basicInfo": {
+    "tarih": "4 Haziran 2025 - 19 Kasım 2025",
+    "odulHavuzu": "2.000.000 EUR",
+    "odulDagitimi": "Günlük ve haftalık olarak (kümülatif)",
+    "haftalikCark": "24x Haftalık Çark: 47.000 ödül totalde 350.000 EUR değerinde",
+    "gunlukCark": "168x Günlük Çark: 500 nakit ödül totalde 20.000 EUR değerinde"
+  },
+  "sections": {
+    "haftalikTurnuva": {
+      "title": "🏆 Haftalık Turnuva Kuralları",
+      "content": [
+        "1. 100,000x",
+        "4. 10,000x", 
+        "5. 5,000x",
+        "10. 1,000x",
+        "50. 500x",
+        "70. 200x",
+        "260. 100x",
+        "600. 50x",
+        "2500. 20x",
+        "33000. 10x",
+        "10000. 20 Freespin",
+        "500. Instant Bonus"
+      ]
+    },
+    "gunlukTurnuva": {
+      "title": "📅 Günlük Turnuva Kuralları",
+      "content": [
+        "Ödül kazançları kümülatif olarak dağıtılır",
+        "Günlük turnuvada ödül alabilmek için minimum bahis tutarı 7 TL'dir",
+        "Ödüller nakit ve çevrimsiz olarak dağıtılır"
+      ],
+      "odulDagitimi": [
+        "1. €/£ 3,000",
+        "2. €/£ 2,000",
+        "3 ve 4. €/£ 1,000",
+        "5 ve 10. €/£ 500",
+        "11 ve 20. €/£ 200",
+        "21 ve 40. €/£ 100",
+        "41 ve 80. €/£ 50",
+        "81 ve 161. €/£ 20",
+        "161 ve 300. €/£ 10",
+        "301 ve 500. €/£ 5"
+      ]
+    },
+    "gecerliOyunlar": {
+      "title": "🎮 Geçerli Oyunlar",
+      "content": [
+        "Gates of Olympus 1000, Sweet Bonanza 1000",
+        "Gates of Olympus, Sweet Bonanza, Sugar Rush 1000",
+        "Starlight Princess 1000, Big Bass Splash, Sugar Rush",
+        "Big Bass Bonanza, Big Bass Vegas Double Down Deluxe",
+        "Zeus vs Hades – Gods of War, Bigger Bass Bonanza",
+        "Chests of Cai Shen, Starlight Princess, Fruit Party",
+        "The Dog House Megaways, 5 Lions Megaways",
+        "Madame Destiny Megaways, Wisdom of Athena 1000",
+        "The Dog House, Big Bass – Secrets of the Golden Lake",
+        "Buffalo King Megaways, Big Bass Floats my Boat",
+        "Big Bass – Hold & Spinner, Big Bass Mission Fishin'",
+        "Big Bass Amazon Xtreme, Fire Stampede, Wisdom of Athena",
+        "Wild West Gold, Great Rhino Megaways, Wild Wild Riches",
+        "Wolf Gold, Book of Fallen, Mustang Gold",
+        "Joker's Jewels Wild, John Hunter and the Tomb of the Scarab Queen",
+        "Chilli Heat, Big Bass Bonanza – Keeping it Reel",
+        "Sugar Supreme Powernudge, 7 Clovers of Fortune",
+        "Big Bass Bonanza 3 Reeler, Brick House Bonanza",
+        "Bigger Bass Splash, Big Bass Return to the Races",
+        "5 Lions Megaways 2, Triple Pot Gold",
+        "The Dog House – Royal Hunt, Bandit Megaways",
+        "Joker's Jewels Cash, 5 Lions Reborn, Cash Surge",
+        "Big Bass Bonanza 1000, Gates of Olympus Super Scatter",
+        "Resurrecting Riches, Witch Heart Megaways",
+        "Sleeping Dragon, Fiesta Fortune, Jumbo Safari",
+        "Gates of Hades, Majestic Express – Gold Run",
+        "Wild West Gold Blazing Bounty"
+      ]
+    },
+    "genelKurallar": {
+      "title": "📋 Genel Bonus Kuralları",
+      "content": [
+        "Hedef bu bonusu istediği zaman durdurma ya da iptal etme hakkına sahiptir",
+        "Bonus kötüye kullanımı durumunda bonusu ve bonustan elde edilen kazancı geri alma hakkına sahiptir",
+        "Hedef Genel Bonus Kuralları geçerlidir"
+      ]
+    }
+  },
+  "quiz": {
+    "question": "Pragmatic Play Drops & Wins 2025 promosyonunda günlük turnuva için minimum bahis tutarı nedir?",
+    "options": ["5 TL", "7 TL", "10 TL", "15 TL"],
+    "correct": 1,
+    "explanation": "Günlük turnuvada ödül alabilmek için minimum bahis tutarı 7 TL'dir."
+  }
+}

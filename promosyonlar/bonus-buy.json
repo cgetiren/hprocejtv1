@@ -1,0 +1,92 @@
+{
+  "id": "bonus-buy",
+  "title": "🎁 1500TL Bonus Buy",
+  "shortDesc": "Her Ayın 5'i, 15'i, 25'i",
+  "description": "2000₺ ve üzeri yatırımlarınıza 1.500₺ Bonus Buy hediye! Büyük kazançlara bir adım daha yaklaşmak için şimdi yatırım yap, hediye scatterları kap!",
+  "keywords": "bonus buy 1500tl hediye big bass splash trinkpara",
+  "basicInfo": {
+    "bonusMiktari": "1.500₺ Hediye Bonus Buy",
+    "minimumYatirim": "2.000₺",
+    "gecerliGunler": "Her ayın 5'i, 15'i ve 25'i",
+    "gecerlilikSuresi": "24 saat",
+    "maksimumKazanc": "10.000₺"
+  },
+  "sections": {
+    "hakEdisSartlari": {
+      "title": "📋 Hak Ediş Şartları",
+      "content": [
+        "Bu promosyondan yararlanabilmeniz için Trinkpara Havale, Trinkpara Papara, Trinkpara Paratim, Trinkpara Pep, Trinkpara Paybol, Trinkpara Popypara, Trinkpara Kripto ve Anında Kripto yöntemi ile yatırım yapmanız gerekmektedir.",
+        "Bu promosyonlardan faydalanabilmek için yatırımınızın hemen öncesinde para yatırma sayfasında \"BONUS SEÇ\" kısmına tıklayarak \"BIG BASS SPLASH 1500 TL BONUS BUY\" bonusu seçilerek yatırım yapmanız durumunda otomatik olarak bonus buy(Ücretsiz Freespin Satın Alımı) hesabınıza aktarılacaktır.",
+        "Bu bonus Canlı destek hattı veya bonus talep sayfası üzerinde talep edilemez ve aktarılamaz.",
+        "Bu promosyondan yararlanan üyelerimiz aynı zamanda kayıp yaşaması durumunda kayıp bonuslarımızdan da yararlanabilir.",
+        "Bu promosyon yatırıma freespin bonusu ile birleştirilemez."
+      ]
+    },
+    "gun5": {
+      "title": "📅 Her Ayın 5. Günü Geçerli Bonus Buy",
+      "content": [
+        "2000₺ ve üstü yatırım yapmanız durumunda 1500₺ Hediye Bonus Buy anında hesabınıza otomatik olarak aktarılır.",
+        "Her ayın sadece 5'inde geçerli olmaktadır.",
+        "Bonus yalnızca Big Bass Splash oyununda geçerlidir.",
+        "Hediye bonuslarının geçerlilik süresi 24 saattir. Kullanılmayan bonuslar süresi dolduğunda geçersiz olacaktır.",
+        "İlk adımda (5. gün) hediye bonusundan yararlanmayan üyeler, 15. ve 25. gün için de kampanyaya katılabilirler."
+      ]
+    },
+    "gun15": {
+      "title": "📅 Her Ayın 15. Günü Geçerli Bonus Buy",
+      "content": [
+        "2000₺ ve üstü yatırım yapmanız durumunda 1500₺ Hediye Bonus Buy anında hesabınıza otomatik olarak aktarılır.",
+        "Her ayın sadece 15'inde geçerli olmaktadır.",
+        "Aktarılacak Hediye Bonus Buy Big Bass Splash oyununda geçerlidir. Oyunlar ay bazlı olarak değişkenlik gösterebilir.",
+        "Hediye bonuslarının geçerlilik süresi 24 saattir. Kullanılmayan bonuslar süresi dolduğunda geçersiz olacaktır.",
+        "İlk adımda (5. gün) hediye bonusundan yararlanmayan üyeler, 15. ve 25. gün için de kampanyaya katılabilirler."
+      ]
+    },
+    "gun25": {
+      "title": "📅 Her Ayın 25. Günü Geçerli Bonus Buy",
+      "content": [
+        "2000₺ ve üstü yatırım yapmanız durumunda 1500₺ Hediye Bonus Buy anında hesabınıza otomatik olarak aktarılır.",
+        "Her ayın sadece 25'inde geçerli olmaktadır.",
+        "Aktarılacak Hediye Bonus Big Bass Splash oyununda geçerlidir. Oyunlar ay bazlı olarak değişkenlik gösterebilir.",
+        "Hediye bonuslarının geçerlilik süresi 24 saattir. Kullanılmayan bonuslar süresi dolduğunda geçersiz olacaktır.",
+        "İlk adımda (5. gün) hediye bonusundan yararlanmayan üyeler, 15. ve 25. gün için de kampanyaya katılabilirler."
+      ]
+    },
+    "cevrimSartlari": {
+      "title": "🔄 Bonus Çevrim Şartları",
+      "content": [
+        "Freespin kazançları, ana bakiyeye aktarılmadan önce kazanç miktarının 10 katı kadar çevrim yapılmalıdır.",
+        "Bonus Buy bonusu kapsamında çevrim ardından ana bakiyeye aktarılacak tutar maksimum kazanç 10.000₺ olmaktadır.",
+        "Çevrim işlemi sonrasında kazançlar ana bakiyeye aktarılır. Ana bakiyeye aktarılan kazançla ilgili bir kazanç sınırlandırması bulunmamaktadır.",
+        "Çevrimi dilediğiniz oyunlarda yapabilirsiniz ancak bazı oyunlar çevrime dahil değildir."
+      ]
+    },
+    "gecerliOyunlar": {
+      "title": "🎮 Geçerli Oyunlar",
+      "content": [
+        "Her ayın belirli gününe göre oyunlar değişkenlik gösterir.",
+        "Promosyon alanını takip edebilir veya canlı destek hattımızdan detaylı bilgi alabilirsiniz.",
+        "Ana oyun: Big Bass Splash (diğer oyunlar ay bazlı değişkenlik gösterir)"
+      ]
+    },
+    "genelKurallar": {
+      "title": "📝 Genel Bonus Kuralları",
+      "content": [
+        "Hedef bu bonusu istediği zaman durdurma ya da iptal etme hakkına sahiptir.",
+        "Bonus kötüye kullanımı durumunda bonusu ve bonustan elde edilen kazancı geri alma hakkına sahiptir.",
+        "Hedef Genel Bonus Kuralları geçerlidir."
+      ]
+    }
+  },
+  "quiz": {
+    "question": "1500TL Bonus Buy promosyonunda geçerli günler hangileridir?",
+    "options": [
+      "Her gün",
+      "Her ayın 5'i, 15'i ve 25'i",
+      "Sadece hafta sonları",
+      "Her ayın 1'i ve 15'i"
+    ],
+    "correct": 1,
+    "explanation": "Bu promosyon her ayın 5'i, 15'i ve 25'inde geçerlidir."
+  }
+}

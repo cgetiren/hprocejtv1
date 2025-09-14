@@ -1,0 +1,1759 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hedef Promosyon Eğitimi - Modüler Sistem</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .nav-tab {
+            flex: 1;
+            padding: 15px 20px;
+            text-align: center;
+            cursor: pointer;
+            background: #f8f9fa;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #495057;
+            transition: all 0.3s ease;
+        }
+
+        .nav-tab.active {
+            background: white;
+            color: #ff6b6b;
+            border-bottom: 3px solid #ff6b6b;
+        }
+
+        .nav-tab:hover {
+            background: #e9ecef;
+        }
+
+        .content {
+            padding: 30px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .main-content {
+            flex: 1;
+        }
+
+        .sidebar {
+            width: 350px;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .accordion {
+            margin: 15px 0;
+        }
+
+        .accordion-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .edit-button {
+            background: #ff6b6b !important;
+            color: white !important;
+            border: none !important;
+            padding: 5px 10px !important;
+            border-radius: 5px !important;
+            margin-left: 10px !important;
+            font-size: 12px !important;
+            cursor: pointer !important;
+            z-index: 10;
+            position: relative;
+        }
+
+        .edit-button:hover {
+            background: #ff5252 !important;
+            transform: scale(1.05);
+        }
+
+        .accordion-header:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .accordion-header.active {
+            border-radius: 15px 15px 0 0;
+        }
+
+        .accordion-icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-header.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            background: white;
+            border: 1px solid #dee2e6;
+            border-top: none;
+            border-radius: 0 0 15px 15px;
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .accordion-content.active {
+            max-height: none;
+            padding: 20px;
+            overflow: visible;
+        }
+
+        .promo-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .promo-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .promo-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .promo-description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .promo-features {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 15px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .section-accordion {
+            margin-bottom: 15px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .section-header {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            padding: 12px 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .section-header:hover {
+            background: rgba(255,255,255,0.15);
+        }
+
+        .section-header.active {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .section-icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .section-header.active .section-icon {
+            transform: rotate(180deg);
+        }
+
+        .section-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .section-content.active {
+            max-height: 500px;
+        }
+
+        .section-content ul {
+            list-style: none;
+            padding: 15px;
+            margin: 0;
+        }
+
+        .section-content li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .section-content li:last-child {
+            border-bottom: none;
+        }
+
+        .section-content li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .section-content strong {
+            color: #FFD700;
+            font-weight: bold;
+        }
+
+        .quiz-container {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .quiz-question {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: 10px;
+        }
+
+        .quiz-option {
+            background: white;
+            border: 2px solid #dee2e6;
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-option:hover {
+            border-color: #667eea;
+            background: #f8f9ff;
+        }
+
+        .quiz-option.selected {
+            border-color: #667eea;
+            background: #667eea;
+            color: white;
+        }
+
+        .quiz-option.correct {
+            border-color: #28a745;
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .quiz-option.incorrect {
+            border-color: #dc3545;
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .quiz-button {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .quiz-button:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .score-display {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #dee2e6;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-box:focus {
+            border-color: #667eea;
+        }
+
+        .add-promo-section {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .add-promo-section h3 {
+            margin-bottom: 15px;
+            color: #333;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .add-button {
+            width: 100%;
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .add-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .promo-manager {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .promo-list {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .promo-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            background: #f8f9fa;
+        }
+
+        .promo-item.active {
+            background: #e3f2fd;
+            border-color: #2196f3;
+        }
+
+        .promo-controls {
+            display: flex;
+            gap: 5px;
+        }
+
+        .control-btn {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .edit-btn {
+            background: #ff9800;
+            color: white;
+        }
+
+        .delete-btn {
+            background: #f44336;
+            color: white;
+        }
+
+        .toggle-btn {
+            background: #4caf50;
+            color: white;
+        }
+
+        .edit-mode {
+            background: #fff3cd !important;
+            border: 2px solid #ffc107 !important;
+        }
+
+        .edit-input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ffc107;
+            border-radius: 8px;
+            background: white;
+            font-size: 16px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 8px 0;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .edit-input:focus {
+            outline: none;
+            border-color: #ff9800;
+            box-shadow: 0 0 5px rgba(255, 152, 0, 0.3);
+        }
+
+        .edit-textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ffc107;
+            border-radius: 8px;
+            background: white;
+            font-size: 16px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 8px 0;
+            min-height: 80px;
+            resize: vertical;
+            color: #333;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        .edit-textarea:focus {
+            outline: none;
+            border-color: #ff9800;
+            box-shadow: 0 0 5px rgba(255, 152, 0, 0.3);
+        }
+
+        .edit-section-content {
+            background: rgba(255,255,255,0.95);
+            border: 2px solid #ffc107;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+
+        .edit-section-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #ffc107;
+        }
+
+        .edit-list-item {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+            padding: 8px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            border: 1px solid #dee2e6;
+        }
+
+        .edit-list-item input {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+
+        .edit-list-item button {
+            background: #dc3545;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .add-item-btn {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 10px 0;
+        }
+
+        .edit-buttons {
+            margin-top: 10px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .save-btn {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .cancel-btn {
+            background: #6c757d;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .json-editor {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            min-height: 200px;
+            white-space: pre-wrap;
+        }
+
+        .json-editor:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-tabs {
+                flex-direction: column;
+            }
+            
+            .content {
+                padding: 20px;
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                position: static;
+                margin-bottom: 20px;
+            }
+            
+            .main-content {
+                width: 100%;
+            }
+            
+            .promo-card {
+                padding: 15px;
+            }
+            
+            .accordion-header {
+                padding: 12px;
+                font-size: 1rem;
+            }
+            
+            .accordion-content.active {
+                padding: 15px;
+            }
+            
+            .promo-features {
+                max-height: 70vh;
+                padding: 12px;
+            }
+            
+            .promo-features h4 {
+                font-size: 1.1rem;
+            }
+            
+            .promo-features li {
+                font-size: 0.9rem;
+                padding: 6px 0;
+                padding-left: 20px;
+            }
+            
+            .section-header {
+                padding: 10px 12px;
+                font-size: 1rem;
+            }
+            
+            .section-content {
+                max-height: 300px;
+            }
+            
+            .section-content ul {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 Hedef Promosyon Eğitimi</h1>
+            <p>Modüler Promosyon Yönetim Sistemi</p>
+        </div>
+
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showTab('promosyonlar')">📋 Promosyonlar</button>
+            <button class="nav-tab" onclick="showTab('quiz')">🎯 Quiz</button>
+            <button class="nav-tab" onclick="showTab('yonetim')">⚙️ Yönetim</button>
+        </div>
+
+        <div class="content">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <div class="promo-manager">
+                    <h3>📁 Promosyon Yöneticisi</h3>
+                    <div class="promo-list" id="promo-list">
+                        <!-- Promosyonlar buraya yüklenecek -->
+                    </div>
+                    <button class="add-button" onclick="showAddPromoForm()">➕ Yeni Promosyon Ekle</button>
+                </div>
+
+                <div class="add-promo-section" id="add-promo-form" style="display: none;">
+                    <h3>➕ Yeni Promosyon Ekle</h3>
+                    <div class="form-group">
+                        <label>Promosyon JSON Verisi:</label>
+                        <textarea class="json-editor" id="promo-json" placeholder="JSON formatında promosyon verisi yapıştırın..."></textarea>
+                    </div>
+                    <button class="add-button" onclick="addPromoFromJSON()">Promosyon Ekle</button>
+                    <button class="add-button" onclick="hideAddPromoForm()" style="background: #6c757d; margin-top: 10px;">İptal</button>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="main-content">
+                <!-- Promosyonlar Tab -->
+                <div id="promosyonlar" class="tab-content active">
+                    <input type="text" class="search-box" placeholder="🔍 Promosyon ara..." onkeyup="searchPromos()">
+                    <div id="promosyon-container">
+                        <!-- Promosyonlar buraya yüklenecek -->
+                    </div>
+                </div>
+
+                <!-- Quiz Tab -->
+                <div id="quiz" class="tab-content">
+                    <div class="quiz-container">
+                        <h3 style="margin-bottom: 20px; color: #333;">🎯 Promosyon Quizleri</h3>
+                        
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label>Quiz Yapmak İstediğiniz Promosyonu Seçin:</label>
+                            <select id="promo-select" onchange="loadQuiz()" style="width: 100%; padding: 10px; border: 1px solid #dee2e6; border-radius: 8px;">
+                                <option value="">Promosyon seçin...</option>
+                            </select>
+                        </div>
+
+                        <div id="quiz-content" style="display: none;">
+                            <div class="quiz-question" id="quiz-question">
+                                Soru yükleniyor...
+                            </div>
+                            <div class="quiz-options" id="quiz-options">
+                                <!-- Seçenekler buraya yüklenecek -->
+                            </div>
+                            <div style="display: flex; gap: 10px; margin-top: 20px;">
+                                <button class="quiz-button" onclick="checkAnswer()" id="check-btn">Cevabı Kontrol Et</button>
+                                <button class="quiz-button" onclick="loadQuiz()" style="background: linear-gradient(135deg, #17a2b8, #138496);">🔄 Yeni Soru</button>
+                            </div>
+                        </div>
+
+                        <div class="score-display" id="score-display" style="display: none;">
+                            <div id="score-text"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Yönetim Tab -->
+                <div id="yonetim" class="tab-content">
+                    <div class="quiz-container">
+                        <h3 style="margin-bottom: 20px; color: #333;">⚙️ Sistem Yönetimi</h3>
+                        <p>Bu bölümde promosyon dosyalarını yönetebilirsiniz.</p>
+                        <button class="add-button" onclick="refreshPromos()" style="background: #17a2b8;">🔄 Promosyonları Yenile</button>
+                        <button class="add-button" onclick="exportPromos()" style="background: #6f42c1;">📤 Tüm Promosyonları Dışa Aktar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentAnswer = -1;
+        let currentQuiz = null;
+        let editingPromoId = null;
+        let promos = [];
+
+        // Promosyonları yükle
+        async function loadPromos() {
+            try {
+                const promoFiles = [
+                    'pragmatic-play.json',
+                    'ertesi-gun.json', 
+                    'bonus-buy.json',
+                    'hos-geldin.json',
+                    'spor-freebet.json',
+                    'casino-kayip-bonusu.json'
+                ];
+
+                promos = [];
+                let loadedCount = 0;
+                
+                for (const file of promoFiles) {
+                    try {
+                        const promoResponse = await fetch(`promosyonlar/${file}`);
+                        if (promoResponse.ok) {
+                            const promo = await promoResponse.json();
+                            promos.push(promo);
+                            loadedCount++;
+                        }
+                    } catch (error) {
+                        console.error(`Error loading ${file}:`, error);
+                    }
+                }
+
+                // Eğer hiç promosyon yüklenemediyse varsayılanları yükle
+                if (loadedCount === 0) {
+                    console.log('JSON dosyaları yüklenemedi, varsayılan promosyonlar yükleniyor...');
+                    loadDefaultPromos();
+                    return;
+                }
+
+                renderPromos();
+                updatePromoSelect();
+                updatePromoList();
+            } catch (error) {
+                console.error('Error loading promos:', error);
+                // Fallback: Varsayılan promosyonları yükle
+                loadDefaultPromos();
+            }
+        }
+
+        function loadDefaultPromos() {
+            // Varsayılan promosyonlar (JSON dosyaları yüklenemezse)
+            promos = [
+                {
+                    id: 'pragmatic-play',
+                    title: '🎰 Pragmatic Play Drops & Wins 2025',
+                    shortDesc: '2.000.000 EUR Ödül Havuzu',
+                    description: 'Pragmatic Play sizi 5 ay sürecek yeni bir maceraya çıkarıyor. Günlük ve haftalık ödüllerle eğlenirken kazanma şansını yakala, serüvenin şanslısı sen ol.',
+                    keywords: 'pragmatic play drops wins 2025 turnuva ödül',
+                    basicInfo: {
+                        'Tarih': '4 Haziran 2025 - 19 Kasım 2025',
+                        'Ödül Havuzu': '2.000.000 EUR',
+                        'Minimum Bahis': '7 TL',
+                        'Ödül Dağıtımı': 'Günlük ve haftalık olarak (kümülatif)'
+                    },
+                    sections: {
+                        'Haftalık Turnuva': {
+                            title: '🏆 Haftalık Turnuva Kuralları',
+                            content: ['100,000x', '10,000x', '5,000x', '1,000x', '500x', '200x', '100x', '50x', '20x', '10x', '20 Freespin', 'Instant Bonus']
+                        },
+                        'Günlük Turnuva': {
+                            title: '📅 Günlük Turnuva Kuralları',
+                            content: ['Ödül kazançları kümülatif olarak dağıtılır', 'Günlük turnuvada ödül alabilmek için minimum bahis tutarı 7 TL\'dir', 'Ödüller nakit ve çevrimsiz olarak dağıtılır']
+                        },
+                        'Geçerli Oyunlar': {
+                            title: '🎮 Geçerli Oyunlar',
+                            content: ['Gates of Olympus 1000', 'Sweet Bonanza 1000', 'Sugar Rush 1000', 'Starlight Princess 1000', 'Big Bass Splash', 'Big Bass Bonanza', 'Zeus vs Hades', 'Chests of Cai Shen', 'The Dog House Megaways', '5 Lions Megaways']
+                        }
+                    },
+                    quiz: [
+                        {
+                            question: "Pragmatic Play Drops & Wins 2025 promosyonunda günlük turnuva için minimum bahis tutarı nedir?",
+                            options: ["5 TL", "7 TL", "10 TL", "15 TL"],
+                            correct: 1,
+                            explanation: "Günlük turnuvada ödül alabilmek için minimum bahis tutarı 7 TL'dir."
+                        },
+                        {
+                            question: "Pragmatic Play Drops & Wins 2025 promosyonunda toplam ödül havuzu ne kadar?",
+                            options: ["1.000.000 EUR", "1.500.000 EUR", "2.000.000 EUR", "2.500.000 EUR"],
+                            correct: 2,
+                            explanation: "Toplam ödül havuzu 2.000.000 EUR'dur."
+                        },
+                        {
+                            question: "Haftalık turnuvada en yüksek çarpan nedir?",
+                            options: ["50.000x", "75.000x", "100.000x", "150.000x"],
+                            correct: 2,
+                            explanation: "Haftalık turnuvada en yüksek çarpan 100.000x'dir."
+                        },
+                        {
+                            question: "Pragmatic Play promosyonu ne kadar süre devam ediyor?",
+                            options: ["3 ay", "4 ay", "5 ay", "6 ay"],
+                            correct: 2,
+                            explanation: "Promosyon 5 ay sürmektedir (4 Haziran - 19 Kasım 2025)."
+                        },
+                        {
+                            question: "Günlük turnuvada kaç adet nakit ödül dağıtılıyor?",
+                            options: ["100", "200", "300", "500"],
+                            correct: 3,
+                            explanation: "Günlük turnuvada toplam 500 nakit ödül dağıtılmaktadır."
+                        }
+                    ]
+                },
+                {
+                    id: 'ertesi-gun',
+                    title: '🎁 %35 Ertesi Gün Bonusu',
+                    shortDesc: 'Çevrimsiz, Kayıp Bonusu Gerekli',
+                    description: 'Her gün yeni bir şans! %35\'e varan kazanç sınırı olmayan Ertesi Gün Bonusu ile oyunun keyfini her zaman Hedef\'te yaşayın!',
+                    keywords: 'ertesi gün bonusu çevrimsiz %35 kayıp bonusu',
+                    basicInfo: {
+                        'Bonus Oranı': '%35\'e varan çevrimsiz bonus',
+                        'Minimum Yatırım': '100₺',
+                        'Maksimum Bonus': 'Anlık yatırımın %20\'si + önceki gün kaybının %10\'u',
+                        'Çevrim Şartı': 'Spor: 1,50 oran üzeri / Casino: 2x bahis',
+                        'Geçerlilik Süresi': '7 gün'
+                    },
+                    sections: {
+                        'Hak Ediş Şartları': {
+                            title: '📋 Hak Ediş Şartları',
+                            content: ['Mobil ödeme ve kredi kartı ile yatırım yapan üyelerimiz bu bonustan yararlanamamaktadır.', 'Ertesi Gün Bonusu talep edilebilmesi için anlık yatırım miktarının minimum 100₺ olması gerekmektedir.', 'Bu promosyondan sadece spor kayıp veya casino kayıp bonusundan faydalanıp aldığı kayıp bonusu ile kayıp yaşayan ve ertesi gün tekrar yatırım yapan üyeler faydalanabilir.']
+                        },
+                        'Bonus Özellikleri': {
+                            title: '💰 Bonus Özellikleri',
+                            content: ['Bu hakkedişi kullanmak için minimum 100 ₺ yatırımınızın hemen ardından herhangi bir işlem gerçekleştirmeden Bonus Talep sayfasından Ertesi Gün Bonusu talebi iletilmesi gerekmektedir.', 'Bu promosyondan tek yatırıma alınabilecek maksimum bonus miktarı anlık yatırımın %20\'si ve düne ait kayıp bonusu alınan yatırımların %10\'u ile sınırlı olmaktadır.', 'Bonusun geçerlilik süresi 7 gündür. 7 gün içerisinde çevrimini tamamlamayan kullanıcıların bonusları iptal edilecektir.']
+                        }
+                    },
+                    quiz: [
+                        {
+                            question: "%35 Ertesi Gün Bonusu promosyonunda maksimum bonus miktarı nasıl hesaplanır?",
+                            options: [
+                                "Anlık yatırımın %20'si + önceki gün kaybının %10'u",
+                                "Sadece anlık yatırımın %35'i",
+                                "Sadece önceki gün kaybının %35'i",
+                                "Anlık yatırımın %35'i + önceki gün kaybının %20'si"
+                            ],
+                            correct: 0,
+                            explanation: "Maksimum bonus miktarı anlık yatırımın %20'si ve düne ait kayıp bonusu alınan yatırımların %10'u ile sınırlıdır."
+                        },
+                        {
+                            question: "Ertesi Gün Bonusu için minimum yatırım miktarı nedir?",
+                            options: ["50₺", "75₺", "100₺", "150₺"],
+                            correct: 2,
+                            explanation: "Ertesi Gün Bonusu için minimum yatırım miktarı 100₺'dir."
+                        },
+                        {
+                            question: "Ertesi Gün Bonusu geçerlilik süresi ne kadar?",
+                            options: ["3 gün", "5 gün", "7 gün", "10 gün"],
+                            correct: 2,
+                            explanation: "Ertesi Gün Bonusu geçerlilik süresi 7 gündür."
+                        },
+                        {
+                            question: "Ertesi Gün Bonusu hangi yatırım yöntemleri ile alınamaz?",
+                            options: ["Kripto", "Havale", "Mobil ödeme ve kredi kartı", "Papara"],
+                            correct: 2,
+                            explanation: "Mobil ödeme ve kredi kartı ile yatırım yapan üyeler bu bonustan yararlanamamaktadır."
+                        },
+                        {
+                            question: "Ertesi Gün Bonusu çevrim şartı casino alanında nedir?",
+                            options: ["1x", "2x", "3x", "5x"],
+                            correct: 1,
+                            explanation: "Casino alanında anapara ve bonus miktarı toplamının 2 katı kadar bahis alınması gerekmektedir."
+                        }
+                    ]
+                },
+                {
+                    id: 'bonus-buy',
+                    title: '🎁 1500TL Bonus Buy',
+                    shortDesc: 'Her Ayın 5\'i, 15\'i, 25\'i',
+                    description: '2000₺ ve üzeri yatırımlarınıza 1.500₺ Bonus Buy hediye! Büyük kazançlara bir adım daha yaklaşmak için şimdi yatırım yap, hediye scatterları kap!',
+                    keywords: 'bonus buy 1500tl hediye big bass splash trinkpara',
+                    basicInfo: {
+                        'Bonus Miktarı': '1.500₺ Hediye Bonus Buy',
+                        'Minimum Yatırım': '2.000₺',
+                        'Geçerli Günler': 'Her ayın 5\'i, 15\'i ve 25\'i',
+                        'Geçerlilik Süresi': '24 saat',
+                        'Maksimum Kazanç': '10.000₺'
+                    },
+                    sections: {
+                        'Hak Ediş Şartları': {
+                            title: '📋 Hak Ediş Şartları',
+                            content: ['Bu promosyondan yararlanabilmeniz için Trinkpara Havale, Trinkpara Papara, Trinkpara Paratim, Trinkpara Pep, Trinkpara Paybol, Trinkpara Popypara, Trinkpara Kripto ve Anında Kripto yöntemi ile yatırım yapmanız gerekmektedir.', 'Bu promosyonlardan faydalanabilmek için yatırımınızın hemen öncesinde para yatırma sayfasında "BONUS SEÇ" kısmına tıklayarak "BIG BASS SPLASH 1500 TL BONUS BUY" bonusu seçilerek yatırım yapmanız durumunda otomatik olarak bonus buy(Ücretsiz Freespin Satın Alımı) hesabınıza aktarılacaktır.', 'Hediye bonuslarının geçerlilik süresi 24 saattir. Kullanılmayan bonuslar süresi dolduğunda geçersiz olacaktır.']
+                        },
+                        'Çevrim Şartları': {
+                            title: '🔄 Bonus Çevrim Şartları',
+                            content: ['Freespin kazançları, ana bakiyeye aktarılmadan önce kazanç miktarının 10 katı kadar çevrim yapılmalıdır.', 'Bonus Buy bonusu kapsamında çevrim ardından ana bakiyeye aktarılacak tutar maksimum kazanç 10.000₺ olmaktadır.', 'Çevrimi dilediğiniz oyunlarda yapabilirsiniz ancak bazı oyunlar çevrime dahil değildir.']
+                        }
+                    },
+                    quiz: [
+                        {
+                            question: "1500TL Bonus Buy promosyonunda geçerli günler hangileridir?",
+                            options: [
+                                "Her gün",
+                                "Her ayın 5'i, 15'i ve 25'i",
+                                "Sadece hafta sonları",
+                                "Her ayın 1'i ve 15'i"
+                            ],
+                            correct: 1,
+                            explanation: "Bu promosyon her ayın 5'i, 15'i ve 25'inde geçerlidir."
+                        },
+                        {
+                            question: "Bonus Buy promosyonu için minimum yatırım miktarı nedir?",
+                            options: ["1000₺", "1500₺", "2000₺", "2500₺"],
+                            correct: 2,
+                            explanation: "Bonus Buy promosyonu için minimum yatırım miktarı 2000₺'dir."
+                        },
+                        {
+                            question: "Bonus Buy hediye bonusunun geçerlilik süresi ne kadar?",
+                            options: ["12 saat", "24 saat", "48 saat", "72 saat"],
+                            correct: 1,
+                            explanation: "Hediye bonuslarının geçerlilik süresi 24 saattir."
+                        },
+                        {
+                            question: "Bonus Buy promosyonunda hangi oyun geçerlidir?",
+                            options: ["Sweet Bonanza", "Big Bass Splash", "Gates of Olympus", "Starlight Princess"],
+                            correct: 1,
+                            explanation: "Bonus Buy promosyonu Big Bass Splash oyununda geçerlidir."
+                        },
+                        {
+                            question: "Bonus Buy çevrim şartı nedir?",
+                            options: ["5x", "10x", "15x", "20x"],
+                            correct: 1,
+                            explanation: "Freespin kazançları, ana bakiyeye aktarılmadan önce kazanç miktarının 10 katı kadar çevrim yapılmalıdır."
+                        }
+                    ]
+                },
+                {
+                    id: 'hos-geldin',
+                    title: '🎁 %100 Casino Hoş Geldin Bonusu',
+                    shortDesc: 'Maksimum 10.000₺',
+                    description: 'Yatırımınızın Karşılığını İki Kat Alacağınız Bir Fırsat! %100 Casino Hoş Geldin Bonusuyla Büyük Kazançlara Giden Yolda Adımınızı Hedef\'te atın!',
+                    keywords: 'hoş geldin bonusu %100 casino 10000tl çevrim',
+                    basicInfo: {
+                        'Bonus Oranı': '%100',
+                        'Minimum Yatırım': '100₺',
+                        'Maksimum Bonus': '10.000₺',
+                        'Çevrim Şartı': '35x (Casino/Canlı Casino)',
+                        'Geçerlilik Süresi': '7 gün',
+                        'Kullanım': 'Sadece 1 kez'
+                    },
+                    sections: {
+                        'Hak Ediş Şartları': {
+                            title: '📋 Hak Ediş Şartları',
+                            content: ['İlk para yatırımınıza özel Casino ve Canlı Casino alanında geçerli %100 Hoş Geldin Bonusunuz bizden!', 'Bu promosyon mobil ödeme ve kredi kartı yatırım yöntemleri hariç diğer yatırım yöntemleri ile yapılan minimum 100 ₺ ve üstü yatırımlar için geçerlidir.', 'Bu promosyondan yararlanabilmeniz için ilk kez yatırım gerçekleştirmiş olmanız gerekmektedir.']
+                        },
+                        'Çevrim Şartları': {
+                            title: '🔄 Bonus Çevrim Şartları',
+                            content: ['Canlı Casino & Casino alanının dışında bahis alabilmek için; aldığınız bonus miktarının 35 katı kadar Canlı Casino veya Casino alanında bahis alımı yapmanız gerekmektedir.', 'Örneğin: "250₺ yatırım yaparak almış olduğunuz 250₺ bonusun çevrimi için; 35X250₺= 8.750₺ bonus çevrimi ve 250₺ anapara çevrimi olarak toplamda 9.000₺ değerinde bahis almanız gerekmektedir.', 'Bonus çevriminizi tamamlamanız halinde ana para miktarınız kadar da Canlı Casino veya Casino alanında bahis alımı yapmanız gerekmektedir.']
+                        }
+                    },
+                    quiz: [
+                        {
+                            question: "%100 Casino Hoş Geldin Bonusu promosyonunda çevrim şartı nedir?",
+                            options: ["25x", "30x", "35x", "40x"],
+                            correct: 2,
+                            explanation: "Bonus çevrimi için 35x çevrim şartı vardır (Casino/Canlı Casino alanında)."
+                        },
+                        {
+                            question: "Hoş Geldin Bonusu maksimum miktarı nedir?",
+                            options: ["5000₺", "7500₺", "10000₺", "15000₺"],
+                            correct: 2,
+                            explanation: "Hoş Geldin Bonusu maksimum 10.000₺'dir."
+                        },
+                        {
+                            question: "Hoş Geldin Bonusu kaç kez kullanılabilir?",
+                            options: ["Sınırsız", "3 kez", "2 kez", "1 kez"],
+                            correct: 3,
+                            explanation: "Bu promosyondan her kullanıcı sadece bir defa faydalanabilir."
+                        },
+                        {
+                            question: "Hoş Geldin Bonusu hangi alanlarda geçerlidir?",
+                            options: ["Sadece Casino", "Sadece Canlı Casino", "Casino ve Canlı Casino", "Tüm alanlar"],
+                            correct: 2,
+                            explanation: "Hoş Geldin Bonusu Casino ve Canlı Casino alanlarında geçerlidir."
+                        },
+                        {
+                            question: "Hoş Geldin Bonusu geçerlilik süresi ne kadar?",
+                            options: ["3 gün", "5 gün", "7 gün", "10 gün"],
+                            correct: 2,
+                            explanation: "Bonusun geçerlilik süresi 7 gündür."
+                        }
+                    ]
+                },
+                {
+                    id: 'spor-freebet',
+                    title: '⚽ SPOR SEZONUNA ÖZEL HER YATIRIMA %10 SPOR FREEBET!',
+                    shortDesc: 'Her Yatırımda %10 Freebet, Maksimum 1000₺',
+                    description: 'Spor heyecanını doruklarda yaşayın diye Hedef sizinle! Yeni sezona özel, yaptığınız her yatırımda %10 Freebet sizleri bekliyor!',
+                    keywords: 'spor freebet %10 yatırım sezon trinkpara',
+                    basicInfo: {
+                        'Bonus Oranı': '%10 Freebet',
+                        'Maksimum Freebet': '1000₺',
+                        'Maksimum Kazanç': '2000₺',
+                        'Günlük Limit': 'Günde 1 kere',
+                        'Çevrim Şartı': 'Yok (Direkt kullanım)',
+                        'Geçerlilik': 'Sürekli'
+                    },
+                    sections: {
+                        'Hak Ediş Şartları': {
+                            title: '📋 Hak Ediş Şartları',
+                            content: ['Freebet miktarı yatırım miktarınızın %10\'u kadar olacak şekilde maksimum 1000₺ olmaktadır.', 'Bu promosyondan yararlanabilmeniz için Trinkpara Havale, Trinkpara Papara, Trinkpara Paratim, Trinkpara Pep, Trinkpara Paybol, Trinkpara Popypara, Trinkpara Kripto ve Anında Kripto yöntemi ile yatırım yapmanız gerekmektedir.', 'Bu promosyondan faydalanabilmek için yatırım sırasında "BONUS SEÇ" kısmını seçerek HER YATIRIMA SPOR FREEBET\'i seçerek yatırımınızı yapmanız gerekmektedir.']
+                        },
+                        'Bonus Özellikleri': {
+                            title: '💰 Bonus Özellikleri',
+                            content: ['Freebet promosyonumuzdan her üyemiz günde 1 kere yararlanabilir.', 'Freebet promosyonundan yararlanmanız halinde kayıp bonuslarından da yararlanabilirsiniz.', 'Freebet ile elde edilebilecek maksimum kazanç 2000₺ olmaktadır.', 'Freebetler ile yapılan kazançlar ile site üzerindeki her oyunda oynayabilir kazancınızı katlayabilirsiniz. Bir kazanç sınırlandırması bulunmamaktadır.']
+                        },
+                        'Çevrim Şartları': {
+                            title: '🔄 Freebet Çevrim Şartları',
+                            content: ['Bu promosyonun ekstra bir çevrim şartı bulunmamaktadır.', 'Freebetiniz ile her bir seçim minimum 1.50 oran olan 3\'lü kombine kuponunuzda maç öncesi bahislerde olacak şekilde kullanabilirsiniz.', 'Sadece Ev sahibi – Beraberlik – Deplasman tercihlerine alacağınız bahisler geçerlidir.', 'Freebet ile elde edilebilecek maksimum kazanç 2000₺ olmaktadır. Freebet kazancı ardından bir kazanç sınırlandırması bulunmamaktadır.']
+                        },
+                        'Geçerli Müsabakalar': {
+                            title: '⚽ Geçerli Müsabakalar',
+                            content: ['Freebetiniz ile her bir seçim minimum 1.50 oran olan 3\'lü kombine kuponunuzda kullanabilirsiniz.', 'Sadece Ev sahibi – Beraberlik – Deplasman tercihlerine alacağınız bahisler geçerlidir.', 'Sadece maç öncesi tercihlerinizde alacağıınız bahislerde geçerlidir.', 'Herhangi bir branş kısıtlaması bulunmamaktadır.']
+                        }
+                    },
+                    quiz: [
+                        {
+                            question: "SPOR SEZONUNA ÖZEL %10 SPOR FREEBET promosyonunda maksimum freebet miktarı nedir?",
+                            options: [
+                                "500₺",
+                                "750₺", 
+                                "1000₺",
+                                "1500₺"
+                            ],
+                            correct: 2,
+                            explanation: "Freebet miktarı yatırım miktarınızın %10'u kadar olacak şekilde maksimum 1000₺ olmaktadır."
+                        },
+                        {
+                            question: "Spor Freebet promosyonunda günlük kullanım limiti nedir?",
+                            options: ["Sınırsız", "2 kez", "3 kez", "1 kez"],
+                            correct: 3,
+                            explanation: "Freebet promosyonumuzdan her üyemiz günde 1 kere yararlanabilir."
+                        },
+                        {
+                            question: "Spor Freebet ile maksimum kazanç nedir?",
+                            options: ["1000₺", "1500₺", "2000₺", "2500₺"],
+                            correct: 2,
+                            explanation: "Freebet ile elde edilebilecek maksimum kazanç 2000₺ olmaktadır."
+                        },
+                        {
+                            question: "Spor Freebet hangi oranlarda kullanılabilir?",
+                            options: ["1.25+", "1.50+", "1.75+", "2.00+"],
+                            correct: 1,
+                            explanation: "Freebetiniz ile her bir seçim minimum 1.50 oran olan 3'lü kombine kuponunuzda kullanabilirsiniz."
+                        },
+                        {
+                            question: "Spor Freebet hangi bahis türlerinde geçerlidir?",
+                            options: ["Canlı bahisler", "Maç öncesi bahisler", "Tüm bahisler", "Sadece tekli bahisler"],
+                            correct: 1,
+                            explanation: "Sadece maç öncesi tercihlerinizde alacağınız bahislerde geçerlidir."
+                        }
+                    ]
+                },
+                {
+                    id: 'casino-kayip-bonusu',
+                    title: '🎰 %25\'E VARAN CASİNO VE CANLI CASİNO KAYIP BONUSU!',
+                    shortDesc: 'Sınır Tanımayan Bonus, Kazanç Sınırı Yok',
+                    description: 'Sınır Tanımayan Bir Bonus! Kazanç Sınırı Olmadan %25 Casino Kayıp Bonusu ile Her Zaman Güvendesiniz!',
+                    keywords: 'casino kayıp bonusu %25 canlı casino sınır yok',
+                    basicInfo: {
+                        'Bonus Oranı': '%20 (100₺-99.999₺) / %25 (100.000₺+)',
+                        'Minimum Yatırım': '100₺',
+                        'Maksimum Limit': 'Sınırsız',
+                        'Kazanç Sınırı': 'Yok',
+                        'Geçerlilik Süresi': '7 gün',
+                        'Çevrim Şartı': '1x (Bonus miktarı kadar bahis)'
+                    },
+                    sections: {
+                        'Hak Ediş Şartları': {
+                            title: '📋 Hak Ediş Şartları',
+                            content: ['Casino Kayıp bonusundan Canlı Casino, Casino ve Tombala oyunlarında yaşadığınız kayıplarınız için yararlanabilirsiniz.', 'Son 24 saat içinde tek seferde minimum 100₺ ve üstü yatırımlarınıza Casino Kayıp Bonusu talep edebilirsiniz.', 'Kayıp bonusu aktarımları 24 saat kar zarar durumu baz alınarak gerçekleştirilmektedir. 24 Saat içinde zararı olan üyelere aktarılmaktadır.', 'Kayıp bonusunuzu yatırım saatinden sonra maksimum 24 saat içerisinde Bonus Talep sayfasından talep etmeniz gerekmektedir.', 'Kayıp bonusu talep edebilmeniz için bakiyenizin 2₺ altında olması ve açık casino bahsinizin olmaması gerekmektedir.']
+                        },
+                        'Bonus Özellikleri': {
+                            title: '💰 Bonus Özellikleri',
+                            content: ['100₺ – 99.999₺ arası yatırımlarınıza %20 oranında, 100.000₺ ve üzeri yatırımlarınıza %25 oranından bonus aktarımı sağlanacaktır.', 'Casino Hoş Geldin Bonusu ile birleştirilemez. Ertesi Gün Bonusundan yararlanan üyelerimiz ise kayıp bonuslarımızdan yararlanabilir.', 'Hesaplarda kullanılmamış Freebet veya Freespin mevcut ise kayıp bonusundan yararlanılamaz.', 'Bonusun geçerlilik süresi 7 gündür. 7 gün içerisinde çevrimini tamamlamayan kullanıcıların bonusları iptal edilecektir.']
+                        },
+                        'Çevrim Şartları': {
+                            title: '🔄 Bonus Çevrim Şartları',
+                            content: ['Casino kayıp bonusundan faydalanmanız ardından çekim yapabilmek için aldığınız bonus miktarı kadar casino veya canlı casino alanında bahis almanız gerekmektedir.', 'Kayıp bonusundan faydalanabileceğiniz maksimum limit bulunmamaktadır.', 'Kayıp bonusu ile kazanç sınırı bulunmamaktadır.']
+                        },
+                        'Geçerli Oyunlar': {
+                            title: '🎮 Geçerli Oyunlar',
+                            content: ['Slot oyunları: %100', 'Rulet: %1', 'Baccarat: %10', 'Blackjack: %10', 'Poker: %10', 'Zar oyunları: %10', 'Şans oyunları: %10', 'Loto oyunları: %10', 'Canlı Casino, Casino ve Tombala oyunlarında geçerlidir.', 'Baccarat, Rulet, Dragon/Tiger ve Sic-Bo oyunlarında \"1\'e 2\" ve \"1\'e 3\" oranında alınan bahislere bonus aktarılmamaktadır.']
+                        }
+                    },
+                    quiz: [
+                        {
+                            question: "%25'e Varan Casino Kayıp Bonusu promosyonunda 100.000₺ ve üzeri yatırımlar için bonus oranı nedir?",
+                            options: [
+                                "%15",
+                                "%20", 
+                                "%25",
+                                "%30"
+                            ],
+                            correct: 2,
+                            explanation: "100.000₺ ve üzeri yatırımlar için %25 oranında bonus aktarımı sağlanmaktadır."
+                        },
+                        {
+                            question: "Casino Kayıp Bonusu için minimum yatırım miktarı nedir?",
+                            options: ["50₺", "75₺", "100₺", "150₺"],
+                            correct: 2,
+                            explanation: "Casino Kayıp Bonusu için minimum yatırım miktarı 100₺'dir."
+                        },
+                        {
+                            question: "Casino Kayıp Bonusu çevrim şartı nedir?",
+                            options: ["1x", "2x", "3x", "5x"],
+                            correct: 0,
+                            explanation: "Casino kayıp bonusundan faydalanmanız ardından çekim yapabilmek için aldığınız bonus miktarı kadar casino veya canlı casino alanında bahis almanız gerekmektedir."
+                        },
+                        {
+                            question: "Casino Kayıp Bonusu geçerlilik süresi ne kadar?",
+                            options: ["3 gün", "5 gün", "7 gün", "10 gün"],
+                            correct: 2,
+                            explanation: "Bonusun geçerlilik süresi 7 gündür."
+                        },
+                        {
+                            question: "Casino Kayıp Bonusu hangi oyunlarda geçerlidir?",
+                            options: ["Sadece Slot", "Sadece Rulet", "Canlı Casino, Casino ve Tombala", "Tüm oyunlar"],
+                            correct: 2,
+                            explanation: "Casino Kayıp bonusundan Canlı Casino, Casino ve Tombala oyunlarında yaşadığınız kayıplarınız için yararlanabilirsiniz."
+                        }
+                    ]
+                }
+            ];
+            renderPromos();
+            updatePromoSelect();
+            updatePromoList();
+        }
+
+        function renderPromos() {
+            const container = document.getElementById('promosyon-container');
+            container.innerHTML = '';
+
+            promos.forEach(promo => {
+                const accordion = createPromoAccordion(promo);
+                container.appendChild(accordion);
+            });
+        }
+
+        function createPromoAccordion(promo) {
+            const accordion = document.createElement('div');
+            accordion.className = 'accordion';
+            accordion.id = promo.id;
+            
+            // Temel bilgileri oluştur
+            let basicInfoHtml = '';
+            if (promo.basicInfo) {
+                basicInfoHtml = `
+                    <div class="section-accordion">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <span>📊 Promosyon Bilgileri</span>
+                            <span class="section-icon">▼</span>
+                        </div>
+                        <div class="section-content">
+                            <ul>
+                                ${Object.entries(promo.basicInfo).map(([key, value]) => 
+                                    `<li><strong>${key}:</strong> ${value}</li>`
+                                ).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                `;
+            }
+
+            // Bölümleri oluştur
+            let sectionsHtml = '';
+            if (promo.sections) {
+                sectionsHtml = Object.values(promo.sections).map(section => {
+                    let contentHtml = '';
+                    if (Array.isArray(section.content)) {
+                        contentHtml = section.content.map(item => `<li>${item}</li>`).join('');
+                    } else if (typeof section.content === 'object') {
+                        contentHtml = Object.entries(section).filter(([key, value]) => key !== 'title').map(([key, value]) => 
+                            `<li><strong>${key}:</strong> ${Array.isArray(value) ? value.join(', ') : value}</li>`
+                        ).join('');
+                    }
+                    
+                    return `
+                        <div class="section-accordion">
+                            <div class="section-header" onclick="toggleSection(this)">
+                                <span>${section.title}</span>
+                                <span class="section-icon">▼</span>
+                            </div>
+                            <div class="section-content">
+                                <ul>
+                                    ${contentHtml}
+                                </ul>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+            
+            accordion.innerHTML = `
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>${promo.title} - ${promo.shortDesc}</span>
+                    <div>
+                        <span class="accordion-icon">▼</span>
+                        <button class="edit-button" onclick="event.stopPropagation(); editPromoInline('${promo.id}')">✏️</button>
+                    </div>
+                </div>
+                <div class="accordion-content">
+                    <div class="promo-card" data-keywords="${promo.keywords}">
+                        <div class="promo-title">${promo.title}</div>
+                        <div class="promo-description">${promo.description}</div>
+                        <div class="promo-features">
+                            ${basicInfoHtml}
+                            ${sectionsHtml}
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            return accordion;
+        }
+
+        function updatePromoSelect() {
+            const select = document.getElementById('promo-select');
+            select.innerHTML = '<option value="">Promosyon seçin...</option>';
+            
+            promos.forEach(promo => {
+                const option = document.createElement('option');
+                option.value = promo.id;
+                option.textContent = promo.title;
+                select.appendChild(option);
+            });
+        }
+
+        function updatePromoList() {
+            const list = document.getElementById('promo-list');
+            list.innerHTML = '';
+            
+            promos.forEach(promo => {
+                const item = document.createElement('div');
+                item.className = 'promo-item';
+                item.innerHTML = `
+                    <span>${promo.title}</span>
+                    <div class="promo-controls">
+                        <button class="control-btn edit-btn" onclick="editPromoInline('${promo.id}')">✏️</button>
+                        <button class="control-btn delete-btn" onclick="deletePromo('${promo.id}')">🗑️</button>
+                        <button class="control-btn toggle-btn" onclick="togglePromo('${promo.id}')">👁️</button>
+                    </div>
+                `;
+                list.appendChild(item);
+            });
+        }
+
+        function showTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function toggleAccordion(header) {
+            const content = header.nextElementSibling;
+            const isActive = header.classList.contains('active');
+            
+            if (!isActive) {
+                header.classList.add('active');
+                content.classList.add('active');
+            } else {
+                header.classList.remove('active');
+                content.classList.remove('active');
+            }
+        }
+
+        function toggleSection(header) {
+            const content = header.nextElementSibling;
+            const isActive = header.classList.contains('active');
+            
+            if (!isActive) {
+                header.classList.add('active');
+                content.classList.add('active');
+            } else {
+                header.classList.remove('active');
+                content.classList.remove('active');
+            }
+        }
+
+        function searchPromos() {
+            const searchTerm = document.querySelector('.search-box').value.toLowerCase();
+            const accordions = document.querySelectorAll('.accordion');
+            
+            accordions.forEach(accordion => {
+                const header = accordion.querySelector('.accordion-header span').textContent.toLowerCase();
+                const content = accordion.querySelector('.accordion-content').textContent.toLowerCase();
+                
+                if (header.includes(searchTerm) || content.includes(searchTerm)) {
+                    accordion.style.display = 'block';
+                } else {
+                    accordion.style.display = 'none';
+                }
+            });
+        }
+
+        function loadQuiz() {
+            const selectedPromo = document.getElementById('promo-select').value;
+            if (!selectedPromo) {
+                document.getElementById('quiz-content').style.display = 'none';
+                return;
+            }
+
+            const promo = promos.find(p => p.id === selectedPromo);
+            if (!promo || !promo.quiz || !Array.isArray(promo.quiz)) {
+                document.getElementById('quiz-content').style.display = 'none';
+                alert('Bu promosyon için quiz bulunamadı!');
+                return;
+            }
+
+            // Rastgele bir quiz sorusu seç
+            const randomIndex = Math.floor(Math.random() * promo.quiz.length);
+            currentQuiz = promo.quiz[randomIndex];
+            
+            document.getElementById('quiz-content').style.display = 'block';
+            
+            document.getElementById('quiz-question').textContent = currentQuiz.question;
+            
+            const optionsContainer = document.getElementById('quiz-options');
+            optionsContainer.innerHTML = '';
+            
+            currentQuiz.options.forEach((option, index) => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'quiz-option';
+                optionDiv.textContent = option;
+                optionDiv.onclick = () => selectOption(optionDiv, index);
+                optionsContainer.appendChild(optionDiv);
+            });
+
+            document.getElementById('score-display').style.display = 'none';
+            document.getElementById('check-btn').disabled = false;
+            currentAnswer = -1;
+        }
+
+        function selectOption(element, answerIndex) {
+            document.querySelectorAll('.quiz-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            element.classList.add('selected');
+            currentAnswer = answerIndex;
+        }
+
+        function checkAnswer() {
+            if (currentAnswer === -1) {
+                alert('Lütfen bir seçenek seçin!');
+                return;
+            }
+
+            if (!currentQuiz) return;
+
+            const options = document.querySelectorAll('.quiz-option');
+            
+            options[currentQuiz.correct].classList.add('correct');
+            
+            if (currentAnswer !== currentQuiz.correct) {
+                options[currentAnswer].classList.add('incorrect');
+            }
+
+            document.getElementById('check-btn').disabled = true;
+            
+            const scoreDisplay = document.getElementById('score-display');
+            const scoreText = document.getElementById('score-text');
+            
+            if (currentAnswer === currentQuiz.correct) {
+                scoreText.innerHTML = `🎉 Tebrikler! Doğru cevap!<br><small>${currentQuiz.explanation}</small>`;
+                scoreText.style.color = '#28a745';
+            } else {
+                scoreText.innerHTML = `❌ Yanlış cevap. Doğru cevap: ${currentQuiz.options[currentQuiz.correct]}<br><small>${currentQuiz.explanation}</small>`;
+                scoreText.style.color = '#dc3545';
+            }
+            
+            scoreDisplay.style.display = 'block';
+        }
+
+        function showAddPromoForm() {
+            document.getElementById('add-promo-form').style.display = 'block';
+        }
+
+        function hideAddPromoForm() {
+            document.getElementById('add-promo-form').style.display = 'none';
+            document.getElementById('promo-json').value = '';
+        }
+
+        function addPromoFromJSON() {
+            const jsonText = document.getElementById('promo-json').value.trim();
+            if (!jsonText) {
+                alert('Lütfen JSON verisi girin!');
+                return;
+            }
+
+            try {
+                const newPromo = JSON.parse(jsonText);
+                if (!newPromo.id || !newPromo.title) {
+                    alert('JSON verisi eksik! id ve title alanları gerekli.');
+                    return;
+                }
+
+                // Mevcut promosyonu güncelle veya yeni ekle
+                const existingIndex = promos.findIndex(p => p.id === newPromo.id);
+                if (existingIndex !== -1) {
+                    promos[existingIndex] = newPromo;
+                } else {
+                    promos.push(newPromo);
+                }
+
+                renderPromos();
+                updatePromoSelect();
+                updatePromoList();
+                hideAddPromoForm();
+                
+                alert('Promosyon başarıyla kaydedildi!');
+            } catch (error) {
+                alert('Geçersiz JSON formatı! Lütfen düzgün JSON verisi girin.');
+                console.error('JSON Parse Error:', error);
+            }
+        }
+
+        function editPromoInline(promoId) {
+            const promo = promos.find(p => p.id === promoId);
+            if (!promo) return;
+
+            const accordion = document.getElementById(promoId);
+            const content = accordion.querySelector('.accordion-content');
+            const card = content.querySelector('.promo-card');
+            
+            // Edit moduna geç
+            card.classList.add('edit-mode');
+            
+            // Mevcut değerleri al
+            const currentTitle = promo.title;
+            const currentDesc = promo.description;
+            
+            // Edit formu oluştur
+            card.innerHTML = `
+                <div class="edit-section-content">
+                    <div class="edit-section-title">📝 Promosyon Başlığı</div>
+                    <input type="text" class="edit-input" value="${currentTitle}" id="edit-title-${promoId}" placeholder="Promosyon başlığını girin...">
+                </div>
+                
+                <div class="edit-section-content">
+                    <div class="edit-section-title">📄 Açıklama</div>
+                    <textarea class="edit-textarea" id="edit-desc-${promoId}" placeholder="Promosyon açıklamasını girin...">${currentDesc}</textarea>
+                </div>
+                
+                <div class="edit-section-content">
+                    <div class="edit-section-title">📊 Temel Bilgiler</div>
+                    <div id="edit-basic-info-${promoId}">
+                        ${promo.basicInfo ? Object.entries(promo.basicInfo).map(([key, value], index) => 
+                            `<div class="edit-list-item">
+                                <input type="text" value="${key}" placeholder="Anahtar" id="basic-key-${index}">
+                                <input type="text" value="${value}" placeholder="Değer" id="basic-value-${index}">
+                                <button onclick="removeBasicInfoItem(${index})">🗑️</button>
+                            </div>`
+                        ).join('') : ''}
+                    </div>
+                    <button class="add-item-btn" onclick="addBasicInfoItem('${promoId}')">➕ Yeni Bilgi Ekle</button>
+                </div>
+                
+                <div class="edit-section-content">
+                    <div class="edit-section-title">📋 Bölümler</div>
+                    <div id="edit-sections-${promoId}">
+                        ${promo.sections ? Object.entries(promo.sections).map(([key, section], sectionIndex) => 
+                            `<div style="margin: 15px 0; padding: 15px; border: 1px solid #dee2e6; border-radius: 8px; background: #f8f9fa;">
+                                <div class="edit-section-title">${section.title}</div>
+                                <input type="text" class="edit-input" value="${section.title}" placeholder="Bölüm başlığı" id="section-title-${sectionIndex}">
+                                <div id="section-content-${sectionIndex}">
+                                    ${Array.isArray(section.content) ? section.content.map((item, itemIndex) => 
+                                        `<div class="edit-list-item">
+                                            <input type="text" value="${item}" placeholder="Madde içeriği" id="section-item-${sectionIndex}-${itemIndex}">
+                                            <button onclick="removeSectionItem(${sectionIndex}, ${itemIndex})">🗑️</button>
+                                        </div>`
+                                    ).join('') : ''}
+                                </div>
+                                <button class="add-item-btn" onclick="addSectionItem(${sectionIndex})">➕ Madde Ekle</button>
+                            </div>`
+                        ).join('') : ''}
+                    </div>
+                </div>
+                
+                <div class="edit-buttons">
+                    <button class="save-btn" onclick="savePromoEdit('${promoId}')">💾 Kaydet</button>
+                    <button class="cancel-btn" onclick="cancelPromoEdit('${promoId}')">❌ İptal</button>
+                </div>
+            `;
+        }
+
+        function addBasicInfoItem(promoId) {
+            const container = document.getElementById(`edit-basic-info-${promoId}`);
+            const index = container.children.length - 1; // -1 çünkü son eleman buton
+            
+            const newItem = document.createElement('div');
+            newItem.className = 'edit-list-item';
+            newItem.innerHTML = `
+                <input type="text" placeholder="Anahtar" id="basic-key-${index}">
+                <input type="text" placeholder="Değer" id="basic-value-${index}">
+                <button onclick="removeBasicInfoItem(${index})">🗑️</button>
+            `;
+            
+            container.insertBefore(newItem, container.lastElementChild);
+        }
+
+        function removeBasicInfoItem(index) {
+            const items = document.querySelectorAll('.edit-list-item');
+            if (items[index]) {
+                items[index].remove();
+            }
+        }
+
+        function addSectionItem(sectionIndex) {
+            const container = document.getElementById(`section-content-${sectionIndex}`);
+            const itemIndex = container.children.length;
+            
+            const newItem = document.createElement('div');
+            newItem.className = 'edit-list-item';
+            newItem.innerHTML = `
+                <input type="text" placeholder="Madde içeriği" id="section-item-${sectionIndex}-${itemIndex}">
+                <button onclick="removeSectionItem(${sectionIndex}, ${itemIndex})">🗑️</button>
+            `;
+            
+            container.appendChild(newItem);
+        }
+
+        function removeSectionItem(sectionIndex, itemIndex) {
+            const item = document.getElementById(`section-item-${sectionIndex}-${itemIndex}`);
+            if (item) {
+                item.parentElement.remove();
+            }
+        }
+
+        function savePromoEdit(promoId) {
+            const promo = promos.find(p => p.id === promoId);
+            if (!promo) return;
+
+            // Temel bilgileri güncelle
+            promo.title = document.getElementById(`edit-title-${promoId}`).value;
+            promo.description = document.getElementById(`edit-desc-${promoId}`).value;
+
+            // Temel bilgileri güncelle
+            const basicInfoItems = document.querySelectorAll('#edit-basic-info-' + promoId + ' .edit-list-item');
+            promo.basicInfo = {};
+            basicInfoItems.forEach(item => {
+                const key = item.querySelector('input[placeholder="Anahtar"]').value;
+                const value = item.querySelector('input[placeholder="Değer"]').value;
+                if (key && value) {
+                    promo.basicInfo[key] = value;
+                }
+            });
+
+            // Bölümleri güncelle
+            const sectionContainers = document.querySelectorAll('#edit-sections-' + promoId + ' > div');
+            promo.sections = {};
+            sectionContainers.forEach((container, sectionIndex) => {
+                const title = document.getElementById(`section-title-${sectionIndex}`).value;
+                const contentItems = document.querySelectorAll(`#section-content-${sectionIndex} .edit-list-item`);
+                const content = Array.from(contentItems).map(item => {
+                    return item.querySelector('input').value;
+                }).filter(item => item.trim() !== '');
+                
+                if (title && content.length > 0) {
+                    promo.sections[title] = {
+                        title: title,
+                        content: content
+                    };
+                }
+            });
+
+            // Accordion header'ı güncelle
+            const accordion = document.getElementById(promoId);
+            const header = accordion.querySelector('.accordion-header span');
+            header.textContent = `${promo.title} - ${promo.shortDesc}`;
+
+            // Edit modundan çık
+            cancelPromoEdit(promoId);
+            
+            // Listeleri güncelle
+            updatePromoSelect();
+            updatePromoList();
+            
+            alert('Promosyon başarıyla güncellendi!');
+        }
+
+        function cancelPromoEdit(promoId) {
+            const accordion = document.getElementById(promoId);
+            const content = accordion.querySelector('.accordion-content');
+            const card = content.querySelector('.promo-card');
+            
+            // Edit modundan çık
+            card.classList.remove('edit-mode');
+            
+            // Orijinal görünümü geri yükle
+            renderPromos();
+        }
+
+        function deletePromo(promoId) {
+            if (confirm('Bu promosyonu silmek istediğinizden emin misiniz?')) {
+                promos = promos.filter(p => p.id !== promoId);
+                renderPromos();
+                updatePromoSelect();
+                updatePromoList();
+            }
+        }
+
+        function togglePromo(promoId) {
+            const accordion = document.getElementById(promoId);
+            const header = accordion.querySelector('.accordion-header');
+            toggleAccordion(header);
+        }
+
+        function refreshPromos() {
+            loadPromos();
+            alert('Promosyonlar yenilendi!');
+        }
+
+        function exportPromos() {
+            const dataStr = JSON.stringify(promos, null, 2);
+            const dataBlob = new Blob([dataStr], {type: 'application/json'});
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'promosyonlar.json';
+            link.click();
+        }
+
+        // Sayfa yüklendiğinde promosyonları yükle
+        document.addEventListener('DOMContentLoaded', function() {
+            loadPromos();
+        });
+    </script>
+</body>
+</html>

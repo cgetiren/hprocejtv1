@@ -1,0 +1,75 @@
+{
+  "id": "spor-freebet",
+  "title": "⚽ SPOR SEZONUNA ÖZEL HER YATIRIMA %10 SPOR FREEBET!",
+  "shortDesc": "Her Yatırımda %10 Freebet, Maksimum 1000₺",
+  "description": "Spor heyecanını doruklarda yaşayın diye Hedef sizinle! Yeni sezona özel, yaptığınız her yatırımda %10 Freebet sizleri bekliyor!",
+  "keywords": "spor freebet %10 yatırım sezon trinkpara",
+  "basicInfo": {
+    "Bonus Oranı": "%10 Freebet",
+    "Maksimum Freebet": "1000₺",
+    "Maksimum Kazanç": "2000₺",
+    "Günlük Limit": "Günde 1 kere",
+    "Çevrim Şartı": "Yok (Direkt kullanım)",
+    "Geçerlilik": "Sürekli"
+  },
+  "sections": {
+    "hakEdisSartlari": {
+      "title": "📋 Hak Ediş Şartları",
+      "content": [
+        "Freebet miktarı yatırım miktarınızın %10'u kadar olacak şekilde maksimum 1000₺ olmaktadır.",
+        "Bu promosyondan yararlanabilmeniz için Trinkpara Havale, Trinkpara Papara, Trinkpara Paratim, Trinkpara Pep, Trinkpara Paybol, Trinkpara Popypara, Trinkpara Kripto ve Anında Kripto yöntemi ile yatırım yapmanız gerekmektedir.",
+        "Bu promosyondan faydalanabilmek için yatırım sırasında \"BONUS SEÇ\" kısmını seçerek HER YATIRIMA SPOR FREEBET'i seçerek yatırımınızı yapmanız gerekmektedir.",
+        "Bu bonus Canlı destek hattı veya bonus talep sayfası üzerinde talep edilemez ve aktarılamaz.",
+        "Bu bonus aktarımlarında 24 saat kar-zarar durumu baz alınmamaktadır."
+      ]
+    },
+    "bonusOzellikleri": {
+      "title": "💰 Bonus Özellikleri",
+      "content": [
+        "Freebet promosyonumuzdan her üyemiz günde 1 kere yararlanabilir.",
+        "Freebet promosyonundan yararlanmanız halinde kayıp bonuslarından da yararlanabilirsiniz.",
+        "Freebet ile elde edilebilecek maksimum kazanç 2000₺ olmaktadır.",
+        "Freebetler ile yapılan kazançlar ile site üzerindeki her oyunda oynayabilir kazancınızı katlayabilirsiniz. Bir kazanç sınırlandırması bulunmamaktadır.",
+        "Yatırım ekranından talep edildiğinden Yatırıma Freespin veya Yatırıma Freebet bonusundan birini alabilirsiniz. Bu iki bonus birleştirilemez."
+      ]
+    },
+    "cevrimSartlari": {
+      "title": "🔄 Freebet Çevrim Şartları",
+      "content": [
+        "Bu promosyonun ekstra bir çevrim şartı bulunmamaktadır.",
+        "Bu bonus Canlı destek hattı veya bonus talep sayfası üzerinde talep edilemez.",
+        "Freebetiniz ile her bir seçim minimum 1.50 oran olan 3'lü kombine kuponunuzda maç öncesi bahislerde olacak şekilde kullanabilirsiniz.",
+        "Sadece Ev sahibi – Beraberlik – Deplasman tercihlerine alacağınız bahisler geçerlidir.",
+        "Freebet ile elde edilebilecek maksimum kazanç 2000₺ olmaktadır. Freebet kazancı ardından bir kazanç sınırlandırması bulunmamaktadır."
+      ]
+    },
+    "gecerliMusabakalar": {
+      "title": "⚽ Geçerli Müsabakalar",
+      "content": [
+        "Freebetiniz ile her bir seçim minimum 1.50 oran olan 3'lü kombine kuponunuzda kullanabilirsiniz.",
+        "Sadece Ev sahibi – Beraberlik – Deplasman tercihlerine alacağınız bahisler geçerlidir.",
+        "Sadece maç öncesi tercihlerinizde alacağıınız bahislerde geçerlidir.",
+        "Herhangi bir branş kısıtlaması bulunmamaktadır."
+      ]
+    },
+    "genelKurallar": {
+      "title": "📝 Genel Bonus Kuralları",
+      "content": [
+        "Hedef bu bonusu istediği zaman durdurma ya da iptal etme hakkına sahiptir.",
+        "Bonus kötüye kullanımı durumunda bonusu ve bonustan elde edilen kazancı geri alma hakkına sahiptir.",
+        "Hedef genel bonus kuralları geçerlidir."
+      ]
+    }
+  },
+  "quiz": {
+    "question": "SPOR SEZONUNA ÖZEL %10 SPOR FREEBET promosyonunda maksimum freebet miktarı nedir?",
+    "options": [
+      "500₺",
+      "750₺", 
+      "1000₺",
+      "1500₺"
+    ],
+    "correct": 2,
+    "explanation": "Freebet miktarı yatırım miktarınızın %10'u kadar olacak şekilde maksimum 1000₺ olmaktadır."
+  }
+}
