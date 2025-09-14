@@ -3,8 +3,8 @@
 Modern, interaktif ve kullanıcı dostu bir promosyon eğitim platformu. Bu proje, çeşitli promosyon kampanyalarını eğitici bir şekilde sunmak ve kullanıcıların bilgilerini test etmek için tasarlanmıştır.
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/your-badge-id/deploy-status)](https://app.netlify.com/sites/your-site-name/deploys)
-[![GitHub License](https://img.shields.io/github/license/your-username/hproject-egitim)](https://github.com/your-username/hproject-egitim/blob/main/LICENSE)
-[![GitHub Stars](https://img.shields.io/github/stars/your-username/hproject-egitim?style=social)](https://github.com/your-username/hproject-egitim)
+[![GitHub License](https://img.shields.io/github/license/cgetiren/hproject-egitim)](https://github.com/cgetiren/hproject-egitim/blob/main/LICENSE)
+[![GitHub Stars](https://img.shields.io/github/stars/cgetiren/hproject-egitim?style=social)](https://github.com/cgetiren/hproject-egitim)
 
 ## 📋 İçindekiler
 
@@ -57,7 +57,8 @@ hproject-egitim/
 │   ├── bonus-buy.json                        # 1500TL Bonus Buy
 │   ├── hos-geldin.json                       # %100 Casino Hoş Geldin
 │   ├── spor-freebet.json                     # %10 Spor Freebet
-│   └── casino-kayip-bonusu.json              # %25 Casino Kayıp Bonusu
+│   ├── casino-kayip-bonusu.json              # %25 Casino Kayıp Bonusu
+│   └── freespin-600.json                     # 600 Freespin Fırsatı
 ├── assets/                                    # Statik dosyalar (isteğe bağlı)
 │   ├── images/                               # Görseller
 │   └── icons/                                # İkonlar
@@ -76,7 +77,7 @@ hproject-egitim/
 
 1. **Repository'yi klonlayın:**
 ```bash
-git clone https://github.com/your-username/hproject-egitim.git
+git clone https://github.com/cgetiren/hproject-egitim.git
 cd hproject-egitim
 ```
 
@@ -99,15 +100,6 @@ php -S localhost:8000
 ```
 http://localhost:8000
 ```
-
-### ☁️ Netlify Deploy
-
-1. **GitHub repository'nizi Netlify'a bağlayın**
-2. **Build ayarları:**
-   - **Build Command**: (boş bırakın)
-   - **Publish Directory**: `.`
-   - **Base Directory**: (boş bırakın)
-3. **Deploy butonuna tıklayın**
 
 ### 🐳 Docker ile Çalıştırma
 
@@ -137,6 +129,7 @@ docker run -p 8080:80 hproject-egitim
 | 🎉 %100 Casino Hoş Geldin | Yeni üyelere özel hoş geldin bonusu | 5 soru | ✅ Aktif |
 | ⚽ %10 Spor Freebet | Spor bahislerinde ücretsiz bahis | 5 soru | ✅ Aktif |
 | 🎲 %25 Casino Kayıp Bonusu | Kayıplarınızı telafi eden bonus | 5 soru | ✅ Aktif |
+| 🎰 600 Freespin Fırsatı | Gates Of Olympus ve Sweet Bonanza freespinleri | 5 soru | ✅ Aktif |
 
 ## 🔧 JSON Dosya Yapısı
 
@@ -368,60 +361,50 @@ SOFTWARE.
 
 ## 👨‍💻 Geliştirici
 
-**Hproject Eğitim Ekibi**
-
-- 📧 Email: [egitim@hproject.com](mailto:egitim@hproject.com)
-- 🌐 Website: [https://hproject.com](https://hproject.com)
-- 💼 LinkedIn: [Hproject Eğitim](https://linkedin.com/company/hproject-egitim)
-- 🐦 Twitter: [@HprojectEgitim](https://twitter.com/HprojectEgitim)
-
-### 🏆 Takım Üyeleri
-
-- **Proje Yöneticisi**: Ahmet Yılmaz
-- **Frontend Geliştirici**: Ayşe Demir
-- **UI/UX Tasarımcı**: Mehmet Kaya
-- **Test Uzmanı**: Fatma Özkan
+- **Proje Yöneticisi**: Can Getiren
+- **Frontend Geliştirici**: Can Getiren
+- **UI/UX Tasarımcı**: Can Getiren
+- **Test Uzmanı**: Can Getiren
 
 ## 📈 Güncellemeler
 
-### 🚀 v2.0.0 (2024-12-XX) - Hproject Rebranding
-- ✅ "Hitbet" markasından "Hproject" markasına geçiş
+### 🚀 v1.1.2(2025-09-14) - Hproject Rebranding
 - ✅ Yeni logo ve renk paleti
 - ✅ Geliştirilmiş README.md
 - ✅ Docker desteği eklendi
 - ✅ Gelişmiş hata yönetimi
 
-### 🎯 v1.5.0 (2024-11-XX) - Quiz Sistemi Geliştirmeleri
+### 🎯 v1.1.2 (2025-09-14) - Quiz Sistemi Geliştirmeleri
 - ✅ Her promosyon için 5 farklı quiz sorusu
 - ✅ Rastgele soru seçimi
 - ✅ Gelişmiş feedback sistemi
 - ✅ Quiz istatistikleri
 
-### 🎨 v1.4.0 (2024-10-XX) - UI/UX Geliştirmeleri
+### 🎨 v1.0.2 (2025-09-14) - UI/UX Geliştirmeleri
 - ✅ Modern gradient tasarım
 - ✅ Smooth animasyonlar
 - ✅ Gelişmiş responsive tasarım
 - ✅ Dark mode desteği (beta)
 
-### 🛠️ v1.3.0 (2024-09-XX) - Yönetim Paneli
+### 🛠️ v1.0.3 (2025-09-14) - Yönetim Paneli
 - ✅ Inline düzenleme sistemi
 - ✅ Promosyon ekleme/silme
 - ✅ Gelişmiş arama fonksiyonu
 - ✅ Bulk operations
 
-### 📱 v1.2.0 (2024-08-XX) - Mobile Optimizasyon
+### 📱 v1.0.4 (2025-09-14) - Mobile Optimizasyon
 - ✅ Mobile-first tasarım
 - ✅ Touch-friendly interface
 - ✅ Swipe gestures
 - ✅ Offline support
 
-### 🎯 v1.1.0 (2024-07-XX) - Modüler Sistem
+### 🎯 v1.0.3 (2025-09-13) - Modüler Sistem
 - ✅ JSON tabanlı veri yönetimi
 - ✅ Akordeon tasarım
 - ✅ Tabbed interface
 - ✅ Arama fonksiyonu
 
-### 🚀 v1.0.0 (2024-06-XX) - İlk Sürüm
+### 🚀 v1.0.0 (2025-09-13) - İlk Sürüm
 - ✅ Temel promosyon sistemi
 - ✅ Quiz sistemi
 - ✅ Responsive tasarım
@@ -429,10 +412,10 @@ SOFTWARE.
 
 ## 📊 Proje İstatistikleri
 
-![GitHub stars](https://img.shields.io/github/stars/your-username/hproject-egitim?style=social)
-![GitHub forks](https://img.shields.io/github/forks/your-username/hproject-egitim?style=social)
-![GitHub issues](https://img.shields.io/github/issues/your-username/hproject-egitim)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/your-username/hproject-egitim)
+![GitHub stars](https://img.shields.io/github/stars/cgetiren/hproject-egitim?style=social)
+![GitHub forks](https://img.shields.io/github/forks/cgetiren/hproject-egitim?style=social)
+![GitHub issues](https://img.shields.io/github/issues/cgetiren/hproject-egitim)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/cgetiren/hproject-egitim)
 
 ## 🎯 Roadmap
 
@@ -457,10 +440,8 @@ SOFTWARE.
 
 Sorularınız için:
 
-- 📧 **Email**: [destek@hproject.com](mailto:destek@hproject.com)
-- 💬 **Discord**: [Hproject Community](https://discord.gg/hproject)
-- 📱 **Telegram**: [@HprojectSupport](https://t.me/HprojectSupport)
-- 🐛 **Bug Report**: [GitHub Issues](https://github.com/your-username/hproject-egitim/issues)
+- 📧 **Email**: [getirencan@gmail.com](mailto:getirencan@hgmail.com)
+- 🐛 **Bug Report**: [GitHub Issues](https://github.com/cgetiren/hproject-egitim/issues)
 
 ## 🙏 Teşekkürler
 
@@ -475,7 +456,7 @@ Bu projeye katkıda bulunan herkese teşekkürler:
 
 **⭐ Bu projeyi beğendiyseniz yıldız vermeyi unutmayın!**
 
-**🔗 Projeyi paylaşın**: [https://github.com/your-username/hproject-egitim](https://github.com/your-username/hproject-egitim)
+**🔗 Projeyi paylaşın**: [https://github.com/cgetiren/hproject-egitim](https://github.com/cgetiren/hproject-egitim)
 
 ---
 
