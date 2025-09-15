@@ -940,7 +940,7 @@
                 // Normal promosyonları yükle
                 for (const file of promoFiles) {
                     try {
-                        const promoResponse = await fetch(`../promosyonlar/${file}`);
+                        const promoResponse = await fetch(`promosyonlar/${file}`);
                         if (promoResponse.ok) {
                             const promo = await promoResponse.json();
                             // Pragmatic Play'in yanlışlıkla burada olmadığından emin ol
@@ -956,7 +956,7 @@
                 // Sağlayıcı promosyonlarını yükle
                 for (const file of providerPromoFiles) {
                     try {
-                        const promoResponse = await fetch(`../promosyonlar/${file}`);
+                        const promoResponse = await fetch(`promosyonlar/${file}`);
                         if (promoResponse.ok) {
                             const promo = await promoResponse.json();
                             providerPromos.push(promo);
