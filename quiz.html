@@ -978,21 +978,16 @@
             select.innerHTML = '<option value="">Promosyon seçin...</option>';
             
             activePromos.forEach(promo => {
-                // Sadece quiz alanı olan promosyonları göster
-                if (promo.quiz && (Array.isArray(promo.quiz) && promo.quiz.length > 0 || typeof promo.quiz === 'object' && Object.keys(promo.quiz).length > 0)) {
+                // Hem manuel hem de dinamik olarak oluşturulan quizlerin varlığını kontrol et
+                const hasManualQuizzes = promo.quiz && (Array.isArray(promo.quiz) && promo.quiz.length > 0 || typeof promo.quiz === 'object' && Object.keys(promo.quiz).length > 0);
+                const dynamicQuizzes = generateQuizQuestions(promo);
+                const hasDynamicQuizzes = dynamicQuizzes.length > 0;
+
+                if (hasManualQuizzes || hasDynamicQuizzes) {
                     const option = document.createElement('option');
                     option.value = promo.id;
                     option.textContent = promo.title;
                     select.appendChild(option);
-                } else {
-                    // Dinamik olarak oluşturulan quizlerin varlığını da kontrol et
-                    const dynamicQuizzes = generateQuizQuestions(promo);
-                    if (dynamicQuizzes.length > 0) {
-                        const option = document.createElement('option');
-                        option.value = promo.id;
-                        option.textContent = promo.title;
-                        select.appendChild(option);
-                    }
                 }
             });
         }
