@@ -196,26 +196,36 @@
         }
 
         // Yardımcı fonksiyon: Genel metinlerden yanlış seçenekler üretir
-        function generateGeneralWrongOptions(correctAnswer, allOptions, count = 3) {
+        function generateGeneralWrongOptions(correctAnswer, allPossibleAnswers, count = 3) {
             const wrongOptions = new Set();
-            wrongOptions.add(correctAnswer); // Doğru cevabı her zaman ekle
+            const genericOptions = ["Belirtilmemiş", "Değişkendir", "Bilgi yok", "Geçersiz", "Her zaman geçerli", "Tüm oyunlarda", "Hiçbiri", "Farklı bir koşula bağlı"];
+            const combinedOptions = Array.from(new Set([...allPossibleAnswers, ...genericOptions]));
             
-            // Tüm mevcut seçeneklerden veya jenerik seçeneklerden rastgele seç
-            const availableOptions = Array.from(new Set([...allOptions, "Belirtilmemiş", "Değişkendir", "Bilgi yok", "Geçersiz", "Her zaman geçerli", "Tüm oyunlarda", "Hiçbiri"]));
-            
-            while (wrongOptions.size < count + 1) { // count + 1 çünkü doğru cevabı zaten ekledik
-                const randomOption = availableOptions[Math.floor(Math.random() * availableOptions.length)];
-                if (!wrongOptions.has(randomOption)) {
+            while (wrongOptions.size < count) {
+                const randomOption = combinedOptions[Math.floor(Math.random() * combinedOptions.length)];
+                if (randomOption !== correctAnswer && !wrongOptions.has(randomOption)) {
                     wrongOptions.add(randomOption);
                 }
             }
-            wrongOptions.delete(correctAnswer); // Doğru cevabı Set'ten çıkar, liste dışına koyacağız
             return Array.from(wrongOptions);
         }
 
         // Dinamik quiz soruları oluşturma fonksiyonu
         function generateQuizQuestions(promo) {
             const dynamicQuizzes = [];
+
+            // Tüm promosyonlardaki potansiyel cevapları toplamak (yanlış seçenekler için)
+            const allPossibleAnswers = [];
+            promos.forEach(p => {
+                if (p.basicInfo) allPossibleAnswers.push(...Object.values(p.basicInfo));
+                if (p.sections) {
+                    const sectionContents = Array.isArray(p.sections) ? p.sections.flatMap(s => s.content || []).filter(item => typeof item === 'string') : 
+                                            Object.values(p.sections).flatMap(s => s.content || []).filter(item => typeof item === 'string');
+                    allPossibleAnswers.push(...sectionContents);
+                }
+            });
+            const uniqueAllPossibleAnswers = Array.from(new Set(allPossibleAnswers)).filter(Boolean);
+
 
             // 1. basicInfo'dan sorular oluşturma
             if (promo.basicInfo) {
@@ -230,20 +240,14 @@
                                 options = options.concat(generateNumericWrongOptions(answer, 3));
                             } else if (key.includes("Tarih") || key.includes("Süresi") || key.includes("Günler")) {
                                 options = options.concat(generateTimeWrongOptions(answer, 3));
-                            } else if (key.includes("Oyunlar") || key.includes("Sağlayıcı")) {
-                                // Oyun listesi varsa farklı bir strateji gerekebilir.
-                                // Şimdilik genel yanlış seçenekler kullanalım.
-                                options = options.concat(generateGeneralWrongOptions(answer, Object.values(promo.basicInfo), 3));
-                            } else if (key.includes("Çevrim Şartı")) {
-                                options = options.concat(generateGeneralWrongOptions(answer, Object.values(promo.basicInfo), 3));
                             } else {
-                                options = options.concat(generateGeneralWrongOptions(answer, Object.values(promo.basicInfo), 3));
+                                options = options.concat(generateGeneralWrongOptions(answer, uniqueAllPossibleAnswers, 3));
                             }
 
                             options = options.sort(() => Math.random() - 0.5);
                             const correctIndex = options.indexOf(answer);
 
-                            if (correctIndex !== -1 && options.length === 4) {
+                            if (correctIndex !== -1 && options.length === 4 && !dynamicQuizzes.some(q => q.question === question)) {
                                 dynamicQuizzes.push({
                                     question: question,
                                     options: options,
@@ -256,13 +260,16 @@
                 }
             }
 
-            // 2. sections'tan sorular oluşturma
+            // 2. sections'tan sorular oluşturma (daha derinlemesine)
             if (promo.sections) {
                 const allContentItems = [];
+                const allSectionTitles = [];
+
                 if (typeof promo.sections === 'object' && !Array.isArray(promo.sections)) {
                     for (const sectionKey in promo.sections) {
                         if (Object.hasOwnProperty.call(promo.sections, sectionKey)) {
                             const section = promo.sections[sectionKey];
+                            allSectionTitles.push(section.title);
                             if (section.content && Array.isArray(section.content)) {
                                 allContentItems.push(...section.content);
                             }
@@ -273,6 +280,7 @@
                     }
                 } else if (Array.isArray(promo.sections)) {
                     promo.sections.forEach(section => {
+                        allSectionTitles.push(section.title);
                         if (section.content && typeof section.content === 'string') {
                             allContentItems.push(section.content);
                         }
@@ -341,12 +349,12 @@
                     }
                     
                     // Çevrim şartı soruları
-                    match = item.match(/(?:çevrim şartı|çevrimini tamamlamanız için)\s*.*?(\d+x|\d+\s*katı|\d+,\d+\s*oran)/i);
+                    match = item.match(/(?:çevrim şartı|çevrimini tamamlamanız için)\s*.*?(\d+x|\d+\s*katı|\d+,\d+\s*oran|yok)/i);
                     if (match) {
                         const wager = match[1];
                         const question = `Bu promosyonun çevrim şartı nedir?`;
                         let options = [wager];
-                        options = options.concat(generateGeneralWrongOptions(wager, ["1x", "2x", "5x", "10x", "20x", "35x", "50x", "Yok", "Değişken"]), 3);
+                        options = options.concat(generateGeneralWrongOptions(wager, ["1x", "2x", "5x", "10x", "20x", "35x", "50x", "Yok", "Değişken"].concat(uniqueAllPossibleAnswers), 3));
                         options = options.sort(() => Math.random() - 0.5);
                         const correctIndex = options.indexOf(wager);
                         if (correctIndex !== -1 && options.length === 4 && !dynamicQuizzes.some(q => q.question === question)) {
@@ -383,7 +391,7 @@
                     }
 
                     // Kimler yararlanamaz soruları
-                    match = item.match(/(?:yararlanamaz|faydalanamaz)\s*[:-]?\s*(.+?)(?:\.|\n|$)/i);
+                    match = item.match(/(?:yararlanamaz|faydalanamaz|hariç)\s*[:-]?\s*(.+?)(?:\.|\n|$)/i);
                     if (match) {
                         const cannotBenefit = match[1].split(/,|ve/i).map(g => g.trim()).filter(g => g.length > 0);
                         if (cannotBenefit.length > 0) {
@@ -404,13 +412,76 @@
                         }
                     }
 
-                    // Sadece bir kere eklenmesini sağlamak için kontrol ekledik daha önce
-                    if (item.includes("Cash Out sadece spor bahislerinde geçerlidir.") && !dynamicQuizzes.some(q => q.question === "Cash Out hangi bahis türlerinde geçerlidir?")) {
+                    // Talep edilmesi gereken durumlar
+                    match = item.match(/(?:talep edilmesi gerekmektedir|talep etmeniz gerekmektedir|talep edilmeli)\s*[:-]?\s*(.+?)(?:\.|\n|$)/i);
+                    if (match) {
+                        const claimCondition = match[1].trim();
+                        if (claimCondition) {
+                            const question = `Bu promosyonu talep etmek için ne gereklidir?`;
+                            let options = [claimCondition];
+                            options = options.concat(generateGeneralWrongOptions(claimCondition, uniqueAllPossibleAnswers, 3));
+                            options = options.sort(() => Math.random() - 0.5);
+                            const correctIndex = options.indexOf(claimCondition);
+                            if (correctIndex !== -1 && options.length === 4 && !dynamicQuizzes.some(q => q.question === question)) {
+                                dynamicQuizzes.push({
+                                    question: question,
+                                    options: options,
+                                    correct: correctIndex,
+                                    explanation: `Promosyonun talep edilmesi için: ${claimCondition}`
+                                });
+                            }
+                        }
+                    }
+
+                    // Maksimum kazanç sınırı soruları
+                    match = item.match(/maksimum kazanç\s*(\d+[₺$€])/i);
+                    if (match) {
+                        const maxWin = match[1];
+                        const question = `Bu promosyondan elde edilebilecek maksimum kazanç nedir?`;
+                        let options = [maxWin];
+                        options = options.concat(generateNumericWrongOptions(maxWin, 3));
+                        options = options.sort(() => Math.random() - 0.5);
+                        const correctIndex = options.indexOf(maxWin);
+                        if (correctIndex !== -1 && options.length === 4 && !dynamicQuizzes.some(q => q.question === question)) {
+                            dynamicQuizzes.push({
+                                question: question,
+                                options: options,
+                                correct: correctIndex,
+                                explanation: `Maksimum kazanç ${maxWin} olarak belirtilmiştir.`
+                            });
+                        }
+                    }
+
+                     // Genel bonus kuralları ile ilgili sorular
+                    match = item.match(/(?:genel bonus kuralları geçerlidir|bonus kuralları ve şartları)/i);
+                    if (match && !dynamicQuizzes.some(q => q.question.includes("genel bonus kuralları"))) {
                         dynamicQuizzes.push({
-                            question: "Cash Out hangi bahis türlerinde geçerlidir?",
-                            options: ["Casino oyunlarında", "Sadece canlı bahislerde", "Spor bahislerinde", "Slot oyunlarında"],
-                            correct: 2,
-                            explanation: "Cash Out sadece spor bahislerinde geçerlidir."
+                            question: "Hproject genel bonus kuralları bu promosyonda geçerli midir?",
+                            options: ["Evet", "Hayır", "Kısmen", "Sadece belirli durumlarda"],
+                            correct: 0,
+                            explanation: "Evet, Hproject genel bonus kuralları bu promosyonda geçerlidir."
+                        });
+                    }
+
+                    // Bonus durdurma/iptal etme hakkı
+                    match = item.match(/(?:dilediği zaman bu bonusu durdurma ya da iptal etme hakkına sahiptir)/i);
+                    if (match && !dynamicQuizzes.some(q => q.question.includes("iptal etme hakkına sahiptir"))) {
+                        dynamicQuizzes.push({
+                            question: "Hproject, promosyonu dilediği zaman durdurma veya iptal etme hakkına sahip midir?",
+                            options: ["Evet", "Hayır", "Sadece üyelerin onayıyla", "Sadece belirli koşullarda"],
+                            correct: 0,
+                            explanation: "Evet, Hproject promosyonu dilediği zaman durdurma veya iptal etme hakkına sahiptir."
+                        });
+                    }
+
+                    // Bonus kötüye kullanımı
+                    match = item.match(/(?:bonusu veya kazancını kötüye kullanma durumunda)/i);
+                    if (match && !dynamicQuizzes.some(q => q.question.includes("kötüye kullanma durumunda"))) {
+                        dynamicQuizzes.push({
+                            question: "Bonusun kötüye kullanılması durumunda ne olur?",
+                            options: ["Bonus ve kazanç geri alınır", "Sadece bonus iptal edilir", "Üyeliğe geçici el konulur", "Herhangi bir işlem yapılmaz"],
+                            correct: 0,
+                            explanation: "Bonus veya kazancını kötüye kullanma durumunda Hproject bonus ve kazancı geri alma hakkına sahiptir."
                         });
                     }
 
