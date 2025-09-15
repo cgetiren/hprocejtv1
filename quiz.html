@@ -156,6 +156,193 @@
         let currentQuiz = null;
         let promos = [];
 
+        // Yardımcı fonksiyon: Sayısal bir değerden rastgele yanlış seçenekler üretir
+        function generateNumericWrongOptions(correctAnswer, count = 3) {
+            const wrongOptions = new Set();
+            const numAnswer = parseFloat(correctAnswer.replace(/[^0-9.,]/g, '').replace('.', '').replace(',', '.')); // Sayısal değeri çıkar
+            if (isNaN(numAnswer)) return [];
+
+            while (wrongOptions.size < count) {
+                let newOption;
+                const variation = numAnswer * (0.1 + Math.random() * 0.4); // %10 ila %50 varyasyon
+                const operation = Math.random() > 0.5 ? 1 : -1; // Artırma veya azaltma
+                newOption = Math.round((numAnswer + operation * variation) * 100) / 100; // İki ondalık basamağa yuvarla
+                
+                // Orijinal birimini koru
+                if (correctAnswer.includes("₺")) newOption += "₺";
+                else if (correctAnswer.includes("%")) newOption += "%";
+                else if (correctAnswer.includes("EUR")) newOption += " EUR";
+                else if (correctAnswer.includes("adet")) newOption += " adet";
+
+                if (newOption.toString() !== correctAnswer && !wrongOptions.has(newOption.toString())) {
+                    wrongOptions.add(newOption.toString());
+                }
+            }
+            return Array.from(wrongOptions);
+        }
+
+        // Yardımcı fonksiyon: Tarih veya süre bilgisinden yanlış seçenekler üretir
+        function generateTimeWrongOptions(correctAnswer, count = 3) {
+            const wrongOptions = new Set();
+            const phrases = ["24 saat", "48 saat", "72 saat", "1 gün", "3 gün", "5 gün", "1 hafta", "1 ay", "6 ay", "1 yıl", "Belirtilmemiş", "Süresiz"];
+
+            while (wrongOptions.size < count) {
+                const randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
+                if (randomPhrase !== correctAnswer && !wrongOptions.has(randomPhrase)) {
+                    wrongOptions.add(randomPhrase);
+                }
+            }
+            return Array.from(wrongOptions);
+        }
+
+        // Dinamik quiz soruları oluşturma fonksiyonu
+        function generateQuizQuestions(promo) {
+            const dynamicQuizzes = [];
+
+            // 1. basicInfo'dan sorular oluşturma
+            if (promo.basicInfo) {
+                for (const key in promo.basicInfo) {
+                    if (Object.hasOwnProperty.call(promo.basicInfo, key)) {
+                        const answer = promo.basicInfo[key];
+                        if (answer && answer !== "Yok" && answer !== "Süresiz" && answer !== "Her zaman") {
+                            const question = `${promo.title} promosyonunda "${key}" nedir?`;
+                            let options = [answer]; // Doğru cevap
+
+                            // Yanlış seçenekleri türet
+                            if (key.includes("Miktar") || key.includes("Yatırım") || key.includes("Kazanç") || key.includes("Bahis") || key.includes("Freespin")) {
+                                options = options.concat(generateNumericWrongOptions(answer, 3));
+                            } else if (key.includes("Tarih") || key.includes("Süresi") || key.includes("Günler")) {
+                                options = options.concat(generateTimeWrongOptions(answer, 3));
+                            } else {
+                                // Genel yanlış seçenekler
+                                const genericWrongOptions = ["Belirtilmemiş", "Değişkendir", "Bilgi yok", "Geçersiz", "Her zaman geçerli"];
+                                let count = 0;
+                                while (options.length < 4 && count < 10) { // Sonsuz döngüyü önlemek için limit
+                                    const randomOption = genericWrongOptions[Math.floor(Math.random() * genericWrongOptions.length)];
+                                    if (!options.includes(randomOption)) {
+                                        options.push(randomOption);
+                                    }
+                                    count++;
+                                }
+                            }
+
+                            // Seçenekleri karıştır
+                            options = options.sort(() => Math.random() - 0.5);
+                            const correctIndex = options.indexOf(answer);
+
+                            if (correctIndex !== -1 && options.length === 4) { // Geçerli bir quiz oluştuğundan emin ol
+                                dynamicQuizzes.push({
+                                    question: question,
+                                    options: options,
+                                    correct: correctIndex,
+                                    explanation: `${promo.title} promosyonunda "${key}", ${answer} olarak belirtilmiştir.`
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+
+            // 2. sections'tan sorular oluşturma
+            if (promo.sections) {
+                const allContentItems = [];
+                // sections object ise
+                if (typeof promo.sections === 'object' && !Array.isArray(promo.sections)) {
+                    for (const sectionKey in promo.sections) {
+                        if (Object.hasOwnProperty.call(promo.sections, sectionKey)) {
+                            const section = promo.sections[sectionKey];
+                            if (section.content && Array.isArray(section.content)) {
+                                allContentItems.push(...section.content);
+                            }
+                            if (section.items && Array.isArray(section.items)) { // Bazı promosyonlarda 'items' olabilir
+                                allContentItems.push(...section.items);
+                            }
+                        }
+                    }
+                } else if (Array.isArray(promo.sections)) { // sections array ise (freespin-600 gibi)
+                    promo.sections.forEach(section => {
+                        if (section.content && typeof section.content === 'string') { // content string ise
+                            allContentItems.push(section.content);
+                        }
+                        if (section.items && Array.isArray(section.items)) {
+                            allContentItems.push(...section.items);
+                        }
+                    });
+                }
+
+                allContentItems.forEach(item => {
+                    // Örnek: Minimum yatırım miktarı soruları
+                    let match = item.match(/Minimum\s+(\d+)([₺$€]|\s*Freespin)/i);
+                    if (match) {
+                        const amount = match[1] + (match[2] ? match[2].trim() : '');
+                        const question = `Bu promosyondan yararlanmak için minimum yatırım miktarı ne kadardır?`;
+                        let options = [amount];
+                        options = options.concat(generateNumericWrongOptions(amount, 3));
+                        options = options.sort(() => Math.random() - 0.5);
+                        const correctIndex = options.indexOf(amount);
+                        if (correctIndex !== -1 && options.length === 4) {
+                            dynamicQuizzes.push({
+                                question: question,
+                                options: options,
+                                correct: correctIndex,
+                                explanation: `Minimum yatırım miktarı ${amount} olarak belirtilmiştir.`
+                            });
+                        }
+                    }
+
+                    // Örnek: Freespin miktarı soruları
+                    match = item.match(/maksimum\s+(\d+)\s*freespin/i);
+                    if (match) {
+                        const amount = match[1] + " Freespin";
+                        const question = `Bu promosyonda alınabilecek maksimum freespin miktarı ne kadardır?`;
+                        let options = [amount];
+                        options = options.concat(generateNumericWrongOptions(amount, 3));
+                        options = options.sort(() => Math.random() - 0.5);
+                        const correctIndex = options.indexOf(amount);
+                        if (correctIndex !== -1 && options.length === 4) {
+                            dynamicQuizzes.push({
+                                question: question,
+                                options: options,
+                                correct: correctIndex,
+                                explanation: `Maksimum freespin miktarı ${amount} olarak belirtilmiştir.`
+                            });
+                        }
+                    }
+
+                    // Örnek: Geçerlilik süresi soruları
+                    match = item.match(/geçerlilik süresi\s*(\d+\s*(saat|gün|hafta|ay|yıl))/i);
+                    if (match) {
+                        const duration = match[1];
+                        const question = `Bu promosyonun geçerlilik süresi ne kadardır?`;
+                        let options = [duration];
+                        options = options.concat(generateTimeWrongOptions(duration, 3));
+                        options = options.sort(() => Math.random() - 0.5);
+                        const correctIndex = options.indexOf(duration);
+                        if (correctIndex !== -1 && options.length === 4) {
+                            dynamicQuizzes.push({
+                                question: question,
+                                options: options,
+                                correct: correctIndex,
+                                explanation: `Promosyonun geçerlilik süresi ${duration} olarak belirtilmiştir.`
+                            });
+                        }
+                    }
+                    
+                    // Basit anahtar kelime tabanlı sorular (daha önce eklediğimiz örnek) - Sadece bir kere eklenmesini sağlamak için kontrol ekleyebiliriz.
+                    if (item.includes("Cash Out sadece spor bahislerinde geçerlidir.") && !dynamicQuizzes.some(q => q.question === "Cash Out hangi bahis türlerinde geçerlidir?")) {
+                        dynamicQuizzes.push({
+                            question: "Cash Out hangi bahis türlerinde geçerlidir?",
+                            options: ["Casino oyunlarında", "Sadece canlı bahislerde", "Spor bahislerinde", "Slot oyunlarında"],
+                            correct: 2,
+                            explanation: "Cash Out sadece spor bahislerinde geçerlidir."
+                        });
+                    }
+                });
+            }
+
+            return dynamicQuizzes;
+        }
+
         async function loadPromosData() {
             try {
                 const promoFiles = [
@@ -220,16 +407,25 @@
                 return;
             }
             
-            let quizArray = Array.isArray(promo.quiz) ? promo.quiz : [promo.quiz];
+            let allQuizzes = [];
 
-            if (quizArray.length === 0) {
+            // Mevcut (manuel olarak eklenmiş) quizleri ekle
+            if (promo.quiz) {
+                allQuizzes = allQuizzes.concat(Array.isArray(promo.quiz) ? promo.quiz : [promo.quiz]);
+            }
+            
+            // Dinamik olarak oluşturulan quizleri ekle
+            const dynamicQuizzes = generateQuizQuestions(promo);
+            allQuizzes = allQuizzes.concat(dynamicQuizzes);
+
+            if (allQuizzes.length === 0) {
                 document.getElementById('quiz-content').style.display = 'none';
                 alert('Bu promosyon için quiz bulunamadı!');
                 return;
             }
 
-            const randomIndex = Math.floor(Math.random() * quizArray.length);
-            currentQuiz = quizArray[randomIndex];
+            const randomIndex = Math.floor(Math.random() * allQuizzes.length);
+            currentQuiz = allQuizzes[randomIndex];
             
             document.getElementById('quiz-content').style.display = 'block';
             

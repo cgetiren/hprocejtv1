@@ -768,7 +768,7 @@
                     <input type="text" class="search-box" placeholder="🔍 Promosyon ara..." onkeyup="searchPromos()">
                     <div id="promosyon-container">
                         <!-- Promosyonlar buraya yüklenecek -->
-                    </div>
+                </div>
 
                     <!-- Yeni Sağlayıcı Bonusları Çekmecesi -->
                     <div class="accordion" id="saglayici-bonuslari-accordion">
@@ -780,9 +780,9 @@
                             <div id="saglayici-promosyon-container">
                                 <!-- Sağlayıcı promosyonları buraya yüklenecek -->
                             </div>
+                            </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
 
                 <!-- Quiz Tab -->
                 <div id="quiz" class="tab-content">
@@ -1248,14 +1248,14 @@
 
             const providerContainer = document.getElementById('saglayici-promosyon-container');
             providerContainer.innerHTML = '';
-            
+
             promos.forEach(promo => {
                 if (promo.id === 'pragmatic-play') {
                     const accordion = createPromoAccordion(promo);
                     providerContainer.appendChild(accordion);
                 } else {
-                    const accordion = createPromoAccordion(promo);
-                    container.appendChild(accordion);
+                const accordion = createPromoAccordion(promo);
+                container.appendChild(accordion);
                 }
             });
         }
