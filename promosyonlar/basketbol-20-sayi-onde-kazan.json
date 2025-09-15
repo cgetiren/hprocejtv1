@@ -1,0 +1,43 @@
+{
+  "id": "basketbol-20-sayi-onde-kazan",
+  "title": "🏀 Basketbolda 20 Sayı Farkla Öne Geç, Kazan!",
+  "shortDesc": "Son Çeyreği Beklemeye Gerek Yok! Basketbolda Erken Sonuçlandırma Hitbet’te!",
+  "description": "Geçerli liglerde maç öncesi yapılan ev sahibi kazanır veya deplasman kazanır bahislerinde geçerlidir. Seçtiğiniz takım maç sırasında 20 sayı farkla öne geçerse, bahsiniz kazandı olarak sonuçlandırılır!",
+  "keywords": "basketbol, 20 sayı, erken sonuçlandırma, bahis, kazan, nba, euroleague",
+  "basicInfo": {
+    "promosyonTuru": "Erken Sonuçlandırma",
+    "geçerlilik": "Maç öncesi ev sahibi/deplasman kazanır bahisleri",
+    "sayıFarkı": "20 sayı farkla öne geçme",
+    "kuponTürleri": "Tekli ve kombine bahisler"
+  },
+  "sections": {
+    "gecerliLigler": {
+      "title": "Geçerli Ligler",
+      "content": [
+        "1. NBA",
+        "2. EuroLeague",
+        "3. EuroBasket",
+        "4. FIBA Champions League",
+        "5. EuroCup",
+        "6. Liga ACB (İspanya)"
+      ]
+    },
+    "kurallar": {
+      "title": "Kurallar",
+      "content": [
+        "1. Bu özellik hem tekli hem de kombine bahislerde geçerlidir.",
+        "2. Örneğin, seçtiğiniz takım skor olarak 45-25, 78-58, 90-70 gibi 20 sayı fark yakaladığında, bahsiniz sistem tarafından otomatik olarak kazançlı sayılır.",
+        "3. Bahislerinizi maksimum bahis limitleri dahilinde dilediğiniz tutarda oluşturabilirsiniz.",
+        "4. Geçerli liglerde oynanan karşılaşmalarda, ev sahibi veya deplasman galibiyetine oynanan bahislerde Erken Sonuçlandırma özelliği otomatik olarak devreye girer."
+      ]
+    },
+    "genelBonusKurallari": {
+      "title": "Genel Bonus Kuralları",
+      "content": [
+        "1. Hitbet bu bonusu istediği zaman durdurma ya da iptal etme hakkına sahiptir.",
+        "2. Bonus kötüye kullanımı durumunda bonusu ve bonustan elde edilen kazancı geri alma hakkına sahiptir.",
+        "3. Hitbet Genel Bonus Kuralları geçerlidir."
+      ]
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "spor-hos-geldin-bonusu",
+  "title": "🎁 %100 Spor Hoş Geldin Bonusu",
+  "shortDesc": "İlk Yatırımınıza %50, İkinciye %100 Bonus ile Kazanç Sınırı Olmayan Hitbet Spor Dünyasına Hoş Geldiniz!",
+  "description": "İlk Yatırımınıza %50, İkinciye %100 Bonus ile Kazanç Sınırı Olmayan Hitbet Spor Dünyasına Hoş Geldiniz!",
+  "keywords": "spor hoş geldin, %100 bonus, freebet, ilk yatırım, ikinci yatırım, kazanç sınırı yok",
+  "basicInfo": {
+    "promosyonTuru": "Hoş Geldin Bonusu",
+    "Bonus Oranı": "İlk yatırıma %50, İkinci yatırıma %100",
+    "Minimum Yatırım": "100₺",
+    "Maksimum Bonus": "Toplamda 20.000₺ (İlk 10.000₺, İkinci 10.000₺)",
+    "Geçerlilik Süresi": "7 gün",
+    "Çevrim Şartı": "Yatırım + bonusun 6 katı (kombine kuponlarda min 1.90 oran)",
+    "Kullanım": "Sadece spor bahisleri"
+  },
+  "sections": {
+    "hakEdisSartlari": {
+      "title": "📋 Hak Ediş Şartları",
+      "content": [
+        "1. Birinci ve ikinci yatırım işleminize özel spor bahisleri alanında geçerli %50 ve %100 Spor Hoş Geldin Bonusunuz bizden!",
+        "2. Bu promosyon mobil ödeme ve kredi kartı yatırım yöntemleri hariç diğer yatırım yöntemleri ile yapılan minimum 100 ₺ ve üstü yatırımlar için geçerlidir.",
+        "3. Bu promosyondan yararlanabilmeniz için ilk kez yatırım gerçekleştirmiş olmanız gerekmektedir.",
+        "4. İlk adımda kazanç sağlanmış dahi olunsa ikinci adım olan %100 Spor Hoş Geldin Bonusumuzdan yararlanabilirsiniz.",
+        "5. Bonus aktarımları 24 saatlik periyotta kar zarar durumunuza göre aktarılacaktır. 24 saat içinde karda olan üyeler bu promosyondan faydalanamaz. (Hesaplamaya bonus alınmayan yatırımlar ve çekimler dahil edilecektir.)",
+        "6. Bu promosyondan yararlanabilmeniz için yatırımınızın hemen ardından hiçbir işlem yapmadan Bonus Talep Sayfasından bonusunuzu talep etmeniz gerekmektedir.",
+        "7. Bu promosyondan ilk yatırımınızın %50’si kadar 10.000₺ ve 2. yatırımınızın %100’ü 10.000₺ olacak şekilde toplamda maksimum 20.000₺ olarak yararlanabilirsiniz."
+      ]
+    },
+    "bonusOzellikleri": {
+      "title": "🎯 Bonus Özellikleri",
+      "content": [
+        "1. Bu bonus spor bahisleri için geçerlidir. E-spor alanında geçerli olmamaktadır. Çevrimi tamamlanmadan Spor alanı dışında bonus bakiyesi ile bahis alınamaz.",
+        "2. Bonus çevriminizi tamamlamnız ve bonus bakiyenizin ana bakiyenize aktarılması ardından hiç bir kazanç sınırlandırması bulunmamaktadır.",
+        "3. Bu promosyonu sadece spor bahislerinde kullanabilirsiniz.",
+        "4. Spor Hoş Geldin Bonusunu farklı amaçlar için aldığı tespit edilen üyelerin spor alanına girişi engellenebilir ve kişinin haksız kazançtan elde ettiği bakiyeye el konulabilir.",
+        "5. Bonusun geçerlilik süresi 7 gündür. 7 gün içerisinde çevrimini tamamlamayan kullanıcıların bonusları iptal edilecektir.",
+        "6. Bu promosyondan her kullanıcı sadece bir defa faydalanabilir. Aynı IP adresini, adres bilgilerini, e-mail hesabını, telefon numaraları vb. gibi kişisel bilgilerini paylaşan kullanıcıların sadece biri bu promosyondan faydalanabilecektir."
+      ]
+    },
+    "bonusCevrimSartlari": {
+      "title": "🔄 Bonus Çevrim Şartları",
+      "content": [
+        "1. Spor bahisleri alanının dışında bahis alabilmek için; yatırım miktarınız ve aldığınız bonusun 6 katı kadar spor Bahisleri alanında sadece kombine kuponlarda her bir tercihinizin 1.90 oran veya üzerinde olması gerekmektedir.",
+        "2. Örnek: 250₺ yatırım yaparak almış olduğunuz 250₺ bonusun çevirimi için:– 6X500₺= 3.000₺ değerinde bonus çevrimine uygun bahis alınması gerekmektedir.",
+        "3. Bonus bakiyeniz ile olası kaybınızda spor hoş geldin bonus çevriminiz ana paranız üzerinden devam edecektir.",
+        "4. Aynı spor karşılaşmalarını barındıran kuponlardan sadece ilki çevrime katlı sağlayacaktır.",
+        "5. Bonus çevrimine Cashout (Bozdurulan kuponlar), Sistem Kuponları, Alt/Üst – Tek/Çift gibi aynı maça karşılıklı alınan bahisler ve iade edilen kuponlar dahil edilmemektedir."
+      ]
+    },
+    "gecerliMusabakalar": {
+      "title": "⚽ Geçerli Müsabakalar",
+      "content": [
+        "1. Bu promosyonu sadece spor bahislerinde kullanabilirsiniz. Casino&Canlı Casino oyunlarına katılım sağlanamaz.",
+        "2. Aynı spor karşılaşmalarını barındıran kuponlardan sadece ilki çevrime katlı sağlayacaktır."
+      ]
+    },
+    "genelBonusKurallari": {
+      "title": "📝 Genel Bonus Kuralları",
+      "content": [
+        "1. Hitbet bu bonusu istediği zaman durdurma ya da iptal etme hakkına sahiptir.",
+        "2. Bonus kötüye kullanımı durumunda bonusu ve bonstan elde edilen kazancı geri alma hakkına sahiptir.",
+        "3. Hitbet genel bonus kuralları geçerlidir."
+      ]
+    }
+  }
+}

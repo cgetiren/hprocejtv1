@@ -1,0 +1,48 @@
+{
+  "id": "futbol-2-gol-onde-kazan",
+  "title": "⚽ Futbolda 2 Gol Farkla Öne Geç, Kazan!",
+  "shortDesc": "90 Dakika Beklemeye Son! Erken Sonuçlandırma Artık Hitbet’te!",
+  "description": "Geçerli liglerde maç öncesi yapılan ev sahibi kazanır veya deplasman kazanır bahislerinde geçerlidir. Seçtiğiniz taraf maç içinde 2 farkla öne geçerse, örneğin 2-0, 3-1, 4-2 gibi, bahsiniz kazandı olarak sonuçlandırılır!",
+  "keywords": "futbol, 2 gol, erken sonuçlandırma, bahis, kazan, süper lig, şampiyonlar ligi",
+  "basicInfo": {
+    "promosyonTuru": "Erken Sonuçlandırma",
+    "geçerlilik": "Maç öncesi ev sahibi/deplasman kazanır bahisleri",
+    "golFarkı": "2 gol farkla öne geçme",
+    "kuponTürleri": "Tekli ve kombine bahisler"
+  },
+  "sections": {
+    "gecerliLigler": {
+      "title": "Geçerli Ligler",
+      "content": [
+        "1. Türkiye Süper Lig",
+        "2. Türkiye 1. Lig",
+        "3. İngiltere Premier Lig",
+        "4. Almanya Bundesliga",
+        "5. Fransa Ligue 1",
+        "6. İspanya La Liga",
+        "7. İtalya Serie A",
+        "8. UEFA Şampiyonlar Ligi",
+        "9. UEFA Avrupa Ligi",
+        "10. UEFA Konferans Ligi",
+        "11. FIFA Dünya Kupası Elemeleri"
+      ]
+    },
+    "kurallar": {
+      "title": "Kurallar",
+      "content": [
+        "1. Özellik, tekli ve kombine bahislerde geçerlidir.",
+        "2. Bahis alımınızda, seçtiğiniz takımın iki farklı skora ulaşarak öne geçmesi yeterlidir (örneğin 2-0, 3-1, 5-3).",
+        "3. Bahislerinizi maksimum bahis limitleri dahilinde dilediğiniz tutarda oluşturabilirsiniz.",
+        "4. Geçerli liglerde oynanan karşılaşmalarda, ev sahibi veya deplasman galibiyeti bahisinizde Erken Sonuçlandırma otomatik olarak aktif hale gelir."
+      ]
+    },
+    "genelBonusKurallari": {
+      "title": "Genel Bonus Kuralları",
+      "content": [
+        "1. Hitbet bu bonusu istediği zaman durdurma ya da iptal etme hakkına sahiptir.",
+        "2. Bonus kötüye kullanımı durumunda bonusu ve bonustan elde edilen kazancı geri alma hakkına sahiptir.",
+        "3. Hitbet Genel Bonus Kuralları geçerlidir."
+      ]
+    }
+  }
+}

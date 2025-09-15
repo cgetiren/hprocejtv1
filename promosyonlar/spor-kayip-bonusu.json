@@ -1,0 +1,62 @@
+{
+  "id": "spor-kayip-bonusu",
+  "title": "💸 %15'e Varan Spor Kayıp Bonusu",
+  "shortDesc": "Kayıplarınızı Düşünmeyin, Kazanmaya Odaklanın! %15’e Varan Kazanç Sınırı Olmayan Spor Kayıp Bonusu ile Heyecan Hep Hitbet’te!",
+  "description": "Kayıplarınızı Düşünmeyin, Kazanmaya Odaklanın! %15’e Varan Kazanç Sınırı Olmayan Spor Kayıp Bonusu ile Heyecan Hep Hitbet’te!",
+  "keywords": "spor kayıp bonusu, freebet, kayıp, %15, yatırım, canlı spor, e-spor",
+  "basicInfo": {
+    "promosyonTuru": "Kayıp Bonusu",
+    "Bonus Oranı": "%10 - %15 (Kayıp miktarına göre)",
+    "Minimum Kayıp": "100₺",
+    "Talep Süresi": "24 saat içinde",
+    "Geçerlilik Süresi": "7 gün",
+    "Maksimum Kazanç": "Sınırsız"
+  },
+  "sections": {
+    "hakEdisSartlari": {
+      "title": "📋 Hak Ediş Şartları",
+      "content": [
+        "1. Spor Kayıp Bonusumuzdan Canlı Spor Bahsi, Maç Öncesi Spor Bahisleri, Sanal Bahisler ve E-Spor bahislerindeki kayıplarınız için yararlanabilirsiniz.",
+        "2. Son 24 saat içinde tek seferde minimum 100₺ ve üstü yatırımlarınıza Spor Kayıp Bonusu talep edebilirsiniz.",
+        "3. Kayıp bonusu aktarımları 24 saat kar zarar durumu baz alınarak gerçekleştirilmektedir. 24 Saat içinde zararı olan üyelere aktarılmaktadır. (Hesaplamaya sadece bonus alınmayan yatırımlar dahil edilecektir.)",
+        "4. Kayıp bonusunuzu yatırım saatinden sonra maksimum 24 saat içerisinde Bonus Talep sayfasından talep etmeniz gerekmektedir.",
+        "5. Kayıp bonusları aktarımları tek seferdeki yatırım miktarına oranla aktarılır.",
+        "6. Kayıp bonusu talep edebilmeniz için bakiyenizin 2₺ altında olması ve açık spor/casino bahsinizin olmaması gerekmektedir."
+      ]
+    },
+    "bonusOzellikleri": {
+      "title": "🎯 Bonus Özellikleri",
+      "content": [
+        "1. 100₺ – 99.999₺ arası kayıplara %10 oranında, 100.000₺ ve üstü kayıplarda ise %15 oranında Spor Kayıp Bonusu aktarımı sağlanacaktır.",
+        "2. Kayıp bonusu talep edebilmeniz için bakiyenizin 2₺ altında olması ve spor/casino bahsinizin olmaması gerekmektedir.",
+        "3. Spor Hoş Geldin Bonusu ile birleştirilemez. Ertesi Gün Bonusundan yararlanan üyelerimiz ise kayıp bonuslarımızdan yararlanabilir.",
+        "4. Hesaplarda kullanılmamış Freebet veya Freespin mevcut ise kayıp bonusundan yararlanılamaz.",
+        "5. Bonusun geçerlilik süresi 7 gündür. 7 gün içerisinde çevrimini tamamlamayan kullanıcıların bonusları iptal edilecektir."
+      ]
+    },
+    "bonusCevrimSartlari": {
+      "title": "🔄 Bonus Çevrim Şartları",
+      "content": [
+        "1. Spor kayıp bonusundan faydalanmanız ardından çekim yapabilmek ya da casino alanında bahis alabilemek için aldığınız bonus miktarı kadar Tekli kuponlarda 1,30 veya üzeri, kombine kuponlarda ise en az 1 seçiminizin 1,30 veya üzeri olacak şekilde bahis almanız gerekmektedir.",
+        "2. Kayıp bonusundan faydalanabileceğiniz maksimum limit bulunmamaktadır.",
+        "3. Kayıp bonusu ile kazanç sınırı bulunmamaktadır.",
+        "4. Bonus çevrimine Cashout (Bozdurulan kuponlar), Sistem Kuponları, Alt/Üst – Tek/Çift gibi aynı maça karşılıklı alınan bahisler ve iade edilen kuponlar dahil edilmemektedir.",
+        "5. Aynı spor karşılaşmalarını barındıran kuponlardan sadece ilki çevrime katkı sağlayacaktır."
+      ]
+    },
+    "gecerliMusabakalar": {
+      "title": "⚽ Geçerli Müsabakalar",
+      "content": [
+        "1. Herhangi bir kısıtlama bulunmamaktadır. Spor kayıp bonusu çevrim şartlarını karşılamanız durumunda tüm spor branşlarına bahis alabilirsiniz."
+      ]
+    },
+    "genelBonusKurallari": {
+      "title": "📝 Genel Bonus Kuralları",
+      "content": [
+        "1. Hitbet bu bonusu istediği zaman durdurma ya da iptal etme hakkına sahiptir.",
+        "2. Bonus kötüye kullanımı durumunda bonusu ve bonstan elde edilen kazancı geri alma hakkına sahiptir.",
+        "3. Hitbet genel bonus kuralları geçerlidir."
+      ]
+    }
+  }
+}

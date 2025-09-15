@@ -54,7 +54,7 @@ hproject-egitim/
 ├── promosyonlar/                              # Promosyon verileri
 │   ├── pragmatic-play.json                   # Pragmatic Play Drops & Wins
 │   ├── ertesi-gun.json                       # %35 Ertesi Gün Bonusu
-│   ├── bonus-buy.json                        # 1500TL Bonus Buy
+│   ├── bonus-buy.json                        # Her Ayın 5'i 15'i 25'i Bonus Buy
 │   ├── hos-geldin.json                       # %100 Casino Hoş Geldin
 │   ├── spor-freebet.json                     # %10 Spor Freebet
 │   ├── casino-kayip-bonusu.json              # %25 Casino Kayıp Bonusu
@@ -125,7 +125,7 @@ docker run -p 8080:80 hproject-egitim
 |-----------|----------|---------------|-------|
 | 🎰 Pragmatic Play Drops & Wins 2025 | Büyük ödül havuzu ve günlük turnuvalar | 5 soru | ✅ Aktif |
 | 🎯 %35 Ertesi Gün Bonusu | Günlük kazanç sınırı olmayan bonus | 5 soru | ✅ Aktif |
-| 💰 1500TL Bonus Buy | Slot oyunlarında bonus satın alma | 5 soru | ✅ Aktif |
+| 💰 Her Ayın 5'i 15'i 25'i Bonus Buy | Slot oyunlarında bonus satın alma | 5 soru | ✅ Aktif |
 | 🎉 %100 Casino Hoş Geldin | Yeni üyelere özel hoş geldin bonusu | 5 soru | ✅ Aktif |
 | ⚽ %10 Spor Freebet | Spor bahislerinde ücretsiz bahis | 5 soru | ✅ Aktif |
 | 🎲 %25 Casino Kayıp Bonusu | Kayıplarınızı telafi eden bonus | 5 soru | ✅ Aktif |
