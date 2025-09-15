@@ -917,7 +917,8 @@
         let currentAnswer = -1;
         let currentQuiz = null;
         let editingPromoId = null;
-        let promos = [];
+        let regularPromos = []; // Normal promosyonlar
+        let providerPromos = []; // Sağlayıcı promosyonları
 
         // Promosyonları yükle
         async function loadPromos() {
@@ -937,19 +938,21 @@
                     'kalamba-cash-drop.json'
                 ];
 
-                promos = [];
+                regularPromos = [];
+                providerPromos = [];
                 let loadedCount = 0;
                 
+                // Normal promosyonları yükle
                 for (const file of promoFiles) {
                     try {
                         const promoResponse = await fetch(`promosyonlar/${file}`);
                         if (promoResponse.ok) {
                             const promo = await promoResponse.json();
-                            promos.push(promo);
+                            regularPromos.push(promo);
                             loadedCount++;
                         }
                     } catch (error) {
-                        console.error(`Error loading ${file}:`, error);
+                        console.error(`Error loading regular promo ${file}:`, error);
                     }
                 }
 
@@ -959,13 +962,11 @@
                         const promoResponse = await fetch(`promosyonlar/${file}`);
                         if (promoResponse.ok) {
                             const promo = await promoResponse.json();
-                            // Sağlayıcı promosyonlarını ayrı bir kategoriye ekliyoruz
-                            // Şimdilik ana 'promos' dizisine ekleyeceğim, sonra ayrıştıracağım
-                            promos.push(promo);
+                            providerPromos.push(promo);
                             loadedCount++;
                         }
                     } catch (error) {
-                        console.error(`Error loading ${file}:`, error);
+                        console.error(`Error loading provider promo ${file}:`, error);
                     }
                 }
 
@@ -1352,6 +1353,10 @@
                     }
                 }
             ];
+
+            // Varsayılan promosyonları regular ve provider olarak ayır
+            regularPromos = promos.filter(p => p.id !== 'pragmatic-play' && p.id !== 'kalamba-cash-drop');
+            providerPromos = promos.filter(p => p.id === 'pragmatic-play' || p.id === 'kalamba-cash-drop');
         }
 
         function renderPromos() {
@@ -1361,14 +1366,16 @@
             const providerContainer = document.getElementById('saglayici-promosyon-container');
             providerContainer.innerHTML = '';
 
-            promos.forEach(promo => {
-                if (promo.id === 'pragmatic-play') {
-                    const accordion = createPromoAccordion(promo);
-                    providerContainer.appendChild(accordion);
-                } else {
+            // Normal promosyonları render et
+            regularPromos.forEach(promo => {
                 const accordion = createPromoAccordion(promo);
                 container.appendChild(accordion);
-                }
+            });
+
+            // Sağlayıcı promosyonlarını render et
+            providerPromos.forEach(promo => {
+                const accordion = createPromoAccordion(promo);
+                providerContainer.appendChild(accordion);
             });
         }
 
@@ -1453,7 +1460,8 @@
             const list = document.getElementById('promo-list');
             list.innerHTML = '';
             
-            promos.forEach(promo => {
+            // updatePromoList'in de promos yerine regularPromos ve providerPromos kullanması gerekiyor
+            [...regularPromos, ...providerPromos].forEach(promo => {
                 const item = document.createElement('div');
                 item.className = 'promo-item';
                 item.innerHTML = `
@@ -1547,11 +1555,16 @@
                 }
 
                 // Mevcut promosyonu güncelle veya yeni ekle
-                const existingIndex = promos.findIndex(p => p.id === newPromo.id);
+                // Bu kısım daha karmaşık hale gelecek, hangi diziye ekleneceğini belirlemek gerekecek
+                // Şimdilik basit tutalım ve sadece promos dizisini güncelleyelim, sonra renderPromos çağrılsın
+                const isProviderPromo = newPromo.keywords.includes('sağlayıcı') || newPromo.id === 'pragmatic-play' || newPromo.id === 'kalamba-cash-drop';
+                let targetArray = isProviderPromo ? providerPromos : regularPromos;
+
+                const existingIndex = targetArray.findIndex(p => p.id === newPromo.id);
                 if (existingIndex !== -1) {
-                    promos[existingIndex] = newPromo;
+                    targetArray[existingIndex] = newPromo;
                 } else {
-                    promos.push(newPromo);
+                    targetArray.push(newPromo);
                 }
 
                 renderPromos();
