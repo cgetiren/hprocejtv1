@@ -1530,7 +1530,7 @@
             });
             
             document.getElementById(tabName).classList.add('active');
-            event.target.classList.add('active');
+            document.querySelector(`.nav-tab[onclick="showTab('${tabName}')"]`).classList.add('active');
         }
 
         function toggleAccordion(header) {
