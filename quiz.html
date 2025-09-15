@@ -124,8 +124,17 @@
 </head>
 <body>
     <div class="quiz-container">
-        <h3 style="margin-bottom: 20px; color: #ffc107;">🎯 Promosyon Quizleri</h3>
+        <h3 style="margin-bottom: 20px; color: #ffc107;">🎯 Quizler</h3>
         
+        <div class="quiz-category-tabs" style="display: flex; margin-bottom: 20px; border-radius: 10px; overflow: hidden;">
+            <button class="quiz-category-tab active" id="tab-promosyon" onclick="showQuizCategory('promosyon')" style="flex: 1; padding: 10px; text-align: center; cursor: pointer; background: #ffc107; color: #0a1f44; font-weight: bold; transition: all 0.3s ease;">
+                Promosyon Quizleri
+            </button>
+            <button class="quiz-category-tab" id="tab-saglayici" onclick="showQuizCategory('saglayici')" style="flex: 1; padding: 10px; text-align: center; cursor: pointer; background: #1a3a6b; color: #ffffff; font-weight: bold; transition: all 0.3s ease;">
+                Sağlayıcı Quizleri
+            </button>
+        </div>
+
         <div class="form-group" style="margin-bottom: 20px;">
             <label>Quiz Yapmak İstediğiniz Promosyonu Seçin:</label>
             <select id="promo-select" onchange="loadQuiz()" style="width: 100%; padding: 10px; border: 1px solid #dee2e6; border-radius: 8px;">
@@ -154,7 +163,10 @@
     <script>
         let currentAnswer = -1;
         let currentQuiz = null;
-        let promos = [];
+        let regularPromos = []; // Normal promosyonlar
+        let providerPromos = []; // Sağlayıcı promosyonları
+        let activePromos = []; // Şu an aktif olan promosyon listesi
+        let currentQuizCategory = 'promosyon'; // Varsayılan olarak promosyon quizleri aktif
 
         // Yardımcı fonksiyon: Metin temizleme
         function cleanText(text) {
@@ -213,7 +225,7 @@
             
             // Sadece diğer promosyonlardan veya aynı promosyonun diğer ilgili alanlarından seçenekleri topla
             const contextualOptions = new Set();
-            promos.forEach(p => {
+            activePromos.forEach(p => {
                 // Aynı promosyonun diğer basicInfo değerleri
                 if (p.basicInfo) {
                     Object.values(p.basicInfo).forEach(val => {
@@ -255,7 +267,8 @@
             const dynamicQuizzes = [];
 
             const allPossibleAnswersForWrongOptions = [];
-            promos.forEach(p => {
+            // generateQuizQuestions içindeki promos.forEach döngüsünü activePromos olarak değiştir
+            activePromos.forEach(p => {
                 if (p.basicInfo) allPossibleAnswersForWrongOptions.push(...Object.values(p.basicInfo).map(cleanText));
                 if (p.sections) {
                     const sectionContents = Array.isArray(p.sections) ? p.sections.flatMap(s => s.content || []).filter(item => typeof item === 'string') : 
@@ -604,7 +617,6 @@
         async function loadPromosData() {
             try {
                 const promoFiles = [
-                    'pragmatic-play.json',
                     'ertesi-gun.json',
                     'bonus-buy.json',
                     'hos-geldin.json',
@@ -614,21 +626,44 @@
                     'cash-out.json'
                 ];
 
-                promos = [];
+                const providerPromoFiles = [
+                    'pragmatic-play.json',
+                    'kalamba-cash-drop.json'
+                ];
+
+                regularPromos = [];
+                providerPromos = [];
+
+                // Normal promosyonları yükle
                 for (const file of promoFiles) {
                     try {
                         const promoResponse = await fetch(`../promosyonlar/${file}`);
                         if (promoResponse.ok) {
                             const promo = await promoResponse.json();
-                            promos.push(promo);
+                            regularPromos.push(promo);
                         }
                     } catch (error) {
-                        console.error(`Error loading ${file}:`, error);
+                        console.error(`Error loading regular promo ${file}:`, error);
                     }
                 }
-                updatePromoSelect();
+
+                // Sağlayıcı promosyonlarını yükle
+                for (const file of providerPromoFiles) {
+                    try {
+                        const promoResponse = await fetch(`../promosyonlar/${file}`);
+                        if (promoResponse.ok) {
+                            const promo = await promoResponse.json();
+                            providerPromos.push(promo);
+                        }
+                    } catch (error) {
+                        console.error(`Error loading provider promo ${file}:`, error);
+                    }
+                }
+
+                // Başlangıçta aktif promosyonları ayarla ve select box'ı güncelle
+                showQuizCategory(currentQuizCategory);
             } catch (error) {
-                console.error('Error loading promos data:', error);
+                console.error('Error loading all promos data:', error);
             }
         }
 
@@ -636,19 +671,54 @@
             const select = document.getElementById('promo-select');
             select.innerHTML = '<option value="">Promosyon seçin...</option>';
             
-            promos.forEach(promo => {
-                if (promo.quiz && Array.isArray(promo.quiz) && promo.quiz.length > 0) {
+            activePromos.forEach(promo => {
+                // Sadece quiz alanı olan promosyonları göster
+                if (promo.quiz && (Array.isArray(promo.quiz) && promo.quiz.length > 0 || typeof promo.quiz === 'object' && Object.keys(promo.quiz).length > 0)) {
                     const option = document.createElement('option');
                     option.value = promo.id;
                     option.textContent = promo.title;
                     select.appendChild(option);
-                } else if (promo.quiz && typeof promo.quiz === 'object' && Object.keys(promo.quiz).length > 0) {
-                     const option = document.createElement('option');
-                    option.value = promo.id;
-                    option.textContent = promo.title;
-                    select.appendChild(option);
+                } else {
+                    // Dinamik olarak oluşturulan quizlerin varlığını da kontrol et
+                    const dynamicQuizzes = generateQuizQuestions(promo);
+                    if (dynamicQuizzes.length > 0) {
+                        const option = document.createElement('option');
+                        option.value = promo.id;
+                        option.textContent = promo.title;
+                        select.appendChild(option);
+                    }
                 }
             });
+        }
+
+        function showQuizCategory(category) {
+            currentQuizCategory = category;
+
+            // Tab butonlarının stilini güncelle
+            document.querySelectorAll('.quiz-category-tab').forEach(tab => {
+                tab.style.background = '#1a3a6b';
+                tab.style.color = '#ffffff';
+                tab.classList.remove('active');
+            });
+
+            const activeTab = document.getElementById(`tab-${category}`);
+            activeTab.style.background = '#ffc107';
+            activeTab.style.color = '#0a1f44';
+            activeTab.classList.add('active');
+
+            // Aktif promosyon listesini ayarla
+            if (category === 'promosyon') {
+                activePromos = regularPromos;
+            } else if (category === 'saglayici') {
+                activePromos = providerPromos;
+            }
+
+            // Promosyon seçimini ve quiz içeriğini sıfırla
+            document.getElementById('promo-select').value = '';
+            document.getElementById('quiz-content').style.display = 'none';
+            document.getElementById('score-display').style.display = 'none';
+
+            updatePromoSelect(); // Yeni listeye göre seçim kutusunu güncelle
         }
 
         function loadQuiz() {
@@ -658,7 +728,7 @@
                 return;
             }
 
-            const promo = promos.find(p => p.id === selectedPromo);
+            const promo = activePromos.find(p => p.id === selectedPromo);
             if (!promo) {
                 document.getElementById('quiz-content').style.display = 'none';
                 alert('Bu promosyon için quiz bulunamadı!');
