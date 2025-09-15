@@ -1,0 +1,65 @@
+{
+  "id": "cash-out",
+  "title": "💸 Cash Out ile Bahsi Bozdur",
+  "shortDesc": "Maç Sonucunu Bekleme",
+  "description": "MAÇ SONUCUNU BEKLEME KUPONUNU CASH OUT İLE HEMEN BOZDUR! Hitbet Cash Out ile Kazancını güvenceye al, riske veda et!",
+  "keywords": "cash out bahis bozdur spor",
+  "basicInfo": {
+    "bonusMiktari": "Yok",
+    "minimumYatirim": "Yok",
+    "gecerliGunler": "Her zaman",
+    "gecerlilikSuresi": "Süresiz",
+    "maksimumKazanc": "Yok"
+  },
+  "sections": {
+    "hakEdisSartlari": {
+      "title": "📋 Hak Ediş Şartları",
+      "content": [
+        "1. Cash Out(Bahis Bozdur) özelliğinden yararlanabilmeniz için bir spor bahsinizin olması gerekmektedir.",
+        "2. Cash Out özelliğinden yararlanabilmeniz için bahis aldığınız market tercihinin canlı bahislerde aktif olması gerekmektedir.",
+        "3. Örnek olarak MS1 oynadığınız müsabaka canlıda 3-0 önde ve ev sahibi kazanır oranı aktif değil ise(3-0 olması sebebiyle ev sahibi kazanır oranı olmayabilir) cash out seçeneği aktif olmayacaktır.",
+        "4. Cash Out seçeneği hemen hemen her karşılaşmada mevcuttur. Kuponlarım sayfasında Cash Out(Bahis Bozdur) ibaresini gördüğünüz her kuponda bu seçeneği değerlendirebilirsiniz."
+      ]
+    },
+    "cashOutOzellikleri": {
+      "title": "🎯 Cash Out Özellikleri",
+      "content": [
+        "1. Cash Out tutarları sistemsel olarak hesaplanmaktadır.",
+        "2. Bahis bozdur özelliği bulunan bahisler, karşılaşmanın ertelenmesi durumunda bahis-bozdur özelliğini kaybeder. Müsabaka oynanmaz ise ertelenen/iptal edilen müsabaka kuralları geçerli olacaktır."
+      ]
+    },
+    "bonusCevrimSartlari": {
+      "title": "🔄 Bonus Çevrim Şartları",
+      "content": [
+        "1. Cash Out bahisler çevrime dahil değildir.",
+        "2. Cash Out yapılan kuponlar için ekstra bir çevrim şartı bulunmamaktadır."
+      ]
+    },
+    "gecerliMusabakalar": {
+      "title": "⚽ Geçerli Müsabakalar",
+      "content": [
+        "1. Cash Out sadece spor bahislerinde geçerlidir.",
+        "2. Cash Out seçeneği hemen hemen her karşılaşmada mevcuttur. Kuponlarım sayfasında Cash Out(Bahis Bozdur) ibaresini gördüğünüz her kuponda bu seçeneği değerlendirebilirsiniz."
+      ]
+    },
+    "genelKurallar": {
+      "title": "📝 Genel Bonus Kuralları",
+      "content": [
+        "1. Hitbet genel bonus kuralları geçerlidir.",
+        "2. Hitbet dilediği zaman bu bonusu durdurma ya da iptal etme hakkına sahiptir.",
+        "3. Bonusu veya kazancını kötüye kullanma durumunda Hitbet bonus ve kazancı geri alma hakkına sahiptir."
+      ]
+    }
+  },
+  "quiz": {
+    "question": "Cash Out hangi bahis türlerinde geçerlidir?",
+    "options": [
+      "Casino oyunlarında",
+      "Sadece canlı bahislerde",
+      "Spor bahislerinde",
+      "Slot oyunlarında"
+    ],
+    "correct": 2,
+    "explanation": "Cash Out sadece spor bahislerinde geçerlidir."
+  }
+}

@@ -13,7 +13,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #0a1f44; /* Koyu lacivert */
             min-height: 100vh;
             padding: 20px;
         }
@@ -21,14 +21,14 @@
         .container {
             max-width: 1400px;
             margin: 0 auto;
-            background: white;
+            background: #142d5f; /* Konteyner için biraz daha açık lacivert */
             border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
             overflow: hidden;
         }
 
         .header {
-            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            background: #0a1f44; /* Header için koyu lacivert */
             color: white;
             padding: 30px;
             text-align: center;
@@ -47,8 +47,8 @@
 
         .nav-tabs {
             display: flex;
-            background: #f8f9fa;
-            border-bottom: 1px solid #dee2e6;
+            background: #0a1f44; /* Navigasyon sekmeleri için koyu lacivert */
+            border-bottom: 1px solid #0056b3;
         }
 
         .nav-tab {
@@ -56,22 +56,23 @@
             padding: 15px 20px;
             text-align: center;
             cursor: pointer;
-            background: #f8f9fa;
+            background: #0a1f44;
             border: none;
             font-size: 1.1rem;
             font-weight: 600;
-            color: #495057;
+            color: #ffffff; /* Beyaz metin */
             transition: all 0.3s ease;
         }
 
         .nav-tab.active {
-            background: white;
-            color: #ff6b6b;
-            border-bottom: 3px solid #ff6b6b;
+            background: #ffc107; /* Aktif sekme için sarı */
+            color: #0a1f44; /* Aktif sekme metni için koyu lacivert */
+            border-bottom: 3px solid #ffc107;
         }
 
         .nav-tab:hover {
-            background: #e9ecef;
+            background: #1a3a6b; /* Hover için biraz daha açık lacivert */
+            color: #ffc107;
         }
 
         .content {
@@ -107,7 +108,7 @@
         }
 
         .accordion-header {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: #1a3a6b; /* Akordiyon başlıkları için lacivert */
             color: white;
             padding: 15px 20px;
             border-radius: 10px;
@@ -125,8 +126,8 @@
         }
 
         .edit-button {
-            background: #ff6b6b !important;
-            color: white !important;
+            background: #ffc107 !important; /* Sarı edit butonu */
+            color: #0a1f44 !important;
             border: none !important;
             padding: 5px 10px !important;
             border-radius: 5px !important;
@@ -138,7 +139,7 @@
         }
 
         .edit-button:hover {
-            background: #ff5252 !important;
+            background: #ffeb3b !important; /* Açık sarı hover */
             transform: scale(1.05);
         }
 
@@ -178,7 +179,7 @@
         }
 
         .promo-card {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: #1a3a6b; /* Promosyon kartı için lacivert */
             color: white;
             padding: 25px;
             border-radius: 15px;
@@ -205,7 +206,7 @@
         }
 
         .promo-features {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.05);
             padding: 15px;
             border-radius: 10px;
             margin-top: 15px;
@@ -215,13 +216,13 @@
 
         .section-accordion {
             margin-bottom: 15px;
-            background: rgba(255,255,255,0.05);
+            background: #1a3a6b;
             border-radius: 8px;
             overflow: hidden;
         }
 
         .section-header {
-            background: rgba(255,255,255,0.1);
+            background: #1a3a6b; /* Bölüm başlıkları için lacivert */
             color: white;
             padding: 12px 15px;
             cursor: pointer;
@@ -235,7 +236,7 @@
         }
 
         .section-header:hover {
-            background: rgba(255,255,255,0.15);
+            background: #0a1f44; /* Hover için daha koyu lacivert */
         }
 
         .section-header.active {
@@ -328,9 +329,9 @@
         }
 
         .quiz-option.selected {
-            border-color: #667eea;
-            background: #667eea;
-            color: white;
+            border-color: #ffc107;
+            background: #ffc107;
+            color: #0a1f44;
         }
 
         .quiz-option.correct {
@@ -346,8 +347,8 @@
         }
 
         .quiz-button {
-            background: linear-gradient(135deg, #28a745, #20c997);
-            color: white;
+            background: #ffc107; /* Sarı quiz butonu */
+            color: #0a1f44;
             border: none;
             padding: 12px 30px;
             border-radius: 25px;
@@ -361,6 +362,7 @@
         .quiz-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            background: #ffeb3b; /* Açık sarı hover */
         }
 
         .quiz-button:disabled {
@@ -370,7 +372,7 @@
         }
 
         .score-display {
-            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            background: #1a3a6b;
             color: white;
             padding: 20px;
             border-radius: 15px;
@@ -405,7 +407,7 @@
 
         .add-promo-section h3 {
             margin-bottom: 15px;
-            color: #333;
+            color: #0a1f44; /* Koyu lacivert başlık */
             text-align: center;
         }
 
@@ -417,7 +419,7 @@
             display: block;
             font-weight: bold;
             margin-bottom: 5px;
-            color: #333;
+            color: #0a1f44; /* Koyu lacivert label */
         }
 
         .form-group input, .form-group textarea, .form-group select {
@@ -436,8 +438,8 @@
 
         .add-button {
             width: 100%;
-            background: linear-gradient(135deg, #28a745, #20c997);
-            color: white;
+            background: #ffc107; /* Sarı ekleme butonu */
+            color: #0a1f44;
             border: none;
             padding: 12px;
             border-radius: 8px;
@@ -450,6 +452,7 @@
         .add-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            background: #ffeb3b; /* Açık sarı hover */
         }
 
         .promo-manager {
@@ -619,8 +622,8 @@
         }
 
         .save-btn {
-            background: #28a745;
-            color: white;
+            background: #ffc107;
+            color: #0a1f44;
             border: none;
             padding: 8px 15px;
             border-radius: 5px;
@@ -648,6 +651,7 @@
             font-size: 12px;
             min-height: 200px;
             white-space: pre-wrap;
+            color: #333;
         }
 
         .json-editor:focus {
@@ -765,37 +769,24 @@
                     <div id="promosyon-container">
                         <!-- Promosyonlar buraya yüklenecek -->
                     </div>
+
+                    <!-- Yeni Sağlayıcı Bonusları Çekmecesi -->
+                    <div class="accordion" id="saglayici-bonuslari-accordion">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span>🎁 Sağlayıcı Bonusları</span>
+                            <span class="accordion-icon">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div id="saglayici-promosyon-container">
+                                <!-- Sağlayıcı promosyonları buraya yüklenecek -->
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Quiz Tab -->
                 <div id="quiz" class="tab-content">
-                    <div class="quiz-container">
-                        <h3 style="margin-bottom: 20px; color: #333;">🎯 Promosyon Quizleri</h3>
-                        
-                        <div class="form-group" style="margin-bottom: 20px;">
-                            <label>Quiz Yapmak İstediğiniz Promosyonu Seçin:</label>
-                            <select id="promo-select" onchange="loadQuiz()" style="width: 100%; padding: 10px; border: 1px solid #dee2e6; border-radius: 8px;">
-                                <option value="">Promosyon seçin...</option>
-                            </select>
-                        </div>
-
-                        <div id="quiz-content" style="display: none;">
-                            <div class="quiz-question" id="quiz-question">
-                                Soru yükleniyor...
-                            </div>
-                            <div class="quiz-options" id="quiz-options">
-                                <!-- Seçenekler buraya yüklenecek -->
-                            </div>
-                            <div style="display: flex; gap: 10px; margin-top: 20px;">
-                                <button class="quiz-button" onclick="checkAnswer()" id="check-btn">Cevabı Kontrol Et</button>
-                                <button class="quiz-button" onclick="loadQuiz()" style="background: linear-gradient(135deg, #17a2b8, #138496);">🔄 Yeni Soru</button>
-                            </div>
-                        </div>
-
-                        <div class="score-display" id="score-display" style="display: none;">
-                            <div id="score-text"></div>
-                        </div>
-                    </div>
+                    <iframe src="quiz.html" frameborder="0" style="width: 100%; height: 600px; border: none; background-color: transparent;"></iframe>
                 </div>
 
                 <!-- Yönetim Tab -->
@@ -821,12 +812,17 @@
         async function loadPromos() {
             try {
                 const promoFiles = [
-                    'pragmatic-play.json',
                     'ertesi-gun.json', 
                     'bonus-buy.json',
                     'hos-geldin.json',
                     'spor-freebet.json',
-                    'casino-kayip-bonusu.json'
+                    'casino-kayip-bonusu.json',
+                    'freespin-600.json',
+                    'cash-out.json'
+                ];
+
+                const providerPromoFiles = [
+                    'pragmatic-play.json'
                 ];
 
                 promos = [];
@@ -845,6 +841,22 @@
                     }
                 }
 
+                // Sağlayıcı promosyonlarını yükle
+                for (const file of providerPromoFiles) {
+                    try {
+                        const promoResponse = await fetch(`promosyonlar/${file}`);
+                        if (promoResponse.ok) {
+                            const promo = await promoResponse.json();
+                            // Sağlayıcı promosyonlarını ayrı bir kategoriye ekliyoruz
+                            // Şimdilik ana 'promos' dizisine ekleyeceğim, sonra ayrıştıracağım
+                            promos.push(promo);
+                            loadedCount++;
+                        }
+                    } catch (error) {
+                        console.error(`Error loading ${file}:`, error);
+                    }
+                }
+
                 // Eğer hiç promosyon yüklenemediyse varsayılanları yükle
                 if (loadedCount === 0) {
                     console.log('JSON dosyaları yüklenemedi, varsayılan promosyonlar yükleniyor...');
@@ -853,7 +865,6 @@
                 }
 
                 renderPromos();
-                updatePromoSelect();
                 updatePromoList();
             } catch (error) {
                 console.error('Error loading promos:', error);
@@ -890,39 +901,7 @@
                             title: '🎮 Geçerli Oyunlar',
                             content: ['Gates of Olympus 1000', 'Sweet Bonanza 1000', 'Sugar Rush 1000', 'Starlight Princess 1000', 'Big Bass Splash', 'Big Bass Bonanza', 'Zeus vs Hades', 'Chests of Cai Shen', 'The Dog House Megaways', '5 Lions Megaways']
                         }
-                    },
-                    quiz: [
-                        {
-                            question: "Pragmatic Play Drops & Wins 2025 promosyonunda günlük turnuva için minimum bahis tutarı nedir?",
-                            options: ["5 TL", "7 TL", "10 TL", "15 TL"],
-                            correct: 1,
-                            explanation: "Günlük turnuvada ödül alabilmek için minimum bahis tutarı 7 TL'dir."
-                        },
-                        {
-                            question: "Pragmatic Play Drops & Wins 2025 promosyonunda toplam ödül havuzu ne kadar?",
-                            options: ["1.000.000 EUR", "1.500.000 EUR", "2.000.000 EUR", "2.500.000 EUR"],
-                            correct: 2,
-                            explanation: "Toplam ödül havuzu 2.000.000 EUR'dur."
-                        },
-                        {
-                            question: "Haftalık turnuvada en yüksek çarpan nedir?",
-                            options: ["50.000x", "75.000x", "100.000x", "150.000x"],
-                            correct: 2,
-                            explanation: "Haftalık turnuvada en yüksek çarpan 100.000x'dir."
-                        },
-                        {
-                            question: "Pragmatic Play promosyonu ne kadar süre devam ediyor?",
-                            options: ["3 ay", "4 ay", "5 ay", "6 ay"],
-                            correct: 2,
-                            explanation: "Promosyon 5 ay sürmektedir (4 Haziran - 19 Kasım 2025)."
-                        },
-                        {
-                            question: "Günlük turnuvada kaç adet nakit ödül dağıtılıyor?",
-                            options: ["100", "200", "300", "500"],
-                            correct: 3,
-                            explanation: "Günlük turnuvada toplam 500 nakit ödül dağıtılmaktadır."
-                        }
-                    ]
+                    }
                 },
                 {
                     id: 'ertesi-gun',
@@ -946,44 +925,7 @@
                             title: '💰 Bonus Özellikleri',
                             content: ['Bu hakkedişi kullanmak için minimum 100 ₺ yatırımınızın hemen ardından herhangi bir işlem gerçekleştirmeden Bonus Talep sayfasından Ertesi Gün Bonusu talebi iletilmesi gerekmektedir.', 'Bu promosyondan tek yatırıma alınabilecek maksimum bonus miktarı anlık yatırımın %20\'si ve düne ait kayıp bonusu alınan yatırımların %10\'u ile sınırlı olmaktadır.', 'Bonusun geçerlilik süresi 7 gündür. 7 gün içerisinde çevrimini tamamlamayan kullanıcıların bonusları iptal edilecektir.']
                         }
-                    },
-                    quiz: [
-                        {
-                            question: "%35 Ertesi Gün Bonusu promosyonunda maksimum bonus miktarı nasıl hesaplanır?",
-                            options: [
-                                "Anlık yatırımın %20'si + önceki gün kaybının %10'u",
-                                "Sadece anlık yatırımın %35'i",
-                                "Sadece önceki gün kaybının %35'i",
-                                "Anlık yatırımın %35'i + önceki gün kaybının %20'si"
-                            ],
-                            correct: 0,
-                            explanation: "Maksimum bonus miktarı anlık yatırımın %20'si ve düne ait kayıp bonusu alınan yatırımların %10'u ile sınırlıdır."
-                        },
-                        {
-                            question: "Ertesi Gün Bonusu için minimum yatırım miktarı nedir?",
-                            options: ["50₺", "75₺", "100₺", "150₺"],
-                            correct: 2,
-                            explanation: "Ertesi Gün Bonusu için minimum yatırım miktarı 100₺'dir."
-                        },
-                        {
-                            question: "Ertesi Gün Bonusu geçerlilik süresi ne kadar?",
-                            options: ["3 gün", "5 gün", "7 gün", "10 gün"],
-                            correct: 2,
-                            explanation: "Ertesi Gün Bonusu geçerlilik süresi 7 gündür."
-                        },
-                        {
-                            question: "Ertesi Gün Bonusu hangi yatırım yöntemleri ile alınamaz?",
-                            options: ["Kripto", "Havale", "Mobil ödeme ve kredi kartı", "Papara"],
-                            correct: 2,
-                            explanation: "Mobil ödeme ve kredi kartı ile yatırım yapan üyeler bu bonustan yararlanamamaktadır."
-                        },
-                        {
-                            question: "Ertesi Gün Bonusu çevrim şartı casino alanında nedir?",
-                            options: ["1x", "2x", "3x", "5x"],
-                            correct: 1,
-                            explanation: "Casino alanında anapara ve bonus miktarı toplamının 2 katı kadar bahis alınması gerekmektedir."
-                        }
-                    ]
+                    }
                 },
                 {
                     id: 'bonus-buy',
@@ -1007,44 +949,7 @@
                             title: '🔄 Bonus Çevrim Şartları',
                             content: ['Freespin kazançları, ana bakiyeye aktarılmadan önce kazanç miktarının 10 katı kadar çevrim yapılmalıdır.', 'Bonus Buy bonusu kapsamında çevrim ardından ana bakiyeye aktarılacak tutar maksimum kazanç 10.000₺ olmaktadır.', 'Çevrimi dilediğiniz oyunlarda yapabilirsiniz ancak bazı oyunlar çevrime dahil değildir.']
                         }
-                    },
-                    quiz: [
-                        {
-                            question: "1500TL Bonus Buy promosyonunda geçerli günler hangileridir?",
-                            options: [
-                                "Her gün",
-                                "Her ayın 5'i, 15'i ve 25'i",
-                                "Sadece hafta sonları",
-                                "Her ayın 1'i ve 15'i"
-                            ],
-                            correct: 1,
-                            explanation: "Bu promosyon her ayın 5'i, 15'i ve 25'inde geçerlidir."
-                        },
-                        {
-                            question: "Bonus Buy promosyonu için minimum yatırım miktarı nedir?",
-                            options: ["1000₺", "1500₺", "2000₺", "2500₺"],
-                            correct: 2,
-                            explanation: "Bonus Buy promosyonu için minimum yatırım miktarı 2000₺'dir."
-                        },
-                        {
-                            question: "Bonus Buy hediye bonusunun geçerlilik süresi ne kadar?",
-                            options: ["12 saat", "24 saat", "48 saat", "72 saat"],
-                            correct: 1,
-                            explanation: "Hediye bonuslarının geçerlilik süresi 24 saattir."
-                        },
-                        {
-                            question: "Bonus Buy promosyonunda hangi oyun geçerlidir?",
-                            options: ["Sweet Bonanza", "Big Bass Splash", "Gates of Olympus", "Starlight Princess"],
-                            correct: 1,
-                            explanation: "Bonus Buy promosyonu Big Bass Splash oyununda geçerlidir."
-                        },
-                        {
-                            question: "Bonus Buy çevrim şartı nedir?",
-                            options: ["5x", "10x", "15x", "20x"],
-                            correct: 1,
-                            explanation: "Freespin kazançları, ana bakiyeye aktarılmadan önce kazanç miktarının 10 katı kadar çevrim yapılmalıdır."
-                        }
-                    ]
+                    }
                 },
                 {
                     id: 'hos-geldin',
@@ -1069,39 +974,7 @@
                             title: '🔄 Bonus Çevrim Şartları',
                             content: ['Canlı Casino & Casino alanının dışında bahis alabilmek için; aldığınız bonus miktarının 35 katı kadar Canlı Casino veya Casino alanında bahis alımı yapmanız gerekmektedir.', 'Örneğin: "250₺ yatırım yaparak almış olduğunuz 250₺ bonusun çevrimi için; 35X250₺= 8.750₺ bonus çevrimi ve 250₺ anapara çevrimi olarak toplamda 9.000₺ değerinde bahis almanız gerekmektedir.', 'Bonus çevriminizi tamamlamanız halinde ana para miktarınız kadar da Canlı Casino veya Casino alanında bahis alımı yapmanız gerekmektedir.']
                         }
-                    },
-                    quiz: [
-                        {
-                            question: "%100 Casino Hoş Geldin Bonusu promosyonunda çevrim şartı nedir?",
-                            options: ["25x", "30x", "35x", "40x"],
-                            correct: 2,
-                            explanation: "Bonus çevrimi için 35x çevrim şartı vardır (Casino/Canlı Casino alanında)."
-                        },
-                        {
-                            question: "Hoş Geldin Bonusu maksimum miktarı nedir?",
-                            options: ["5000₺", "7500₺", "10000₺", "15000₺"],
-                            correct: 2,
-                            explanation: "Hoş Geldin Bonusu maksimum 10.000₺'dir."
-                        },
-                        {
-                            question: "Hoş Geldin Bonusu kaç kez kullanılabilir?",
-                            options: ["Sınırsız", "3 kez", "2 kez", "1 kez"],
-                            correct: 3,
-                            explanation: "Bu promosyondan her kullanıcı sadece bir defa faydalanabilir."
-                        },
-                        {
-                            question: "Hoş Geldin Bonusu hangi alanlarda geçerlidir?",
-                            options: ["Sadece Casino", "Sadece Canlı Casino", "Casino ve Canlı Casino", "Tüm alanlar"],
-                            correct: 2,
-                            explanation: "Hoş Geldin Bonusu Casino ve Canlı Casino alanlarında geçerlidir."
-                        },
-                        {
-                            question: "Hoş Geldin Bonusu geçerlilik süresi ne kadar?",
-                            options: ["3 gün", "5 gün", "7 gün", "10 gün"],
-                            correct: 2,
-                            explanation: "Bonusun geçerlilik süresi 7 gündür."
-                        }
-                    ]
+                    }
                 },
                 {
                     id: 'spor-freebet',
@@ -1134,44 +1007,7 @@
                             title: '⚽ Geçerli Müsabakalar',
                             content: ['Freebetiniz ile her bir seçim minimum 1.50 oran olan 3\'lü kombine kuponunuzda kullanabilirsiniz.', 'Sadece Ev sahibi – Beraberlik – Deplasman tercihlerine alacağınız bahisler geçerlidir.', 'Sadece maç öncesi tercihlerinizde alacağıınız bahislerde geçerlidir.', 'Herhangi bir branş kısıtlaması bulunmamaktadır.']
                         }
-                    },
-                    quiz: [
-                        {
-                            question: "SPOR SEZONUNA ÖZEL %10 SPOR FREEBET promosyonunda maksimum freebet miktarı nedir?",
-                            options: [
-                                "500₺",
-                                "750₺", 
-                                "1000₺",
-                                "1500₺"
-                            ],
-                            correct: 2,
-                            explanation: "Freebet miktarı yatırım miktarınızın %10'u kadar olacak şekilde maksimum 1000₺ olmaktadır."
-                        },
-                        {
-                            question: "Spor Freebet promosyonunda günlük kullanım limiti nedir?",
-                            options: ["Sınırsız", "2 kez", "3 kez", "1 kez"],
-                            correct: 3,
-                            explanation: "Freebet promosyonumuzdan her üyemiz günde 1 kere yararlanabilir."
-                        },
-                        {
-                            question: "Spor Freebet ile maksimum kazanç nedir?",
-                            options: ["1000₺", "1500₺", "2000₺", "2500₺"],
-                            correct: 2,
-                            explanation: "Freebet ile elde edilebilecek maksimum kazanç 2000₺ olmaktadır."
-                        },
-                        {
-                            question: "Spor Freebet hangi oranlarda kullanılabilir?",
-                            options: ["1.25+", "1.50+", "1.75+", "2.00+"],
-                            correct: 1,
-                            explanation: "Freebetiniz ile her bir seçim minimum 1.50 oran olan 3'lü kombine kuponunuzda kullanabilirsiniz."
-                        },
-                        {
-                            question: "Spor Freebet hangi bahis türlerinde geçerlidir?",
-                            options: ["Canlı bahisler", "Maç öncesi bahisler", "Tüm bahisler", "Sadece tekli bahisler"],
-                            correct: 1,
-                            explanation: "Sadece maç öncesi tercihlerinizde alacağınız bahislerde geçerlidir."
-                        }
-                    ]
+                    }
                 },
                 {
                     id: 'casino-kayip-bonusu',
@@ -1204,58 +1040,223 @@
                             title: '🎮 Geçerli Oyunlar',
                             content: ['Slot oyunları: %100', 'Rulet: %1', 'Baccarat: %10', 'Blackjack: %10', 'Poker: %10', 'Zar oyunları: %10', 'Şans oyunları: %10', 'Loto oyunları: %10', 'Canlı Casino, Casino ve Tombala oyunlarında geçerlidir.', 'Baccarat, Rulet, Dragon/Tiger ve Sic-Bo oyunlarında \"1\'e 2\" ve \"1\'e 3\" oranında alınan bahislere bonus aktarılmamaktadır.']
                         }
+                    }
+                },
+                {
+                    id: 'freespin-600',
+                    title: '🎰 HER GÜN YATIRIMINZA ÖZEL 600 FREESPIN FIRSATI',
+                    shortDesc: 'Gates Of Olympus Super Scatter ve Sweet Bonanza Super Scatter ile Kazanmanın Keyfini Çıkarın! Her Yatırımınıza 600 Freespin, Hproject\'te Kazanç ve Eğlence Sizi Bekliyor!',
+                    description: 'Gates Of Olympus Super Scatter ve Sweet Bonanza Super Scatter oyunlarında büyük kazançların kapısını aralayın! Her gün yatırımınıza özel 600 freespin fırsatı ile eğlence ve kazanç dolu anlar sizi bekliyor. Pragmatic Play\'in en popüler oyunlarında ücretsiz dönüşlerle büyük ödülleri kazanma şansı yakalayın!',
+                    keywords: ["freespin", "600", "gates of olympus", "sweet bonanza", "pragmatic play", "günlük", "yatırım", "bonus"],
+                    basicInfo: {
+                        'Minimum Yatırım': '500₺',
+                        'Maksimum Freespin': '600 adet',
+                        'Geçerlilik Süresi': '24 saat',
+                        'Maksimum Kazanç': '1000₺',
+                        'Çevrim Şartı': '1x (Freespin kazancının 1 katı)',
+                        'Geçerli Oyunlar': 'Gates Of Olympus Super Scatter, Sweet Bonanza Super Scatter'
                     },
+                    sections: [
+                        {
+                            title: '🎯 Hak Ediş Şartları',
+                            content: 'Bu promosyondan yararlanabilmek için aşağıdaki şartları yerine getirmeniz gerekmektedir:',
+                            items: [
+                                "Her üyemiz yatırımlarına günde 1 defa olacak şekilde yararlanabilir",
+                                "Trinkpara Havale, Trinkpara Papara, Trinkpara Paratim, Trinkpara Pep, Trinkpara Paybol, Trinkpara Popypara, Trinkpara Kripto ve Anında Kripto yöntemi ile yatırım yapmanız gerekmektedir",
+                                "Minimum 500₺ yatırım yapmanız durumunda ilgili bonustan yararlanabilirsiniz",
+                                "Yatırım sırasında \'BONUS SEÇ\' kısmını seçerek \'HER YATIRIMA FREESPIN\' seçeneğini seçmeniz gerekmektedir",
+                                "Bu bonus Canlı destek hattı veya bonus talep sayfası üzerinde talep edilemez ve aktarılamaz",
+                                "Bu bonus aktarımlarında 24 saat kar-zarar durumu baz alınmamaktadır",
+                                "Her yatırımınız için alabileceğiniz maksimum freespin miktarı 600 adettir"
+                            ]
+                        },
+                        {
+                            title: '🎁 Bonus Özellikleri',
+                            content: 'Freespin bonusunun detaylı özellikleri ve kazanç tablosu:',
+                            items: [
+                                "Freespinler Pragmatic Play sağlayıcısına ait Gates Of Olympus Super Scatter ve Sweet Bonanza Super Scatter oyunlarında geçerlidir",
+                                "Freespin geçerlilik süresi 24 saat olmaktadır",
+                                "Freespin bonusundan yararlanan üyelerimize aynı zamanda yatırım veya kayıp bonusumuzdan da yararlanabilir",
+                                "500₺ – 999₺ arası yatırımlarınıza 50 Freespin",
+                                "1000₺ – 1499₺ arası yatırımlarınıza 100 Freespin",
+                                "1500₺ – 2999₺ arası yatırımlarınıza 150 Freespin",
+                                "3000₺ – 4999₺ arası yatırımlarınıza 200 Freespin",
+                                "5000₺ – 9999₺ arası yatırımlarınıza 350 Freespin",
+                                "10.000₺ ve üzeri yatırımlarınıza ise 600 Freespin olarak aktarılacaktır",
+                                "Freespin ile elde edilebilecek maksimum kazanç 1000₺ olmaktadır"
+                            ]
+                        },
+                        {
+                            title: '🔄 Bonus Çevrim Şartları',
+                            content: 'Freespin kazancınızı ana bakiyenize aktarmak için gerekli çevrim şartları:',
+                            items: [
+                                "Bonus çevrimini tamamlamanız için casino alanında Freespin kazancının 1 katı kadar çevrim yapmanız gerekmektedir",
+                                "Çevrim ardından bonus kazanç tutarı ana bakiyenize otomatik yansıyacaktır",
+                                "Freespin kullanımı ardından freespin kazancının 1 katı kadar çevrim yapmanız ardından dilerseniz spor alanında dilerseniz casino&canlı casino alanında oyunlara katılım sağlayabilirsiniz"
+                            ]
+                        },
+                        {
+                            title: '🎮 Geçerli Oyunlar',
+                            content: 'Freespinlerin kullanılabileceği oyunlar ve sağlayıcı bilgileri:',
+                            items: [
+                                "Freespinler Pragmatic Play sağlayıcısına ait oyunlarda geçerlidir",
+                                "Gates Of Olympus Super Scatter oyunu",
+                                "Sweet Bonanza Super Scatter oyunu",
+                                "Freespin kullanımı ardından çevrim şartı tamamlandıktan sonra tüm casino ve canlı casino oyunlarında oynayabilirsiniz"
+                            ]
+                        },
+                        {
+                            title: '📋 Genel Bonus Kuralları',
+                            content: 'Promosyon ile ilgili genel kurallar ve şartlar:',
+                            items: [
+                                "Hproject bu bonusu istediği zaman durdurma ya da iptal etme hakkına sahiptir",
+                                "Bonus kötüye kullanımı durumunda bonusu ve bonstan elde edilen kazancı geri alma hakkına sahiptir",
+                                "Hproject genel bonus kuralları geçerlidir",
+                                "Tüm bonus kuralları ve şartları Hproject\'in genel kullanım şartları ile uyumludur"
+                            ]
+                        }
+                    ],
                     quiz: [
                         {
-                            question: "%25'e Varan Casino Kayıp Bonusu promosyonunda 100.000₺ ve üzeri yatırımlar için bonus oranı nedir?",
+                            question: "600 Freespin promosyonundan yararlanabilmek için minimum ne kadar yatırım yapmanız gerekmektedir?",
                             options: [
-                                "%15",
-                                "%20", 
-                                "%25",
-                                "%30"
+                                "A) 100₺",
+                                "B) 250₺", 
+                                "C) 500₺",
+                                "D) 1000₺"
                             ],
                             correct: 2,
-                            explanation: "100.000₺ ve üzeri yatırımlar için %25 oranında bonus aktarımı sağlanmaktadır."
+                            explanation: "600 Freespin promosyonundan yararlanabilmek için minimum 500₺ yatırım yapmanız gerekmektedir."
                         },
                         {
-                            question: "Casino Kayıp Bonusu için minimum yatırım miktarı nedir?",
-                            options: ["50₺", "75₺", "100₺", "150₺"],
+                            question: "Freespinler hangi oyunlarda kullanılabilir?",
+                            options: [
+                                "A) Tüm Pragmatic Play oyunları",
+                                "B) Sadece Gates Of Olympus Super Scatter",
+                                "C) Gates Of Olympus Super Scatter ve Sweet Bonanza Super Scatter",
+                                "D) Tüm casino oyunları"
+                            ],
                             correct: 2,
-                            explanation: "Casino Kayıp Bonusu için minimum yatırım miktarı 100₺'dir."
+                            explanation: "Freespinler sadece Gates Of Olympus Super Scatter ve Sweet Bonanza Super Scatter oyunlarında kullanılabilir."
                         },
                         {
-                            question: "Casino Kayıp Bonusu çevrim şartı nedir?",
-                            options: ["1x", "2x", "3x", "5x"],
-                            correct: 0,
-                            explanation: "Casino kayıp bonusundan faydalanmanız ardından çekim yapabilmek için aldığınız bonus miktarı kadar casino veya canlı casino alanında bahis almanız gerekmektedir."
+                            question: "Freespinlerin geçerlilik süresi ne kadardır?",
+                            options: [
+                                "A) 12 saat",
+                                "B) 24 saat",
+                                "C) 48 saat",
+                                "D) 72 saat"
+                            ],
+                            correct: 1,
+                            explanation: "Freespinlerin geçerlilik süresi 24 saattir. Bu süre içinde kullanılmayan freespinler sistemsel olarak geçerliliğini kaybeder."
                         },
                         {
-                            question: "Casino Kayıp Bonusu geçerlilik süresi ne kadar?",
-                            options: ["3 gün", "5 gün", "7 gün", "10 gün"],
+                            question: "10.000₺ yatırım yapıldığında kaç freespin kazanılır?",
+                            options: [
+                                "A) 350 Freespin",
+                                "B) 500 Freespin",
+                                "C) 600 Freespin",
+                                "D) 1000 Freespin"
+                            ],
                             correct: 2,
-                            explanation: "Bonusun geçerlilik süresi 7 gündür."
+                            explanation: "10.000₺ ve üzeri yatırımlar için 600 Freespin kazanılır. Bu promosyondaki maksimum freespin miktarıdır."
                         },
                         {
-                            question: "Casino Kayıp Bonusu hangi oyunlarda geçerlidir?",
-                            options: ["Sadece Slot", "Sadece Rulet", "Canlı Casino, Casino ve Tombala", "Tüm oyunlar"],
-                            correct: 2,
-                            explanation: "Casino Kayıp bonusundan Canlı Casino, Casino ve Tombala oyunlarında yaşadığınız kayıplarınız için yararlanabilirsiniz."
+                            question: "Freespin kazancı için çevrim şartı nedir?",
+                            options: [
+                                "A) 5x çevrim",
+                                "B) 3x çevrim",
+                                "C) 2x çevrim",
+                                "D) 1x çevrim"
+                            ],
+                            correct: 3,
+                            explanation: "Freespin kazancı için sadece 1x çevrim şartı vardır. Yani freespin kazancının 1 katı kadar çevrim yapmanız yeterlidir."
                         }
                     ]
+                },
+                {
+                    id: 'cash-out',
+                    title: '💸 Cash Out ile Bahsi Bozdur',
+                    shortDesc: 'Maç Sonucunu Bekleme',
+                    description: 'MAÇ SONUCUNU BEKLEME KUPONUNU CASH OUT İLE HEMEN BOZDUR! Hitbet Cash Out ile Kazancını güvenceye al, riske veda et!',
+                    keywords: 'cash out bahis bozdur spor',
+                    basicInfo: {
+                        'Bonus Miktarı': 'Yok',
+                        'Minimum Yatırım': 'Yok',
+                        'Geçerli Günler': 'Her zaman',
+                        'Geçerlilik Süresi': 'Süresiz',
+                        'Maksimum Kazanç': 'Yok'
+                    },
+                    sections: {
+                        'Hak Ediş Şartları': {
+                            title: '📋 Hak Ediş Şartları',
+                            content: [
+                                "1. Cash Out(Bahis Bozdur) özelliğinden yararlanabilmeniz için bir spor bahsinizin olması gerekmektedir.",
+                                "2. Cash Out özelliğinden yararlanabilmeniz için bahis aldığınız market tercihinin canlı bahislerde aktif olması gerekmektedir.",
+                                "3. Örnek olarak MS1 oynadığınız müsabaka canlıda 3-0 önde ve ev sahibi kazanır oranı aktif değil ise(3-0 olması sebebiyle ev sahibi kazanır oranı olmayabilir) cash out seçeneği aktif olmayacaktır.",
+                                "4. Cash Out seçeneği hemen hemen her karşılaşmada mevcuttur. Kuponlarım sayfasında Cash Out(Bahis Bozdur) ibaresini gördüğünüz her kuponda bu seçeneği değerlendirebilirsiniz."
+                            ]
+                        },
+                        'Cash Out Özellikleri': {
+                            title: '🎯 Cash Out Özellikleri',
+                            content: [
+                                "1. Cash Out tutarları sistemsel olarak hesaplanmaktadır.",
+                                "2. Bahis bozdur özelliği bulunan bahisler, karşılaşmanın ertelenmesi durumunda bahis-bozdur özelliğini kaybeder. Müsabaka oynanmaz ise ertelenen/iptal edilen müsabaka kuralları geçerli olacaktır."
+                            ]
+                        },
+                        'Bonus Çevrim Şartları': {
+                            title: '🔄 Bonus Çevrim Şartları',
+                            content: [
+                                "1. Cash Out bahisler çevrime dahil değildir.",
+                                "2. Cash Out yapılan kuponlar için ekstra bir çevrim şartı bulunmamaktadır."
+                            ]
+                        },
+                        'Geçerli Müsabakalar': {
+                            title: '⚽ Geçerli Müsabakalar',
+                            content: [
+                                "1. Cash Out sadece spor bahislerinde geçerlidir.",
+                                "2. Cash Out seçeneği hemen hemen her karşılaşmada mevcuttur. Kuponlarım sayfasında Cash Out(Bahis Bozdur) ibaresini gördüğünüz her kuponda bu seçeneği değerlendirebilirsiniz."
+                            ]
+                        },
+                        'Genel Bonus Kuralları': {
+                            title: '📝 Genel Bonus Kuralları',
+                            content: [
+                                "1. Hitbet genel bonus kuralları geçerlidir.",
+                                "2. Hitbet dilediği zaman bu bonusu durdurma ya da iptal etme hakkına sahiptir.",
+                                "3. Bonusu veya kazancını kötüye kullanma durumunda Hitbet bonus ve kazancı geri alma hakkına sahiptir."
+                            ]
+                        }
+                    },
+                    quiz: {
+                        question: "Cash Out hangi bahis türlerinde geçerlidir?",
+                        options: [
+                            "Casino oyunlarında",
+                            "Sadece canlı bahislerde",
+                            "Spor bahislerinde",
+                            "Slot oyunlarında"
+                        ],
+                        correct: 2,
+                        explanation: "Cash Out sadece spor bahislerinde geçerlidir."
+                    }
                 }
             ];
-            renderPromos();
-            updatePromoSelect();
-            updatePromoList();
         }
 
         function renderPromos() {
             const container = document.getElementById('promosyon-container');
             container.innerHTML = '';
 
+            const providerContainer = document.getElementById('saglayici-promosyon-container');
+            providerContainer.innerHTML = '';
+            
             promos.forEach(promo => {
-                const accordion = createPromoAccordion(promo);
-                container.appendChild(accordion);
+                if (promo.id === 'pragmatic-play') {
+                    const accordion = createPromoAccordion(promo);
+                    providerContainer.appendChild(accordion);
+                } else {
+                    const accordion = createPromoAccordion(promo);
+                    container.appendChild(accordion);
+                }
             });
         }
 
@@ -1336,18 +1337,6 @@
             return accordion;
         }
 
-        function updatePromoSelect() {
-            const select = document.getElementById('promo-select');
-            select.innerHTML = '<option value="">Promosyon seçin...</option>';
-            
-            promos.forEach(promo => {
-                const option = document.createElement('option');
-                option.value = promo.id;
-                option.textContent = promo.title;
-                select.appendChild(option);
-            });
-        }
-
         function updatePromoList() {
             const list = document.getElementById('promo-list');
             list.innerHTML = '';
@@ -1422,85 +1411,6 @@
             });
         }
 
-        function loadQuiz() {
-            const selectedPromo = document.getElementById('promo-select').value;
-            if (!selectedPromo) {
-                document.getElementById('quiz-content').style.display = 'none';
-                return;
-            }
-
-            const promo = promos.find(p => p.id === selectedPromo);
-            if (!promo || !promo.quiz || !Array.isArray(promo.quiz)) {
-                document.getElementById('quiz-content').style.display = 'none';
-                alert('Bu promosyon için quiz bulunamadı!');
-                return;
-            }
-
-            // Rastgele bir quiz sorusu seç
-            const randomIndex = Math.floor(Math.random() * promo.quiz.length);
-            currentQuiz = promo.quiz[randomIndex];
-            
-            document.getElementById('quiz-content').style.display = 'block';
-            
-            document.getElementById('quiz-question').textContent = currentQuiz.question;
-            
-            const optionsContainer = document.getElementById('quiz-options');
-            optionsContainer.innerHTML = '';
-            
-            currentQuiz.options.forEach((option, index) => {
-                const optionDiv = document.createElement('div');
-                optionDiv.className = 'quiz-option';
-                optionDiv.textContent = option;
-                optionDiv.onclick = () => selectOption(optionDiv, index);
-                optionsContainer.appendChild(optionDiv);
-            });
-
-            document.getElementById('score-display').style.display = 'none';
-            document.getElementById('check-btn').disabled = false;
-            currentAnswer = -1;
-        }
-
-        function selectOption(element, answerIndex) {
-            document.querySelectorAll('.quiz-option').forEach(option => {
-                option.classList.remove('selected');
-            });
-            
-            element.classList.add('selected');
-            currentAnswer = answerIndex;
-        }
-
-        function checkAnswer() {
-            if (currentAnswer === -1) {
-                alert('Lütfen bir seçenek seçin!');
-                return;
-            }
-
-            if (!currentQuiz) return;
-
-            const options = document.querySelectorAll('.quiz-option');
-            
-            options[currentQuiz.correct].classList.add('correct');
-            
-            if (currentAnswer !== currentQuiz.correct) {
-                options[currentAnswer].classList.add('incorrect');
-            }
-
-            document.getElementById('check-btn').disabled = true;
-            
-            const scoreDisplay = document.getElementById('score-display');
-            const scoreText = document.getElementById('score-text');
-            
-            if (currentAnswer === currentQuiz.correct) {
-                scoreText.innerHTML = `🎉 Tebrikler! Doğru cevap!<br><small>${currentQuiz.explanation}</small>`;
-                scoreText.style.color = '#28a745';
-            } else {
-                scoreText.innerHTML = `❌ Yanlış cevap. Doğru cevap: ${currentQuiz.options[currentQuiz.correct]}<br><small>${currentQuiz.explanation}</small>`;
-                scoreText.style.color = '#dc3545';
-            }
-            
-            scoreDisplay.style.display = 'block';
-        }
-
         function showAddPromoForm() {
             document.getElementById('add-promo-form').style.display = 'block';
         }
@@ -1533,7 +1443,6 @@
                 }
 
                 renderPromos();
-                updatePromoSelect();
                 updatePromoList();
                 hideAddPromoForm();
                 
@@ -1702,7 +1611,6 @@
             cancelPromoEdit(promoId);
             
             // Listeleri güncelle
-            updatePromoSelect();
             updatePromoList();
             
             alert('Promosyon başarıyla güncellendi!');
@@ -1724,7 +1632,6 @@
             if (confirm('Bu promosyonu silmek istediğinizden emin misiniz?')) {
                 promos = promos.filter(p => p.id !== promoId);
                 renderPromos();
-                updatePromoSelect();
                 updatePromoList();
             }
         }

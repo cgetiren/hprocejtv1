@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promosyon Quizleri</title>
+    <style>
+        /* index.html dosyasındaki ilgili CSS stillerini buraya kopyalayacağız */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a1f44;
+            color: #ffffff;
+            padding: 20px;
+        }
+
+        .quiz-container {
+            background: #142d5f;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .quiz-question {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #ffc107; /* Sarı */
+        }
+
+        .quiz-options {
+            display: grid;
+            gap: 10px;
+        }
+
+        .quiz-option {
+            background: #0a1f44;
+            border: 2px solid #1a3a6b;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-option:hover {
+            border-color: #ffc107;
+            background: #1a3a6b;
+        }
+
+        .quiz-option.selected {
+            border-color: #ffc107;
+            background: #ffc107;
+            color: #0a1f44;
+        }
+
+        .quiz-option.correct {
+            border-color: #28a745;
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .quiz-option.incorrect {
+            border-color: #dc3545;
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .quiz-button {
+            background: #ffc107;
+            color: #0a1f44;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            background: #ffeb3b;
+        }
+
+        .quiz-button:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .score-display {
+            background: #1a3a6b;
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #ffffff;
+        }
+
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            font-size: 14px;
+            box-sizing: border-box;
+            background-color: #0a1f44; /* Koyu lacivert */
+            color: #ffffff; /* Beyaz metin */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h3 style="margin-bottom: 20px; color: #ffc107;">🎯 Promosyon Quizleri</h3>
+        
+        <div class="form-group" style="margin-bottom: 20px;">
+            <label>Quiz Yapmak İstediğiniz Promosyonu Seçin:</label>
+            <select id="promo-select" onchange="loadQuiz()" style="width: 100%; padding: 10px; border: 1px solid #dee2e6; border-radius: 8px;">
+                <option value="">Promosyon seçin...</option>
+            </select>
+        </div>
+
+        <div id="quiz-content" style="display: none;">
+            <div class="quiz-question" id="quiz-question">
+                Soru yükleniyor...
+            </div>
+            <div class="quiz-options" id="quiz-options">
+                <!-- Seçenekler buraya yüklenecek -->
+            </div>
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+                <button class="quiz-button" onclick="checkAnswer()" id="check-btn">Cevabı Kontrol Et</button>
+                <button class="quiz-button" onclick="loadQuiz()" style="background: #ffeb3b; color: #0a1f44;">🔄 Yeni Soru</button>
+            </div>
+        </div>
+
+        <div class="score-display" id="score-display" style="display: none;">
+            <div id="score-text"></div>
+        </div>
+    </div>
+
+    <script>
+        let currentAnswer = -1;
+        let currentQuiz = null;
+        let promos = [];
+
+        async function loadPromosData() {
+            try {
+                const promoFiles = [
+                    'pragmatic-play.json',
+                    'ertesi-gun.json',
+                    'bonus-buy.json',
+                    'hos-geldin.json',
+                    'spor-freebet.json',
+                    'casino-kayip-bonusu.json',
+                    'freespin-600.json',
+                    'cash-out.json'
+                ];
+
+                promos = [];
+                for (const file of promoFiles) {
+                    try {
+                        const promoResponse = await fetch(`../promosyonlar/${file}`);
+                        if (promoResponse.ok) {
+                            const promo = await promoResponse.json();
+                            promos.push(promo);
+                        }
+                    } catch (error) {
+                        console.error(`Error loading ${file}:`, error);
+                    }
+                }
+                updatePromoSelect();
+            } catch (error) {
+                console.error('Error loading promos data:', error);
+            }
+        }
+
+        function updatePromoSelect() {
+            const select = document.getElementById('promo-select');
+            select.innerHTML = '<option value="">Promosyon seçin...</option>';
+            
+            promos.forEach(promo => {
+                if (promo.quiz && Array.isArray(promo.quiz) && promo.quiz.length > 0) {
+                    const option = document.createElement('option');
+                    option.value = promo.id;
+                    option.textContent = promo.title;
+                    select.appendChild(option);
+                } else if (promo.quiz && typeof promo.quiz === 'object' && Object.keys(promo.quiz).length > 0) {
+                     const option = document.createElement('option');
+                    option.value = promo.id;
+                    option.textContent = promo.title;
+                    select.appendChild(option);
+                }
+            });
+        }
+
+        function loadQuiz() {
+            const selectedPromo = document.getElementById('promo-select').value;
+            if (!selectedPromo) {
+                document.getElementById('quiz-content').style.display = 'none';
+                return;
+            }
+
+            const promo = promos.find(p => p.id === selectedPromo);
+            if (!promo || !promo.quiz) {
+                document.getElementById('quiz-content').style.display = 'none';
+                alert('Bu promosyon için quiz bulunamadı!');
+                return;
+            }
+            
+            let quizArray = Array.isArray(promo.quiz) ? promo.quiz : [promo.quiz];
+
+            if (quizArray.length === 0) {
+                document.getElementById('quiz-content').style.display = 'none';
+                alert('Bu promosyon için quiz bulunamadı!');
+                return;
+            }
+
+            const randomIndex = Math.floor(Math.random() * quizArray.length);
+            currentQuiz = quizArray[randomIndex];
+            
+            document.getElementById('quiz-content').style.display = 'block';
+            
+            document.getElementById('quiz-question').textContent = currentQuiz.question;
+            
+            const optionsContainer = document.getElementById('quiz-options');
+            optionsContainer.innerHTML = '';
+            
+            currentQuiz.options.forEach((option, index) => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'quiz-option';
+                optionDiv.textContent = option;
+                optionDiv.onclick = () => selectOption(optionDiv, index);
+                optionsContainer.appendChild(optionDiv);
+            });
+
+            document.getElementById('score-display').style.display = 'none';
+            document.getElementById('check-btn').disabled = false;
+            currentAnswer = -1;
+        }
+
+        function selectOption(element, answerIndex) {
+            document.querySelectorAll('.quiz-option').forEach(option => {
+                option.classList.remove('selected');
+                option.classList.remove('correct');
+                option.classList.remove('incorrect');
+            });
+            
+            element.classList.add('selected');
+            currentAnswer = answerIndex;
+        }
+
+        function checkAnswer() {
+            if (currentAnswer === -1) {
+                alert('Lütfen bir seçenek seçin!');
+                return;
+            }
+
+            if (!currentQuiz) return;
+
+            const options = document.querySelectorAll('.quiz-option');
+            
+            options[currentQuiz.correct].classList.add('correct');
+            
+            if (currentAnswer !== currentQuiz.correct) {
+                options[currentAnswer].classList.add('incorrect');
+            }
+
+            document.getElementById('check-btn').disabled = true;
+            
+            const scoreDisplay = document.getElementById('score-display');
+            const scoreText = document.getElementById('score-text');
+            
+            if (currentAnswer === currentQuiz.correct) {
+                scoreText.innerHTML = `🎉 Tebrikler! Doğru cevap!<br><small>${currentQuiz.explanation}</small>`;
+                scoreText.style.color = '#28a745';
+            } else {
+                scoreText.innerHTML = `❌ Yanlış cevap. Doğru cevap: ${currentQuiz.options[currentQuiz.correct]}<br><small>${currentQuiz.explanation}</small>`;
+                scoreText.style.color = '#dc3545';
+            }
+            
+            scoreDisplay.style.display = 'block';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            loadPromosData();
+        });
+    </script>
+</body>
+</html>
