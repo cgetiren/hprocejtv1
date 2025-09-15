@@ -401,7 +401,7 @@
             }
 
             const promo = promos.find(p => p.id === selectedPromo);
-            if (!promo || !promo.quiz) {
+            if (!promo) {
                 document.getElementById('quiz-content').style.display = 'none';
                 alert('Bu promosyon için quiz bulunamadı!');
                 return;
