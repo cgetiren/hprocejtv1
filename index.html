@@ -724,6 +724,102 @@
                 padding: 12px;
             }
         }
+
+        /* Modal Stilleri */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background-color: #142d5f; /* Konteyner için biraz daha açık lacivert */
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            color: white;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-close-button {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 30px;
+            font-weight: bold;
+            color: #ffc107;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close-button:hover {
+            color: #ffeb3b;
+        }
+
+        .modal-content h3 {
+            color: #ffc107;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.8rem;
+        }
+
+        .modal-content h4 {
+            color: #ffc107;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 5px;
+        }
+
+        .modal-content ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 20px;
+        }
+
+        .modal-content li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .modal-content li strong {
+            color: #ffeb3b;
+        }
+
+        .modal-content ul li::before {
+            content: '•';
+            color: #ffc107;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        .modal-content ol {
+            list-style-type: decimal;
+            padding-left: 25px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+
+        .modal-content ol li {
+            margin-bottom: 5px;
+            padding-left: 0;
+        }
     </style>
 </head>
 <body>
@@ -754,6 +850,14 @@
                     </div>
                     <button class="add-button" onclick="showAddPromoForm()">➕ Yeni Promosyon Ekle</button>
                         </div>
+                    </div>
+                </div>
+
+                <!-- H-Projesi Genel Bonus Kuralları Akordeonu -->
+                <div class="accordion" style="margin-top: 20px;">
+                    <div class="accordion-header" onclick="openGeneralRulesModal()">
+                        <span>📜 H-Projesi Genel Bonus Kuralları</span>
+                        <span class="accordion-icon">▶</span>
                     </div>
                 </div>
 
@@ -1664,10 +1768,148 @@
             link.click();
         }
 
+        // Genel Kurallar Modalını Açma
+        function openGeneralRulesModal() {
+            document.getElementById('general-rules-modal').style.display = 'flex';
+        }
+
+        // Genel Kurallar Modalını Kapatma
+        function closeGeneralRulesModal() {
+            document.getElementById('general-rules-modal').style.display = 'none';
+        }
+
         // Sayfa yüklendiğinde promosyonları yükle
         document.addEventListener('DOMContentLoaded', function() {
             loadPromos();
+
+            // Modal dışına tıklayınca kapatma özelliği
+            const modal = document.getElementById('general-rules-modal');
+            if (modal) {
+                modal.addEventListener('click', (event) => {
+                    if (event.target === modal) {
+                        closeGeneralRulesModal();
+                    }
+                });
+            }
         });
     </script>
+
+    <!-- Genel Bonus Kuralları Modalı -->
+    <div id="general-rules-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <span class="modal-close-button" onclick="closeGeneralRulesModal()">×</span>
+            <h3>GENEL PROMOSYON KURALLARI VE ŞARTLARI</h3>
+
+            <h4>Promosyon Çevrim Kuralları</h4>
+            <ul>
+                <li>**Anapara Çevrimi**</li>
+                <ol>
+                    <li>Spor bahislerinde: Yatırım tutarı kadar tekli kuponlarda minimum 1.30 oran, kombine kuponlarda ise en az bir seçim minimum 1.30 oran olmak şartıyla bahis yapılmalıdır.</li>
+                    <li>Casino oyunlarında: Yatırım tutarı kadar bahis alınmalıdır.</li>
+                </ol>
+                <li>**Çevrimsiz Yatırım Bonusu**</li>
+                <ol>
+                    <li>Spor bahislerinde: Anapara + bonus toplamı kadar;</li>
+                    <li>Tekli kuponlarda minimum 1.50 oran</li>
+                    <li>Kombine kuponlarda en az bir seçim minimum 1.50 oran olmalıdır.</li>
+                    <li>Casino oyunlarında: Anapara + bonus toplamının 2 katı kadar bahis yapılmalıdır.</li>
+                </ol>
+                <li>**Çevrimli Spor Yatırım Bonusu**</li>
+                <ol>
+                    <li>Sadece kombine kuponlarda geçerlidir.</li>
+                    <li>Her bir seçim minimum 1.90 oran olmalı ve toplamda (Yatırım + Bonus) x6 kadar bahis alınmalıdır.</li>
+                    <li>Bonus çevrimi tamamlanmadan spor dışı alanlarda bahis yapılamaz.</li>
+                </ol>
+                <li>**Çevrimli Casino Yatırım Bonusu**</li>
+                <ol>
+                    <li>Casino ve canlı casino alanlarında, bonus tutarının 35 katı kadar bahis yapılmalıdır.</li>
+                    <li>Bonus çevrimi tamamlanmadan farklı alanlarda bahis alınamaz.</li>
+                </ol>
+                <li>**Kayıp Bonusu**</li>
+                <ol>
+                    <li>Spor bahislerinde: Bonus miktarı kadar;</li>
+                    <li>Tekli kuponlarda minimum 1.30 oran</li>
+                    <li>Kombine kuponlarda en az bir seçim minimum 1.30 oran olmalıdır.</li>
+                    <li>Casino oyunlarında: Bonus miktarı kadar bahis yapılmalıdır.</li>
+                </ol>
+                <li>**Spor Freebet**</li>
+                <ol>
+                    <li>Aksi belirtilmedikçe:</li>
+                    <li>Minimum 4'lü kombine kuponlarda kullanılabilir.</li>
+                    <li>Her seçim en az 1.60 oran olmalıdır.</li>
+                </ol>
+                <li>**Freespin**</li>
+                <ol>
+                    <li>Aksi belirtilmedikçe sadece geçerli oyunlarda kullanılabilir.</li>
+                    <li>Çevrim şartı ve maksimum kazanç miktarı promosyon bazında değişebilir.</li>
+                </ol>
+                <li>**Turnuva Ödülleri**</li>
+                <ol>
+                    <li>Aksi belirtilmedikçe, çevrim şartı aktarılan tutar kadardır.</li>
+                    <li>Ödüller Freebet veya Freespin şeklinde de verilebilir.</li>
+                </ol>
+            </ul>
+
+            <h4>Genel Promosyon Kuralları</h4>
+            <ul>
+                <li>1-) Her yatırım için yalnızca bir bonus talep edilebilir. (Ertesi gün bonusu ve yatırım ek promosyonları hariç)</li>
+                <li>2-) Bonus kullanımı sonrası çekim yapılabilmesi için çevrim şartlarının tamamlanması gerekir.</li>
+                <li>3-) Aksi belirtilmedikçe promosyonlarda kazanç limiti yoktur.</li>
+                <li>4-) Bonus alan üyeler, ilgili promosyonun tüm koşullarını kabul etmiş sayılır.</li>
+                <li>5-) Bonuslar, tanımlandığı tarihten itibaren 7 gün içinde kullanılmalıdır. Kullanılmayan bonuslar silinir.</li>
+                <li>6-) Yatırım bonusu, yalnızca yatırım sırasında talep edilmelidir. Manuel aktarım yapılmaz.</li>
+                <li>7-) Aşağıdaki durumlar çevrime dahil edilmez:</li>
+                <ol>
+                    <li>Cash Out yapılan kuponlar</li>
+                    <li>İade edilen bahisler</li>
+                    <li>Aynı karşılaşmaya yapılan çoklu bahisler</li>
+                    <li>Sistem kuponları</li>
+                </ol>
+                <li>8-) Casino oyunlarında 1'e 2 veya 1'e 3 oranlı ve katlamalı bahisler çevrime dahil edilmez.</li>
+                <li>9-) Bu tür casino bahislerin kaybı için kayıp bonusu verilmez.</li>
+                <li>10-) Kayıp bonusu için şartlar:</li>
+                <ol>
+                    <li>Öncesinde başka bonus alınmamış olması (ertesigün ve yatırım promosyonları hariç)</li>
+                    <li>Bakiyenin tamamen sıfırlanmış olması</li>
+                    <li>Bekleyen kupon olmaması</li>
+                </ol>
+                <li>11-) Bonuslar, 24 saatlik kar/zarar durumuna göre verilir.</li>
+                <ol>
+                    <li>24 saat içinde kâr eden üyeler bonus alamaz.</li>
+                    <li>Sadece bonus alınmayan yatırımlar bu hesaplamaya dahildir.</li>
+                </ol>
+                <li>12-) Kayıp bonusu, yatırım saatinden itibaren en geç 24 saat içinde talep edilmelidir.</li>
+                <li>13-) Oyunların çevrime katkı oranları:</li>
+                <ol>
+                    <li>Spor Bahisleri: %100</li>
+                    <li>Slot: %100</li>
+                    <li>Rulet: %1</li>
+                    <li>Baccarat, Blackjack, Poker, Zar, Piyango ve diğer canlı oyunlar: %10</li>
+                </ol>
+                <li>14-) Aşağıdaki kurallar rulet oyunlarında geçerlidir.</li>
+                <ol>
+                    <li>XXXtreme Lightning Roulette (Evolution), Lightning Roulette (Evolution), Turkish Ligthning Roulette (Evolution), Blaze Roulette (Vivo), Auto Mega Roulette (Pragmatic Play Live), Mega Roulette (Pragmatic Play Live), Turkish Mega Roulette (Pragmatic Play Live), Immersive Roulette (Evolution), Fortune Roulette (Pragmatic Play Live), Roulette X500 (TvBet), Power Up Roulette (Pragmatic Play Live), Red Door Roulette (Evolution), Lucky 6 Roulette (Pragmatic Play Live), Gravity Roulette (Iconic21), Vegas Roulette 500x (Amusnet), Showtime Roulette (Amusnet), European Roulette (Amusnet), Ultimate Auto Roulette (Ezugi), Diamond Roulette (Microgaming), Dynamic Auto Roulette (Amusnet), Gold Wault (Evolution), Double Ball Roulette (Evolution), European Roulette Deluxe (Amusnet), Revolution Roulette (Ezugi) vb. Çarpanlı Oyunlarda bir turda maksimum 18 sayıya bahis alınabilir.</li>
+                    <li>Diğer standart rulet oyunlarında maksimum sayı adedi 24'tür.</li>
+                    <li>Renk, Tek/Çift, 1-18/19-36 gibi seçeneklere sadece 1 bahis yapılabilir.</li>
+                    <li>Düzine ve Kolon seçeneklerine maksimum 2 bahis yapılabilir.</li>
+                </ol>
+                <li>15-) Bonus ve kazançların kötüye kullanımı durumunda Hitbet, bunları iptal etme hakkına sahiptir.</li>
+                <li>16-) Hileli bahislerde kayıp bonusu verilmez.</li>
+                <li>17-) Tüm etkinlik ve turnuvalarda, ilgili promosyon kuralına ek olarak bu genel kurallar geçerlidir.</li>
+                <li>18-) Hitbet, promosyon kurallarını önceden haber vererek güncelleme hakkına sahiptir.</li>
+                <li>19-) Bonus suistimali tespit edilen kullanıcıların bonus kullanımı geçici ya da kalıcı olarak sınırlandırılabilir.</li>
+                <li>20-) Herhangi bir anlaşmazlık durumunda nihai karar yetkisi Hitbet yönetimine aittir.</li>
+                <li>21-) Aşağıdaki durumlar tespit edildiğinde bonus ödemesi yapılmaz:</li>
+                <ol>
+                    <li>Aynı ismi paylaşan hesaplar</li>
+                    <li>Aynı Aileye / Eve ait hesaplar</li>
+                    <li>Aynı IP'yi paylaşan hesaplar</li>
+                    <li>Aynı kişisel bilgileri içeren hesaplar</li>
+                    <li>Aynı cihazdan kullanılan hesaplar</li>
+                    <li>Aynı kişiye ait olduğu tespit edilen birden fazla farklı isimli hesaplar</li>
+                </ol>
+            </ul>
+        </div>
+    </div>
 </body>
 </html>
