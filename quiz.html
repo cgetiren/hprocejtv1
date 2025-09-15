@@ -305,18 +305,18 @@
         // Dinamik quiz soruları oluşturma fonksiyonu
         function generateQuizQuestions(promo) {
             const dynamicQuizzes = [];
+            const allContentItems = []; // Hata veren değişkeni burada tanımlıyoruz
 
-            const allPossibleAnswersForWrongOptions = [];
             // generateQuizQuestions içindeki promos.forEach döngüsünü activePromos olarak değiştir
             activePromos.forEach(p => {
-                if (p.basicInfo) allPossibleAnswersForWrongOptions.push(...Object.values(p.basicInfo).map(cleanText));
+                if (p.basicInfo) allContentItems.push(...Object.values(p.basicInfo).map(cleanText));
                 if (p.sections) {
                     const sectionContents = Array.isArray(p.sections) ? p.sections.flatMap(s => s.content || []).filter(item => typeof item === 'string') : 
                                             Object.values(p.sections).flatMap(s => s.content || []).filter(item => typeof item === 'string');
-                    allPossibleAnswersForWrongOptions.push(...sectionContents.map(cleanText));
+                    allContentItems.push(...sectionContents.map(cleanText));
                 }
             });
-            const uniqueAllPossibleAnswers = Array.from(new Set(allPossibleAnswersForWrongOptions)).filter(Boolean);
+            const uniqueAllPossibleAnswers = Array.from(new Set(allContentItems)).filter(Boolean);
 
 
             // 1. basicInfo'dan sorular oluşturma
@@ -359,7 +359,6 @@
 
             // 2. sections'tan sorular oluşturma (daha derinlemesine)
             if (promo.sections) {
-                const allContentItems = [];
                 const allSectionTitles = [];
 
                 if (typeof promo.sections === 'object' && !Array.isArray(promo.sections)) {
