@@ -684,6 +684,8 @@
                                     options = options.concat(generateNumericWrongOptions(answer, 3));
                                 } else if (key.includes("Tarih") || key.includes("Süresi") || key.includes("Günler")) {
                                     options = options.concat(generateTimeWrongOptions(answer, 3));
+                                } else if (key.includes("Geçerli Oyunlar") || key.includes("Geçerli Müsabakalar") || key.includes("Yöntem")) {
+                                    options = options.concat(generateGeneralWrongOptions(answer, uniqueAllPossibleAnswers, 3));
                                 } else {
                                     options = options.concat(generateGeneralWrongOptions(answer, uniqueAllPossibleAnswers, 3));
                                 }
@@ -783,6 +785,133 @@
                     });
                     existingQuestions.add(cleanText("Bonusun kötüye kullanılması durumunda ne olur?"));
                 }
+
+                // Yeni eklenen yatırım şartı ve yatırım yöntemi soruları
+                // Örnek: Minimum yatırım tutarı gerektiren promosyonlar için genel bir soru
+                const minInvestmentMatch = promo.basicInfo && (promo.basicInfo['Minimum Yatırım'] || promo.basicInfo['Minimum Bahis']);
+                if (minInvestmentMatch && !minInvestmentMatch.includes("Yok") && !existingQuestions.has(cleanText(`${promo.title} için minimum yatırım miktarı nedir?`))) {
+                    const question = `${promo.title} için minimum yatırım miktarı nedir?`;
+                    const answer = cleanText(minInvestmentMatch);
+                    let options = [answer];
+                    options = options.concat(generateNumericWrongOptions(answer, 3));
+                    options = options.sort(() => Math.random() - 0.5);
+                    const correctIndex = options.indexOf(answer);
+                    if (correctIndex !== -1 && options.length === 4) {
+                        dynamicQuizzes.push({
+                            question: question,
+                            options: options,
+                            correct: correctIndex,
+                            explanation: `${promo.title} için minimum yatırım miktarı ${answer} olarak belirtilmiştir.`
+                        });
+                        existingQuestions.add(cleanText(question));
+                    }
+                }
+
+                // Ödeme yöntemleri ile ilgili soru
+                const paymentMethodMatch = allContentItems.find(item => item.match(/(?:yatırım yöntemi ile yatırım yapmanız gerekmektedir|mobil ödeme ve kredi kartı ile yatırım yapan üyelerimiz bu bonustan yararlanamamaktadır)/i));
+                if (paymentMethodMatch && !existingQuestions.has(cleanText(`${promo.title} promosyonu için geçerli olan/olmayan bir yatırım yöntemi belirtiniz.`))) {
+                    let question = `Bu promosyondan yararlanmak için hangi yatırım yöntemi/yöntemleri kullanılabilir?`;
+                    let answer = cleanText("Belirli yatırım yöntemleri"); // Genel bir cevap
+                    
+                    // Daha spesifik bir cevap bulmaya çalış
+                    const positiveMethods = paymentMethodMatch.match(/(?:Trinkpara Havale|Trinkpara Papara|Trinkpara Paratim|Trinkpara Pep|Trinkpara Paybol|Trinkpara Popypara|Trinkpara Kripto|Anında Kripto)/ig);
+                    const negativeMethods = paymentMethodMatch.match(/(?:mobil ödeme|kredi kartı)/ig);
+
+                    if (positiveMethods && positiveMethods.length > 0) {
+                        question = `${promo.title} promosyonundan yararlanmak için hangi yatırım yöntemlerinden biri kullanılabilir?`;
+                        answer = cleanText(positiveMethods[0]);
+                    } else if (negativeMethods && negativeMethods.length > 0) {
+                        question = `${promo.title} promosyonundan yararlanamayan bir yatırım yöntemi hangisidir?`;
+                        answer = cleanText(negativeMethods[0]);
+                    }
+
+                    let options = [answer];
+                    options = options.concat(generateGeneralWrongOptions(answer, uniqueAllPossibleAnswers, 3));
+                    options = options.sort(() => Math.random() - 0.5);
+                    const correctIndex = options.indexOf(answer);
+                    if (correctIndex !== -1 && options.length === 4) {
+                        dynamicQuizzes.push({
+                            question: question,
+                            options: options,
+                            correct: correctIndex,
+                            explanation: `${promo.title} promosyonu için yatırım yöntemi bilgisi: ${answer}`
+                        });
+                        existingQuestions.add(cleanText(question));
+                    }
+                }
+
+                // Anapara çevrimi ile ilgili genel soru
+                const anaparaCevrimiMatch = allContentItems.find(item => item.includes("Anapara Çevrimi"));
+                if (anaparaCevrimiMatch && !existingQuestions.has(cleanText("Anapara çevrimi nedir?"))) {
+                     dynamicQuizzes.push({
+                        question: "Anapara çevrimi nedir?",
+                        options: [
+                            "Yatırım tutarı kadar bahis yapmak",
+                            "Bonus tutarı kadar bahis yapmak",
+                            "Kayıp miktarı kadar bahis yapmak",
+                            "Çekim yapmak için bir şart değildir"
+                        ],
+                        correct: 0,
+                        explanation: "Anapara çevrimi, yatırım tutarı kadar bahis yapılması anlamına gelir."
+                    });
+                    existingQuestions.add(cleanText("Anapara çevrimi nedir?"));
+                }
+
+                // Çevrimsiz yatırım bonusu ile ilgili genel soru
+                const cevrimsizYatirimMatch = allContentItems.find(item => item.includes("Çevrimsiz Yatırım Bonusu"));
+                if (cevrimsizYatirimMatch && !existingQuestions.has(cleanText("Çevrimsiz yatırım bonusunun temel özelliği nedir?"))) {
+                    dynamicQuizzes.push({
+                        question: "Çevrimsiz yatırım bonusunun temel özelliği nedir?",
+                        options: [
+                            "Çevrim şartı gerektirmez",
+                            "Sadece belirli oyunlarda geçerlidir",
+                            "Çok yüksek çevrim şartı vardır",
+                            "Sadece ilk yatırıma özeldir"
+                        ],
+                        correct: 0,
+                        explanation: "Çevrimsiz yatırım bonusu, adından da anlaşılacağı gibi ekstra bir çevrim şartı gerektirmez."
+                    });
+                    existingQuestions.add(cleanText("Çevrimsiz yatırım bonusunun temel özelliği nedir?"));
+                }
+
+                // Kayıp bonusu ile ilgili genel soru
+                const kayipBonusuMatch = allContentItems.find(item => item.includes("Kayıp Bonusu"));
+                if (kayipBonusuMatch && !existingQuestions.has(cleanText("Kayıp bonusundan yararlanmak için genellikle hangi şart aranır?"))) {
+                    dynamicQuizzes.push({
+                        question: "Kayıp bonusundan yararlanmak için genellikle hangi şart aranır?",
+                        options: [
+                            "Bakiyenin tamamen sıfırlanması",
+                            "Yüksek miktarda yatırım yapılması",
+                            "Belirli bir oyun türünde kayıp yaşanması",
+                            "Bonus talep edilmemesi"
+                        ],
+                        correct: 0,
+                        explanation: "Kayıp bonusundan yararlanmak için genellikle bakiyenin belirli bir seviyenin altına düşmesi veya tamamen sıfırlanması şartı aranır."
+                    });
+                    existingQuestions.add(cleanText("Kayıp bonusundan yararlanmak için genellikle hangi şart aranır?"));
+                }
+
+                 // Freebet kullanımı ile ilgili genel soru
+                const freebetMatch = allContentItems.find(item => item.includes("Freebet") && item.includes("kombine kuponlarda kullanılabilir"));
+                if (freebetMatch && !existingQuestions.has(cleanText("Freebet genellikle hangi tür kuponlarda kullanılabilir?"))) {
+                    const matchKombine = freebetMatch.match(/(\d+'lü|kombine)\s*kuponlarda/i);
+                    let answer = "Kombine kuponlarda";
+                    if (matchKombine) { answer = cleanText(matchKombine[0]); }
+
+                    dynamicQuizzes.push({
+                        question: "Freebet genellikle hangi tür kuponlarda kullanılabilir?",
+                        options: [
+                            answer,
+                            "Tekli kuponlarda",
+                            "Canlı bahislerde",
+                            "Sadece casino oyunlarında"
+                        ],
+                        correct: 0,
+                        explanation: `Freebet genellikle ${answer} kullanılabilir.`
+                    });
+                    existingQuestions.add(cleanText("Freebet genellikle hangi tür kuponlarda kullanılabilir?"));
+                }
+
             }
 
 
