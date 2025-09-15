@@ -182,7 +182,22 @@
         // Yardımcı fonksiyon: Sayısal bir değerden rastgele yanlış seçenekler üretir
         function generateNumericWrongOptions(correctAnswer, count = 3) {
             const wrongOptions = new Set();
-            const numAnswer = parseFloat(correctAnswer.replace(/[^0-9.,]/g, '').replace('.', '').replace(',', '.')); // Sayısal değeri çıkar
+            let numAnswerString = correctAnswer.replace(/[^0-9.,]/g, ''); // Sadece sayısal karakterler, nokta ve virgül kalır
+            
+            // Eğer binlik ayraç olarak nokta, ondalık ayraç olarak virgül kullanılıyorsa
+            // Örnek: "10.000.000,50 EUR" -> "10000000,50" -> "10000000.50"
+            // Örnek: "10.000.000 EUR" -> "10000000"
+            if (numAnswerString.includes('.') && numAnswerString.includes(',') && numAnswerString.indexOf('.') < numAnswerString.indexOf(',')) {
+                numAnswerString = numAnswerString.replace(/\./g, '').replace(',', '.');
+            } else if (numAnswerString.includes('.') && !numAnswerString.includes(',') && numAnswerString.lastIndexOf('.') !== numAnswerString.indexOf('.')) {
+                // Birden fazla nokta varsa ve virgül yoksa, noktaları binlik ayraç olarak kabul et
+                numAnswerString = numAnswerString.replace(/\./g, '');
+            } else if (numAnswerString.includes(',') && !numAnswerString.includes('.')) {
+                // Sadece virgül varsa, virgülü ondalık ayraç olarak kabul et
+                numAnswerString = numAnswerString.replace(',', '.');
+            }
+
+            const numAnswer = parseFloat(numAnswerString); // Sayısal değeri çıkar
             if (isNaN(numAnswer)) return [];
 
             while (wrongOptions.size < count) {
@@ -640,7 +655,10 @@
                         const promoResponse = await fetch(`../promosyonlar/${file}`);
                         if (promoResponse.ok) {
                             const promo = await promoResponse.json();
-                            regularPromos.push(promo);
+                            // Pragmatic Play'in yanlışlıkla burada olmadığından emin ol
+                            if (promo.id !== 'pragmatic-play') {
+                                regularPromos.push(promo);
+                            }
                         }
                     } catch (error) {
                         console.error(`Error loading regular promo ${file}:`, error);
