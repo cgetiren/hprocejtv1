@@ -924,18 +924,19 @@
         async function loadPromos() {
             try {
                 const promoFiles = [
-                    'ertesi-gun.json', 
-                    'bonus-buy.json',
+                    'yeni-uyelere-deneme-bonusu.json',
                     'hos-geldin.json',
-                    'spor-freebet.json',
+                    'spor-hos-geldin-bonusu.json',
                     'casino-kayip-bonusu.json',
+                    'spor-kayip-bonusu.json',
+                    'ertesi-gun.json',
+                    'bonus-buy.json',
+                    'blackjack-21-bonus.json',
+                    'spor-freebet.json',
                     'freespin-600.json',
-                    'cash-out.json',
                     'futbol-2-gol-onde-kazan.json',
                     'basketbol-20-sayi-onde-kazan.json',
-                    'yeni-uyelere-deneme-bonusu.json',
-                    'spor-kayip-bonusu.json',
-                    'spor-hos-geldin-bonusu.json'
+                    'cash-out.json'
                 ];
 
                 const providerPromoFiles = [
@@ -1365,7 +1366,7 @@
             providerPromos = promos.filter(p => p.id === 'pragmatic-play' || p.id === 'kalamba-cash-drop');
         }
 
-        function renderPromos() {
+        function renderPromos(promosToRender = regularPromos) {
             const container = document.getElementById('promosyon-container');
             container.innerHTML = '';
 
@@ -1373,12 +1374,12 @@
             providerContainer.innerHTML = '';
 
             // Normal promosyonları render et
-            regularPromos.forEach(promo => {
+            promosToRender.forEach(promo => {
                 const accordion = createPromoAccordion(promo);
                 container.appendChild(accordion);
             });
 
-            // Sağlayıcı promosyonlarını render et
+            // Sağlayıcı promosyonlarını render et (arama yapıldığında bu kısım etkilenmemeli)
             providerPromos.forEach(promo => {
                 const accordion = createPromoAccordion(promo);
                 providerContainer.appendChild(accordion);
@@ -1523,18 +1524,16 @@
 
         function searchPromos() {
             const searchTerm = document.querySelector('.search-box').value.toLowerCase();
-            const accordions = document.querySelectorAll('.accordion');
-            
-            accordions.forEach(accordion => {
-                const header = accordion.querySelector('.accordion-header span').textContent.toLowerCase();
-                const content = accordion.querySelector('.accordion-content').textContent.toLowerCase();
-                
-                if (header.includes(searchTerm) || content.includes(searchTerm)) {
-                    accordion.style.display = 'block';
-                } else {
-                    accordion.style.display = 'none';
-                }
-            });
+            if (searchTerm === '') {
+                renderPromos(); // Arama boşsa tüm promosyonları göster
+            } else {
+                const filteredRegularPromos = regularPromos.filter(promo =>
+                    promo.title.toLowerCase().includes(searchTerm) ||
+                    promo.description.toLowerCase().includes(searchTerm) ||
+                    (promo.keywords && promo.keywords.toLowerCase().includes(searchTerm))
+                );
+                renderPromos(filteredRegularPromos); // Filtrelenmiş promosyonları göster
+            }
         }
 
         function showAddPromoForm() {
