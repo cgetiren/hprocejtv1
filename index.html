@@ -1435,7 +1435,7 @@
             
             accordion.innerHTML = `
                 <div class="accordion-header" onclick="toggleAccordion(this)">
-                    <span>${promo.title} - ${promo.shortDesc}</span>
+                    <span>${promo.title}</span>
                     <div>
                         <span class="accordion-icon">▼</span>
                         <button class="edit-button" onclick="event.stopPropagation(); editPromoInline('${promo.id}')">✏️</button>
@@ -1579,7 +1579,10 @@
         }
 
         function editPromoInline(promoId) {
-            const promo = promos.find(p => p.id === promoId);
+            let promo = regularPromos.find(p => p.id === promoId);
+            if (!promo) {
+                promo = providerPromos.find(p => p.id === promoId);
+            }
             if (!promo) return;
 
             const accordion = document.getElementById(promoId);
@@ -1591,7 +1594,9 @@
             
             // Mevcut değerleri al
             const currentTitle = promo.title;
+            const currentShortDesc = promo.shortDesc || '';
             const currentDesc = promo.description;
+            const currentKeywords = promo.keywords || '';
             
             // Edit formu oluştur
             card.innerHTML = `
@@ -1601,8 +1606,18 @@
                 </div>
                 
                 <div class="edit-section-content">
-                    <div class="edit-section-title">📄 Açıklama</div>
+                    <div class="edit-section-title"> Kısa Açıklama</div>
+                    <input type="text" class="edit-input" value="${currentShortDesc}" id="edit-short-desc-${promoId}" placeholder="Kısa açıklama girin...">
+                </div>
+
+                <div class="edit-section-content">
+                    <div class="edit-section-title"> Açıklama</div>
                     <textarea class="edit-textarea" id="edit-desc-${promoId}" placeholder="Promosyon açıklamasını girin...">${currentDesc}</textarea>
+                </div>
+
+                <div class="edit-section-content">
+                    <div class="edit-section-title"> Anahtar Kelimeler</div>
+                    <input type="text" class="edit-input" value="${currentKeywords}" id="edit-keywords-${promoId}" placeholder="Anahtar kelimeleri virgülle ayırarak girin...">
                 </div>
                 
                 <div class="edit-section-content">
@@ -1691,12 +1706,23 @@
         }
 
         function savePromoEdit(promoId) {
-            const promo = promos.find(p => p.id === promoId);
+            let promo = regularPromos.find(p => p.id === promoId);
+            let targetArray = regularPromos;
+            if (!promo) {
+                promo = providerPromos.find(p => p.id === promoId);
+                targetArray = providerPromos;
+            }
             if (!promo) return;
 
             // Temel bilgileri güncelle
             promo.title = document.getElementById(`edit-title-${promoId}`).value;
             promo.description = document.getElementById(`edit-desc-${promoId}`).value;
+            
+            // shortDesc, keywords alanlarını da güncelle
+            const newShortDesc = document.getElementById(`edit-short-desc-${promoId}`)?.value || '';
+            const newKeywords = document.getElementById(`edit-keywords-${promoId}`)?.value || '';
+            promo.shortDesc = newShortDesc;
+            promo.keywords = newKeywords;
 
             // Temel bilgileri güncelle
             const basicInfoItems = document.querySelectorAll('#edit-basic-info-' + promoId + ' .edit-list-item');
@@ -1727,35 +1753,32 @@
                 }
             });
 
-            // Accordion header'ı güncelle
+            // Accordion header'ı güncelle (sadece title kullan)
             const accordion = document.getElementById(promoId);
-            const header = accordion.querySelector('.accordion-header span');
-            header.textContent = `${promo.title} - ${promo.shortDesc}`;
+            const headerSpan = accordion.querySelector('.accordion-header span');
+            if (headerSpan) {
+                headerSpan.textContent = promo.title;
+            }
 
             // Edit modundan çık
             cancelPromoEdit(promoId);
             
             // Listeleri güncelle
+            renderPromos(); // Promosyonları yeniden render et
             updatePromoList();
             
             alert('Promosyon başarıyla güncellendi!');
         }
 
         function cancelPromoEdit(promoId) {
-            const accordion = document.getElementById(promoId);
-            const content = accordion.querySelector('.accordion-content');
-            const card = content.querySelector('.promo-card');
-            
-            // Edit modundan çık
-            card.classList.remove('edit-mode');
-            
             // Orijinal görünümü geri yükle
-            renderPromos();
+            renderPromos(); // Promosyonları yeniden render ederek edit modundan çık
         }
 
         function deletePromo(promoId) {
             if (confirm('Bu promosyonu silmek istediğinizden emin misiniz?')) {
-                promos = promos.filter(p => p.id !== promoId);
+                regularPromos = regularPromos.filter(p => p.id !== promoId);
+                providerPromos = providerPromos.filter(p => p.id !== promoId);
                 renderPromos();
                 updatePromoList();
             }
