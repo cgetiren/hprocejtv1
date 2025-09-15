@@ -240,28 +240,24 @@
         }
 
         // Yardımcı fonksiyon: Genel metinlerden yanlış seçenekler üretir
-        function generateGeneralWrongOptions(correctAnswer, allPossibleAnswers, count = 3) {
+        function generateGeneralWrongOptions(correctAnswer, specificCategoryAnswers, count = 3) {
             const wrongOptions = new Set();
-            const genericOptions = ["Belirtilmemiş", "Değişkendir", "Bilgi yok", "Geçersiz", "Her zaman geçerli", "Tüm oyunlarda", "Hiçbiri", "Farklı bir koşula bağlı", "Ekstra bir şart yok", "Canlı destekten öğrenilmeli", "Özel bir kod ile", "Sadece yeni üyelere özel", "Sadece spor", "Sadece casino", "Canlı destek", "E-posta", "Çevrim şartsız", "Sadece belli günler", "Geçersiz bonus kodu", "Her yatırım yönteminde", "Sadece mobil ödeme ile", "Sadece kredi kartı ile", "Tüm üyeler", "Sadece VIP üyeler"];
+            // Daha genel veya kafa karıştırıcı olabilecek seçenekler
+            const genericOptions = ["Belirtilmemiş", "Değişkendir", "Bilgi yok", "Geçersiz", "Her zaman geçerli", "Tüm oyunlarda", "Hiçbiri", "Farklı bir koşula bağlı", "Ekstra bir şart yok", "Canlı destekten öğrenilmeli", "Özel bir kod ile", "Sadece yeni üyelere özel", "Sadece spor", "Sadece casino", "Canlı destek", "E-posta", "Çevrim şartsız", "Sadece belli günler", "Geçersiz bonus kodu", "Her yatırım yönteminde", "Sadece mobil ödeme ile", "Sadece kredi kartı ile", "Tüm üyeler", "Sadece VIP üyeler", "Sadece belirli oyunlarda", "Yüksek çevrim şartı", "Düşük çevrim şartı", "Bonus ve anaparanın 1 katı", "Bonusun 3 katı", "Yatırımın 5 katı", "24 saat içinde", "7 gün içinde", "Haftalık", "Aylık", "Belirli yatırım yöntemleri", "Tüm yatırım yöntemleri", "Sadece spor bahisleri", "Sadece canlı casino", "Sadece slot oyunları"];
 
             const cleanedCorrectAnswer = cleanText(correctAnswer);
 
-            // Populate contextual options, excluding numbers and time
-            const contextualOptions = new Set();
-            allPossibleAnswers.forEach(val => { // Use allPossibleAnswers directly
+            // Kategoriye özel cevaplardan yanlış seçenekleri oluştur
+            const categorySpecificWrongOptions = new Set();
+            specificCategoryAnswers.forEach(val => {
                 const cleanedVal = cleanText(val);
-                if (cleanedVal !== cleanedCorrectAnswer &&
-                    !cleanedVal.match(/^\d+[.,]?\d*\s*[₺$€%]/i) &&
-                    !cleanedVal.match(/\d+\s*(saat|gün|hafta|ay|yıl)/i) &&
-                    !cleanedVal.match(/Pazartesi|Salı|Çarşamba|Perşembe|Cuma|Hafta sonları|Süresiz|Belirtilmemiş/i)) {
-                    contextualOptions.add(cleanedVal);
+                if (cleanedVal !== cleanedCorrectAnswer && !cleanedVal.match(/^\d+[.,]?\d*\s*[₺$€%]/i) && !cleanedVal.match(/\d+\s*(saat|gün|hafta|ay|yıl)/i) && !cleanedVal.match(/Pazartesi|Salı|Çarşamba|Perşembe|Cuma|Hafta sonları|Süresiz|Belirtilmemiş/i)) {
+                    categorySpecificWrongOptions.add(cleanedVal);
                 }
             });
-
-            // Create a pool of potential wrong answers
-            let pool = Array.from(contextualOptions);
             
-            // Add generic options to the pool if not already present
+            // Pool oluştur: Kategoriye özel yanlış seçenekler + genel seçenekler
+            let pool = Array.from(categorySpecificWrongOptions);
             genericOptions.forEach(opt => {
                 const cleanedOpt = cleanText(opt);
                 if (cleanedOpt !== cleanedCorrectAnswer && !pool.includes(cleanedOpt)) {
@@ -269,35 +265,107 @@
                 }
             });
 
-            // Shuffle the pool to pick random options
-            pool.sort(() => Math.random() - 0.5);
+            pool.sort(() => Math.random() - 0.5); // Karıştır
 
-            // Select 'count' unique wrong options
+            // Yeterli sayıda yanlış seçenek seç
             while (wrongOptions.size < count && pool.length > 0) {
-                const option = pool.shift(); // Take from the front of the shuffled pool
-                wrongOptions.add(option);
+                const option = pool.shift();
+                if (option && option.length > 0) {
+                    wrongOptions.add(option);
+                }
             }
-            
             return Array.from(wrongOptions);
         }
 
         // Dinamik quiz soruları oluşturma fonksiyonu
         function generateQuizQuestions(promo) {
             const dynamicQuizzes = [];
-            const allContentItems = []; 
+            const existingQuestions = new Set(); // Bu promosyon için eklenen soruları takip etmek için
 
-            // Tüm promosyonlardan içerikleri topla (yanlış şık havuzu için)
-            [...regularPromos, ...providerPromos].forEach(p => {
-                if (p.basicInfo) allContentItems.push(...Object.values(p.basicInfo).map(cleanText));
+            // Ortak havuzları önceden oluştur
+            const allPromos = [...regularPromos, ...providerPromos];
+
+            const allMinInvestmentAmounts = new Set();
+            const allMaxAmounts = new Set();
+            const allDurations = new Set();
+            const allWagerRequirements = new Set();
+            const allEligibleItems = new Set();
+            const allIneligibleItems = new Set();
+            const allClaimConditions = new Set();
+            const allKeywords = new Set();
+
+            allPromos.forEach(p => {
+                if (p.basicInfo) {
+                    for (const key in p.basicInfo) {
+                        if (Object.hasOwnProperty.call(p.basicInfo, key)) {
+                            const value = cleanText(p.basicInfo[key]);
+                            if (key.includes("Miktar") || key.includes("Yatırım") || key.includes("Kazanç") || key.includes("Bahis") || key.includes("Freespin") || key.includes("Oran")) {
+                                allMinInvestmentAmounts.add(value);
+                                allMaxAmounts.add(value);
+                            } else if (key.includes("Tarih") || key.includes("Süresi") || key.includes("Günler")) {
+                                allDurations.add(value);
+                            } else if (key.includes("Çevrim")) {
+                                allWagerRequirements.add(value);
+                            } else if (key.includes("Geçerli Oyunlar") || key.includes("Geçerli Müsabakalar") || key.includes("Kullanım")) {
+                                allEligibleItems.add(value);
+                            }
+                        }
+                    }
+                }
                 if (p.sections) {
                     const sectionContents = Array.isArray(p.sections) ? p.sections.flatMap(s => s.content || []).filter(item => typeof item === 'string') : 
                                             Object.values(p.sections).flatMap(s => s.content || []).filter(item => typeof item === 'string');
-                    allContentItems.push(...sectionContents.map(cleanText));
+                    sectionContents.forEach(item => {
+                        const cleanedItem = cleanText(item);
+                        let match;
+
+                        // Minimum yatırım/bahis
+                        match = cleanedItem.match(/(?:minimum|en az)\s*(\d+[.,]?\d*\s*[₺$€]|\d+\s*Freespin|\d+\s*TL|\d+\s*EUR|\d+\s*adet)\s*(?:tutarında|yatırım|bahis|ile yatırım)/i);
+                        if (match) allMinInvestmentAmounts.add(cleanText(match[1]));
+
+                        // Maksimum kazanç/bonus/freespin
+                        match = cleanedItem.match(/maksimum\s*(\d+[.,]?\d*\s*[₺$€]|\d+\s*Freespin|\d+\s*adet)\s*(?:kazanç|freebet|bonus miktarı|freespin|çevrim ardından ana bakiyeye aktarılacak tutar)/i);
+                        if (match) allMaxAmounts.add(cleanText(match[1]));
+
+                        // Geçerlilik süresi
+                        match = cleanedItem.match(/(?:geçerlilik süresi|\d+\s*(saat|gün|hafta|ay|yıl)\s*içinde kullanılmalıdır|\d+\s*(saat|gün|hafta|ay|yıl)\s*geçerlidir|promosyon\s*(\d+)\s*hafta boyunca sürecek)/i);
+                        if (match) allDurations.add(cleanText(match[0].toLowerCase().includes('geçerlilik süresi') ? cleanedItem.split(/geçerlilik süresi\s*[:-]?\s*/i)[1].split(/\.|,|olmaktadır/i)[0].trim() : match[0]));
+
+                        // Çevrim şartı
+                        match = cleanedItem.match(/(?:çevrim şartı|çevrimini tamamlamanız için|çevrim oranı|kazanç miktarının\s*(\d+)\s*katı kadar çevrim yapılmalıdır|çevrim yapılmalıdır)\s*[:-]?\s*([\d\w%\s.,₺]+)(?:\.|\n|$|gerekmektedir)/i);
+                        if (match) allWagerRequirements.add(cleanText(match[1] || match[2]));
+
+                        // Geçerli oyunlar/alanlar/branşlar
+                        match = cleanedItem.match(/(?:geçerli oyunlar|geçerlidir|kullanılabilir|alanında geçerli)\s*[:-]?\s*(.+?)(?:\.|\n|$|hariç|dışında|veya|ancak)/i);
+                        if (match && !cleanedItem.toLowerCase().includes("geçerli değil") && !cleanedItem.toLowerCase().includes("hariç") && !cleanedItem.toLowerCase().includes("dışında")) {
+                            match[1].split(/,|ve|hariç|dışında|veya|ancak/i).map(g => cleanText(g)).filter(g => g.length > 0 && !g.toLowerCase().includes("belirtilmedikçe") && !g.toLowerCase().includes("bazı oyunlar çevrime dahil değildir")).forEach(item => allEligibleItems.add(item));
+                        }
+                        
+                        // Kimler yararlanamaz/dahil değildir
+                        match = cleanedItem.match(/(?:yararlanamaz|faydalanamaz|dahil değildir|hariç)\s*[:-]?\s*(.+?)(?:\.|\n|$)/i);
+                        if (match) {
+                            match[1].split(/,|ve/i).map(g => cleanText(g)).filter(g => g.length > 0).forEach(item => allIneligibleItems.add(item));
+                        }
+
+                        // Talep koşulları
+                        match = cleanedItem.match(/(?:talep edilmesi gerekmektedir|talep etmeniz gerekmektedir|talep edilmeli|yatırım yöntemi ile yatırım yapmanız gerekmektedir|bonus seç kısmına tıklayarak.+?bonusu seçilerek yatırım yapmanız durumunda otomatik olarak bonus buy.+?hesabınıza aktarılacaktır)\s*[:-]?\s*(.+?)(?:\.|\n|$)/i);
+                        if (match) allClaimConditions.add(cleanText(match[1] || match[0]));
+                    });
+                }
+                if (p.keywords) {
+                    let keywordsArray = Array.isArray(p.keywords) ? p.keywords : p.keywords.split(',').map(k => k.trim());
+                    keywordsArray.forEach(k => allKeywords.add(cleanText(k)));
                 }
             });
-            const uniqueAllPossibleAnswers = Array.from(new Set(allContentItems)).filter(Boolean);
 
-            const existingQuestions = new Set(); // Bu promosyon için eklenen soruları takip etmek için
+            const uniqueAllMinInvestmentAmounts = Array.from(allMinInvestmentAmounts).filter(Boolean);
+            const uniqueAllMaxAmounts = Array.from(allMaxAmounts).filter(Boolean);
+            const uniqueAllDurations = Array.from(allDurations).filter(Boolean);
+            const uniqueAllWagerRequirements = Array.from(allWagerRequirements).filter(Boolean);
+            const uniqueAllEligibleItems = Array.from(allEligibleItems).filter(Boolean);
+            const uniqueAllIneligibleItems = Array.from(allIneligibleItems).filter(Boolean);
+            const uniqueAllClaimConditions = Array.from(allClaimConditions).filter(Boolean);
+            const uniqueAllKeywords = Array.from(allKeywords).filter(Boolean);
 
             // 1. basicInfo'dan sorular oluşturma
             if (promo.basicInfo) {
@@ -315,7 +383,10 @@
                             } else if (key.includes("Tarih") || key.includes("Süresi") || key.includes("Günler")) {
                                 options = options.concat(generateTimeWrongOptions(answer, 3));
                             } else {
-                                options = options.concat(generateGeneralWrongOptions(answer, uniqueAllPossibleAnswers, 3));
+                                // Genel kategori için, burada daha akıllı bir yanlış seçenek havuzu kullanılmalı
+                                // Şimdilik tüm promosyonlardaki basicInfo değerlerini toplayalım
+                                const allBasicInfoValues = allPromos.flatMap(p => p.basicInfo ? Object.values(p.basicInfo).map(cleanText) : []).filter(Boolean);
+                                options = options.concat(generateGeneralWrongOptions(answer, allBasicInfoValues, 3));
                             }
 
                             options = options.sort(() => Math.random() - 0.5);
@@ -351,6 +422,7 @@
                         if (!existingQuestions.has(cleanText(question))) {
                             let options = [amount];
                             options = options.concat(generateNumericWrongOptions(amount, 3));
+                            options = options.concat(uniqueAllMinInvestmentAmounts.filter(val => cleanText(val) !== cleanText(amount)).sort(() => Math.random() - 0.5).slice(0, 2));
                             options = options.sort(() => Math.random() - 0.5);
                             const correctIndex = options.indexOf(amount);
                             if (correctIndex !== -1 && options.length > 1) {
@@ -374,6 +446,7 @@
                         if (!existingQuestions.has(cleanText(question))) {
                             let options = [amount];
                             options = options.concat(generateNumericWrongOptions(amount, 3));
+                            options = options.concat(uniqueAllMaxAmounts.filter(val => cleanText(val) !== cleanText(amount)).sort(() => Math.random() - 0.5).slice(0, 2));
                             options = options.sort(() => Math.random() - 0.5);
                             const correctIndex = options.indexOf(amount);
                             if (correctIndex !== -1 && options.length > 1) {
@@ -399,6 +472,7 @@
                             if (!existingQuestions.has(cleanText(question))) {
                                 let options = [duration];
                                 options = options.concat(generateTimeWrongOptions(duration, 3));
+                                options = options.concat(uniqueAllDurations.filter(val => cleanText(val) !== cleanText(duration)).sort(() => Math.random() - 0.5).slice(0, 2));
                                 options = options.sort(() => Math.random() - 0.5);
                                 const correctIndex = options.indexOf(duration);
                                 if (correctIndex !== -1 && options.length > 1) {
@@ -422,7 +496,8 @@
                             const question = `Bu promosyonun çevrim şartı nedir?`;
                             if (!existingQuestions.has(cleanText(question))) {
                                 let options = [wager];
-                                options = options.concat(generateGeneralWrongOptions(wager, uniqueAllPossibleAnswers, 3));
+                                // Sadece aynı kategoriden (çevrim şartları) yanlış şıklar üret
+                                options = options.concat(generateGeneralWrongOptions(wager, uniqueAllWagerRequirements, 3));
                                 options = options.sort(() => Math.random() - 0.5);
                                 const correctIndex = options.indexOf(wager);
                                 if (correctIndex !== -1 && options.length > 1) {
@@ -447,7 +522,7 @@
                             const question = `Bu promosyonda geçerli olan oyun/alan/branşlardan biri hangisidir?`;
                             if (!existingQuestions.has(cleanText(question))) {
                                 let options = [correctAnswer];
-                                options = options.concat(generateGeneralWrongOptions(correctAnswer, uniqueAllPossibleAnswers, 3));
+                                options = options.concat(generateGeneralWrongOptions(correctAnswer, uniqueAllEligibleItems, 3));
                                 options = options.sort(() => Math.random() - 0.5);
                                 const correctIndex = options.indexOf(correctAnswer);
     if (correctIndex !== -1 && options.length > 1) {
@@ -472,7 +547,7 @@
                             const question = `Aşağıdakilerden hangisi bu promosyondan yararlanamaz / çevrime dahil değildir?`;
                             if (!existingQuestions.has(cleanText(question))) {
                                 let options = [correctAnswer];
-                                options = options.concat(generateGeneralWrongOptions(correctAnswer, uniqueAllPossibleAnswers, 3));
+                                options = options.concat(generateGeneralWrongOptions(correctAnswer, uniqueAllIneligibleItems, 3));
                                 options = options.sort(() => Math.random() - 0.5);
                                 const correctIndex = options.indexOf(correctAnswer);
                                 if (correctIndex !== -1 && options.length > 1) {
@@ -496,7 +571,7 @@
                             const question = `Bu promosyonu talep etmek için ne gereklidir veya hangi yatırım yöntemi kullanılmalıdır?`;
                             if (!existingQuestions.has(cleanText(question))) {
                                 let options = [claimCondition];
-                                options = options.concat(generateGeneralWrongOptions(claimCondition, uniqueAllPossibleAnswers, 3));
+                                options = options.concat(generateGeneralWrongOptions(claimCondition, uniqueAllClaimConditions, 3));
                                 options = options.sort(() => Math.random() - 0.5);
                                 const correctIndex = options.indexOf(claimCondition);
                                 if (correctIndex !== -1 && options.length > 1) {
@@ -650,6 +725,7 @@
                             if (!existingQuestions.has(cleanText(question))) {
                                 let options = [amount];
                                 options = options.concat(generateNumericWrongOptions(amount, 3));
+                                options = options.concat(uniqueAllMinInvestmentAmounts.filter(val => cleanText(val) !== cleanText(amount)).sort(() => Math.random() - 0.5).slice(0, 2));
                                 options = options.sort(() => Math.random() - 0.5);
                                 const correctIndex = options.indexOf(amount);
                                 if (correctIndex !== -1 && options.length > 1) {
@@ -671,6 +747,7 @@
                             if (!existingQuestions.has(cleanText(question))) {
                                 let options = [duration];
                                 options = options.concat(generateTimeWrongOptions(duration, 3));
+                                options = options.concat(uniqueAllDurations.filter(val => cleanText(val) !== cleanText(duration)).sort(() => Math.random() - 0.5).slice(0, 2));
                                 options = options.sort(() => Math.random() - 0.5);
                                 const correctIndex = options.indexOf(duration);
                                 if (correctIndex !== -1 && options.length > 1) {
@@ -691,7 +768,7 @@
                             const question = `Kalamba Cash Drop turnuvasında ödüller nasıl dağıtılmaktadır?`;
                             if (!existingQuestions.has(cleanText(question))) {
                                 let options = [answer];
-                                options = options.concat(generateGeneralWrongOptions(answer, uniqueAllPossibleAnswers, 3));
+                                options = options.concat(generateGeneralWrongOptions(answer, uniqueAllEligibleItems, 3)); // Burada daha genel bir havuz kullanmak mantıklı olabilir
                                 options = options.sort(() => Math.random() - 0.5);
                                 const correctIndex = options.indexOf(answer);
                                 if (correctIndex !== -1 && options.length > 1) {
@@ -745,7 +822,9 @@
                     const question = `${promo.title} promosyonunun kısa açıklaması nedir?`;
                     const answer = cleanText(promo.shortDesc);
                     let options = [answer];
-                    options = options.concat(generateGeneralWrongOptions(answer, uniqueAllPossibleAnswers, 3));
+                    // Genel kategori için, burada daha akıllı bir yanlış seçenek havuzu kullanılmalı
+                    const allShortDescriptions = allPromos.map(p => cleanText(p.shortDesc)).filter(Boolean);
+                    options = options.concat(generateGeneralWrongOptions(answer, allShortDescriptions, 3));
                     options = options.sort(() => Math.random() - 0.5);
                     const correctIndex = options.indexOf(answer);
                     if (correctIndex !== -1 && options.length > 1) {
@@ -771,7 +850,7 @@
                     const question = `${promo.title} promosyonunun anahtar kelimelerinden biri nedir?`;
                     const answer = keywordsArray[0];
                     let options = [answer];
-                    options = options.concat(generateGeneralWrongOptions(answer, uniqueAllPossibleAnswers, 3));
+                    options = options.concat(generateGeneralWrongOptions(answer, uniqueAllKeywords, 3));
                     options = options.sort(() => Math.random() - 0.5);
                     const correctIndex = options.indexOf(answer);
                     if (correctIndex !== -1 && options.length > 1) {
@@ -796,12 +875,16 @@
                                 const question = `${promo.title} promosyonunda "${key}" nedir?`;
                                 if (!existingQuestions.has(cleanText(question))) {
                                     let options = [answer];
+                                    // Burada da kategoriye özel havuz kullanılmalı
                                     if (key.includes("Miktar") || key.includes("Yatırım") || key.includes("Kazanç") || key.includes("Bahis") || key.includes("Freespin") || key.includes("Oran")) {
                                         options = options.concat(generateNumericWrongOptions(answer, 3));
+                                        options = options.concat(uniqueAllMinInvestmentAmounts.filter(val => cleanText(val) !== cleanText(answer)).sort(() => Math.random() - 0.5).slice(0, 2));
                                     } else if (key.includes("Tarih") || key.includes("Süresi") || key.includes("Günler")) {
                                         options = options.concat(generateTimeWrongOptions(answer, 3));
+                                        options = options.concat(uniqueAllDurations.filter(val => cleanText(val) !== cleanText(answer)).sort(() => Math.random() - 0.5).slice(0, 2));
                                     } else {
-                                        options = options.concat(generateGeneralWrongOptions(answer, uniqueAllPossibleAnswers, 3));
+                                        const allBasicInfoValues = allPromos.flatMap(p => p.basicInfo ? Object.values(p.basicInfo).map(cleanText) : []).filter(Boolean);
+                                        options = options.concat(generateGeneralWrongOptions(answer, allBasicInfoValues, 3));
                                     }
                                     options = options.sort(() => Math.random() - 0.5);
                                     const correctIndex = options.indexOf(answer);
