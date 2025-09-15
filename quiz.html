@@ -684,8 +684,6 @@
                                     options = options.concat(generateNumericWrongOptions(answer, 3));
                                 } else if (key.includes("Tarih") || key.includes("Süresi") || key.includes("Günler")) {
                                     options = options.concat(generateTimeWrongOptions(answer, 3));
-                                } else if (key.includes("Geçerli Oyunlar") || key.includes("Geçerli Müsabakalar") || key.includes("Yöntem")) {
-                                    options = options.concat(generateGeneralWrongOptions(answer, uniqueAllPossibleAnswers, 3));
                                 } else {
                                     options = options.concat(generateGeneralWrongOptions(answer, uniqueAllPossibleAnswers, 3));
                                 }
@@ -810,7 +808,7 @@
                 // Ödeme yöntemleri ile ilgili soru
                 const paymentMethodMatch = allContentItems.find(item => item.match(/(?:yatırım yöntemi ile yatırım yapmanız gerekmektedir|mobil ödeme ve kredi kartı ile yatırım yapan üyelerimiz bu bonustan yararlanamamaktadır)/i));
                 if (paymentMethodMatch && !existingQuestions.has(cleanText(`${promo.title} promosyonu için geçerli olan/olmayan bir yatırım yöntemi belirtiniz.`))) {
-                    let question = `Bu promosyondan yararlanmak için hangi yatırım yöntemi/yöntemleri kullanılabilir?`;
+                    let question = `Bu promosyondan yararlanmak için hangi yatırım yöntemlerinden biri kullanılabilir?`;
                     let answer = cleanText("Belirli yatırım yöntemleri"); // Genel bir cevap
                     
                     // Daha spesifik bir cevap bulmaya çalış
@@ -911,7 +909,6 @@
                     });
                     existingQuestions.add(cleanText("Freebet genellikle hangi tür kuponlarda kullanılabilir?"));
                 }
-
             }
 
 

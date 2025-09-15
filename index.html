@@ -920,48 +920,8 @@
         let regularPromos = []; // Normal promosyonlar
         let providerPromos = []; // Sağlayıcı promosyonları
 
-        // Yardımcı fonksiyon: Promosyonları localStorage'a kaydeder
-        function savePromosToLocalStorage() {
-            try {
-                localStorage.setItem('regularPromos', JSON.stringify(regularPromos));
-                localStorage.setItem('providerPromos', JSON.stringify(providerPromos));
-                console.log('Promosyonlar localStorage'a kaydedildi.');
-            } catch (e) {
-                console.error('Promosyonlar localStorage'a kaydedilirken hata oluştu:', e);
-            }
-        }
-
-        // Yardımcı fonksiyon: Promosyonları localStorage'dan yükler
-        function loadPromosFromLocalStorage() {
-            try {
-                const storedRegularPromos = localStorage.getItem('regularPromos');
-                const storedProviderPromos = localStorage.getItem('providerPromos');
-
-                if (storedRegularPromos && storedProviderPromos) {
-                    regularPromos = JSON.parse(storedRegularPromos);
-                    providerPromos = JSON.parse(storedProviderPromos);
-                    console.log('Promosyonlar localStorage'dan yüklendi.');
-                    return true; // Başarılı yükleme
-                }
-            } catch (e) {
-                console.error('Promosyonlar localStorage'dan yüklenirken hata oluştu:', e);
-                // Hata durumunda localStorage'ı temizleyebiliriz ki bozuk veri kalmasın
-                localStorage.removeItem('regularPromos');
-                localStorage.removeItem('providerPromos');
-            }
-            return false; // Yükleme başarısız veya veri yok
-        }
-
         // Promosyonları yükle
         async function loadPromos() {
-            // Önce localStorage'dan yüklemeyi dene
-            if (loadPromosFromLocalStorage()) {
-                renderPromos();
-                updatePromoList();
-                return;
-            }
-
-            // localStorage'da veri yoksa veya hata oluşursa, dosyalardan yüklemeyi dene
             try {
                 const promoFiles = [
                     'ertesi-gun.json', 
@@ -1014,25 +974,21 @@
                 if (loadedCount === 0) {
                     console.log('JSON dosyaları yüklenemedi, varsayılan promosyonlar yükleniyor...');
                     loadDefaultPromos();
-                    savePromosToLocalStorage(); // Varsayılanları da kaydedelim
                     return;
                 }
 
                 renderPromos();
                 updatePromoList();
-                savePromosToLocalStorage(); // İlk yüklemede de localStorage'a kaydet
             } catch (error) {
                 console.error('Error loading promos:', error);
                 // Fallback: Varsayılan promosyonları yükle
                 loadDefaultPromos();
-                savePromosToLocalStorage(); // Varsayılanları da kaydedelim
             }
         }
 
         function loadDefaultPromos() {
             // Varsayılan promosyonlar (JSON dosyaları yüklenemezse)
-            // Bu kısım artık doğrudan regularPromos ve providerPromos'u dolduracak
-            const defaultData = [
+            promos = [
                 {
                     id: 'pragmatic-play',
                     title: '🎰 Pragmatic Play Drops & Wins 2025',
@@ -1399,8 +1355,8 @@
             ];
 
             // Varsayılan promosyonları regular ve provider olarak ayır
-            regularPromos = defaultData.filter(p => p.id !== 'pragmatic-play' && p.id !== 'kalamba-cash-drop');
-            providerPromos = defaultData.filter(p => p.id === 'pragmatic-play' || p.id === 'kalamba-cash-drop');
+            regularPromos = promos.filter(p => p.id !== 'pragmatic-play' && p.id !== 'kalamba-cash-drop');
+            providerPromos = promos.filter(p => p.id === 'pragmatic-play' || p.id === 'kalamba-cash-drop');
         }
 
         function renderPromos() {
@@ -1530,7 +1486,7 @@
             });
             
             document.getElementById(tabName).classList.add('active');
-            document.querySelector(`.nav-tab[onclick="showTab('${tabName}')"]`).classList.add('active');
+            event.target.classList.add('active');
         }
 
         function toggleAccordion(header) {
@@ -1615,7 +1571,6 @@
                 updatePromoList();
                 hideAddPromoForm();
                 
-                savePromosToLocalStorage(); // Değişiklikleri localStorage'a kaydet
                 alert('Promosyon başarıyla kaydedildi!');
             } catch (error) {
                 alert('Geçersiz JSON formatı! Lütfen düzgün JSON verisi girin.');
@@ -1812,7 +1767,6 @@
             renderPromos(); // Promosyonları yeniden render et
             updatePromoList();
             
-            savePromosToLocalStorage(); // Değişiklikleri localStorage'a kaydet
             alert('Promosyon başarıyla güncellendi!');
         }
 
@@ -1827,7 +1781,6 @@
                 providerPromos = providerPromos.filter(p => p.id !== promoId);
                 renderPromos();
                 updatePromoList();
-                savePromosToLocalStorage(); // Değişiklikleri localStorage'a kaydet
             }
         }
 
