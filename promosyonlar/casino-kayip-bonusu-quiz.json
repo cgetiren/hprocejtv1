@@ -1,0 +1,148 @@
+{
+  "quizId": "casino-kayip-bonusu-quiz",
+  "promosyonId": "casino-kayip-bonusu", 
+  "title": "🎰 %25'E VARAN CASİNO VE CANLI CASİNO KAYIP BONUSU - Quiz",
+  "description": "Casino kayıp bonusu promosyonu hakkındaki bilginizi test edin.",
+  "sorular": [
+    {
+      "id": 1,
+      "soru": "100₺-99.999₺ arası yatırımlar için bonus oranı yüzde kaçtır?",
+      "secenekler": ["%15", "%20", "%25", "%30"],
+      "dogruCevap": 1,
+      "aciklama": "100₺ – 99.999₺ arası yatırımlarınıza %20 oranında bonus aktarımı sağlanacaktır."
+    },
+    {
+      "id": 2,
+      "soru": "100.000₺ ve üzeri yatırımlar için bonus oranı yüzde kaçtır?",
+      "secenekler": ["%20", "%22", "%25", "%30"],
+      "dogruCevap": 2,
+      "aciklama": "100.000₺ ve üzeri yatırımlarınıza %25 oranından bonus aktarımı sağlanacaktır."
+    },
+    {
+      "id": 3,
+      "soru": "Minimum yatırım miktarı ne kadardır?",
+      "secenekler": ["50₺", "75₺", "100₺", "150₺"],
+      "dogruCevap": 2,
+      "aciklama": "Son 24 saat içinde tek seferde minimum 100₺ ve üstü yatırımlarınıza Casino Kayıp Bonusu talep edebilirsiniz."
+    },
+    {
+      "id": 4,
+      "soru": "Bonusun geçerlilik süresi ne kadardır?",
+      "secenekler": ["3 gün", "5 gün", "7 gün", "10 gün"],
+      "dogruCevap": 2,
+      "aciklama": "Bonusun geçerlilik süresi 7 gündür. 7 gün içerisinde çevrimini tamamlamayan kullanıcıların bonusları iptal edilecektir."
+    },
+    {
+      "id": 5,
+      "soru": "Çevrim şartı kaç katıdır?",
+      "secenekler": ["0.5x", "1x", "2x", "3x"],
+      "dogruCevap": 1,
+      "aciklama": "Aldığınız bonus miktarı kadar casino veya canlı casino alanında bahis almanız gerekmektedir."
+    },
+    {
+      "id": 6,
+      "soru": "Kayıp bonusu talep edebilmek için bakiye ne kadar olmalıdır?",
+      "secenekler": ["1₺ altında", "2₺ altında", "5₺ altında", "10₺ altında"],
+      "dogruCevap": 1,
+      "aciklama": "Kayıp bonusu talep edebilmeniz için bakiyenizin 2₺ altında olması gerekmektedir."
+    },
+    {
+      "id": 7,
+      "soru": "Slot oyunlarının çevrim oranı yüzde kaçtır?",
+      "secenekler": ["%50", "%75", "%100", "%125"],
+      "dogruCevap": 2,
+      "aciklama": "Slot oyunlarının çevrim oranı %100'dür."
+    },
+    {
+      "id": 8,
+      "soru": "Rulet oyunlarının çevrim oranı yüzde kaçtır?",
+      "secenekler": ["%1", "%5", "%10", "%20"],
+      "dogruCevap": 0,
+      "aciklama": "Rulet oyunlarının çevrim oranı %1'dir."
+    },
+    {
+      "id": 9,
+      "soru": "Baccarat oyunlarının çevrim oranı yüzde kaçtır?",
+      "secenekler": ["%5", "%10", "%15", "%20"],
+      "dogruCevap": 1,
+      "aciklama": "Baccarat oyunlarının çevrim oranı %10'dur."
+    },
+    {
+      "id": 10,
+      "soru": "Kayıp bonusu hangi süre zarfında talep edilmelidir?",
+      "secenekler": ["12 saat", "24 saat", "48 saat", "72 saat"],
+      "dogruCevap": 1,
+      "aciklama": "Kayıp bonusunuzu yatırım saatinden sonra maksimum 24 saat içerisinde talep etmeniz gerekmektedir."
+    },
+    {
+      "id": 11,
+      "soru": "Bu bonus hangi diğer bonusla birleştirilemez?",
+      "secenekler": ["Ertesi gün bonusu", "Casino Hoş Geldin Bonusu", "Freespin bonusu", "Freebet bonusu"],
+      "dogruCevap": 1,
+      "aciklama": "Casino Hoş Geldin Bonusu ile birleştirilemez."
+    },
+    {
+      "id": 12,
+      "soru": "Kayıp bonusu aktarımları hangi temel alınarak yapılır?",
+      "secenekler": ["Haftalık kar-zarar", "24 saat kar-zarar durumu", "Aylık kar-zarar", "Güncel bakiye"],
+      "dogruCevap": 1,
+      "aciklama": "Kayıp bonusu aktarımları 24 saat kar zarar durumu baz alınarak gerçekleştirilmektedir."
+    },
+    {
+      "id": 13,
+      "soru": "Blackjack oyunlarının çevrim oranı yüzde kaçtır?",
+      "secenekler": ["%5", "%10", "%15", "%20"],
+      "dogruCevap": 1,
+      "aciklama": "Blackjack oyunlarının çevrim oranı %10'dur."
+    },
+    {
+      "id": 14,
+      "soru": "Maksimum limit var mı?",
+      "secenekler": ["Evet, 10.000₺", "Evet, 50.000₺", "Hayır, sınırsız", "Evet, 100.000₺"],
+      "dogruCevap": 2,
+      "aciklama": "Kayıp bonusundan faydalanabileceğiniz maksimum limit bulunmamaktadır."
+    },
+    {
+      "id": 15,
+      "soru": "Kazanç sınırı var mı?",
+      "secenekler": ["Evet, 25.000₺", "Evet, 50.000₺", "Hayır, yok", "Evet, 100.000₺"],
+      "dogruCevap": 2,
+      "aciklama": "Kayıp bonusu ile kazanç sınırı bulunmamaktadır."
+    },
+    {
+      "id": 16,
+      "soru": "1'e 2 oranında alınan bahisler için bonus aktarılır mı?",
+      "secenekler": ["Evet, aktarılır", "Hayır, aktarılmaz", "Kısmen aktarılır", "Duruma göre değişir"],
+      "dogruCevap": 1,
+      "aciklama": "Baccarat, Rulet, Dragon/Tiger ve Sic-Bo vs. oyunlarda '1'e 2' oranında alınan bahislere Casino kayıp bonusu aktarılmamaktadır."
+    },
+    {
+      "id": 17,
+      "soru": "Crash oyunlarda bonus bakiyesi ile bahis alınabilir mi?",
+      "secenekler": ["Evet, alınabilir", "Hayır, alınamaz", "Kısmen alınabilir", "Duruma göre değişir"],
+      "dogruCevap": 1,
+      "aciklama": "Bonus bakiyesi ile Crash oyunlarda bahis alınmamaktadır."
+    },
+    {
+      "id": 18,
+      "soru": "Açık casino bahsi olması durumunda bonus alınabilir mi?",
+      "secenekler": ["Evet, alınabilir", "Hayır, alınamaz", "Kısmen alınabilir", "Duruma göre değişir"],
+      "dogruCevap": 1,
+      "aciklama": "Kayıp bonusu talep edebilmeniz için açık casino bahsinizin olmaması gerekmektedir."
+    },
+    {
+      "id": 19,
+      "soru": "Kullanılmamış Freebet veya Freespin varsa kayıp bonusu alınabilir mi?",
+      "secenekler": ["Evet, alınabilir", "Hayır, alınamaz", "Kısmen alınabilir", "Duruma göre değişir"],
+      "dogruCevap": 1,
+      "aciklama": "Hesaplarda kullanılmamış Freebet veya Freespin mevcut ise kayıp bonusundan yararlanılamaz."
+    },
+    {
+      "id": 20,
+      "soru": "Hangi oyun türlerinde geçerlidir?",
+      "secenekler": ["Sadece slot", "Sadece rulet", "Canlı Casino, Casino ve Tombala", "Sadece blackjack"],
+      "dogruCevap": 2,
+      "aciklama": "Casino Kayıp bonusundan Canlı Casino, Casino ve Tombala oyunlarında yaşadığınız kayıplarınız için yararlanabilirsiniz."
+    }
+  ]
+}

@@ -124,7 +124,52 @@
 </head>
 <body>
     <div class="quiz-container">
-        <h3 style="margin-bottom: 20px; color: #ffc107;">🎯 Quizler</h3>
+        <h3 style="margin-bottom: 20px; color: #ffc107;">🎯 Yeni Quizler</h3>
+        
+        <!-- Admin Panel Link -->
+        <div style="margin-bottom: 15px; text-align: right;">
+            <a href="admin.html" style="background: #28a745; color: white; text-decoration: none; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem; transition: all 0.3s ease;">
+                ⚙️ Yönetim Paneli
+            </a>
+        </div>
+        
+        <!-- Eski Quiz Çekmecesi -->
+        <div style="margin-bottom: 15px;">
+            <button onclick="toggleOldQuizzes()" style="background: #6c757d; color: white; border: none; padding: 8px 15px; border-radius: 20px; font-size: 0.9rem; cursor: pointer; transition: all 0.3s ease;">
+                📁 Eski Quizler (Dinamik Sorular)
+            </button>
+            <div id="old-quiz-drawer" style="display: none; margin-top: 10px; padding: 15px; background: #0d1a2d; border-radius: 10px; border: 1px solid #1a3a6b;">
+                <div class="quiz-category-tabs" style="display: flex; margin-bottom: 15px; border-radius: 10px; overflow: hidden;">
+                    <button class="quiz-category-tab" id="old-tab-promosyon" onclick="showOldQuizCategory('promosyon')" style="flex: 1; padding: 8px; text-align: center; cursor: pointer; background: #1a3a6b; color: #ffffff; font-weight: bold; transition: all 0.3s ease; font-size: 0.9rem;">
+                        Promosyon Quizleri
+                    </button>
+                    <button class="quiz-category-tab" id="old-tab-saglayici" onclick="showOldQuizCategory('saglayici')" style="flex: 1; padding: 8px; text-align: center; cursor: pointer; background: #1a3a6b; color: #ffffff; font-weight: bold; transition: all 0.3s ease; font-size: 0.9rem;">
+                        Sağlayıcı Quizleri
+                    </button>
+                </div>
+                <div class="form-group" style="margin-bottom: 15px;">
+                    <label style="font-size: 0.9rem;">Eski Quiz Yapmak İstediğiniz Promosyonu Seçin:</label>
+                    <select id="old-promo-select" onchange="loadOldQuiz()" style="width: 100%; padding: 8px; border: 1px solid #dee2e6; border-radius: 8px; font-size: 0.9rem;">
+                        <option value="">Promosyon seçin...</option>
+                    </select>
+                </div>
+                <div id="old-quiz-content" style="display: none;">
+                    <div class="quiz-question" id="old-quiz-question" style="font-size: 1.1rem;">
+                        Soru yükleniyor...
+                    </div>
+                    <div class="quiz-options" id="old-quiz-options">
+                        <!-- Seçenekler buraya yüklenecek -->
+                    </div>
+                    <div style="display: flex; gap: 10px; margin-top: 15px;">
+                        <button class="quiz-button" onclick="checkOldAnswer()" id="old-check-btn" style="font-size: 0.9rem; padding: 8px 20px;">Cevabı Kontrol Et</button>
+                        <button class="quiz-button" onclick="loadOldQuiz()" style="background: #ffeb3b; color: #0a1f44; font-size: 0.9rem; padding: 8px 20px;">🔄 Yeni Soru</button>
+                    </div>
+                </div>
+                <div class="score-display" id="old-score-display" style="display: none; font-size: 1rem;">
+                    <div id="old-score-text"></div>
+                </div>
+            </div>
+        </div>
         
         <div class="quiz-category-tabs" style="display: flex; margin-bottom: 20px; border-radius: 10px; overflow: hidden;">
             <button class="quiz-category-tab active" id="tab-promosyon" onclick="showQuizCategory('promosyon')" style="flex: 1; padding: 10px; text-align: center; cursor: pointer; background: #ffc107; color: #0a1f44; font-weight: bold; transition: all 0.3s ease;">
@@ -160,6 +205,7 @@
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
         let currentAnswer = -1;
         let currentQuiz = null;
@@ -167,6 +213,95 @@
         let providerPromos = []; // Sağlayıcı promosyonları
         let activePromos = []; // Şu an aktif olan promosyon listesi
         let currentQuizCategory = 'promosyon'; // Varsayılan olarak promosyon quizleri aktif
+        
+        // Supabase configuration
+        let supabase = null;
+        let currentUser = {
+            id: 'agent_' + Math.random().toString(36).substr(2, 9),
+            name: 'Canlı Destek Ajanı'
+        };
+        
+        // Quiz tracking
+        let quizStartTime = null;
+        let currentQuizAttempt = {
+            correct: 0,
+            total: 0
+        };
+        
+        // Yeni Quiz sistemi için değişkenler
+        let newQuizData = {}; // Yeni quiz JSON dosyalarını tutacak
+        let currentNewQuiz = null;
+        let currentNewQuizQuestions = [];
+        let currentNewQuestionIndex = 0;
+        
+        // Eski quiz sistemi için değişkenler
+        let oldCurrentAnswer = -1;
+        let oldCurrentQuiz = null;
+        let oldActivePromos = [];
+        let oldCurrentQuizCategory = 'promosyon';
+
+        // Eski Quiz Çekmecesini aç/kapat
+        function toggleOldQuizzes() {
+            const drawer = document.getElementById('old-quiz-drawer');
+            if (drawer.style.display === 'none') {
+                drawer.style.display = 'block';
+            } else {
+                drawer.style.display = 'none';
+            }
+        }
+        
+        // Supabase başlatma
+        function initSupabase() {
+            const supabaseUrl = localStorage.getItem('supabase-url');
+            const supabaseKey = localStorage.getItem('supabase-key');
+            
+            if (supabaseUrl && supabaseKey) {
+                try {
+                    supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+                    console.log('Supabase bağlantısı kuruldu');
+                } catch (error) {
+                    console.error('Supabase bağlantı hatası:', error);
+                }
+            }
+        }
+        
+        // Yeni quiz JSON dosyalarını yükle
+        async function loadNewQuizData() {
+            const quizFiles = [
+                'ertesi-gun-quiz.json',
+                'bonus-buy-quiz.json', 
+                'hos-geldin-quiz.json',
+                'spor-freebet-quiz.json',
+                'casino-kayip-bonusu-quiz.json',
+                'freespin-600-quiz.json',
+                'cash-out-quiz.json',
+                'futbol-2-gol-onde-kazan-quiz.json',
+                'basketbol-20-sayi-onde-kazan-quiz.json',
+                'yeni-uyelere-deneme-bonusu-quiz.json',
+                'spor-kayip-bonusu-quiz.json',
+                'spor-hos-geldin-bonusu-quiz.json',
+                'blackjack-21-bonus-quiz.json',
+                'pragmatic-play-quiz.json',
+                'kalamba-cash-drop-quiz.json',
+                'evoplay-big-adventures-quiz.json'
+            ];
+            
+            for (const file of quizFiles) {
+                try {
+                    const response = await fetch(`promosyonlar/${file}`);
+                    if (response.ok) {
+                        const quizData = await response.json();
+                        newQuizData[quizData.promosyonId] = quizData;
+                        console.log(`Quiz yüklendi: ${quizData.promosyonId}`, quizData.title);
+                    } else {
+                        console.log(`Quiz dosyası bulunamadı: ${file}`);
+                    }
+                } catch (error) {
+                    console.error(`Error loading quiz ${file}:`, error);
+                }
+            }
+            console.log('Tüm quiz verileri:', newQuizData);
+        }
 
         // Yardımcı fonksiyon: Metin temizleme
         function cleanText(text) {
@@ -588,7 +723,7 @@
                     }
 
                     // Bonus durdurma/iptal etme hakkı (daha spesifik)
-                    if (cleanedItem.match(/(?:Hproject|Hitbet)\s*dilediği zaman bu bonusu durdurma ya da iptal etme hakkına sahiptir/i)) {
+                    if (cleanedItem.match(/(?:Hproject)\s*dilediği zaman bu bonusu durdurma ya da iptal etme hakkına sahiptir/i)) {
                         const question = "Hproject, promosyonu dilediği zaman durdurma veya iptal etme hakkına sahip midir?";
                         if (!existingQuestions.has(cleanText(question))) {
                             dynamicQuizzes.push({
@@ -602,7 +737,7 @@
                     }
                     
                     // Kötüye kullanım şartı
-                    if (cleanedItem.match(/(?:Bonus|kazanç)(?:ını)?\s*kötüye kullanma durumunda\s*(?:Hproject|Hitbet)\s*(?:bonusu ve kazancı geri alma hakkına sahiptir|bonus ve kazanç geri alınır)/i)) {
+                    if (cleanedItem.match(/(?:Bonus|kazanç)(?:ını)?\s*kötüye kullanma durumunda\s*(?:Hproject)\s*(?:bonusu ve kazancı geri alma hakkına sahiptir|bonus ve kazanç geri alınır)/i)) {
                         const question = "Bonusun kötüye kullanılması durumunda ne olur?";
                         if (!existingQuestions.has(cleanText(question))) {
                             dynamicQuizzes.push({
@@ -938,7 +1073,7 @@
                 // Normal promosyonları yükle
                 for (const file of promoFiles) {
                     try {
-                        const promoResponse = await fetch(`../promosyonlar/${file}`);
+                        const promoResponse = await fetch(`promosyonlar/${file}`);
                         if (promoResponse.ok) {
                             const promo = await promoResponse.json();
                             if (promo.id !== 'pragmatic-play' && promo.id !== 'kalamba-cash-drop' && promo.id !== 'evoplay-big-adventures') { // Sağlayıcı promosyonlarını burada yüklemeyi engelle
@@ -953,7 +1088,7 @@
                 // Sağlayıcı promosyonlarını yükle
                 for (const file of providerPromoFiles) {
                     try {
-                        const promoResponse = await fetch(`../promosyonlar/${file}`);
+                        const promoResponse = await fetch(`promosyonlar/${file}`);
                         if (promoResponse.ok) {
                             const promo = await promoResponse.json();
                             providerPromos.push(promo);
@@ -962,6 +1097,9 @@
                         console.error(`Error loading provider promo ${file}:`, error);
                     }
                 }
+                
+                // Yeni quiz verilerini yükle
+                await loadNewQuizData();
 
                 // Başlangıçta aktif promosyonları ayarla ve select box'ı güncelle
                 showQuizCategory(currentQuizCategory);
@@ -974,17 +1112,20 @@
             const select = document.getElementById('promo-select');
             select.innerHTML = '<option value="">Promosyon seçin...</option>';
             
+            console.log('Aktif promosyonlar:', activePromos.map(p => p.id));
+            console.log('Yüklenen quiz verileri:', Object.keys(newQuizData));
+            
             activePromos.forEach(promo => {
-                // Hem manuel hem de dinamik olarak oluşturulan quizlerin varlığını kontrol et
-                const hasManualQuizzes = promo.quiz && (Array.isArray(promo.quiz) && promo.quiz.length > 0 || typeof promo.quiz === 'object' && Object.keys(promo.quiz).length > 0);
-                const dynamicQuizzes = generateQuizQuestions(promo);
-                const hasDynamicQuizzes = dynamicQuizzes.length > 0;
-
-                if (hasManualQuizzes || hasDynamicQuizzes) {
+                // Yeni quiz JSON dosyasının varlığını kontrol et
+                console.log(`Promosyon ${promo.id} için quiz aranıyor...`);
+                if (newQuizData[promo.id]) {
+                    console.log(`Quiz bulundu: ${promo.id}`);
                     const option = document.createElement('option');
                     option.value = promo.id;
                     option.textContent = promo.title;
                     select.appendChild(option);
+                } else {
+                    console.log(`Quiz bulunamadı: ${promo.id}`);
                 }
             });
         }
@@ -1026,58 +1167,38 @@
                 return;
             }
 
-            const promo = activePromos.find(p => p.id === selectedPromo);
-            if (!promo) {
+            // Quiz tracking sıfırla
+            quizStartTime = Date.now();
+            currentQuizAttempt = { correct: 0, total: 0 };
+
+            // Yeni quiz verilerini kontrol et
+            if (!newQuizData[selectedPromo]) {
                 document.getElementById('quiz-content').style.display = 'none';
                 alert('Bu promosyon için quiz bulunamadı!');
                 return;
             }
             
-            let allQuizzes = [];
-
-            // Mevcut (manuel olarak eklenmiş) quizleri ekle
-            if (promo.quiz) {
-                allQuizzes = allQuizzes.concat(Array.isArray(promo.quiz) ? promo.quiz : [promo.quiz]);
-            }
+            currentNewQuiz = newQuizData[selectedPromo];
+            currentNewQuizQuestions = currentNewQuiz.sorular;
             
-            // Dinamik olarak oluşturulan quizleri ekle
-            const dynamicQuizzes = generateQuizQuestions(promo);
-            allQuizzes = allQuizzes.concat(dynamicQuizzes);
-
-            if (allQuizzes.length === 0) {
+            if (currentNewQuizQuestions.length === 0) {
                 document.getElementById('quiz-content').style.display = 'none';
                 alert('Bu promosyon için quiz bulunamadı!');
                 return;
             }
 
-            // Bu promosyon için daha önce sorulan quiz indekslerini al
-            if (!askedQuizIndices[selectedPromo]) {
-                askedQuizIndices[selectedPromo] = [];
-            }
-
-            let availableQuizIndices = Array.from({ length: allQuizzes.length }, (_, i) => i);
-            availableQuizIndices = availableQuizIndices.filter(index => !askedQuizIndices[selectedPromo].includes(index));
-
-            if (availableQuizIndices.length === 0) {
-                alert('Bu promosyon için tüm soruları yanıtladınız! Sorular tekrar edecektir.');
-                askedQuizIndices[selectedPromo] = []; // Sorular bittiğinde listeyi sıfırla
-                availableQuizIndices = Array.from({ length: allQuizzes.length }, (_, i) => i); // Tüm soruları tekrar kullanılabilir yap
-            }
-
-            const randomAvailableIndex = Math.floor(Math.random() * availableQuizIndices.length);
-            const selectedQuizIndex = availableQuizIndices[randomAvailableIndex];
-
-            currentQuiz = allQuizzes[selectedQuizIndex];
-            askedQuizIndices[selectedPromo].push(selectedQuizIndex); // Sorulan soruyu işaretle
+            // Rastgele bir soru seç
+            currentNewQuestionIndex = Math.floor(Math.random() * currentNewQuizQuestions.length);
+            const selectedQuestion = currentNewQuizQuestions[currentNewQuestionIndex];
             
             document.getElementById('quiz-content').style.display = 'block';
             
-            document.getElementById('quiz-question').textContent = currentQuiz.question;
+            document.getElementById('quiz-question').textContent = selectedQuestion.soru;
             
             const optionsContainer = document.getElementById('quiz-options');
             optionsContainer.innerHTML = '';
             
-            currentQuiz.options.forEach((option, index) => {
+            selectedQuestion.secenekler.forEach((option, index) => {
                 const optionDiv = document.createElement('div');
                 optionDiv.className = 'quiz-option';
                 optionDiv.textContent = option;
@@ -1101,19 +1222,58 @@
             currentAnswer = answerIndex;
         }
 
+        // Supabase quiz sonuç kaydetme fonksiyonu
+        async function saveQuizResult(promotionId, quizType, correct, total, timeSpent) {
+            if (!supabase) return;
+            
+            try {
+                const score = (correct / total) * 100;
+                
+                const { data, error } = await supabase
+                    .from('quiz_results')
+                    .insert([
+                        {
+                            user_id: currentUser.id,
+                            user_name: currentUser.name,
+                            promotion_id: promotionId,
+                            quiz_type: quizType,
+                            question_count: total,
+                            correct_answers: correct,
+                            score: score,
+                            time_spent: timeSpent
+                        }
+                    ]);
+                
+                if (error) throw error;
+                console.log('Quiz sonucu kaydedildi');
+            } catch (error) {
+                console.error('Quiz sonucu kaydetme hatası:', error);
+            }
+        }
+
+        // checkAnswer fonksiyonunu güncelle
         function checkAnswer() {
             if (currentAnswer === -1) {
                 alert('Lütfen bir seçenek seçin!');
                 return;
             }
 
-            if (!currentQuiz) return;
+            if (!currentNewQuiz || !currentNewQuizQuestions[currentNewQuestionIndex]) return;
+            
+            const currentQuestion = currentNewQuizQuestions[currentNewQuestionIndex];
+            const correctAnswer = currentQuestion.dogruCevap;
+            const isCorrect = currentAnswer === correctAnswer;
+
+            // Quiz tracking güncelle
+            if (!quizStartTime) quizStartTime = Date.now();
+            currentQuizAttempt.total++;
+            if (isCorrect) currentQuizAttempt.correct++;
 
             const options = document.querySelectorAll('.quiz-option');
             
-            options[currentQuiz.correct].classList.add('correct');
+            options[correctAnswer].classList.add('correct');
             
-            if (currentAnswer !== currentQuiz.correct) {
+            if (currentAnswer !== correctAnswer) {
                 options[currentAnswer].classList.add('incorrect');
             }
 
@@ -1122,20 +1282,195 @@
             const scoreDisplay = document.getElementById('score-display');
             const scoreText = document.getElementById('score-text');
             
-            if (currentAnswer === currentQuiz.correct) {
-                scoreText.innerHTML = `🎉 Tebrikler! Doğru cevap!<br><small>${currentQuiz.explanation}</small>`;
+            if (isCorrect) {
+                scoreText.innerHTML = `🎉 Tebrikler! Doğru cevap!<br><small>${currentQuestion.aciklama}</small>`;
                 scoreText.style.color = '#28a745';
             } else {
-                scoreText.innerHTML = `❌ Yanlış cevap. Doğru cevap: ${currentQuiz.options[currentQuiz.correct]}<br><small>${currentQuiz.explanation}</small>`;
+                scoreText.innerHTML = `❌ Yanlış cevap. Doğru cevap: ${currentQuestion.secenekler[correctAnswer]}<br><small>${currentQuestion.aciklama}</small>`;
+                scoreText.style.color = '#dc3545';
+            }
+            
+            scoreDisplay.style.display = 'block';
+            
+            // Supabase'e sonuç kaydet (her 5 soruda bir)
+            if (currentQuizAttempt.total % 5 === 0) {
+                const timeSpent = Math.floor((Date.now() - quizStartTime) / 1000);
+                const selectedPromo = document.getElementById('promo-select').value;
+                saveQuizResult(selectedPromo, 'new', currentQuizAttempt.correct, currentQuizAttempt.total, timeSpent);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            initSupabase();
+            loadPromosData();
+            // Eski quiz sistemini de başlat
+            showOldQuizCategory('promosyon');
+        });
+        
+        // ================== ESKİ QUİZ SİSTEMİ FONKSİYONLARI ==================
+        
+        function updateOldPromoSelect() {
+            const select = document.getElementById('old-promo-select');
+            select.innerHTML = '<option value="">Promosyon seçin...</option>';
+            
+            oldActivePromos.forEach(promo => {
+                // Hem manuel hem de dinamik olarak oluşturulan quizlerin varlığını kontrol et
+                const hasManualQuizzes = promo.quiz && (Array.isArray(promo.quiz) && promo.quiz.length > 0 || typeof promo.quiz === 'object' && Object.keys(promo.quiz).length > 0);
+                const dynamicQuizzes = generateQuizQuestions(promo);
+                const hasDynamicQuizzes = dynamicQuizzes.length > 0;
+
+                if (hasManualQuizzes || hasDynamicQuizzes) {
+                    const option = document.createElement('option');
+                    option.value = promo.id;
+                    option.textContent = promo.title;
+                    select.appendChild(option);
+                }
+            });
+        }
+
+        function showOldQuizCategory(category) {
+            oldCurrentQuizCategory = category;
+
+            // Tab butonlarının stilini güncelle
+            document.querySelectorAll('#old-quiz-drawer .quiz-category-tab').forEach(tab => {
+                tab.style.background = '#1a3a6b';
+                tab.style.color = '#ffffff';
+                tab.classList.remove('active');
+            });
+
+            const activeTab = document.getElementById(`old-tab-${category}`);
+            activeTab.style.background = '#ffc107';
+            activeTab.style.color = '#0a1f44';
+            activeTab.classList.add('active');
+
+            // Aktif promosyon listesini ayarla
+            if (category === 'promosyon') {
+                oldActivePromos = regularPromos;
+            } else if (category === 'saglayici') {
+                oldActivePromos = providerPromos;
+            }
+
+            // Promosyon seçimini ve quiz içeriğini sıfırla
+            document.getElementById('old-promo-select').value = '';
+            document.getElementById('old-quiz-content').style.display = 'none';
+            document.getElementById('old-score-display').style.display = 'none';
+
+            updateOldPromoSelect(); // Yeni listeye göre seçim kutusunu güncelle
+        }
+
+        function loadOldQuiz() {
+            const selectedPromo = document.getElementById('old-promo-select').value;
+            if (!selectedPromo) {
+                document.getElementById('old-quiz-content').style.display = 'none';
+                return;
+            }
+
+            const promo = oldActivePromos.find(p => p.id === selectedPromo);
+            if (!promo) {
+                document.getElementById('old-quiz-content').style.display = 'none';
+                alert('Bu promosyon için quiz bulunamadı!');
+                return;
+            }
+            
+            let allQuizzes = [];
+
+            // Mevcut (manuel olarak eklenmiş) quizleri ekle
+            if (promo.quiz) {
+                allQuizzes = allQuizzes.concat(Array.isArray(promo.quiz) ? promo.quiz : [promo.quiz]);
+            }
+            
+            // Dinamik olarak oluşturulan quizleri ekle
+            const dynamicQuizzes = generateQuizQuestions(promo);
+            allQuizzes = allQuizzes.concat(dynamicQuizzes);
+
+            if (allQuizzes.length === 0) {
+                document.getElementById('old-quiz-content').style.display = 'none';
+                alert('Bu promosyon için quiz bulunamadı!');
+                return;
+            }
+
+            // Bu promosyon için daha önce sorulan quiz indekslerini al
+            if (!askedQuizIndices[selectedPromo]) {
+                askedQuizIndices[selectedPromo] = [];
+            }
+
+            let availableQuizIndices = Array.from({ length: allQuizzes.length }, (_, i) => i);
+            availableQuizIndices = availableQuizIndices.filter(index => !askedQuizIndices[selectedPromo].includes(index));
+
+            if (availableQuizIndices.length === 0) {
+                alert('Bu promosyon için tüm soruları yanıtladınız! Sorular tekrar edecektir.');
+                askedQuizIndices[selectedPromo] = []; // Sorular bittiğinde listeyi sıfırla
+                availableQuizIndices = Array.from({ length: allQuizzes.length }, (_, i) => i); // Tüm soruları tekrar kullanılabilir yap
+            }
+
+            const randomAvailableIndex = Math.floor(Math.random() * availableQuizIndices.length);
+            const selectedQuizIndex = availableQuizIndices[randomAvailableIndex];
+
+            oldCurrentQuiz = allQuizzes[selectedQuizIndex];
+            askedQuizIndices[selectedPromo].push(selectedQuizIndex); // Sorulan soruyu işaretle
+            
+            document.getElementById('old-quiz-content').style.display = 'block';
+            
+            document.getElementById('old-quiz-question').textContent = oldCurrentQuiz.question;
+            
+            const optionsContainer = document.getElementById('old-quiz-options');
+            optionsContainer.innerHTML = '';
+            
+            oldCurrentQuiz.options.forEach((option, index) => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'quiz-option';
+                optionDiv.textContent = option;
+                optionDiv.onclick = () => selectOldOption(optionDiv, index);
+                optionsContainer.appendChild(optionDiv);
+            });
+
+            document.getElementById('old-score-display').style.display = 'none';
+            document.getElementById('old-check-btn').disabled = false;
+            oldCurrentAnswer = -1;
+        }
+
+        function selectOldOption(element, answerIndex) {
+            document.querySelectorAll('#old-quiz-options .quiz-option').forEach(option => {
+                option.classList.remove('selected');
+                option.classList.remove('correct');
+                option.classList.remove('incorrect');
+            });
+            
+            element.classList.add('selected');
+            oldCurrentAnswer = answerIndex;
+        }
+
+        function checkOldAnswer() {
+            if (oldCurrentAnswer === -1) {
+                alert('Lütfen bir seçenek seçin!');
+                return;
+            }
+
+            if (!oldCurrentQuiz) return;
+
+            const options = document.querySelectorAll('#old-quiz-options .quiz-option');
+            
+            options[oldCurrentQuiz.correct].classList.add('correct');
+            
+            if (oldCurrentAnswer !== oldCurrentQuiz.correct) {
+                options[oldCurrentAnswer].classList.add('incorrect');
+            }
+
+            document.getElementById('old-check-btn').disabled = true;
+            
+            const scoreDisplay = document.getElementById('old-score-display');
+            const scoreText = document.getElementById('old-score-text');
+            
+            if (oldCurrentAnswer === oldCurrentQuiz.correct) {
+                scoreText.innerHTML = `🎉 Tebrikler! Doğru cevap!<br><small>${oldCurrentQuiz.explanation}</small>`;
+                scoreText.style.color = '#28a745';
+            } else {
+                scoreText.innerHTML = `❌ Yanlış cevap. Doğru cevap: ${oldCurrentQuiz.options[oldCurrentQuiz.correct]}<br><small>${oldCurrentQuiz.explanation}</small>`;
                 scoreText.style.color = '#dc3545';
             }
             
             scoreDisplay.style.display = 'block';
         }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            loadPromosData();
-        });
     </script>
 </body>
 </html>

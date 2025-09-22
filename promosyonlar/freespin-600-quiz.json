@@ -1,0 +1,28 @@
+{
+  "quizId": "freespin-600-quiz",
+  "promosyonId": "freespin-600",
+  "title": "🎰 HER GÜN YATIRIMINZA ÖZEL 600 FREESPIN FIRSATI - Quiz",
+  "description": "600 Freespin promosyonu hakkındaki bilginizi test edin.",
+  "sorular": [
+    {"id": 1, "soru": "Minimum yatırım miktarı ne kadardır?", "secenekler": ["250₺", "500₺", "750₺", "1000₺"], "dogruCevap": 1, "aciklama": "Minimum 500₺ yatırım yapmanız durumunda ilgili bonustan yararlanabilirsiniz."},
+    {"id": 2, "soru": "Maksimum freespin miktarı kaç adettir?", "secenekler": ["400", "500", "600", "700"], "dogruCevap": 2, "aciklama": "Her yatırımınız için alabileceğiniz maksimum freespin miktarı 600 adettir."},
+    {"id": 3, "soru": "Freespinlerin geçerlilik süresi ne kadardır?", "secenekler": ["12 saat", "24 saat", "36 saat", "48 saat"], "dogruCevap": 1, "aciklama": "Freespin geçerlilik süresi 24 saat olmaktadır."},
+    {"id": 4, "soru": "Maksimum kazanç ne kadardır?", "secenekler": ["500₺", "750₺", "1000₺", "1500₺"], "dogruCevap": 2, "aciklama": "Freespin ile elde edilebilecek maksimum kazanç 1000₺ olmaktadır."},
+    {"id": 5, "soru": "Çevrim şartı kaç katıdır?", "secenekler": ["0.5x", "1x", "2x", "3x"], "dogruCevap": 1, "aciklama": "Freespin kazancının 1 katı kadar çevrim yapmanız gerekmektedir."},
+    {"id": 6, "soru": "Freespinler hangi oyunlarda kullanılabilir?", "secenekler": ["Tüm Pragmatic Play oyunları", "Sadece Gates Of Olympus Super Scatter", "Gates Of Olympus Super Scatter ve Sweet Bonanza Super Scatter", "Tüm casino oyunları"], "dogruCevap": 2, "aciklama": "Freespinler Gates Of Olympus Super Scatter ve Sweet Bonanza Super Scatter oyunlarında geçerlidir."},
+    {"id": 7, "soru": "500₺-999₺ arası yatırım için kaç freespin verilir?", "secenekler": ["25", "50", "75", "100"], "dogruCevap": 1, "aciklama": "500₺ – 999₺ arası yatırımlarınıza 50 Freespin verilir."},
+    {"id": 8, "soru": "1000₺-1499₺ arası yatırım için kaç freespin verilir?", "secenekler": ["50", "100", "150", "200"], "dogruCevap": 1, "aciklama": "1000₺ – 1499₺ arası yatırımlarınıza 100 Freespin verilir."},
+    {"id": 9, "soru": "5000₺-9999₺ arası yatırım için kaç freespin verilir?", "secenekler": ["200", "300", "350", "400"], "dogruCevap": 2, "aciklama": "5000₺ – 9999₺ arası yatırımlarınıza 350 Freespin verilir."},
+    {"id": 10, "soru": "10.000₺ ve üzeri yatırım için kaç freespin verilir?", "secenekler": ["500", "550", "600", "700"], "dogruCevap": 2, "aciklama": "10.000₺ ve üzeri yatırımlarınıza 600 Freespin olarak aktarılacaktır."},
+    {"id": 11, "soru": "Hangi yöntemlerle yatırım yapılmalıdır?", "secenekler": ["Tüm yöntemler", "Trinkpara yöntemleri", "Sadece kredi kartı", "Sadece banka havalesi"], "dogruCevap": 1, "aciklama": "Trinkpara Havale, Trinkpara Papara, Trinkpara Paratim vb. yöntemleri ile yatırım yapmanız gerekmektedir."},
+    {"id": 12, "soru": "Bonus nasıl alınır?", "secenekler": ["Canlı destek ile", "Otomatik olarak", "Yatırım sırasında seçilir", "E-posta ile"], "dogruCevap": 2, "aciklama": "Yatırım sırasında BONUS SEÇ kısmını seçerek 'HER YATIRIMA FREESPIN' seçeneğini seçmeniz gerekmektedir."},
+    {"id": 13, "soru": "24 saat kar-zarar durumu baz alınır mı?", "secenekler": ["Evet, alınır", "Hayır, alınmaz", "Kısmen alınır", "Duruma göre değişir"], "dogruCevap": 1, "aciklama": "Bu bonus aktarımlarında 24 saat kar-zarar durumu baz alınmamaktadır."},
+    {"id": 14, "soru": "Günde kaç kez yararlanılabilir?", "secenekler": ["Sınırsız", "1 defa", "2 defa", "3 defa"], "dogruCevap": 1, "aciklama": "Her üyemiz yatırımlarına günde 1 defa olacak şekilde yararlanabilir."},
+    {"id": 15, "soru": "Freespin bonusundan yararlanan üyeler hangi diğer bonustan da yararlanabilir?", "secenekler": ["Hoş geldin bonusu", "Yatırım veya kayıp bonusu", "Sadece freespin", "Çevrim bonusu"], "dogruCevap": 1, "aciklama": "Freespin bonusundan yararlanan üyelerimiz aynı zamanda yatırım veya kayıp bonusumuzdan da yararlanabilir."},
+    {"id": 16, "soru": "Bu bonus hangi kanallardan talep edilebilir?", "secenekler": ["Canlı destek", "E-posta", "Talep edilemez", "Bonus talep sayfası"], "dogruCevap": 2, "aciklama": "Bu bonus Canlı destek hattı veya bonus talep sayfası üzerinde talep edilemez ve aktarılamaz."},
+    {"id": 17, "soru": "Çevrim tamamlandıktan sonra hangi alanlarda oynayabilirsiniz?", "secenekler": ["Sadece casino", "Sadece spor", "Hem spor hem casino", "Sadece canlı casino"], "dogruCevap": 2, "aciklama": "Çevrim şartı tamamlandıktan sonra dilerseniz spor alanında dilerseniz casino&canlı casino alanında oyunlara katılım sağlayabilirsiniz."},
+    {"id": 18, "soru": "1500₺-2999₺ arası yatırım için kaç freespin verilir?", "secenekler": ["100", "150", "200", "250"], "dogruCevap": 1, "aciklama": "1500₺ – 2999₺ arası yatırımlarınıza 150 Freespin verilir."},
+    {"id": 19, "soru": "3000₺-4999₺ arası yatırım için kaç freespin verilir?", "secenekler": ["150", "200", "250", "300"], "dogruCevap": 1, "aciklama": "3000₺ – 4999₺ arası yatırımlarınıza 200 Freespin verilir."},
+    {"id": 20, "soru": "Freespin sağlayıcısı hangisidir?", "secenekler": ["NetEnt", "Pragmatic Play", "Evolution", "Microgaming"], "dogruCevap": 1, "aciklama": "Freespinler Pragmatic Play sağlayıcısına ait oyunlarda geçerlidir."}
+  ]
+}

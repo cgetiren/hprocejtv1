@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promosyon Yönetim Paneli</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0a1f44;
+            color: #ffffff;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .admin-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #142d5f;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #1a3a6b;
+            padding-bottom: 20px;
+        }
+
+        .btn {
+            background: #ffc107;
+            color: #0a1f44;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-right: 10px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 193, 7, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #ffc107;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #1a3a6b;
+            border-radius: 8px;
+            background: #0a1f44;
+            color: white;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        .promo-list {
+            display: grid;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .promo-card {
+            background: #0a1f44;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #1a3a6b;
+        }
+
+        .promo-card h3 {
+            color: #ffc107;
+            margin: 0 0 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1>🛠️ Promosyon Yönetim Paneli</h1>
+            <button class="btn" onclick="showAddForm()">➕ Yeni Promosyon Ekle</button>
+        </div>
+
+        <!-- Promosyon Ekleme Formu -->
+        <div id="add-promo-form" style="display: none; background: #0a1f44; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+            <h2>Yeni Promosyon Ekle</h2>
+            <form id="promo-form">
+                <div class="form-group">
+                    <label>Promosyon ID:</label>
+                    <input type="text" id="promo-id" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Başlık:</label>
+                    <input type="text" id="promo-title" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Kısa Açıklama:</label>
+                    <textarea id="promo-short-desc"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>Minimum Yatırım:</label>
+                    <input type="text" id="basic-min-deposit">
+                </div>
+                
+                <div class="form-group">
+                    <label>Maksimum Bonus:</label>
+                    <input type="text" id="basic-max-bonus">
+                </div>
+                
+                <div class="form-group">
+                    <label>Çevrim Şartı:</label>
+                    <input type="text" id="basic-wager">
+                </div>
+                
+                <button type="submit" class="btn">💾 Kaydet</button>
+                <button type="button" class="btn" onclick="hideAddForm()" style="background: #6c757d;">❌ İptal</button>
+            </form>
+        </div>
+
+        <!-- Supabase Yapılandırması -->
+        <div style="background: #0a1f44; padding: 20px; border-radius: 10px; margin-bottom: 20px;">
+            <h2>Supabase Yapılandırması</h2>
+            <div class="form-group">
+                <label>Supabase URL:</label>
+                <input type="text" id="supabase-url" placeholder="https://gbanuogvivqwnkbapdwh.supabase.co">
+            </div>
+            <div class="form-group">
+                <label>Supabase Anon Key:</label>
+                <input type="text" id="supabase-key" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdiYW51b2d2aXZxd25rYmFwZHdoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg1NzgzMTIsImV4cCI6MjA3NDE1NDMxMn0.E2VcSHV3UQOPUu8rM1J6oddaIm87QD5CXt2yeOtqHz8">
+            </div>
+            <button class="btn" onclick="saveSupabaseConfig()">💾 Kaydet</button>
+            <button class="btn" onclick="testConnection()" style="background: #28a745;">🔍 Test Et</button>
+        </div>
+
+        <!-- Promosyon Listesi -->
+        <div id="promo-list" class="promo-list">
+            <!-- Promosyonlar buraya yüklenecek -->
+        </div>
+    </div>
+
+    <script>
+        let supabase = null;
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            loadSupabaseConfig();
+            loadPromos();
+        });
+
+        function loadSupabaseConfig() {
+            const url = localStorage.getItem('supabase-url');
+            const key = localStorage.getItem('supabase-key');
+            
+            if (url && key) {
+                document.getElementById('supabase-url').value = url;
+                document.getElementById('supabase-key').value = key;
+                initSupabase(url, key);
+            }
+        }
+
+        function initSupabase(url, key) {
+            try {
+                supabase = window.supabase.createClient(url, key);
+                console.log('Supabase initialized successfully');
+            } catch (error) {
+                console.error('Error initializing Supabase:', error);
+            }
+        }
+
+        function saveSupabaseConfig() {
+            const url = document.getElementById('supabase-url').value;
+            const key = document.getElementById('supabase-key').value;
+            
+            if (url && key) {
+                localStorage.setItem('supabase-url', url);
+                localStorage.setItem('supabase-key', key);
+                initSupabase(url, key);
+                alert('Supabase yapılandırması kaydedildi!');
+            } else {
+                alert('Lütfen URL ve Key alanlarını doldurun!');
+            }
+        }
+
+        async function testConnection() {
+            if (!supabase) {
+                alert('Önce Supabase yapılandırmasını kaydedin!');
+                return;
+            }
+
+            try {
+                const { data, error } = await supabase.from('promotions').select('count');
+                if (error) throw error;
+                alert('Bağlantı başarılı!');
+            } catch (error) {
+                alert('Bağlantı hatası: ' + error.message);
+            }
+        }
+
+        function showAddForm() {
+            document.getElementById('add-promo-form').style.display = 'block';
+        }
+
+        function hideAddForm() {
+            document.getElementById('add-promo-form').style.display = 'none';
+            document.getElementById('promo-form').reset();
+        }
+
+        async function loadPromos() {
+            const promoFiles = [
+                'ertesi-gun.json', 'bonus-buy.json', 'hos-geldin.json',
+                'spor-freebet.json', 'casino-kayip-bonusu.json', 'freespin-600.json'
+            ];
+
+            const promos = [];
+            for (const file of promoFiles) {
+                try {
+                    const response = await fetch(`promosyonlar/${file}`);
+                    if (response.ok) {
+                        const promo = await response.json();
+                        promos.push(promo);
+                    }
+                } catch (error) {
+                    console.error(`Error loading ${file}:`, error);
+                }
+            }
+
+            displayPromos(promos);
+        }
+
+        function displayPromos(promos) {
+            const promoList = document.getElementById('promo-list');
+            promoList.innerHTML = '';
+
+            promos.forEach(promo => {
+                const promoCard = document.createElement('div');
+                promoCard.className = 'promo-card';
+                promoCard.innerHTML = `
+                    <h3>${promo.title}</h3>
+                    <p><strong>ID:</strong> ${promo.id}</p>
+                    <p><strong>Kısa Açıklama:</strong> ${promo.shortDesc || 'Açıklama yok'}</p>
+                    <button class="btn" onclick="editPromo('${promo.id}')">✏️ Düzenle</button>
+                    <button class="btn" onclick="exportPromo('${promo.id}')" style="background: #17a2b8;">📤 Export</button>
+                `;
+                promoList.appendChild(promoCard);
+            });
+        }
+
+        async function editPromo(promoId) {
+            try {
+                const response = await fetch(`promosyonlar/${promoId}.json`);
+                if (response.ok) {
+                    const promo = await response.json();
+                    
+                    // Form alanlarını doldur
+                    document.getElementById('promo-id').value = promo.id;
+                    document.getElementById('promo-title').value = promo.title || '';
+                    document.getElementById('promo-short-desc').value = promo.shortDesc || '';
+                    
+                    if (promo.basicInfo) {
+                        document.getElementById('basic-min-deposit').value = promo.basicInfo['Minimum Yatırım'] || '';
+                        document.getElementById('basic-max-bonus').value = promo.basicInfo['Maksimum Bonus'] || '';
+                        document.getElementById('basic-wager').value = promo.basicInfo['Çevrim Şartı'] || '';
+                    }
+                    
+                    showAddForm();
+                }
+            } catch (error) {
+                alert('Promosyon yüklenirken hata: ' + error.message);
+            }
+        }
+
+        async function exportPromo(promoId) {
+            try {
+                const response = await fetch(`promosyonlar/${promoId}.json`);
+                if (response.ok) {
+                    const promo = await response.json();
+                    const dataStr = JSON.stringify(promo, null, 2);
+                    const dataBlob = new Blob([dataStr], {type: 'application/json'});
+                    const url = URL.createObjectURL(dataBlob);
+                    const link = document.createElement('a');
+                    link.href = url;
+                    link.download = `${promoId}.json`;
+                    link.click();
+                    URL.revokeObjectURL(url);
+                }
+            } catch (error) {
+                alert('Export hatası: ' + error.message);
+            }
+        }
+
+        // Form gönderme
+        document.getElementById('promo-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const promoData = {
+                id: document.getElementById('promo-id').value,
+                title: document.getElementById('promo-title').value,
+                shortDesc: document.getElementById('promo-short-desc').value,
+                basicInfo: {
+                    'Minimum Yatırım': document.getElementById('basic-min-deposit').value,
+                    'Maksimum Bonus': document.getElementById('basic-max-bonus').value,
+                    'Çevrim Şartı': document.getElementById('basic-wager').value
+                },
+                created_at: new Date().toISOString()
+            };
+
+            if (supabase) {
+                try {
+                    const { data, error } = await supabase
+                        .from('promotions')
+                        .insert([promoData]);
+
+                    if (error) throw error;
+                    
+                    alert('Yeni promosyon Supabase\'e kaydedildi!');
+                    hideAddForm();
+                    loadPromos();
+                } catch (error) {
+                    alert('Supabase kaydetme hatası: ' + error.message);
+                }
+            } else {
+                // Local dosya olarak kaydet
+                const dataStr = JSON.stringify(promoData, null, 2);
+                const dataBlob = new Blob([dataStr], {type: 'application/json'});
+                const url = URL.createObjectURL(dataBlob);
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = `${promoData.id}.json`;
+                link.click();
+                URL.revokeObjectURL(url);
+                
+                alert('Promosyon JSON dosyası indirildi! promosyonlar/ klasörüne koyun.');
+                hideAddForm();
+            }
+        });
+    </script>
+</body>
+</html>

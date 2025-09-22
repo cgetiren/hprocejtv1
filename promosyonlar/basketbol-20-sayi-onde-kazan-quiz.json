@@ -1,0 +1,148 @@
+{
+  "quizId": "basketbol-20-sayi-onde-kazan-quiz",
+  "promosyonId": "basketbol-20-sayi-onde-kazan",
+  "title": "🏀 Basketbolda 20 Sayı Farkla Öne Geç, Kazan! - Quiz",
+  "description": "Basketbol erken sonuçlandırma promosyonu hakkındaki bilginizi test edin.",
+  "sorular": [
+    {
+      "id": 1,
+      "soru": "Basketbolda erken sonuçlandırma için kaç sayı fark gereklidir?",
+      "secenekler": ["15 sayı", "18 sayı", "20 sayı", "25 sayı"],
+      "dogruCevap": 2,
+      "aciklama": "Seçtiğiniz takım maç sırasında 20 sayı farkla öne geçerse, bahsiniz kazandı olarak sonuçlandırılır."
+    },
+    {
+      "id": 2,
+      "soru": "Bu promosyon hangi bahis türlerinde geçerlidir?",
+      "secenekler": ["Sadece tekli bahislerde", "Sadece kombine bahislerde", "Hem tekli hem kombine bahislerde", "Sadece canlı bahislerde"],
+      "dogruCevap": 2,
+      "aciklama": "Bu özellik hem tekli hem de kombine bahislerde geçerlidir."
+    },
+    {
+      "id": 3,
+      "soru": "Aşağıdakilerden hangisi geçerli liglerden biri değildir?",
+      "secenekler": ["NBA", "EuroLeague", "Liga ACB", "NCAA"],
+      "dogruCevap": 3,
+      "aciklama": "NCAA geçerli ligler arasında yer almamaktadır."
+    },
+    {
+      "id": 4,
+      "soru": "45-25 skorunda hangi takım 20 sayı farkla öndedir?",
+      "secenekler": ["45 sayılı takım", "25 sayılı takım", "Hiçbiri", "Her ikisi de"],
+      "dogruCevap": 0,
+      "aciklama": "45-25 skoru 20 sayı fark anlamına gelir ve 45 sayılı takım öndedir."
+    },
+    {
+      "id": 5,
+      "soru": "Bu promosyon hangi bahis seçeneklerinde geçerlidir?",
+      "secenekler": ["Alt/Üst bahislerinde", "Ev sahibi/deplasman kazanır bahislerinde", "Tek/çift bahislerinde", "Handikap bahislerinde"],
+      "dogruCevap": 1,
+      "aciklama": "Maç öncesi yapılan ev sahibi kazanır veya deplasman kazanır bahislerinde geçerlidir."
+    },
+    {
+      "id": 6,
+      "soru": "FIBA Champions League bu promosyonda geçerli midir?",
+      "secenekler": ["Hayır, geçerli değil", "Evet, geçerli", "Sadece Final Four'da geçerli", "Sadece playoff'larda geçerli"],
+      "dogruCevap": 1,
+      "aciklama": "FIBA Champions League geçerli ligler arasında yer almaktadır."
+    },
+    {
+      "id": 7,
+      "soru": "78-58 skorunda fark kaç sayıdır?",
+      "secenekler": ["18 sayı", "19 sayı", "20 sayı", "21 sayı"],
+      "dogruCevap": 2,
+      "aciklama": "78-58 = 20 sayı fark olup, erken sonuçlandırma için yeterlidir."
+    },
+    {
+      "id": 8,
+      "soru": "EuroCup bu promosyonda hangi sırada yer alır?",
+      "secenekler": ["3. sırada", "4. sırada", "5. sırada", "6. sırada"],
+      "dogruCevap": 2,
+      "aciklama": "EuroCup geçerli ligler listesinde 5. sırada yer almaktadır."
+    },
+    {
+      "id": 9,
+      "soru": "Erken sonuçlandırma özelliği nasıl devreye girer?",
+      "secenekler": ["Manuel olarak talep edilir", "Otomatik olarak devreye girer", "Canlı destek ile aktifleştirilir", "Bonus kodu ile aktifleştirilir"],
+      "dogruCevap": 1,
+      "aciklama": "Geçerli liglerde ev sahibi veya deplasman galibiyetine oynanan bahislerde otomatik olarak devreye girer."
+    },
+    {
+      "id": 10,
+      "soru": "90-70 skorunda erken sonuçlandırma gerçekleşir mi?",
+      "secenekler": ["Hayır, 19 sayı fark var", "Evet, 20 sayı fark var", "Hayır, 21 sayı fark var", "Belirsiz"],
+      "dogruCevap": 1,
+      "aciklama": "90-70 = 20 sayı fark olduğu için erken sonuçlandırma gerçekleşir."
+    },
+    {
+      "id": 11,
+      "soru": "Bu promosyonun maksimum bahis limiti var mı?",
+      "secenekler": ["Evet, 1000₺", "Evet, 5000₺", "Hayır, maksimum bahis limitleri dahilinde serbest", "Evet, 10000₺"],
+      "dogruCevap": 2,
+      "aciklama": "Bahislerinizi maksimum bahis limitleri dahilinde dilediğiniz tutarda oluşturabilirsiniz."
+    },
+    {
+      "id": 12,
+      "soru": "Liga ACB hangi ülkenin ligimdir?",
+      "secenekler": ["İtalya", "Fransa", "İspanya", "Almanya"],
+      "dogruCevap": 2,
+      "aciklama": "Liga ACB İspanya basketbol ligi olarak geçerli ligler arasındadır."
+    },
+    {
+      "id": 13,
+      "soru": "102-80 skorunda erken sonuçlandırma için yeterli fark var mı?",
+      "secenekler": ["Hayır, 18 sayı fark", "Hayır, 21 sayı fark", "Evet, 22 sayı fark", "Hayır, 20 sayı fark değil"],
+      "dogruCevap": 2,
+      "aciklama": "102-80 = 22 sayı fark olup, 20 sayı farktan fazla olduğu için erken sonuçlandırma gerçekleşir."
+    },
+    {
+      "id": 14,
+      "soru": "EuroBasket bu promosyonda geçerli midir?",
+      "secenekler": ["Hayır", "Evet", "Sadece final maçlarında", "Sadece grup maçlarında"],
+      "dogruCevap": 1,
+      "aciklama": "EuroBasket geçerli ligler arasında 3. sırada yer almaktadır."
+    },
+    {
+      "id": 15,
+      "soru": "Bu promosyonu hangi durumlarda Hproject iptal edebilir?",
+      "secenekler": ["Hiçbir zaman", "Sadece kötüye kullanım durumunda", "İstediği zaman", "Sadece teknik sorun durumunda"],
+      "dogruCevap": 2,
+      "aciklama": "Hproject bu bonusu istediği zaman durdurma ya da iptal etme hakkına sahiptir."
+    },
+    {
+      "id": 16,
+      "soru": "Kombine kuponlarda bu özellik nasıl çalışır?",
+      "secenekler": ["Sadece ilk seçimde geçerli", "Sadece son seçimde geçerli", "Tüm seçimlerde geçerli", "Hiçbirinde geçerli değil"],
+      "dogruCevap": 2,
+      "aciklama": "Bu özellik hem tekli hem de kombine bahislerde geçerlidir."
+    },
+    {
+      "id": 17,
+      "soru": "85-63 skorunda fark hesaplaması doğru olan hangisidir?",
+      "secenekler": ["20 sayı fark", "21 sayı fark", "22 sayı fark", "23 sayı fark"],
+      "dogruCevap": 2,
+      "aciklama": "85-63 = 22 sayı fark olup erken sonuçlandırma için yeterlidir."
+    },
+    {
+      "id": 18,
+      "soru": "Bu promosyonda bonus kötüye kullanımı durumunda ne olur?",
+      "secenekler": ["Sadece uyarı verilir", "Hesap kapatılır", "Bonus ve kazanç geri alınabilir", "Hiçbir şey olmaz"],
+      "dogruCevap": 2,
+      "aciklama": "Bonus kötüye kullanımı durumunda bonusu ve bonstan elde edilen kazancı geri alma hakkına sahiptir."
+    },
+    {
+      "id": 19,
+      "soru": "120-98 skorunda erken sonuçlandırma gerçekleşir mi?",
+      "secenekler": ["Hayır, 20 sayı fark yok", "Evet, 22 sayı fark var", "Hayır, 24 sayı fark var", "Belirsiz"],
+      "dogruCevap": 1,
+      "aciklama": "120-98 = 22 sayı fark olduğu için erken sonuçlandırma gerçekleşir."
+    },
+    {
+      "id": 20,
+      "soru": "Bu promosyonun genel adı nedir?",
+      "secenekler": ["Hızlı Sonuçlandırma", "Erken Sonuçlandırma", "Anında Kazanç", "Çabuk Bitirme"],
+      "dogruCevap": 1,
+      "aciklama": "Promosyonun resmi adı 'Erken Sonuçlandırma' olarak geçmektedir."
+    }
+  ]
+}

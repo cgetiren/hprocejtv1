@@ -1,0 +1,28 @@
+{
+  "quizId": "spor-hos-geldin-bonusu-quiz",
+  "promosyonId": "spor-hos-geldin-bonusu",
+  "title": "🎁 %100 Spor Hoş Geldin Bonusu - Quiz",
+  "description": "Spor hoş geldin bonusu promosyonu hakkındaki bilginizi test edin.",
+  "sorular": [
+    {"id": 1, "soru": "İlk yatırım için bonus oranı yüzde kaçtır?", "secenekler": ["%25", "%50", "%75", "%100"], "dogruCevap": 1, "aciklama": "İlk yatırımınıza %50 bonus verilmektedir."},
+    {"id": 2, "soru": "İkinci yatırım için bonus oranı yüzde kaçtır?", "secenekler": ["%50", "%75", "%100", "%125"], "dogruCevap": 2, "aciklama": "İkinci yatırımınıza %100 bonus verilmektedir."},
+    {"id": 3, "soru": "Minimum yatırım miktarı ne kadardır?", "secenekler": ["50₺", "75₺", "100₺", "150₺"], "dogruCevap": 2, "aciklama": "Minimum 100₺ ve üstü yatırımlar için geçerlidir."},
+    {"id": 4, "soru": "Toplam maksimum bonus miktarı ne kadardır?", "secenekler": ["15.000₺", "20.000₺", "25.000₺", "30.000₺"], "dogruCevap": 1, "aciklama": "Toplamda maksimum 20.000₺ (İlk 10.000₺, İkinci 10.000₺) bonus alınabilir."},
+    {"id": 5, "soru": "İlk yatırım için maksimum bonus ne kadardır?", "secenekler": ["5.000₺", "7.500₺", "10.000₺", "12.500₺"], "dogruCevap": 2, "aciklama": "İlk yatırımınızın %50'si kadar 10.000₺ maksimum bonus alınabilir."},
+    {"id": 6, "soru": "İkinci yatırım için maksimum bonus ne kadardır?", "secenekler": ["7.500₺", "10.000₺", "12.500₺", "15.000₺"], "dogruCevap": 1, "aciklama": "İkinci yatırımınızın %100'ü 10.000₺ maksimum bonus alınabilir."},
+    {"id": 7, "soru": "Bonusun geçerlilik süresi ne kadardır?", "secenekler": ["3 gün", "5 gün", "7 gün", "10 gün"], "dogruCevap": 2, "aciklama": "Bonusun geçerlilik süresi 7 gündür."},
+    {"id": 8, "soru": "Çevrim şartı kaç katıdır?", "secenekler": ["4 katı", "5 katı", "6 katı", "7 katı"], "dogruCevap": 2, "aciklama": "Yatırım miktarınız ve aldığınız bonusun 6 katı kadar çevrim gerekmektedir."},
+    {"id": 9, "soru": "Kombine kuponlarda minimum oran şartı nedir?", "secenekler": ["1.70", "1.80", "1.90", "2.00"], "dogruCevap": 2, "aciklama": "Kombine kuponlarda her bir tercihinizin 1.90 oran veya üzerinde olması gerekmektedir."},
+    {"id": 10, "soru": "Bu promosyon hangi yöntemlerle yatırım yapanlara geçerli değildir?", "secenekler": ["Banka havalesi", "Mobil ödeme ve kredi kartı", "Papara", "Kripto para"], "dogruCevap": 1, "aciklama": "Mobil ödeme ve kredi kartı yatırım yöntemleri hariç diğer yöntemler için geçerlidir."},
+    {"id": 11, "soru": "Bu bonus hangi alanda kullanılabilir?", "secenekler": ["Sadece casino", "Sadece canlı casino", "Spor bahisleri", "Tüm alanlarda"], "dogruCevap": 2, "aciklama": "Bu bonus spor bahisleri için geçerlidir."},
+    {"id": 12, "soru": "E-spor alanında bu bonus geçerli midir?", "secenekler": ["Evet, geçerli", "Hayır, geçerli değil", "Kısmen geçerli", "Duruma göre değişir"], "dogruCevap": 1, "aciklama": "E-spor alanında geçerli olmamaktadır."},
+    {"id": 13, "soru": "Bonus nasıl talep edilir?", "secenekler": ["Canlı destek ile", "Otomatik olarak", "Bonus Talep Sayfasından", "E-posta ile"], "dogruCevap": 2, "aciklama": "Yatırımınızın hemen ardından Bonus Talep Sayfasından bonusunuzu talep etmeniz gerekmektedir."},
+    {"id": 14, "soru": "24 saatlik kar-zarar durumu baz alınır mı?", "secenekler": ["Evet, alınır", "Hayır, alınmaz", "Kısmen alınır", "Duruma göre değişir"], "dogruCevap": 0, "aciklama": "Bonus aktarımları 24 saatlik periyotta kar zarar durumunuza göre aktarılacaktır."},
+    {"id": 15, "soru": "24 saat içinde karda olan üyeler bu bonustan yararlanabilir mi?", "secenekler": ["Evet, yararlanabilir", "Hayır, yararlanamaz", "Kısmen yararlanabilir", "Duruma göre değişir"], "dogruCevap": 1, "aciklama": "24 saat içinde karda olan üyeler bu promosyondan faydalanamaz."},
+    {"id": 16, "soru": "İlk adımda kazanç sağlanırsa ikinci adımdan yararlanılabilir mi?", "secenekler": ["Hayır, yararlanılamaz", "Evet, yararlanılabilir", "Belirsiz", "Duruma göre değişir"], "dogruCevap": 1, "aciklama": "İlk adımda kazanç sağlanmış dahi olunsa ikinci adım olan %100 Spor Hoş Geldin Bonusumuzdan yararlanabilirsiniz."},
+    {"id": 17, "soru": "Her kullanıcı bu promosyondan kaç defa yararlanabilir?", "secenekler": ["Sınırsız", "2 defa", "1 defa", "3 defa"], "dogruCevap": 2, "aciklama": "Bu promosyondan her kullanıcı sadece bir defa faydalanabilir."},
+    {"id": 18, "soru": "Çevrim tamamlandıktan sonra kazanç sınırı var mı?", "secenekler": ["Evet, 50.000₺", "Evet, 100.000₺", "Hayır, sınır yok", "Evet, 200.000₺"], "dogruCevap": 2, "aciklama": "Bonus çevrimini tamamlamanız ardından hiç bir kazanç sınırlandırması bulunmamaktadır."},
+    {"id": 19, "soru": "Cashout kuponları çevrime dahil midir?", "secenekler": ["Evet, dahil", "Hayır, dahil değil", "Kısmen dahil", "Duruma göre değişir"], "dogruCevap": 1, "aciklama": "Bonus çevrimine Cashout (Bozdurulan kuponlar) dahil edilmemektedir."},
+    {"id": 20, "soru": "250₺ yatırım yapan birinin çevrim miktarı ne kadardır (ikinci yatırım)?", "secenekler": ["1.500₺", "2.100₺", "2.500₺", "3.000₺"], "dogruCevap": 1, "aciklama": "250₺ yatırım + 250₺ bonus = 500₺ × 6 = 3.000₺ çevrim gerekmektedir."}
+  ]
+}

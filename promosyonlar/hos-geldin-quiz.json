@@ -1,0 +1,28 @@
+{
+  "quizId": "hos-geldin-quiz",
+  "promosyonId": "hos-geldin",
+  "title": "🎁 %100 Casino Hoş Geldin Bonusu - Quiz",
+  "description": "Casino hoş geldin bonusu promosyonu hakkındaki bilginizi test edin.",
+  "sorular": [
+    {"id": 1, "soru": "Casino hoş geldin bonusu oranı yüzde kaçtır?", "secenekler": ["%75", "%100", "%125", "%150"], "dogruCevap": 1, "aciklama": "İlk para yatırımınıza özel %100 Hoş Geldin Bonusu verilmektedir."},
+    {"id": 2, "soru": "Maksimum bonus miktarı ne kadardır?", "secenekler": ["5.000₺", "7.500₺", "10.000₺", "15.000₺"], "dogruCevap": 2, "aciklama": "Maksimum 10.000₺ olacak şekilde yararlanabilirsiniz."},
+    {"id": 3, "soru": "Minimum yatırım miktarı ne kadardır?", "secenekler": ["50₺", "75₺", "100₺", "150₺"], "dogruCevap": 2, "aciklama": "Minimum 100₺ ve üstü yatırımlar için geçerlidir."},
+    {"id": 4, "soru": "Çevrim şartı kaç katıdır?", "secenekler": ["25x", "30x", "35x", "40x"], "dogruCevap": 2, "aciklama": "Aldığınız bonus miktarının 35 katı kadar çevrim yapılmalıdır."},
+    {"id": 5, "soru": "Bonusun geçerlilik süresi ne kadardır?", "secenekler": ["3 gün", "5 gün", "7 gün", "10 gün"], "dogruCevap": 2, "aciklama": "Bonusun geçerlilik süresi 7 gündür."},
+    {"id": 6, "soru": "Bu promosyon hangi yöntemlerle yatırım yapanlara geçerli değildir?", "secenekler": ["Banka havalesi", "Mobil ödeme ve kredi kartı", "Papara", "Kripto para"], "dogruCevap": 1, "aciklama": "Mobil ödeme ve kredi kartı yatırım yöntemleri hariç diğer yöntemler için geçerlidir."},
+    {"id": 7, "soru": "Bu bonus hangi alanlarda kullanılabilir?", "secenekler": ["Sadece casino", "Sadece canlı casino", "Casino ve canlı casino", "Tüm alanlarda"], "dogruCevap": 2, "aciklama": "Bu promosyonu sadece casino ve canlı casino sağlayıcılarında kullanabilirsiniz."},
+    {"id": 8, "soru": "250₺ yatırım yapan birinin toplam çevrim miktarı ne kadardır?", "secenekler": ["8.750₺", "9.000₺", "9.250₺", "9.500₺"], "dogruCevap": 1, "aciklama": "35X250₺= 8.750₺ bonus çevrimi ve 250₺ anapara çevrimi olarak toplamda 9.000₺."},
+    {"id": 9, "soru": "Bonus nasıl talep edilir?", "secenekler": ["Canlı destek ile", "Otomatik olarak verilir", "Bonus Talep Sayfasından", "E-posta ile"], "dogruCevap": 2, "aciklama": "Yatırımınızın hemen ardından Bonus Talep Sayfasından bonusunuzu talep etmeniz gerekmektedir."},
+    {"id": 10, "soru": "Slot oyunlarının çevrim oranı yüzde kaçtır?", "secenekler": ["%75", "%100", "%125", "%150"], "dogruCevap": 1, "aciklama": "Slot oyunlarının çevrim oranı %100'dür."},
+    {"id": 11, "soru": "Rulet oyunlarının çevrim oranı yüzde kaçtır?", "secenekler": ["%1", "%5", "%10", "%20"], "dogruCevap": 0, "aciklama": "Rulet oyunlarının çevrim oranı %1'dir."},
+    {"id": 12, "soru": "Baccarat oyunlarının çevrim oranı yüzde kaçtır?", "secenekler": ["%5", "%10", "%15", "%20"], "dogruCevap": 1, "aciklama": "Baccarat oyunlarının çevrim oranı %10'dur."},
+    {"id": 13, "soru": "Her kullanıcı bu promosyondan kaç defa yararlanabilir?", "secenekler": ["Sınırsız", "2 defa", "1 defa", "3 defa"], "dogruCevap": 2, "aciklama": "Bu promosyondan her kullanıcı sadece bir defa faydalanabilir."},
+    {"id": 14, "soru": "Aynı IP adresi paylaşan kullanıcılar için kısıtlama var mı?", "secenekler": ["Hayır, yok", "Evet, sadece biri yararlanabilir", "İkisi yararlanabilir", "Üçü yararlanabilir"], "dogruCevap": 1, "aciklama": "Aynı IP adresini paylaşan kullanıcıların sadece biri bu promosyondan faydalanabilir."},
+    {"id": 15, "soru": "Çevrim tamamlandıktan sonra kazanç sınırı var mı?", "secenekler": ["Evet, 25.000₺", "Evet, 50.000₺", "Hayır, sınır yok", "Evet, 100.000₺"], "dogruCevap": 2, "aciklama": "Bonus çevrimini tamamlamanız ardından hiç bir kazanç sınırlandırması bulunmamaktadır."},
+    {"id": 16, "soru": "1'e 2 oranında alınan bahisler çevrime dahil midir?", "secenekler": ["Evet, dahil", "Hayır, dahil değil", "Kısmen dahil", "Duruma göre değişir"], "dogruCevap": 1, "aciklama": "1'e 2 oranında alınan bahisler bonus çevrimine dahil olmayacaktır."},
+    {"id": 17, "soru": "Blackjack oyunlarının çevrim oranı yüzde kaçtır?", "secenekler": ["%5", "%10", "%15", "%20"], "dogruCevap": 1, "aciklama": "Blackjack oyunlarının çevrim oranı %10'dur."},
+    {"id": 18, "soru": "Ana para çevrimi ne kadardır?", "secenekler": ["Bonus ile aynı", "Ana para miktarı kadar", "Ana paranın 2 katı", "Çevrim yok"], "dogruCevap": 1, "aciklama": "Ana para miktarınız kadar da Canlı Casino veya Casino alanında bahis alımı yapmanız gerekmektedir."},
+    {"id": 19, "soru": "Crash oyunları bu bonusta kullanılabilir mi?", "secenekler": ["Evet, kullanılabilir", "Hayır, kullanılamaz", "Kısmen kullanılabilir", "Duruma göre değişir"], "dogruCevap": 1, "aciklama": "Crash Oyunları geçersiz alanlar arasında yer almaktadır."},
+    {"id": 20, "soru": "Bu promosyon kaç kez yatırım için geçerlidir?", "secenekler": ["Her yatırım", "İlk yatırım", "İlk iki yatırım", "İlk üç yatırım"], "dogruCevap": 1, "aciklama": "İlk para yatırımınıza özel Casino Hoş Geldin Bonusudur."}
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "quizId": "yeni-uyelere-deneme-bonusu-quiz",
+  "promosyonId": "yeni-uyelere-deneme-bonusu",
+  "title": "🌟 YENİ ÜYELERE ÖZEL DENEME BONUSU - Quiz",
+  "description": "Yeni üyeler için deneme bonusu promosyonu hakkındaki bilginizi test edin.",
+  "sorular": [
+    {"id": 1, "soru": "Spor deneme bonusu kodu nedir?", "secenekler": ["777", "365", "100", "123"], "dogruCevap": 1, "aciklama": "365 kodunu kullanarak spor deneme bonusundan yararlanabilirsiniz."},
+    {"id": 2, "soru": "Freespin deneme bonusu kodu nedir?", "secenekler": ["365", "777", "100", "555"], "dogruCevap": 1, "aciklama": "777 kodunu kullanarak freespin deneme bonusundan yararlanabilirsiniz."},
+    {"id": 3, "soru": "Spor freebet miktarı ne kadardır?", "secenekler": ["50₺", "75₺", "100₺", "150₺"], "dogruCevap": 2, "aciklama": "100₺ SPOR DENEME BONUSU verilmektedir."},
+    {"id": 4, "soru": "Freespin adedi kaçtır?", "secenekler": ["50", "75", "100", "150"], "dogruCevap": 2, "aciklama": "100 FREESPIN DENEME BONUSU verilmektedir."},
+    {"id": 5, "soru": "Bonusların geçerlilik süresi ne kadardır?", "secenekler": ["12 saat", "24 saat", "36 saat", "48 saat"], "dogruCevap": 1, "aciklama": "Bonusların geçerlilik süresi 24 saattir."},
+    {"id": 6, "soru": "Spor freebet ile maksimum kazanç ne kadardır?", "secenekler": ["200₺", "250₺", "300₺", "350₺"], "dogruCevap": 1, "aciklama": "Bu bonuslar ile kazanabileceğiniz maksimum tutar 250₺ olmaktadır."},
+    {"id": 7, "soru": "Freespin ile maksimum kazanç ne kadardır?", "secenekler": ["150₺", "200₺", "250₺", "300₺"], "dogruCevap": 1, "aciklama": "Maksimum ana bakiyenize geçecek tutar 200₺ olmaktadır."},
+    {"id": 8, "soru": "Freespin çevrim şartı kaç katıdır?", "secenekler": ["3x", "5x", "7x", "10x"], "dogruCevap": 1, "aciklama": "Bonus miktarınızın 5 katı kadar çevrim yapmanız gerekmektedir."},
+    {"id": 9, "soru": "Spor freebet için kaç seçimli kupon gerekir?", "secenekler": ["2'li", "3'lü", "4'lü", "5'li"], "dogruCevap": 1, "aciklama": "Her seçimin minimum 1,60 orandan 3'lü kombine kupon oluşturmanız gerekmektedir."},
+    {"id": 10, "soru": "Spor freebet minimum oran şartı nedir?", "secenekler": ["1.50", "1.60", "1.70", "1.80"], "dogruCevap": 1, "aciklama": "Her seçinin minimum 1,60 orandan olması gerekmektedir."},
+    {"id": 11, "soru": "Her freespin değeri ne kadardır?", "secenekler": ["1,20₺", "1,40₺", "1,60₺", "1,80₺"], "dogruCevap": 1, "aciklama": "Her freespin değeri 1,40₺ olmaktadır."},
+    {"id": 12, "soru": "Freespinler hangi oyunlarda kullanılabilir?", "secenekler": ["Tüm Pragmatic oyunlar", "Sweet Bonanza 1000, Gates Of Olympus 1000 vb.", "Sadece Sweet Bonanza", "Sadece Gates of Olympus"], "dogruCevap": 1, "aciklama": "Sweet Bonanza 1000, Gates Of Olympus 1000, Sugar Rush 1000, Wisdom Athena 1000 ve Starlight Princess 1000 oyunlarında geçerlidir."},
+    {"id": 13, "soru": "Spor bonusu alan üye casino bonusu alabilir mi?", "secenekler": ["Evet, alabilir", "Hayır, alamaz", "Kısmen alabilir", "Duruma göre değişir"], "dogruCevap": 1, "aciklama": "Spor Freebet bonusumuzdan yararlanan üyelerimiz Casino Bonusu kodundan yararlanamaz."},
+    {"id": 14, "soru": "Casino bonusu alan üye spor bonusu alabilir mi?", "secenekler": ["Evet, alabilir", "Hayır, alamaz", "Kısmen alabilir", "Duruma göre değişir"], "dogruCevap": 1, "aciklama": "Casino Deneme Bonusumuzdan yararlanan üyelerimiz Spor Deneme Bonusu kodundan yararlanamaz."},
+    {"id": 15, "soru": "100 freespin için çevrim miktarı ne kadardır?", "secenekler": ["300₺", "400₺", "500₺", "600₺"], "dogruCevap": 2, "aciklama": "100×5=500₺ bonus çevrim şartı bulunmaktadır."},
+    {"id": 16, "soru": "Crash oyunları deneme bonusu ile oynanabilir mi?", "secenekler": ["Evet, oynanabilir", "Hayır, oynanamaz", "Kısmen oynanabilir", "Duruma göre değişir"], "dogruCevap": 1, "aciklama": "Crash(Aviator vb.) oyunları ile deneme bonusu ile bahis alınamamaktadır."},
+    {"id": 17, "soru": "Kodlar nereden talep edilir?", "secenekler": ["Canlı destek", "Profilinizdeki bonuslarım sayfası", "E-posta", "SMS"], "dogruCevap": 1, "aciklama": "Profilinizdeki bonuslarım sayfasına girerek kod yazma kısmından talep etmeniz gerekmektedir."},
+    {"id": 18, "soru": "Slot oyunlarının çevrim oranı yüzde kaçtır?", "secenekler": ["%75", "%100", "%125", "%150"], "dogruCevap": 1, "aciklama": "Slot oyunlarının çevrim oranı %100'dür."},
+    {"id": 19, "soru": "Rulet oyunlarının çevrim oranı yüzde kaçtır?", "secenekler": ["%1", "%5", "%10", "%20"], "dogruCevap": 0, "aciklama": "Rulet oyunlarının çevrim oranı %1'dir."},
+    {"id": 20, "soru": "Bu promosyon kimler için geçerlidir?", "secenekler": ["Tüm üyeler", "VIP üyeler", "Yeni üyeler", "Eski üyeler"], "dogruCevap": 2, "aciklama": "Bu promosyon YENİ ÜYELERE ÖZEL DENEME BONUSU'dur."}
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "quizId": "evoplay-big-adventures-quiz",
+  "promosyonId": "evoplay-big-adventures",
+  "title": "🎡 Evoplay Big Adventures Drops& Wheels Turnuvası - Quiz",
+  "description": "Evoplay turnuva promosyonu hakkındaki bilginizi test edin.",
+  "sorular": [
+    {"id": 1, "soru": "Toplam ödül havuzu ne kadardır?", "secenekler": ["2.000.000 EUR", "2.500.000 EUR", "3.000.000 EUR", "3.500.000 EUR"], "dogruCevap": 1, "aciklama": "Toplam ödül havuzu 2.500.000 EUR'dur."},
+    {"id": 2, "soru": "Minimum bahis miktarı ne kadardır?", "secenekler": ["0.10 EUR", "0.20 EUR", "0.30 EUR", "0.50 EUR"], "dogruCevap": 1, "aciklama": "Turnuvaya katılmak için gereken minimum bahis miktarı 0,20 EUR'dur."},
+    {"id": 3, "soru": "Turnuva ayda kaç gün boyunca gerçekleştirilir?", "secenekler": ["3 gün", "4 gün", "5 gün", "6 gün"], "dogruCevap": 2, "aciklama": "Ağ kampanyası her ay belirlenen beş (5) gün boyunca gerçekleştirilir."},
+    {"id": 4, "soru": "Haziran-Ağustos 2025 aylık ödül havuzu ne kadardır?", "secenekler": ["150.000 EUR", "200.000 EUR", "250.000 EUR", "300.000 EUR"], "dogruCevap": 1, "aciklama": "Haziran – Ağustos 2025: Aylık 200.000 EUR."},
+    {"id": 5, "soru": "Aralık 2025 ödül havuzu ne kadardır?", "secenekler": ["300.000 EUR", "400.000 EUR", "500.000 EUR", "600.000 EUR"], "dogruCevap": 2, "aciklama": "Aralık 2025: 500.000 EUR."},
+    {"id": 6, "soru": "Eylül 2025 ödül havuzu ne kadardır?", "secenekler": ["200.000 EUR", "250.000 EUR", "300.000 EUR", "350.000 EUR"], "dogruCevap": 1, "aciklama": "Eylül 2025: 250.000 EUR."},
+    {"id": 7, "soru": "Ocak 2026 ödül havuzu ne kadardır?", "secenekler": ["300.000 EUR", "350.000 EUR", "400.000 EUR", "450.000 EUR"], "dogruCevap": 1, "aciklama": "Ocak 2026: 350.000 EUR."},
+    {"id": 8, "soru": "Şubat 2026 ödül havuzu ne kadardır?", "secenekler": ["150.000 EUR", "200.000 EUR", "250.000 EUR", "300.000 EUR"], "dogruCevap": 1, "aciklama": "Şubat 2026: 200.000 EUR."},
+    {"id": 9, "soru": "Turnuva tarihleri hangileridir (Şubat hariç)?", "secenekler": ["1–5, 9–13, 17–21, 25–29", "2–6, 10–14, 18–22, 26–30", "3–7, 11–15, 19–23, 27–31", "1–4, 8–11, 15–18, 22–25"], "dogruCevap": 0, "aciklama": "Turnuva tarihleri: 1–5, 9–13, 17–21, 25–29 (UTC saatine göre)."},
+    {"id": 10, "soru": "Şubat 2026 turnuva tarihleri hangileridir?", "secenekler": ["1–5, 8–12, 15–19, 22–26", "2–6, 9–13, 16–20, 23–27", "1–4, 7–10, 14–17, 21–24", "3–7, 10–14, 17–21, 24–28"], "dogruCevap": 0, "aciklama": "Şubat 2026 turnuva tarihleri: 1–5, 8–12, 15–19, 22–26."},
+    {"id": 11, "soru": "Kampanya hangi oyunlarla oynanabilir?", "secenekler": ["Bonus parayla", "Gerçek parayla", "Her ikisiyle", "Demo modda"], "dogruCevap": 1, "aciklama": "Evoplay Kampanyası yalnızca gerçek parayla oynanabilir."},
+    {"id": 12, "soru": "Kampanya kaç etkinlikten oluşur?", "secenekler": ["2", "3", "4", "5"], "dogruCevap": 1, "aciklama": "Big Adventures Turnuvası, Big Adventures Çarkıfelek, Big Adventures Anlık Ödüller olmak üzere 3 etkinlik."},
+    {"id": 13, "soru": "Ekim-Kasım 2025 aylık ödül havuzu ne kadardır?", "secenekler": ["250.000 EUR", "300.000 EUR", "350.000 EUR", "400.000 EUR"], "dogruCevap": 1, "aciklama": "Ekim – Kasım 2025: Aylık 300.000 EUR."},
+    {"id": 14, "soru": "Turnuva saatleri hangi saat dilimine göredir?", "secenekler": ["CET", "UTC", "GMT", "PST"], "dogruCevap": 1, "aciklama": "Turnuva tarihleri UTC saatine göre 00:01 – 23:59 arasındadır."},
+    {"id": 15, "soru": "Lider tablosu nasıl işler?", "secenekler": ["Operatör bazlı", "Oyuncu bazlı", "Tüm operatörler arası ortak", "Oyun bazlı"], "dogruCevap": 2, "aciklama": "Lider tablosu, kampanyaya katılan tüm operatörler arasında ortaktır."},
+    {"id": 16, "soru": "Puanlar nasıl hesaplanır?", "secenekler": ["Sadece kazanç bazlı", "Bahis miktarına göre", "Toplam puanlara göre", "Oyun süresine göre"], "dogruCevap": 2, "aciklama": "Puanlar, turnuvaya dahil oyunlardaki tüm turlarda kazanılan toplam puanlara göre hesaplanır."},
+    {"id": 17, "soru": "Ödüller nasıl ödenir?", "secenekler": ["Manuel olarak", "Otomatik olarak", "Talep üzerine", "Haftalık"], "dogruCevap": 1, "aciklama": "Otomatik ödeme sistemi aktifse, ödüller otomatik olarak oyuncu hesaplarına yatırılır."},
+    {"id": 18, "soru": "Turnuva öncesi bilgilendirme ne zaman yapılır?", "secenekler": ["1 gün önce", "2 gün önce", "3 gün önce", "1 hafta önce"], "dogruCevap": 1, "aciklama": "Turnuva başlamadan 2 gün önce, oyunculara açılır pencere ile bilgilendirme yapılır."},
+    {"id": 19, "soru": "Kampanyaya katılım başvurusu ne zaman yapılmalı?", "secenekler": ["3 gün önce", "5 gün önce", "7 gün önce", "10 gün önce"], "dogruCevap": 2, "aciklama": "Kampanyaya katılım için başvurular, etkinlikten en az 7 gün önce yapılmalıdır."},
+    {"id": 20, "soru": "Evoplay'in kampanyayı değiştirme/iptal etme hakkı var mı?", "secenekler": ["Hayır, yok", "Evet, her zaman", "Sadece teknik sorun durumunda", "Sadece yasal zorunluluk durumunda"], "dogruCevap": 1, "aciklama": "Evoplay, kampanyayı her zaman değiştirme veya iptal etme hakkına sahiptir."}
+  ]
+}

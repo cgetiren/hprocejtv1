@@ -1,0 +1,148 @@
+{
+  "quizId": "bonus-buy-quiz",
+  "promosyonId": "bonus-buy",
+  "title": "🎁 Her Ayın 5'i 15'i, 25'i Bonus Buy - Quiz",
+  "description": "1.500₺ Bonus Buy hediye promosyonu hakkındaki bilginizi test edin.",
+  "sorular": [
+    {
+      "id": 1,
+      "soru": "Bu promosyon her ayın hangi günlerinde geçerlidir?",
+      "secenekler": ["5'i, 10'u, 20'si", "5'i, 15'i, 25'i", "1'i, 15'i, 30'u", "10'u, 20'si, 30'u"],
+      "dogruCevap": 1,
+      "aciklama": "Bu promosyon her ayın 5'i, 15'i ve 25'inde geçerlidir."
+    },
+    {
+      "id": 2,
+      "soru": "Hediye bonus buy miktarı ne kadardır?",
+      "secenekler": ["1.000₺", "1.200₺", "1.500₺", "2.000₺"],
+      "dogruCevap": 2,
+      "aciklama": "2000₺ ve üzeri yatırımlarınıza 1.500₺ Bonus Buy hediye edilir."
+    },
+    {
+      "id": 3,
+      "soru": "Minimum yatırım miktarı ne kadardır?",
+      "secenekler": ["1.500₺", "2.000₺", "2.500₺", "3.000₺"],
+      "dogruCevap": 1,
+      "aciklama": "2000₺ ve üstü yatırım yapmanız durumunda bu bonustan yararlanabilirsiniz."
+    },
+    {
+      "id": 4,
+      "soru": "Hediye bonuslarının geçerlilik süresi ne kadardır?",
+      "secenekler": ["12 saat", "24 saat", "36 saat", "48 saat"],
+      "dogruCevap": 1,
+      "aciklama": "Hediye bonuslarının geçerlilik süresi 24 saattir."
+    },
+    {
+      "id": 5,
+      "soru": "Ana oyun hangisidir?",
+      "secenekler": ["Sweet Bonanza", "Big Bass Splash", "Gates of Olympus", "Dog House"],
+      "dogruCevap": 1,
+      "aciklama": "Ana oyun Big Bass Splash'tir (diğer oyunlar ay bazlı değişkenlik gösterir)."
+    },
+    {
+      "id": 6,
+      "soru": "Maksimum kazanç ne kadardır?",
+      "secenekler": ["5.000₺", "7.500₺", "10.000₺", "15.000₺"],
+      "dogruCevap": 2,
+      "aciklama": "Bonus Buy bonusu kapsamında çevrim ardından ana bakiyeye aktarılacak tutar maksimum 10.000₺'dir."
+    },
+    {
+      "id": 7,
+      "soru": "Freespin kazançları için çevrim şartı kaç katıdır?",
+      "secenekler": ["5 katı", "10 katı", "15 katı", "20 katı"],
+      "dogruCevap": 1,
+      "aciklama": "Freespin kazançları, ana bakiyeye aktarılmadan önce kazanç miktarının 10 katı kadar çevrim yapılmalıdır."
+    },
+    {
+      "id": 8,
+      "soru": "Bu promosyon hangi yöntemlerle yatırım yapıldığında geçerlidir?",
+      "secenekler": ["Tüm yöntemler", "Sadece Trinkpara yöntemleri", "Sadece kredi kartı", "Sadece banka havalesi"],
+      "dogruCevap": 1,
+      "aciklama": "Trinkpara Havale, Trinkpara Papara, Trinkpara Paratim, Trinkpara Pep, Trinkpara Paybol, Trinkpara Popypara, Trinkpara Kripto ve Anında Kripto yöntemi ile yatırım yapmanız gerekmektedir."
+    },
+    {
+      "id": 9,
+      "soru": "Bu bonus hangi diğer bonusla birleştirilemez?",
+      "secenekler": ["Kayıp bonusu", "Yatırıma freespin", "Hoş geldin bonusu", "Çevrim bonusu"],
+      "dogruCevap": 1,
+      "aciklama": "Bu promosyon yatırıma freespin bonusu ile birleştirilemez."
+    },
+    {
+      "id": 10,
+      "soru": "Bonus nasıl alınır?",
+      "secenekler": ["Canlı destek ile", "Otomatik olarak", "Yatırım sırasında seçilir", "E-posta ile"],
+      "dogruCevap": 2,
+      "aciklama": "Yatırım sırasında BONUS SEÇ kısmından 'BIG BASS SPLASH 1500 TL BONUS BUY' seçilerek alınır."
+    },
+    {
+      "id": 11,
+      "soru": "İlk adımda (5. gün) bonustan yararlanamayanlar sonraki günler için katılabilir mi?",
+      "secenekler": ["Hayır, katılamazlar", "Evet, 15. ve 25. gün katılabilirler", "Sadece 15. gün katılabilirler", "Sadece 25. gün katılabilirler"],
+      "dogruCevap": 1,
+      "aciklama": "İlk adımda bonustan yararlanmayan üyeler, 15. ve 25. gün için de kampanyaya katılabilirler."
+    },
+    {
+      "id": 12,
+      "soru": "Bu promosyondan yararlanan üyeler hangi diğer bonustan da yararlanabilir?",
+      "secenekler": ["Hoş geldin bonusu", "Kayıp bonusu", "Freespin bonusu", "Çevrim bonusu"],
+      "dogruCevap": 1,
+      "aciklama": "Bu promosyondan yararlanan üyelerimiz kayıp yaşaması durumunda kayıp bonuslarından da yararlanabilir."
+    },
+    {
+      "id": 13,
+      "soru": "Oyunlar hangi sıklıkla değişebilir?",
+      "secenekler": ["Günlük", "Haftalık", "Aylık", "Yıllık"],
+      "dogruCevap": 2,
+      "aciklama": "Oyunlar ay bazlı olarak değişkenlik gösterebilir."
+    },
+    {
+      "id": 14,
+      "soru": "Her ayın 15'inde geçerli bonus buy hangi oyunda kullanılır?",
+      "secenekler": ["Sweet Bonanza", "Big Bass Splash", "Gates of Olympus", "Değişken"],
+      "dogruCevap": 1,
+      "aciklama": "Aktarılacak Hediye Bonus Buy Big Bass Splash oyununda geçerlidir."
+    },
+    {
+      "id": 15,
+      "soru": "Çevrim ardından ana bakiyeye aktarılan kazançla ilgili sınır var mı?",
+      "secenekler": ["Evet, 10.000₺", "Evet, 20.000₺", "Hayır, sınır yok", "Evet, 50.000₺"],
+      "dogruCevap": 2,
+      "aciklama": "Çevrim işlemi sonrasında kazançlar ana bakiyeye aktarılır ve kazanç sınırlandırması bulunmamaktadır."
+    },
+    {
+      "id": 16,
+      "soru": "Bu bonus hangi kanallardan talep edilebilir?",
+      "secenekler": ["Canlı destek", "E-posta", "Talep edilemez", "Bonus talep sayfası"],
+      "dogruCevap": 2,
+      "aciklama": "Bu bonus Canlı destek hattı veya bonus talep sayfası üzerinde talep edilemez ve aktarılamaz."
+    },
+    {
+      "id": 17,
+      "soru": "Her ayın 25'inde hangi oyunda bonus geçerlidir?",
+      "secenekler": ["Sadece Sweet Bonanza", "Big Bass Splash", "Sadece Gates of Olympus", "Tüm oyunlar"],
+      "dogruCevap": 1,
+      "aciklama": "Aktarılacak Hediye Bonus Big Bass Splash oyununda geçerlidir."
+    },
+    {
+      "id": 18,
+      "soru": "Çevrim hangi oyunlarda yapılabilir?",
+      "secenekler": ["Sadece Big Bass Splash", "Sadece Pragmatic Play oyunları", "Dilediğiniz oyunlarda", "Sadece slot oyunları"],
+      "dogruCevap": 2,
+      "aciklama": "Çevrimi dilediğiniz oyunlarda yapabilirsiniz ancak bazı oyunlar çevrime dahil değildir."
+    },
+    {
+      "id": 19,
+      "soru": "Geçerli günlerin toplam sayısı kaçtır?",
+      "secenekler": ["2 gün", "3 gün", "4 gün", "5 gün"],
+      "dogruCevap": 1,
+      "aciklama": "Her ayın 5'i, 15'i ve 25'i olmak üzere toplamda 3 gün geçerlidir."
+    },
+    {
+      "id": 20,
+      "soru": "Promosyon hakkında detaylı bilgi nereden alınabilir?",
+      "secenekler": ["Sadece e-posta", "Promosyon alanı veya canlı destek", "Sadece SMS", "Sadece telefon"],
+      "dogruCevap": 1,
+      "aciklama": "Promosyon alanını takip edebilir veya canlı destek hattımızdan detaylı bilgi alabilirsiniz."
+    }
+  ]
+}

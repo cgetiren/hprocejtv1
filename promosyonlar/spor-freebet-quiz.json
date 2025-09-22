@@ -1,0 +1,28 @@
+{
+  "quizId": "spor-freebet-quiz",
+  "promosyonId": "spor-freebet",
+  "title": "💰 HER GÜN YATIRIMINZA ÖZEL 1000₺ FREEBET FIRSATI - Quiz",
+  "description": "Spor freebet promosyonu hakkındaki bilginizi test edin.",
+  "sorular": [
+    {"id": 1, "soru": "Freebet bonus oranı yüzde kaçtır?", "secenekler": ["%5", "%10", "%15", "%20"], "dogruCevap": 1, "aciklama": "Yaptığınız her yatırımda %10 Freebet sizleri bekliyor."},
+    {"id": 2, "soru": "Maksimum freebet miktarı ne kadardır?", "secenekler": ["500₺", "750₺", "1000₺", "1500₺"], "dogruCevap": 2, "aciklama": "Freebet miktarı maksimum 1000₺ olmaktadır."},
+    {"id": 3, "soru": "Maksimum kazanç ne kadardır?", "secenekler": ["1500₺", "2000₺", "2500₺", "3000₺"], "dogruCevap": 1, "aciklama": "Freebet ile elde edilebilecek maksimum kazanç 2000₺ olmaktadır."},
+    {"id": 4, "soru": "Günlük limit nedir?", "secenekler": ["Günde 2 kere", "Günde 1 kere", "Günde 3 kere", "Sınırsız"], "dogruCevap": 1, "aciklama": "Freebet promosyonumuzdan her üyemiz günde 1 kere yararlanabilir."},
+    {"id": 5, "soru": "Çevrim şartı var mı?", "secenekler": ["Evet, 3x", "Evet, 5x", "Hayır, yok", "Evet, 10x"], "dogruCevap": 2, "aciklama": "Bu promosyonun ekstra bir çevrim şartı bulunmamaktadır."},
+    {"id": 6, "soru": "Hangi yöntemlerle yatırım yapılmalıdır?", "secenekler": ["Tüm yöntemler", "Trinkpara yöntemleri", "Sadece kredi kartı", "Sadece banka havalesi"], "dogruCevap": 1, "aciklama": "Trinkpara Havale, Trinkpara Papara, Trinkpara Paratim vb. yöntemlerle yatırım yapmanız gerekmektedir."},
+    {"id": 7, "soru": "Freebet hangi kupon türünde kullanılır?", "secenekler": ["Tekli kupon", "2'li kombine", "3'lü kombine", "4'lü kombine"], "dogruCevap": 2, "aciklama": "3'lü kombine kuponunuzda kullanabilirsiniz."},
+    {"id": 8, "soru": "Minimum oran şartı nedir?", "secenekler": ["1.30", "1.40", "1.50", "1.60"], "dogruCevap": 2, "aciklama": "Her bir seçim minimum 1.50 oran olan kuponlarda kullanılabilir."},
+    {"id": 9, "soru": "Hangi tercihler geçerlidir?", "secenekler": ["Tüm tercihler", "Ev sahibi-Beraberlik-Deplasman", "Sadece alt/üst", "Sadece handikap"], "dogruCevap": 1, "aciklama": "Sadece Ev sahibi – Beraberlik – Deplasman tercihlerine alacağınız bahisler geçerlidir."},
+    {"id": 10, "soru": "Hangi bahis türünde geçerlidir?", "secenekler": ["Canlı bahisler", "Maç öncesi bahisler", "Her ikisi", "Sadece sistem"], "dogruCevap": 1, "aciklama": "Sadece maç öncesi tercihlerinizde alacağınız bahislerde geçerlidir."},
+    {"id": 11, "soru": "Bonus nasıl alınır?", "secenekler": ["Canlı destek ile", "Otomatik olarak", "Yatırım sırasında seçilir", "E-posta ile"], "dogruCevap": 2, "aciklama": "Yatırım sırasında BONUS SEÇ kısmını seçerek HER YATIRIMA SPOR FREEBET'i seçerek alınır."},
+    {"id": 12, "soru": "24 saat kar-zarar durumu baz alınır mı?", "secenekler": ["Evet, alınır", "Hayır, alınmaz", "Kısmen alınır", "Duruma göre değişir"], "dogruCevap": 1, "aciklama": "Bu bonus aktarımlarında 24 saat kar-zarar durumu baz alınmamaktadır."},
+    {"id": 13, "soru": "Freebet kazancı sonrası sınır var mı?", "secenekler": ["Evet, 5000₺", "Evet, 10000₺", "Hayır, sınır yok", "Evet, 15000₺"], "dogruCevap": 2, "aciklama": "Freebet kazancı ardından bir kazanç sınırlandırması bulunmamaktadır."},
+    {"id": 14, "soru": "Hangi diğer bonusla birleştirilemez?", "secenekler": ["Kayıp bonusu", "Yatırıma Freespin", "Hoş geldin bonusu", "Çevrim bonusu"], "dogruCevap": 1, "aciklama": "Yatırıma Freespin veya Yatırıma Freebet bonusundan birini alabilirsiniz."},
+    {"id": 15, "soru": "Freebet promosyonundan yararlanma durumunda hangi diğer bonustan yararlanılabilir?", "secenekler": ["Hoş geldin bonusu", "Kayıp bonusu", "Freespin bonusu", "Çevrim bonusu"], "dogruCevap": 1, "aciklama": "Freebet promosyonundan yararlanmanız halinde kayıp bonuslarından da yararlanabilirsiniz."},
+    {"id": 16, "soru": "Herhangi bir branş kısıtlaması var mı?", "secenekler": ["Evet, sadece futbol", "Evet, sadece basketbol", "Hayır, kısıtlama yok", "Evet, sadece tenis"], "dogruCevap": 2, "aciklama": "Herhangi bir branş kısıtlaması bulunmamaktadır."},
+    {"id": 17, "soru": "Bu bonus hangi kanallardan talep edilebilir?", "secenekler": ["Canlı destek", "E-posta", "Talep edilemez", "Bonus talep sayfası"], "dogruCevap": 2, "aciklama": "Bu bonus Canlı destek hattı veya bonus talep sayfası üzerinde talep edilemez."},
+    {"id": 18, "soru": "10.000₺ yatırım yapan biri kaç lira freebet alır?", "secenekler": ["1000₺", "1500₺", "2000₺", "2500₺"], "dogruCevap": 0, "aciklama": "10.000₺'nin %10'u = 1000₺, ancak maksimum 1000₺ olduğu için 1000₺ alınır."},
+    {"id": 19, "soru": "Freebet ile kazançlar hangi alanlarda kullanılabilir?", "secenekler": ["Sadece spor", "Site üzerindeki her oyun", "Sadece casino", "Sadece canlı casino"], "dogruCevap": 1, "aciklama": "Freebetler ile yapılan kazançlar ile site üzerindeki her oyunda oynayabilir kazancınızı katlayabilirsiniz."},
+    {"id": 20, "soru": "Bu promosyonun geçerlilik durumu nedir?", "secenekler": ["Sadece hafta sonları", "Sadece hafta içi", "Sürekli", "Belirlenen günlerde"], "dogruCevap": 2, "aciklama": "Promosyon sürekli geçerlidir."}
+  ]
+}

@@ -19,73 +19,49 @@
         "Evoplay Kampanyası yalnızca gerçek parayla oynanabilir. Kampanya şu etkinliklerden oluşmaktadır:",
         "Big Adventures Turnuvası",
         "Big Adventures Çarkıfelek",
-        "Big Adventures Anlık Ödüller"
-      ]
-    },
-    "turnuvaYapisiveOduller": {
-      "title": "Turnuva Yapısı ve Ödüller",
-      "content": [
+        "Big Adventures Anlık Ödüller",
+        "2. Turnuva Yapısı",
         "Haziran – Ağustos 2025: Aylık 200.000 EUR",
         "Eylül 2025: 250.000 EUR",
         "Ekim – Kasım 2025: Aylık 300.000 EUR",
         "Aralık 2025: 500.000 EUR",
         "Ocak 2026: 350.000 EUR",
         "Şubat 2026: 200.000 EUR",
-        "Toplam ödül havuzu: 2.500.000 EUR"
-      ]
-    },
-    "turnuvaTakvimi": {
-      "title": "Turnuva Takvimi",
-      "content": [
+        "Toplam ödül havuzu: 2.500.000 EUR",
+        "3. Turnuva Takvimi",
         "Ağ kampanyası her ay belirlenen beş (5) gün boyunca aşağıdaki tarihlerde gerçekleştirilir:",
         "1–5, 9–13, 17–21, 25–29 (UTC saatine göre 00:01 – 23:59)",
         "Şubat 2026 için fazlar arası 2 günlük mola verilecektir.",
         "Turnuva tarihleri (Şubat hariç):",
-        "1–5, 8–12, 15–19, 22–26"
-      ]
-    },
-    "katilimVeUygunluk": {
-      "title": "Katılım ve Uygunluk",
-      "content": [
+        "1–5, 8–12, 15–19, 22–26",
+        "4. Katılım ve Uygunluk",
         "Turnuvaya katılmak için gereken minimum bahis miktarı 0,20 EUR veya karşılığı yerel para birimidir.",
-        "Katılmaya uygun oyunlar listesi kampanya kapsamında ayrıca sunulacaktır."
-      ]
-    },
-    "puanlamaVeLiderTablosu": {
-      "title": "Puanlama ve Lider Tablosu",
-      "content": [
+        "Katılmaya uygun oyunlar listesi kampanya kapsamında ayrıca sunulacaktır.",
+        "5. Puanlama ve Lider Tablosu",
         "Her uygun dönüş oyuncunun toplam puanına katkı sağlar.",
         "Puanlar, turnuvaya dahil oyunlardaki tüm turlarda kazanılan toplam puanlara göre hesaplanır.",
         "Lider tablosu, kampanyaya katılan tüm operatörler arasında ortaktır.",
-        "En yüksek puanı toplayan oyuncular, ödülleri kazanır."
-      ]
-    },
-    "odullerVeOdeme": {
-      "title": "Ödüller ve Ödeme",
-      "content": [
+        "En yüksek puanı toplayan oyuncular, ödülleri kazanır.",
+        "6. Ödüller ve Ödeme",
         "Kampanya sona erdiğinde, kazananlar listesi her operatöre iletilir.",
         "Otomatik ödeme sistemi aktifse, ödüller otomatik olarak oyuncu hesaplarına yatırılır.",
-        "Nakit ödüller, oyuncu hesaplarına çekilebilir para olarak aktarılır."
-      ]
-    },
-    "digerHukumler": {
-      "title": "Diğer Hükümler",
-      "content": [
+        "Nakit ödüller, oyuncu hesaplarına çekilebilir para olarak aktarılır.",
+        "7. Diğer Hükümler",
         "Toplam ödül havuzu, operatöre fatura kesilmeden önce GGR’den (Brüt Oyun Geliri) düşülür.",
         "Ödül havuzu ve minimum bahis miktarı EUR cinsinden belirlenmiştir ve döviz kuru dalgalanmalarına tabidir.",
         "Evoplay, teknik hata, yazılım hatası, insan hatası ya da hileli davranış durumlarında puanları geçersiz sayma ve ödül ödememe hakkını saklı tutar.",
         "Tazminat sistemi, ödül havuzu ve katılımcı lider sayısına göre hesaplanır.",
         "Turnuva başlamadan 2 gün önce, oyunculara açılır pencere (pop-up) ile bilgilendirme yapılır.",
         "Kampanyaya katılım için başvurular, etkinlikten en az 7 gün önce yapılmalıdır.",
-        "Evoplay, kampanyayı her zaman değiştirme veya iptal etme hakkını saklı tutar."
+        "Evoplay, kampanyayı her zaman değiştirme veya iptal etme hakkına sahiptir."
       ]
     },
     "genelBonusKurallari": {
-      "title": "Genel Bonus Kuralları",
+      "title": "📝 Genel Bonus Kuralları",
       "content": [
-        "1. Hitbet bu bonusu istediği zaman durdurma ya da iptal etme hakkına sahiptir.",
-        "2. Bonus kötüye kullanımı durumunda bonusu ve bonustan elde edilen kazancı geri alma hakkına sahiptir.",
-        "3. Hitbet Genel Bonus Kuralları geçerlidir."
+        "1. Hproject bu bonusu istediği zaman durdurma ya da iptal etme hakkına sahiptir.",
+        "2. Bonus kötüye kullanımı durumunda bonusu ve bonstan elde edilen kazancı geri alma hakkına sahiptir.",
+        "3. Hproject Genel Bonus Kuralları geçerlidir."
       ]
     }
   }

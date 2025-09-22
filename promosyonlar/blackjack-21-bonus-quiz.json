@@ -1,0 +1,148 @@
+{
+  "quizId": "blackjack-21-bonus-quiz",
+  "promosyonId": "blackjack-21-bonus",
+  "title": "♠️ Ayın 21'i Blackjack %21 Yatırım Bonusu - Quiz",
+  "description": "Blackjack özel yatırım bonusu promosyonu hakkındaki bilginizi test edin.",
+  "sorular": [
+    {
+      "id": 1,
+      "soru": "Blackjack %21 yatırım bonusu her ayın hangi gününde geçerlidir?",
+      "secenekler": ["20'sinde", "21'inde", "22'sinde", "23'ünde"],
+      "dogruCevap": 1,
+      "aciklama": "Bu promosyon her ayın 21'inde (00:00 - 23:59) saatleri arasında geçerlidir."
+    },
+    {
+      "id": 2,
+      "soru": "Bonus oranı yüzde kaçtır?",
+      "secenekler": ["%20", "%21", "%22", "%25"],
+      "dogruCevap": 1,
+      "aciklama": "Blackjack'e özel %21 yatırım bonusu verilmektedir."
+    },
+    {
+      "id": 3,
+      "soru": "Minimum yatırım miktarı ne kadardır?",
+      "secenekler": ["200₺", "250₺", "300₺", "350₺"],
+      "dogruCevap": 1,
+      "aciklama": "Minimum 250₺ ve üstü yatırımlarınız için bu bonusumuzdan yararlanabilirsiniz."
+    },
+    {
+      "id": 4,
+      "soru": "Maksimum bonus miktarı ne kadardır?",
+      "secenekler": ["2.000₺", "2.100₺", "2.200₺", "2.500₺"],
+      "dogruCevap": 1,
+      "aciklama": "Alınabilecek maksimum bonus miktarı her üye için 2.100₺ olmaktadır."
+    },
+    {
+      "id": 5,
+      "soru": "Bonusun geçerlilik süresi ne kadardır?",
+      "secenekler": ["12 saat", "24 saat", "36 saat", "48 saat"],
+      "dogruCevap": 1,
+      "aciklama": "Hediye bonuslarının geçerlilik süresi 24 saattir."
+    },
+    {
+      "id": 6,
+      "soru": "Çevrim şartı yatırım + bonus toplamının kaç katıdır?",
+      "secenekler": ["3 katı", "4 katı", "5 katı", "6 katı"],
+      "dogruCevap": 2,
+      "aciklama": "Yatırım + bonus toplamının 5 katı kadar çevrim şartı bulunmaktadır."
+    },
+    {
+      "id": 7,
+      "soru": "Bu bonus hangi sağlayıcının oyunlarında geçerlidir?",
+      "secenekler": ["Evolution Gaming", "Pragmatic Play Live", "NetEnt Live", "Ezugi"],
+      "dogruCevap": 1,
+      "aciklama": "Pragmatic Play Live Blackjack oyunlarında geçerlidir."
+    },
+    {
+      "id": 8,
+      "soru": "Bonusu almak için hangi yöntemle yatırım yapmak gerekir?",
+      "secenekler": ["Kredi kartı hariç diğer yöntemler", "Sadece kredi kartı", "Sadece banka havalesi", "Tüm yöntemler"],
+      "dogruCevap": 0,
+      "aciklama": "Kredi kartı yöntemleri hariç diğer yatırım yöntemlerimiz ile yatırım yapmanız gerekmektedir."
+    },
+    {
+      "id": 9,
+      "soru": "10.000₺ yatırım yapan ve 2.100₺ bonus alan üye için çevrim miktarı ne kadardır?",
+      "secenekler": ["50.500₺", "60.500₺", "70.500₺", "80.500₺"],
+      "dogruCevap": 1,
+      "aciklama": "(10.000 + 2.100) × 5 = 60.500₺ kadar Blackjack oyunlarına katılım sağlamalıdır."
+    },
+    {
+      "id": 10,
+      "soru": "Bonus nasıl alınır?",
+      "secenekler": ["Canlı destek ile talep edilir", "Otomatik olarak verilir", "Yatırım sırasında seçilir", "E-posta ile talep edilir"],
+      "dogruCevap": 2,
+      "aciklama": "Yatırım sırasında BONUS SEÇ kısmından seçilerek alınmalıdır."
+    },
+    {
+      "id": 11,
+      "soru": "Bu promosyondan yararlanan üyeler hangi diğer bonustan da yararlanabilir?",
+      "secenekler": ["Hoş geldin bonusu", "Kayıp bonusu", "Freespin bonusu", "Freebet bonusu"],
+      "dogruCevap": 1,
+      "aciklama": "Bu promosyondan yararlanan üyelerimiz olası kayıp durumunda Casino Kayıp Bonus talebinde bulunabilirler."
+    },
+    {
+      "id": 12,
+      "soru": "Bonus hangi saatler arasında geçerlidir?",
+      "secenekler": ["00:01 - 23:58", "00:00 - 23:59", "01:00 - 24:00", "00:30 - 23:30"],
+      "dogruCevap": 1,
+      "aciklama": "Her ayın 21'inde 00:00 ile 23:59 tarihleri arasında geçerlidir."
+    },
+    {
+      "id": 13,
+      "soru": "Çevrim tamamlandıktan sonra kazanç sınırı var mı?",
+      "secenekler": ["Evet, 10.000₺", "Evet, 20.000₺", "Hayır, sınır yok", "Evet, 50.000₺"],
+      "dogruCevap": 2,
+      "aciklama": "Çevrim işlemi sonrasında kazançlar ana bakiyeye aktarılır ve kazanç sınırlandırması bulunmamaktadır."
+    },
+    {
+      "id": 14,
+      "soru": "Bu bonus hangi diğer bonusla birleştirilemez?",
+      "secenekler": ["Kayıp bonusu", "Yatırıma freespin", "Hoş geldin bonusu", "Çevrim bonusu"],
+      "dogruCevap": 1,
+      "aciklama": "Bu promosyon yatırıma freespin bonusu veya yatırıma freebet bonusu ile birleştirilemez."
+    },
+    {
+      "id": 15,
+      "soru": "Farklı sağlayıcılarda alınan Blackjack bahisleri çevrime dahil midir?",
+      "secenekler": ["Evet, dahil", "Hayır, dahil değil", "Kısmen dahil", "Duruma göre değişir"],
+      "dogruCevap": 1,
+      "aciklama": "Farklı sağlayıcılarda alınan Blackjack bahisleri çevrime dahil edilemez."
+    },
+    {
+      "id": 16,
+      "soru": "Bonus nasıl hesaba aktarılır?",
+      "secenekler": ["Manuel olarak", "Canlı destek ile", "Otomatik olarak", "E-posta ile talep"],
+      "dogruCevap": 2,
+      "aciklama": "Bonus seçilerek yatırım yapmanız durumunda otomatik olarak bonusunuz hesabınıza aktarılacaktır."
+    },
+    {
+      "id": 17,
+      "soru": "5.000₺ yatırım yapan biri kaç lira bonus alır?",
+      "secenekler": ["1.000₺", "1.050₺", "1.100₺", "1.200₺"],
+      "dogruCevap": 1,
+      "aciklama": "5.000₺ × %21 = 1.050₺ bonus alınır."
+    },
+    {
+      "id": 18,
+      "soru": "Kullanılmayan bonuslar ne zaman geçersiz olur?",
+      "secenekler": ["12 saat sonra", "24 saat sonra", "48 saat sonra", "72 saat sonra"],
+      "dogruCevap": 1,
+      "aciklama": "Kullanılmayan bonuslar süresi dolduğunda (24 saat) geçersiz olacaktır."
+    },
+    {
+      "id": 19,
+      "soru": "Bu promosyonun özel kodu hangisidir?",
+      "secenekler": ["BLACKJACK20", "21İNE ÖZEL %21 BLACKJACK", "BJ21BONUS", "PRAGMATIC21"],
+      "dogruCevap": 1,
+      "aciklama": "Bonus seç kısmından '21İNE ÖZEL %21 BLACKJACK YATIRIM BONUSU! (Pragmatic Play Live)' seçilir."
+    },
+    {
+      "id": 20,
+      "soru": "Bonus miktarında kazanç sınırlandırması var mı?",
+      "secenekler": ["Evet, 5.000₺", "Evet, 10.000₺", "Hayır, sınır yok", "Evet, 15.000₺"],
+      "dogruCevap": 2,
+      "aciklama": "Bonustan yararlanmanız durumunda bir kazanç sınırlandırması bulunmamaktadır."
+    }
+  ]
+}

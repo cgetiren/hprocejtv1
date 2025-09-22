@@ -1,0 +1,28 @@
+{
+  "quizId": "pragmatic-play-quiz",
+  "promosyonId": "pragmatic-play",
+  "title": "🎰 Pragmatic Play Drops & Wins 2025 - Quiz",
+  "description": "Pragmatic Play turnuva promosyonu hakkındaki bilginizi test edin.",
+  "sorular": [
+    {"id": 1, "soru": "Toplam ödül havuzu ne kadardır?", "secenekler": ["1.500.000 EUR", "2.000.000 EUR", "2.500.000 EUR", "3.000.000 EUR"], "dogruCevap": 1, "aciklama": "Pragmatic Play sizi 5 ay sürecek yeni bir maceraya çıkarıyor ve 2.000.000 EUR ödül havuzu var."},
+    {"id": 2, "soru": "Turnuva ne kadar sürecektir?", "secenekler": ["4 ay", "5 ay", "6 ay", "7 ay"], "dogruCevap": 1, "aciklama": "Pragmatic Play sizi 5 ay sürecek yeni bir maceraya çıkarıyor."},
+    {"id": 3, "soru": "Turnuva başlangıç tarihi nedir?", "secenekler": ["1 Haziran 2025", "4 Haziran 2025", "10 Haziran 2025", "15 Haziran 2025"], "dogruCevap": 1, "aciklama": "Turnuva tarihi 4 Haziran 2025 - 19 Kasım 2025 arasındadır."},
+    {"id": 4, "soru": "Turnuva bitiş tarihi nedir?", "secenekler": ["15 Kasım 2025", "19 Kasım 2025", "25 Kasım 2025", "30 Kasım 2025"], "dogruCevap": 1, "aciklama": "Turnuva tarihi 4 Haziran 2025 - 19 Kasım 2025 arasındadır."},
+    {"id": 5, "soru": "Günlük turnuva için minimum bahis tutarı ne kadardır?", "secenekler": ["5 TL", "7 TL", "10 TL", "15 TL"], "dogruCevap": 1, "aciklama": "Günlük turnuvada ödül alabilmek için minimum bahis tutarı 7 TL'dir."},
+    {"id": 6, "soru": "Haftalık çark sayısı kaçtır?", "secenekler": ["20x", "22x", "24x", "26x"], "dogruCevap": 2, "aciklama": "24x Haftalık Çark: 47.000 ödül totalde 350.000 EUR değerinde."},
+    {"id": 7, "soru": "Günlük çark sayısı kaçtır?", "secenekler": ["150x", "160x", "168x", "175x"], "dogruCevap": 2, "aciklama": "168x Günlük Çark: 500 nakit ödül totalde 20.000 EUR değerinde."},
+    {"id": 8, "soru": "Haftalık çarkta toplam ödül değeri ne kadardır?", "secenekler": ["300.000 EUR", "350.000 EUR", "400.000 EUR", "450.000 EUR"], "dogruCevap": 1, "aciklama": "47.000 ödül totalde 350.000 EUR değerinde."},
+    {"id": 9, "soru": "Günlük çarkta toplam ödül değeri ne kadardır?", "secenekler": ["15.000 EUR", "20.000 EUR", "25.000 EUR", "30.000 EUR"], "dogruCevap": 1, "aciklama": "500 nakit ödül totalde 20.000 EUR değerinde."},
+    {"id": 10, "soru": "Ödül kazançları nasıl dağıtılır?", "secenekler": ["Rastgele", "Sıralama bazlı", "Kümülatif olarak", "Eşit paylaşım"], "dogruCevap": 2, "aciklama": "Ödül kazançları kümülatif olarak dağıtılır."},
+    {"id": 11, "soru": "Günlük turnuvada ödüller nasıl dağıtılır?", "secenekler": ["Bonus olarak", "Nakit ve çevrimsiz", "Freespin olarak", "Freebet olarak"], "dogruCevap": 1, "aciklama": "Ödüller nakit ve çevrimsiz olarak dağıtılır."},
+    {"id": 12, "soru": "Günlük turnuvada 1. olan ne kadar kazanır?", "secenekler": ["€2,000", "€3,000", "€4,000", "€5,000"], "dogruCevap": 1, "aciklama": "Günlük turnuvada 1. €3,000 kazanır."},
+    {"id": 13, "soru": "Günlük turnuvada 2. olan ne kadar kazanır?", "secenekler": ["€1,000", "€1,500", "€2,000", "€2,500"], "dogruCevap": 2, "aciklama": "Günlük turnuvada 2. €2,000 kazanır."},
+    {"id": 14, "soru": "Aşağıdakilerden hangisi geçerli oyunlardan biri değildir?", "secenekler": ["Gates of Olympus 1000", "Book of Dead", "Sweet Bonanza 1000", "Sugar Rush 1000"], "dogruCevap": 1, "aciklama": "Book of Dead geçerli oyunlar listesinde yer almamaktadır."},
+    {"id": 15, "soru": "Big Bass Splash geçerli oyunlar arasında mı?", "secenekler": ["Evet", "Hayır", "Kısmen", "Test aşamasında"], "dogruCevap": 0, "aciklama": "Big Bass Splash geçerli oyunlar arasında yer almaktadır."},
+    {"id": 16, "soru": "Starlight Princess 1000 geçerli midir?", "secenekler": ["Evet", "Hayır", "Sadece hafta sonları", "Sadece özel günlerde"], "dogruCevap": 0, "aciklama": "Starlight Princess 1000 geçerli oyunlar arasında yer almaktadır."},
+    {"id": 17, "soru": "Wolf Gold geçerli oyunlar arasında mı?", "secenekler": ["Evet", "Hayır", "Belirsiz", "Değişken"], "dogruCevap": 0, "aciklama": "Wolf Gold geçerli oyunlar arasında yer almaktadır."},
+    {"id": 18, "soru": "The Dog House Megaways geçerli midir?", "secenekler": ["Evet", "Hayır", "Sadece VIP'ler için", "Sadece yeni üyeler için"], "dogruCevap": 0, "aciklama": "The Dog House Megaways geçerli oyunlar arasında yer almaktadır."},
+    {"id": 19, "soru": "Günlük turnuvada 301-500. arası ne kadar kazanır?", "secenekler": ["€3", "€5", "€7", "€10"], "dogruCevap": 1, "aciklama": "Günlük turnuvada 301 ve 500. arası €5 kazanır."},
+    {"id": 20, "soru": "Gates of Olympus Super Scatter geçerli oyunlar arasında mı?", "secenekler": ["Evet", "Hayır", "Sadece son haftalarda", "Sadece ilk haftalarda"], "dogruCevap": 0, "aciklama": "Gates of Olympus Super Scatter geçerli oyunlar arasında yer almaktadır."}
+  ]
+}

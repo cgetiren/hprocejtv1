@@ -1,0 +1,148 @@
+{
+  "quizId": "cash-out-quiz", 
+  "promosyonId": "cash-out",
+  "title": "💸 Cash Out ile Bahsi Bozdur - Quiz",
+  "description": "Cash Out özelliği hakkındaki bilginizi test edin.",
+  "sorular": [
+    {
+      "id": 1,
+      "soru": "Cash Out özelliği hangi bahis türlerinde geçerlidir?",
+      "secenekler": ["Casino oyunlarında", "Sadece canlı bahislerde", "Spor bahislerinde", "Slot oyunlarında"],
+      "dogruCevap": 2,
+      "aciklama": "Cash Out sadece spor bahislerinde geçerlidir."
+    },
+    {
+      "id": 2,
+      "soru": "Cash Out özelliğinden yararlanabilmek için ne gereklidir?",
+      "secenekler": ["Minimum yatırım", "Spor bahsinin olması", "Bonus kodu", "Üyelik süresi"],
+      "dogruCevap": 1,
+      "aciklama": "Cash Out özelliğinden yararlanabilmeniz için bir spor bahsinizin olması gerekmektedir."
+    },
+    {
+      "id": 3,
+      "soru": "Cash Out seçeneğinin aktif olabilmesi için ne gerekir?",
+      "secenekler": ["Yüksek oran", "Canlı bahislerde markette aktif olması", "Belirli tutar", "Kombine kupon"],
+      "dogruCevap": 1,
+      "aciklama": "Bahis aldığınız market tercihinin canlı bahislerde aktif olması gerekmektedir."
+    },
+    {
+      "id": 4,
+      "soru": "Cash Out tutarları nasıl hesaplanır?",
+      "secenekler": ["Manuel olarak", "Kullanıcı belirler", "Sistemsel olarak", "Rastgele"],
+      "dogruCevap": 2,
+      "aciklama": "Cash Out tutarları sistemsel olarak hesaplanmaktadır."
+    },
+    {
+      "id": 5,
+      "soru": "Cash Out bahisler çevrime dahil midir?",
+      "secenekler": ["Evet, dahil", "Hayır, dahil değil", "Kısmen dahil", "Duruma göre değişir"],
+      "dogruCevap": 1,
+      "aciklama": "Cash Out bahisler çevrime dahil değildir."
+    },
+    {
+      "id": 6,
+      "soru": "Cash Out özelliği hangi durumlarda kaybedilir?",
+      "secenekler": ["Yüksek kazanç durumunda", "Karşılaşmanın ertelenmesi durumunda", "Düşük oran durumunda", "Hiçbir zaman"],
+      "dogruCevap": 1,
+      "aciklama": "Karşılaşmanın ertelenmesi durumunda bahis-bozdur özelliğini kaybeder."
+    },
+    {
+      "id": 7,
+      "soru": "3-0 önde olan ev sahibi için MS1 oranı yoksa Cash Out ne durumda olur?",
+      "secenekler": ["Aktif olur", "Aktif olmaz", "Kısmen aktif", "Değişken"],
+      "dogruCevap": 1,
+      "aciklama": "3-0 olması sebebiyle ev sahibi kazanır oranı olmayabilir ve cash out seçeneği aktif olmayacaktır."
+    },
+    {
+      "id": 8,
+      "soru": "Cash Out hangi sayfalarda görülebilir?",
+      "secenekler": ["Ana sayfa", "Kuponlarım sayfasında", "Canlı maçlar sayfası", "Hesabım sayfası"],
+      "dogruCevap": 1,
+      "aciklama": "Kuponlarım sayfasında Cash Out ibaresini gördüğünüz her kuponda bu seçeneği değerlendirebilirsiniz."
+    },
+    {
+      "id": 9,
+      "soru": "Cash Out seçeneği hangi sıklıkta bulunur?",
+      "secenekler": ["Nadiren", "Bazen", "Hemen hemen her karşılaşmada", "Hiçbir zaman"],
+      "dogruCevap": 2,
+      "aciklama": "Cash Out seçeneği hemen hemen her karşılaşmada mevcuttur."
+    },
+    {
+      "id": 10,
+      "soru": "Cash Out için ek çevrim şartı var mı?",
+      "secenekler": ["Evet, 2x çevrim", "Evet, 5x çevrim", "Hayır, yok", "Duruma göre değişir"],
+      "dogruCevap": 2,
+      "aciklama": "Cash Out yapılan kuponlar için ekstra bir çevrim şartı bulunmamaktadır."
+    },
+    {
+      "id": 11,
+      "soru": "Bu promosyonun minimum yatırım miktarı var mı?",
+      "secenekler": ["Evet, 100₺", "Evet, 250₺", "Hayır, yok", "Evet, 500₺"],
+      "dogruCevap": 2,
+      "aciklama": "Bu promosyonda minimum yatırım miktarı bulunmamaktadır."
+    },
+    {
+      "id": 12,
+      "soru": "Cash Out'un maksimum kazanç limiti var mı?",
+      "secenekler": ["Evet, 10.000₺", "Evet, 50.000₺", "Hayır, yok", "Evet, 100.000₺"],
+      "dogruCevap": 2,
+      "aciklama": "Cash Out için maksimum kazanç limiti bulunmamaktadır."
+    },
+    {
+      "id": 13,
+      "soru": "Müsabaka oynanmazsa ne olur?",
+      "secenekler": ["Cash Out devam eder", "Ertelenen/iptal edilen müsabaka kuralları geçerli", "Bonus verilir", "Hiçbir şey olmaz"],
+      "dogruCevap": 1,
+      "aciklama": "Müsabaka oynanmaz ise ertelenen/iptal edilen müsabaka kuralları geçerli olacaktır."
+    },
+    {
+      "id": 14,
+      "soru": "Cash Out özelliği hangi günlerde geçerlidir?",
+      "secenekler": ["Hafta sonları", "Sadece hafta içi", "Her zaman", "Belirlenen günlerde"],
+      "dogruCevap": 2,
+      "aciklama": "Cash Out özelliği her zaman geçerlidir."
+    },
+    {
+      "id": 15,
+      "soru": "Cash Out'un geçerlilik süresi var mı?",
+      "secenekler": ["24 saat", "7 gün", "Süresiz", "30 gün"],
+      "dogruCevap": 2,
+      "aciklama": "Cash Out özelliğinin geçerlilik süresi süresizdir."
+    },
+    {
+      "id": 16,
+      "soru": "Cash Out ile ilgili bonus miktarı var mı?",
+      "secenekler": ["Evet, %10", "Evet, %20", "Hayır, yok", "Duruma göre değişir"],
+      "dogruCevap": 2,
+      "aciklama": "Cash Out ile ilgili herhangi bir bonus miktarı bulunmamaktadır."
+    },
+    {
+      "id": 17,
+      "soru": "Cash Out özelliği nasıl kullanılır?",
+      "secenekler": ["Canlı destek ile", "Otomatik olarak", "Kuponlarım sayfasından", "E-posta ile"],
+      "dogruCevap": 2,
+      "aciklama": "Kuponlarım sayfasında Cash Out ibaresini gördüğünüz kuponda bu seçeneği kullanabilirsiniz."
+    },
+    {
+      "id": 18,
+      "soru": "Hproject Cash Out'u ne zaman iptal edebilir?",
+      "secenekler": ["Hiçbir zaman", "Sadece teknik sorun durumunda", "Dilediği zaman", "Sadece kötüye kullanım durumunda"],
+      "dogruCevap": 2,
+      "aciklama": "Hproject dilediği zaman bu bonusu durdurma ya da iptal etme hakkına sahiptir."
+    },
+    {
+      "id": 19,
+      "soru": "Cash Out kötüye kullanım durumunda ne olur?",
+      "secenekler": ["Uyarı verilir", "Hesap kapatılır", "Bonus ve kazanç geri alınabilir", "Hiçbir şey olmaz"],
+      "dogruCevap": 2,
+      "aciklama": "Bonus ve kazancını kötüye kullanma durumunda Hproject bonus ve kazancı geri alma hakkına sahiptir."
+    },
+    {
+      "id": 20,
+      "soru": "Cash Out'un diğer adı nedir?",
+      "secenekler": ["Bahis Bitir", "Bahis Bozdur", "Bahis Durdur", "Bahis İptal"],
+      "dogruCevap": 1,
+      "aciklama": "Cash Out'un diğer adı 'Bahis Bozdur' olarak kullanılmaktadır."
+    }
+  ]
+}

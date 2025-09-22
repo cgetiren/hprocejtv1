@@ -1,7 +1,7 @@
 {
   "id": "yeni-uyelere-deneme-bonusu",
   "title": "🌟 YENİ ÜYELERE ÖZEL DENEME BONUSU (100FREESPIN YA DA 100FREEBET)",
-  "shortDesc": "Hitbet’i keşfet diye 100₺ Deneme Bonusu Seni Bekliyor!",
+  "shortDesc": "Hproject’i keşfet diye 100₺ Deneme Bonusu Seni Bekliyor!",
   "description": "Casino oyunlarının heyecanına kapıl veya spor bahisleriyle tutkunu yaşa. Tek yapman gereken, keyfine uygun olanı seçmek ve kazanmaya başlamak!",
   "keywords": "deneme bonusu, freespin, freebet, yeni üye, 100₺, spor, casino",
   "basicInfo": {
@@ -22,12 +22,19 @@
         "5. Anaparanıza geçen miktar ile dilediğiniz gibi bahis alarak sitemiz çekim kuralları dahilinde havale yöntemlerimiz ile çekim yapabilirsiniz. Kazanç sınırı bulunmamaktadır."
       ]
     },
-    "sporDenemeBonusuCevrim": {
-      "title": "🔄 100₺ SPOR FREEBET ÇEVRİM ŞARTLARI",
+    "sporBonusCevrimSartlari": {
+      "title": "🔄 Bonus Çevrim Şartları (Spor)",
       "content": [
         "1. 100 TL Spor Freebet’inizi kullanabilmeniz için her seçimin minimum 1,60 orandan 3’lü kombine kupon oluşturmanız gerekmektedir.",
         "2. Freebet ile yaptığınız bahis sonucunda kazanç sağlamanız durumunda hesabınıza maksimum 250₺ yansıyacaktır.",
         "3. Freebet kazancı ardından bir kazanç sınırlandırması bulunmamaktadır."
+      ]
+    },
+    "gecerliMusabakalar": {
+      "title": "⚽ Geçerli Müsabakalar",
+      "content": [
+        "1. Spor bahisleri %100, Slot oyunları %100, Rulet %1, Baccarat %10, Blackjack %10, Poker %10, Zar oyunları %10, Şans oyunları %10 ve loto oyunları %10 şeklindedir.",
+        "2. Crash(Aviator vb.) oyunları ile deneme bonusu ile bahis alınamamaktadır. Çevriminizin bitmesi ardından dilediğiniz gibi bahis alabilirsiniz."
       ]
     },
     "freespinDenemeBonusu": {
@@ -45,16 +52,16 @@
         "10. Anaparanıza geçen miktar ile dilediğiniz gibi bahis alarak sitemiz çekim kuralları dahilinde havale yöntemlerimiz ile çekim yapabilirsiniz. Kazanç sınırı bulunmamaktadır."
       ]
     },
-    "freespinDenemeBonusuCevrim": {
-      "title": "🔄 100 FREESPIN ÇEVRİM ŞARTLARI",
+    "freespinBonusCevrimSartlari": {
+      "title": "🔄 Bonus Çevrim Şartları (Freespin)",
       "content": [
         "1. Bonus miktarınızın 5 katı kadar çevrim yapmanız gerekmektedir. 100×5=500₺ bonus çevrim şartı bulunmaktadır.",
         "2. Bonusunuz ile çevriminizi tamamlamanız ardından maksimum ana bakiyenize geçecek tutar 200₺ olmaktadır.",
         "3. Bonus şartı tamamlanarak bonus bakiyenizin ana bakiyenize geçmesi ardından bir kazanç sınırlandırması bulunmamaktadır."
       ]
     },
-    "gecerliOyunlarCevrimKatki": {
-      "title": "🎮 GEÇERLİ OYUNLAR VE ÇEVRİME KATKI ORANLARI",
+    "gecerliOyunlarFreespin": {
+      "title": "🎮 Geçerli Oyunlar (Freespin)",
       "content": [
         "1. Spor bahisleri %100, Slot oyunları %100, Rulet %1, Baccarat %10, Blackjack %10, Poker %10, Zar oyunları %10, Şans oyunları %10 ve loto oyunları %10 şeklindedir.",
         "2. Crash(Aviator vb.) oyunları ile deneme bonusu ile bahis alınamamaktadır. Çevriminizin bitmesi ardından dilediğiniz gibi bahis alabilirsiniz."
@@ -63,9 +70,9 @@
     "genelBonusKurallari": {
       "title": "📝 Genel Bonus Kuralları",
       "content": [
-        "1. Hitbet Genel Bonus Kuralları geçerlidir.",
-        "2. Hitbet dilediği zaman bu bonusu durdurma ya da iptal etme hakkına sahiptir.",
-        "3. Bonusu veya kazancını kötüye kullanma durumunda Hitbet bonus ve kazancı geri alma hakkına sahiptir."
+        "1. Hproject Genel Bonus Kuralları geçerlidir.",
+        "2. Hproject dilediği zaman bu bonusu durdurma ya da iptal etme hakkına sahiptir.",
+        "3. Bonusu veya kazancını kötüye kullanma durumunda Hproject bonus ve kazancı geri alma hakkına sahiptir."
       ]
     }
   }

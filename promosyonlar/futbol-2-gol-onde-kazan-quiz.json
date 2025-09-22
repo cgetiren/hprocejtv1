@@ -1,0 +1,148 @@
+{
+  "quizId": "futbol-2-gol-onde-kazan-quiz",
+  "promosyonId": "futbol-2-gol-onde-kazan",
+  "title": "⚽ Futbolda 2 Gol Farkla Öne Geç, Kazan! - Quiz",
+  "description": "Futbol erken sonuçlandırma promosyonu hakkındaki bilginizi test edin.",
+  "sorular": [
+    {
+      "id": 1,
+      "soru": "Futbolda erken sonuçlandırma için kaç gol fark gereklidir?",
+      "secenekler": ["1 gol", "2 gol", "3 gol", "4 gol"],
+      "dogruCevap": 1,
+      "aciklama": "Seçtiğiniz taraf maç içinde 2 farkla öne geçerse bahsiniz kazandı olarak sonuçlandırılır."
+    },
+    {
+      "id": 2,
+      "soru": "Bu promosyon hangi bahis türlerinde geçerlidir?",
+      "secenekler": ["Sadece tekli bahislerde", "Sadece kombine bahislerde", "Hem tekli hem kombine bahislerde", "Sadece canlı bahislerde"],
+      "dogruCevap": 2,
+      "aciklama": "Özellik, tekli ve kombine bahislerde geçerlidir."
+    },
+    {
+      "id": 3,
+      "soru": "Aşağıdakilerden hangisi geçerli liglerden biri değildir?",
+      "secenekler": ["Türkiye Süper Lig", "UEFA Şampiyonlar Ligi", "MLS", "İspanya La Liga"],
+      "dogruCevap": 2,
+      "aciklama": "MLS geçerli ligler arasında yer almamaktadır."
+    },
+    {
+      "id": 4,
+      "soru": "3-1 skorunda hangi takım 2 gol farkla öndedir?",
+      "secenekler": ["3 gollü takım", "1 gollü takım", "Hiçbiri", "Her ikisi de"],
+      "dogruCevap": 0,
+      "aciklama": "3-1 skoru 2 gol fark anlamına gelir ve 3 gollü takım öndedir."
+    },
+    {
+      "id": 5,
+      "soru": "Bu promosyon hangi bahis seçeneklerinde geçerlidir?",
+      "secenekler": ["Alt/Üst bahislerinde", "Ev sahibi/deplasman kazanır bahislerinde", "Tek/çift bahislerinde", "Handikap bahislerinde"],
+      "dogruCevap": 1,
+      "aciklama": "Maç öncesi yapılan ev sahibi kazanır veya deplasman kazanır bahislerinde geçerlidir."
+    },
+    {
+      "id": 6,
+      "soru": "UEFA Konferans Ligi bu promosyonda geçerli midir?",
+      "secenekler": ["Hayır, geçerli değil", "Evet, geçerli", "Sadece Final'de geçerli", "Sadece playoff'larda geçerli"],
+      "dogruCevap": 1,
+      "aciklama": "UEFA Konferans Ligi geçerli ligler arasında yer almaktadır."
+    },
+    {
+      "id": 7,
+      "soru": "4-2 skorunda fark kaç goldür?",
+      "secenekler": ["1 gol", "2 gol", "3 gol", "4 gol"],
+      "dogruCevap": 1,
+      "aciklama": "4-2 = 2 gol fark olup, erken sonuçlandırma için yeterlidir."
+    },
+    {
+      "id": 8,
+      "soru": "Türkiye 1. Lig bu promosyonda hangi sırada yer alır?",
+      "secenekler": ["1. sırada", "2. sırada", "3. sırada", "4. sırada"],
+      "dogruCevap": 1,
+      "aciklama": "Türkiye 1. Lig geçerli ligler listesinde 2. sırada yer almaktadır."
+    },
+    {
+      "id": 9,
+      "soru": "Erken sonuçlandırma özelliği nasıl devreye girer?",
+      "secenekler": ["Manuel olarak talep edilir", "Otomatik olarak aktif hale gelir", "Canlı destek ile aktifleştirilir", "Bonus kodu ile aktifleştirilir"],
+      "dogruCevap": 1,
+      "aciklama": "Geçerli liglerde ev sahibi veya deplasman galibiyeti bahisinizde Erken Sonuçlandırma otomatik olarak aktif hale gelir."
+    },
+    {
+      "id": 10,
+      "soru": "5-3 skorunda erken sonuçlandırma gerçekleşir mi?",
+      "secenekler": ["Hayır, 1 gol fark var", "Evet, 2 gol fark var", "Hayır, 3 gol fark var", "Belirsiz"],
+      "dogruCevap": 1,
+      "aciklama": "5-3 = 2 gol fark olduğu için erken sonuçlandırma gerçekleşir."
+    },
+    {
+      "id": 11,
+      "soru": "Bu promosyonun maksimum bahis limiti var mı?",
+      "secenekler": ["Evet, 1000₺", "Evet, 5000₺", "Hayır, maksimum bahis limitleri dahilinde serbest", "Evet, 10000₺"],
+      "dogruCevap": 2,
+      "aciklama": "Bahislerinizi maksimum bahis limitleri dahilinde dilediğiniz tutarda oluşturabilirsiniz."
+    },
+    {
+      "id": 12,
+      "soru": "Fransa Ligue 1 hangi sırada yer alır?",
+      "secenekler": ["4. sırada", "5. sırada", "6. sırada", "7. sırada"],
+      "dogruCevap": 1,
+      "aciklama": "Fransa Ligue 1 geçerli ligler listesinde 5. sırada yer almaktadır."
+    },
+    {
+      "id": 13,
+      "soru": "2-0 skorunda erken sonuçlandırma için yeterli fark var mı?",
+      "secenekler": ["Hayır, 1 gol fark", "Evet, 2 gol fark", "Hayır, 3 gol fark", "Belirsiz"],
+      "dogruCevap": 1,
+      "aciklama": "2-0 = 2 gol fark olduğu için erken sonuçlandırma gerçekleşir."
+    },
+    {
+      "id": 14,
+      "soru": "FIFA Dünya Kupası Elemeleri bu promosyonda geçerli midir?",
+      "secenekler": ["Hayır", "Evet", "Sadece final maçlarında", "Sadece grup maçlarında"],
+      "dogruCevap": 1,
+      "aciklama": "FIFA Dünya Kupası Elemeleri geçerli ligler arasında yer almaktadır."
+    },
+    {
+      "id": 15,
+      "soru": "Bu promosyonu hangi durumlarda Hproject iptal edebilir?",
+      "secenekler": ["Hiçbir zaman", "Sadece kötüye kullanım durumunda", "İstediği zaman", "Sadece teknik sorun durumunda"],
+      "dogruCevap": 2,
+      "aciklama": "Hproject bu bonusu istediği zaman durdurma ya da iptal etme hakkına sahiptir."
+    },
+    {
+      "id": 16,
+      "soru": "Kombine kuponlarda bu özellik nasıl çalışır?",
+      "secenekler": ["Sadece ilk seçimde geçerli", "Sadece son seçimde geçerli", "Tüm seçimlerde geçerli", "Hiçbirinde geçerli değil"],
+      "dogruCevap": 2,
+      "aciklama": "Özellik, tekli ve kombine bahislerde geçerlidir."
+    },
+    {
+      "id": 17,
+      "soru": "İngiltere Premier Lig hangi sırada yer alır?",
+      "secenekler": ["2. sırada", "3. sırada", "4. sırada", "5. sırada"],
+      "dogruCevap": 1,
+      "aciklama": "İngiltere Premier Lig geçerli ligler listesinde 3. sırada yer almaktadır."
+    },
+    {
+      "id": 18,
+      "soru": "Bu promosyonda bonus kötüye kullanımı durumunda ne olur?",
+      "secenekler": ["Sadece uyarı verilir", "Hesap kapatılır", "Bonus ve kazanç geri alınabilir", "Hiçbir şey olmaz"],
+      "dogruCevap": 2,
+      "aciklama": "Bonus kötüye kullanımı durumunda bonusu ve bonstan elde edilen kazancı geri alma hakkına sahiptir."
+    },
+    {
+      "id": 19,
+      "soru": "6-4 skorunda erken sonuçlandırma gerçekleşir mi?",
+      "secenekler": ["Hayır, 1 gol fark yok", "Evet, 2 gol fark var", "Hayır, 3 gol fark var", "Belirsiz"],
+      "dogruCevap": 1,
+      "aciklama": "6-4 = 2 gol fark olduğu için erken sonuçlandırma gerçekleşir."
+    },
+    {
+      "id": 20,
+      "soru": "Bu promosyonun genel adı nedir?",
+      "secenekler": ["Hızlı Sonuçlandırma", "Erken Sonuçlandırma", "Anında Kazanç", "Çabuk Bitirme"],
+      "dogruCevap": 1,
+      "aciklama": "Promosyonun resmi adı 'Erken Sonuçlandırma' olarak geçmektedir."
+    }
+  ]
+}

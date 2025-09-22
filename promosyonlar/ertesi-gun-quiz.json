@@ -1,0 +1,148 @@
+{
+  "quizId": "ertesi-gun-quiz",
+  "promosyonId": "ertesi-gun",
+  "title": "🎁 %35 Ertesi Gün Bonusu - Quiz",
+  "description": "Ertesi gün bonusu promosyonu hakkındaki bilginizi test edin.",
+  "sorular": [
+    {
+      "id": 1,
+      "soru": "Maksimum bonus miktarı nasıl hesaplanır?",
+      "secenekler": ["Anlık yatırımın %20'si + önceki gün kaybının %10'u", "Sadece anlık yatırımın %35'i", "Sadece önceki gün kaybının %35'i", "Anlık yatırımın %35'i + önceki gün kaybının %20'si"],
+      "dogruCevap": 0,
+      "aciklama": "Maksimum bonus miktarı anlık yatırımın %20'si ve düne ait kayıp bonusu alınan yatırımların %10'u ile sınırlıdır."
+    },
+    {
+      "id": 2,
+      "soru": "Minimum yatırım miktarı ne kadardır?",
+      "secenekler": ["50₺", "75₺", "100₺", "150₺"],
+      "dogruCevap": 2,
+      "aciklama": "Ertesi Gün Bonusu talep edilebilmesi için anlık yatırım miktarının minimum 100₺ olması gerekmektedir."
+    },
+    {
+      "id": 3,
+      "soru": "Bonusun geçerlilik süresi ne kadardır?",
+      "secenekler": ["3 gün", "5 gün", "7 gün", "10 gün"],
+      "dogruCevap": 2,
+      "aciklama": "Bonusun geçerlilik süresi 7 gündür."
+    },
+    {
+      "id": 4,
+      "soru": "Hangi yöntemlerle yatırım yapanlar bu bonustan yararlanamaz?",
+      "secenekler": ["Banka havalesi", "Mobil ödeme ve kredi kartı", "Papara", "Kripto para"],
+      "dogruCevap": 1,
+      "aciklama": "Mobil ödeme ve kredi kartı ile yatırım yapan üyelerimiz bu bonustan yararlanamamaktadır."
+    },
+    {
+      "id": 5,
+      "soru": "Bu bonustan kimler yararlanabilir?",
+      "secenekler": ["Tüm üyeler", "Sadece yeni üyeler", "Kayıp bonusu alıp kaybeden ve ertesi gün yatırım yapanlar", "Sadece VIP üyeler"],
+      "dogruCevap": 2,
+      "aciklama": "Sadece spor kayıp veya casino kayıp bonusundan faydalanıp aldığı kayıp bonusu ile kayıp yaşayan ve ertesi gün tekrar yatırım yapan üyeler faydalanabilir."
+    },
+    {
+      "id": 6,
+      "soru": "Spor alanında çevrim için minimum oran nedir?",
+      "secenekler": ["1.30", "1.40", "1.50", "1.60"],
+      "dogruCevap": 2,
+      "aciklama": "Spor alanında tekli kuponlarda 1,50 oran veya üzeri, kombine kuponlarda en az 1 seçimin 1,50 oran veya üzeri olması gerekmektedir."
+    },
+    {
+      "id": 7,
+      "soru": "Casino alanında çevrim şartı kaç katıdır?",
+      "secenekler": ["1 katı", "2 katı", "3 katı", "5 katı"],
+      "dogruCevap": 1,
+      "aciklama": "Casino alanında anapara ve bonus miktarı toplamının 2 katı kadar bahis alarak çevrimin tamamlanması gerekmektedir."
+    },
+    {
+      "id": 8,
+      "soru": "Örnek hesaplamada 2500₺ kaybın %10'u ne kadardır?",
+      "secenekler": ["200₺", "250₺", "300₺", "350₺"],
+      "dogruCevap": 1,
+      "aciklama": "Önceki gün kaybı: 2500 TL × %10 = 250 TL"
+    },
+    {
+      "id": 9,
+      "soru": "1250₺ yatırımın %20'si ne kadardır?",
+      "secenekler": ["200₺", "250₺", "300₺", "400₺"],
+      "dogruCevap": 1,
+      "aciklama": "Ertesi gün yatırımı: 1250 TL × %20 = 250 TL"
+    },
+    {
+      "id": 10,
+      "soru": "Ertesi gün bonusu hangi diğer bonusla birlikte alınabilir?",
+      "secenekler": ["Hoş geldin bonusu", "Kayıp bonusu", "Freespin bonusu", "Freebet bonusu"],
+      "dogruCevap": 1,
+      "aciklama": "Ertesi Gün Bonusundan faydalanan üyelerimiz aynı yatırımına kayıp bonusu da talep edebilirler."
+    },
+    {
+      "id": 11,
+      "soru": "Bonus aktarımları hangi temelde yapılır?",
+      "secenekler": ["Haftalık kar-zarar", "24 saat kar-zarar durumu", "Aylık kar-zarar", "Anlık bakiye"],
+      "dogruCevap": 1,
+      "aciklama": "Ertesi Gün Bonusu aktarımları 24 saat kar zarar durumu baz alınarak gerçekleştirilmektedir."
+    },
+    {
+      "id": 12,
+      "soru": "Bonus talep edilirken hangi işlem yapılmamalıdır?",
+      "secenekler": ["Giriş yapılmamalı", "Bahis veya herhangi bir işlem yapılmamalı", "Çıkış yapılmamalı", "Hesap kontrol edilmemeli"],
+      "dogruCevap": 1,
+      "aciklama": "Yatırımınızdan sonra bahis veya herhangi bir işlem yapmadan Bonus Talep sayfasından talep etmeniz gerekmektedir."
+    },
+    {
+      "id": 13,
+      "soru": "Çevrim tamamlandıktan sonra kazanç sınırı var mı?",
+      "secenekler": ["Evet, 10.000₺", "Evet, 25.000₺", "Hayır, sınır yok", "Evet, 50.000₺"],
+      "dogruCevap": 2,
+      "aciklama": "Çevrim ardından hiçbir kazanç sınırlandırması bulunmamaktadır."
+    },
+    {
+      "id": 14,
+      "soru": "Cashout kuponları çevrime dahil midir?",
+      "secenekler": ["Evet, dahil", "Hayır, dahil değil", "Kısmen dahil", "Duruma göre değişir"],
+      "dogruCevap": 1,
+      "aciklama": "Bonus çevrimine Cashout (Bozdurulan Kuponlar) dahil edilmemektedir."
+    },
+    {
+      "id": 15,
+      "soru": "Rulet oyunlarının çevrim oranı yüzde kaçtır?",
+      "secenekler": ["%1", "%5", "%10", "%20"],
+      "dogruCevap": 0,
+      "aciklama": "Rulet oyunlarının çevrim oranı %1'dir."
+    },
+    {
+      "id": 16,
+      "soru": "Aynı maça karşılıklı alınan bahisler çevrime dahil midir?",
+      "secenekler": ["Evet, dahil", "Hayır, dahil değil", "Kısmen dahil", "Duruma göre değişir"],
+      "dogruCevap": 1,
+      "aciklama": "Alt/Üst – Tek/Çift gibi aynı maça karşılıklı alınan bahisler çevrime dahil edilmemektedir."
+    },
+    {
+      "id": 17,
+      "soru": "1'e 2, 1'e 3 kazanç veren bahisler çevrime dahil midir?",
+      "secenekler": ["Evet, dahil", "Hayır, dahil değil", "Kısmen dahil", "Duruma göre değişir"],
+      "dogruCevap": 1,
+      "aciklama": "Casino alanında 1'e 2, 1'e 3 kazanç veren bahisler ve katlamalı bahisler çevrime dahil edilmeyecektir."
+    },
+    {
+      "id": 18,
+      "soru": "Crash oyunlarda bonus bakiyesi ile bahis alınabilir mi?",
+      "secenekler": ["Evet, alınabilir", "Hayır, alınamaz", "Kısmen alınabilir", "Duruma göre değişir"],
+      "dogruCevap": 1,
+      "aciklama": "Bonus bakiyesi ile Crash oyunlarda bahis alınmamaktadır."
+    },
+    {
+      "id": 19,
+      "soru": "24 saat içinde karda olan üyeler yeni bonus talep edebilir mi?",
+      "secenekler": ["Evet, edebilir", "Hayır, edemez", "Kısmen edebilir", "Duruma göre değişir"],
+      "dogruCevap": 1,
+      "aciklama": "Bonuslar 24 saatlik kar zarar durumuna göre aktarılmaktadır. 24 saat içinde karda olan üyeler yeni bir bonus talep edemez."
+    },
+    {
+      "id": 20,
+      "soru": "Ertesi gün bonusu için maksimum oran sınırı nedir?",
+      "secenekler": ["%30", "%35", "%40", "%45"],
+      "dogruCevap": 1,
+      "aciklama": "Promosyonun adı '%35 Ertesi Gün Bonusu' olarak geçmektedir."
+    }
+  ]
+}

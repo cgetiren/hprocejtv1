@@ -1,0 +1,28 @@
+{
+  "quizId": "kalamba-cash-drop-quiz",
+  "promosyonId": "kalamba-cash-drop",
+  "title": "🎰 KALAMBA SAĞLAYICISI CASH DROP - Quiz",
+  "description": "Kalamba Cash Drop turnuva promosyonu hakkındaki bilginizi test edin.",
+  "sorular": [
+    {"id": 1, "soru": "Toplam ödül havuzu ne kadardır?", "secenekler": ["5.000.000 EUR", "8.000.000 EUR", "10.000.000 EUR", "12.000.000 EUR"], "dogruCevap": 2, "aciklama": "KALAMBA 7 ay sürecek bir macerada 10.000.000 EUR dağıtmaya geliyor."},
+    {"id": 2, "soru": "Turnuva ne kadar sürecektir?", "secenekler": ["5 ay", "6 ay", "7 ay", "8 ay"], "dogruCevap": 2, "aciklama": "KALAMBA 7 ay sürecek bir macerada ödül dağıtacaktır."},
+    {"id": 3, "soru": "Turnuva başlangıç tarihi nedir?", "secenekler": ["1 Haziran 2025", "5 Haziran 2025", "10 Haziran 2025", "15 Haziran 2025"], "dogruCevap": 1, "aciklama": "Turnuva süresi 5 Haziran 2025 - 4 Ocak 2026 arasındadır."},
+    {"id": 4, "soru": "Turnuva bitiş tarihi nedir?", "secenekler": ["31 Aralık 2025", "4 Ocak 2026", "10 Ocak 2026", "15 Ocak 2026"], "dogruCevap": 1, "aciklama": "Turnuva süresi 5 Haziran 2025 - 4 Ocak 2026 arasındadır."},
+    {"id": 5, "soru": "Minimum bahis miktarı ne kadardır?", "secenekler": ["10 TL", "15 TL", "20 TL", "25 TL"], "dogruCevap": 2, "aciklama": "Ödülden faydalanabilmek için en az 20 TL tutarında bahis almanız gerekmektedir."},
+    {"id": 6, "soru": "Ödüller nasıl dağıtılır?", "secenekler": ["Sıralama bazlı", "Tamamen random", "Bahis miktarına göre", "Oyun süresine göre"], "dogruCevap": 1, "aciklama": "Turnuvada ödüller bahis değerlerine göre tamamen random olarak dağıtılmaktadır."},
+    {"id": 7, "soru": "Promosyon kaç hafta boyunca sürecektir?", "secenekler": ["25 hafta", "28 hafta", "30 hafta", "35 hafta"], "dogruCevap": 2, "aciklama": "Promosyon 30 hafta boyunca sürecek ve her hafta ödül dağıtımları gerçekleştirilecektir."},
+    {"id": 8, "soru": "Ödül dağıtım sıklığı nedir?", "secenekler": ["Günlük", "Haftalık", "Aylık", "Rastgele"], "dogruCevap": 1, "aciklama": "Her hafta ödül dağıtımları gerçekleştirilecektir."},
+    {"id": 9, "soru": "Oyuncular ödülü ne zaman düşürebilir?", "secenekler": ["Sadece hafta sonunda", "Belirli saatlerde", "Herhangi bir anda", "Sadece promosyon bitiminde"], "dogruCevap": 2, "aciklama": "Oyuncular minimum bahis değerinde bahis alarak herhangi bir anda ödül düşürebilirler."},
+    {"id": 10, "soru": "Ödüller hesaba nasıl tanımlanır?", "secenekler": ["Manuel olarak", "Otomatik olarak", "Talep üzerine", "Canlı destek ile"], "dogruCevap": 1, "aciklama": "Ödüller oyuncuların hesabına otomatik olarak tanımlanacaktır."},
+    {"id": 11, "soru": "Aşağıdakilerden hangisi geçerli oyunlardan biri değildir?", "secenekler": ["Gold Mint 7s Hold and Win", "Sweet Bonanza", "Finnegan's Treasure 7s", "Joker Spark 7s"], "dogruCevap": 1, "aciklama": "Sweet Bonanza geçerli oyunlar listesinde yer almamaktadır."},
+    {"id": 12, "soru": "Snake Fortune Hold and Win geçerli oyunlar arasında mı?", "secenekler": ["Evet", "Hayır", "Kısmen", "Duruma göre değişir"], "dogruCevap": 0, "aciklama": "Snake Fortune Hold and Win geçerli oyunlar arasında yer almaktadır."},
+    {"id": 13, "soru": "Cashpot Strike 7s geçerli midir?", "secenekler": ["Evet", "Hayır", "Sadece hafta sonları", "Sadece özel günlerde"], "dogruCevap": 0, "aciklama": "Cashpot Strike 7s geçerli oyunlar arasında yer almaktadır."},
+    {"id": 14, "soru": "Hell Chef Goes Fishing hangi kategoride?", "secenekler": ["Geçersiz oyun", "Geçerli oyun", "Kısmen geçerli", "Test oyunu"], "dogruCevap": 1, "aciklama": "Hell Chef Goes Fishing geçerli oyunlar arasında yer almaktadır."},
+    {"id": 15, "soru": "Turnuvada kaç farklı oyun bulunmaktadır?", "secenekler": ["20", "23", "25", "30"], "dogruCevap": 2, "aciklama": "Listede 25 farklı Kalamba oyunu bulunmaktadır."},
+    {"id": 16, "soru": "Hyper Neko 7s geçerli oyunlar arasında mı?", "secenekler": ["Evet", "Hayır", "Belirsiz", "Test aşamasında"], "dogruCevap": 0, "aciklama": "Hyper Neko 7s geçerli oyunlar arasında yer almaktadır."},
+    {"id": 17, "soru": "Double Jewel Hold and Win geçerli midir?", "secenekler": ["Evet", "Hayır", "Sadece VIP'ler için", "Sadece yeni üyeler için"], "dogruCevap": 0, "aciklama": "Double Jewel Hold and Win geçerli oyunlar arasında yer almaktadır."},
+    {"id": 18, "soru": "Hproject bu bonusu ne zaman iptal edebilir?", "secenekler": ["Hiçbir zaman", "Sadece teknik sorun durumunda", "İstediği zaman", "Sadece turnuva bitiminde"], "dogruCevap": 2, "aciklama": "Hproject bu bonusu istediği zaman durdurma ya da iptal etme hakkına sahiptir."},
+    {"id": 19, "soru": "Bonus kötüye kullanım durumunda ne olur?", "secenekler": ["Uyarı verilir", "Hesap geçici kapatılır", "Bonus ve kazanç geri alınabilir", "Hiçbir şey olmaz"], "dogruCevap": 2, "aciklama": "Bonus kötüye kullanımı durumunda bonusu ve bonstan elde edilen kazancı geri alma hakkına sahiptir."},
+    {"id": 20, "soru": "Blazing Spirit Hold and Win geçerli oyunlar arasında mı?", "secenekler": ["Evet", "Hayır", "Sadece son haftalarda", "Sadece ilk haftalarda"], "dogruCevap": 0, "aciklama": "Blazing Spirit Hold and Win geçerli oyunlar arasında yer almaktadır."}
+  ]
+}
