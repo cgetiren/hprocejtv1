@@ -27,10 +27,10 @@
     },
     {
       "id": 4,
-      "soru": "45-25 skorunda hangi takım 20 sayı farkla öndedir?",
-      "secenekler": ["45 sayılı takım", "25 sayılı takım", "Hiçbiri", "Her ikisi de"],
-      "dogruCevap": 0,
-      "aciklama": "45-25 skoru 20 sayı fark anlamına gelir ve 45 sayılı takım öndedir."
+      "soru": "Erken sonuçlandırma özelliği hangi bahis türlerinde çalışmaz?",
+      "secenekler": ["Ev sahibi kazanır bahislerinde", "Alt/üst sayı bahislerinde", "Deplasman kazanır bahislerinde", "1. yarı kazanır bahislerinde"],
+      "dogruCevap": 1,
+      "aciklama": "Erken sonuçlandırma sadece maç kazanır (ev sahibi/deplasman) bahislerinde geçerlidir, alt/üst sayı bahislerinde geçerli değildir."
     },
     {
       "id": 5,
@@ -55,10 +55,10 @@
     },
     {
       "id": 8,
-      "soru": "EuroCup bu promosyonda hangi sırada yer alır?",
-      "secenekler": ["3. sırada", "4. sırada", "5. sırada", "6. sırada"],
-      "dogruCevap": 2,
-      "aciklama": "EuroCup geçerli ligler listesinde 5. sırada yer almaktadır."
+      "soru": "20 sayı fark oluştuktan sonra maçta skoru eşitleyen takım varsa ne olur?",
+      "secenekler": ["Bahis iptal edilir", "Bahis kazanmış sayılmaya devam eder", "Bahis kaybedilmiş sayılır", "Bahis yarı kazanılmış sayılır"],
+      "dogruCevap": 1,
+      "aciklama": "20 sayı fark oluştuğu anda bahis kazanmış sayılır ve sonuçlandırılır, sonraki gelişmeler etkilemez."
     },
     {
       "id": 9,
@@ -97,10 +97,10 @@
     },
     {
       "id": 14,
-      "soru": "EuroBasket bu promosyonda geçerli midir?",
-      "secenekler": ["Hayır", "Evet", "Sadece final maçlarında", "Sadece grup maçlarında"],
-      "dogruCevap": 1,
-      "aciklama": "EuroBasket geçerli ligler arasında 3. sırada yer almaktadır."
+      "soru": "Basketbolda erken sonuçlandırma hangi maç periyodunda geçerlidir?",
+      "secenekler": ["Sadece 4. periyot", "Sadece 1. ve 2. periyot", "Maç boyunca tüm periyotlarda", "Sadece uzatmalarda"],
+      "dogruCevap": 2,
+      "aciklama": "Erken sonuçlandırma özelliği maç boyunca herhangi bir periyotta 20 sayı fark oluştuğunda devreye girer."
     },
     {
       "id": 15,

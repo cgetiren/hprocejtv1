@@ -55,10 +55,10 @@
     },
     {
       "id": 8,
-      "soru": "Türkiye 1. Lig bu promosyonda hangi sırada yer alır?",
-      "secenekler": ["1. sırada", "2. sırada", "3. sırada", "4. sırada"],
-      "dogruCevap": 1,
-      "aciklama": "Türkiye 1. Lig geçerli ligler listesinde 2. sırada yer almaktadır."
+      "soru": "Erken sonuçlandırma özelliği hangi durumlarda geçerli olmaz?",
+      "secenekler": ["Canlı bahisler alındığında", "Bahis tutarı çok yüksek olduğunda", "Alt/üst ve handikap bahislerinde", "Tekli bahis alındığında"],
+      "dogruCevap": 2,
+      "aciklama": "Erken sonuçlandırma sadece ev sahibi/deplasman kazanır bahislerinde geçerlidir, alt/üst ve handikap bahislerinde geçerli değildir."
     },
     {
       "id": 9,
@@ -83,10 +83,10 @@
     },
     {
       "id": 12,
-      "soru": "Fransa Ligue 1 hangi sırada yer alır?",
-      "secenekler": ["4. sırada", "5. sırada", "6. sırada", "7. sırada"],
-      "dogruCevap": 1,
-      "aciklama": "Fransa Ligue 1 geçerli ligler listesinde 5. sırada yer almaktadır."
+      "soru": "Bu promosyonda erken sonuçlandırma hangi maç durumunda geçerlidir?",
+      "secenekler": ["Sadece ilk yarı sonunda", "Sadece maç bitiş düdüğünde", "Maç süresince herhangi bir anda", "Sadece uzatma dakikalarında"],
+      "dogruCevap": 2,
+      "aciklama": "Erken sonuçlandırma, maç süresi boyunca herhangi bir anda 2 gol fark oluştuğunda gerçekleşir."
     },
     {
       "id": 13,
@@ -118,10 +118,10 @@
     },
     {
       "id": 17,
-      "soru": "İngiltere Premier Lig hangi sırada yer alır?",
-      "secenekler": ["2. sırada", "3. sırada", "4. sırada", "5. sırada"],
+      "soru": "Erken sonuçlandırma gerçekleştikten sonra bahis nasıl değerlendirilir?",
+      "secenekler": ["Maç sonuna kadar beklenir", "Anında kazanmış sayılır", "Yarı kazanmış sayılır", "İptal edilir"],
       "dogruCevap": 1,
-      "aciklama": "İngiltere Premier Lig geçerli ligler listesinde 3. sırada yer almaktadır."
+      "aciklama": "2 gol fark oluştuğunda bahsiniz anında kazanmış olarak sonuçlandırılır ve ödeme yapılır."
     },
     {
       "id": 18,
